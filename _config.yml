@@ -1,0 +1,30 @@
+# Permalinks
+permalink:        pretty
+# relative_permalinks: true
+
+# Setup
+title:            Business and Technology
+tagline:          'Business and Technology'
+description:      'Blog about Business and Technology'
+url:              'http://github.com/ambarishg.github.io'
+baseurl:          /
+
+author:
+  name:           'Ambarish Ganguly'
+  url:            ''
+
+paginate:         5
+
+# Custom vars
+version:          2.1.0
+
+github:
+  repo:           http://github.com/ambarishg.github.io
+  
+ # Gems
+gems:
+  - jekyll-paginate
+  - jekyll-gist
+  
+markdown:         kramdown
+highlighter:      rouge
