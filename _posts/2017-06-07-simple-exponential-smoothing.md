@@ -12,7 +12,7 @@ $$ {Y_t} $$ =  Actual value of y  at time t
 $$ {F_t} $$ =  Forecast value of y  at time t    
 $$ {F_{t+1}} $$ =  Forecast value of y  at time t +1   
 
-The method takes the forecast at time t and adds the error between the forecast and the actual. $$ \alpha $$ is the smoothing constant.
+The method takes the forecast at time t and adds the error between the forecast and the actual. $$ \alpha $$ is the smoothing constant.$$ \alpha $$ takes values between 0 and 1.
 
 $$  {F_{t+1}}=  {F_t}  + \alpha({Y_t} - {F_t}) $$     
 
