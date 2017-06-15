@@ -6,8 +6,8 @@ permalink:        pretty
 title:            Business and Technology
 tagline:          'Business and Technology'
 description:      'Blog about Business and Technology'
-url:              'https://github.com/ambarishg.github.io'
-baseurl:          'https://ambarishg.github.io'
+url:              'http://github.com/ambarishg.github.io'
+baseurl:          /
 
 author:
   name:           'Ambarish Ganguly'
