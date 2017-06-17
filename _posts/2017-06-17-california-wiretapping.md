@@ -1,7 +1,8 @@
 ---
 layout: post
 title: California WireTapping
-categories: Data Visualization
+categories: 
+- Data Visualization
 tags:
 - Data Visualization
 ---
