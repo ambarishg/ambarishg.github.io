@@ -5,7 +5,7 @@ title : Categories
 
 {% for category in site.categories %}
 
-{% capture category_name %}{{ category }}{% endcapture %}
+{% capture category_name %}{{ category | first }}{% endcapture %}
 
 <h3>{{ category_name }} </h3>
    
