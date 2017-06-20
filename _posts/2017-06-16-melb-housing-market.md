@@ -12,11 +12,11 @@ The  <a href="{{ site.url2 }}/public/dataviz/EDAMelHousing.html">Melbourne Housi
 1. Which factors influence the house of the price most ?   
 2. Which Suburbs are most costly  and least costly ?    
 3. How the prices change with the 
-	*  number of rooms    
-	*  number of bedrooms    
+	*  number of room(s)    
+	*  number of bedroom(s)    
 	*  distance from CBD
 	*  type of the house
 	*  building area
-	*  number of bathroom	
+	*  number of bathroom(s)	
 
 If you are interested in the code, please find it in [github](https://github.com/ambarishg/DataVizMelbHousingMarket). The original dataset has been hosted in [Kaggle](https://www.kaggle.com/anthonypino/melbourne-housing-market).
