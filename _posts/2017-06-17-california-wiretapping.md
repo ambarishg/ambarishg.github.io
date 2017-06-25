@@ -2,9 +2,9 @@
 layout: post
 title: California WireTapping
 categories: 
-- Data Visualization
+- DataVisualization
 tags:
-- Data Visualization
+- DataVisualization
 ---
 In 2016, California investigators used state wiretapping laws 563 times to capture 7.8 million communications from 181,000 people, and only 19% of these communications were incriminating. The year's wiretaps cost nearly $30 million.
 
