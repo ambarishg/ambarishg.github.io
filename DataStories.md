@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Data Stories
+title: DataStories
 ---
 
 
