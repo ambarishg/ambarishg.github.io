@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Melbourne Housing Market Data Visualization
+comments: true
 categories: 
 - DataVisualization
 tags:
