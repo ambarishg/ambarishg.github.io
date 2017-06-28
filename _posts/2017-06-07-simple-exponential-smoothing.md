@@ -3,8 +3,9 @@ layout: post
 title: Simple Exponential Smoothing 
 categories: Statistics
 tags:
-- timeseries
+- ets
 - statistics
+- timeseries
 ---
 Simple exponential smoothing forecast is a forecasting technique which provides more weight to the **RECENT** values and less weights are applied to the older values.   
 
