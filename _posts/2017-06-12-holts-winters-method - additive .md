@@ -7,7 +7,7 @@ tags:
 - statistics
 - timeseries
 ---
-Holt Winters additive differs from the additive version in the seasonal component being added and subtracted instead of taking products or ratios. The Level and the Seasonal equation is changed while the Trend and Forecast equation remains the same.       
+Holt Winters additive differs from the multiplicative version in the seasonal component being added and subtracted instead of taking products or ratios. The Level and the Seasonal equation is changed while the Trend and Forecast equation remains the same.       
 
 $$ {Y_t} $$ =  Actual value of y  at time t   
 $$ {F_t} $$ =  Forecast value of y  at time t    
