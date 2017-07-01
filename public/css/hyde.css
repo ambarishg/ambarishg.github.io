@@ -31,8 +31,18 @@
  * Update the foundational and global aspects of the page.
  */
 
+.tagbox {
+background-color:#000000;
+color: #fff;
+border: 1px solid #ccc;
+margin:0px 5px 5px 0px;
+line-height: 300%;
+padding:5px 5px 5px 5px;
+border-radius: 10px;
+}
+
 html {
-  font-family: Lato,"PT Sans", Helvetica, Arial, sans-serif;
+  font-family: Quicksand,Lato,"PT Sans", Helvetica, Arial, sans-serif;
 }
 @media (min-width: 48em) {
   html {
@@ -247,4 +257,13 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .content a,
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
+}
+
+/* Actual Blue #0000FF */
+.theme-base-0g .sidebar {
+  background-color: #0000FF;
+}
+.theme-base-0g .content a,
+.theme-base-0g .related-posts li a:hover {
+  color: #0000FF;
 }
