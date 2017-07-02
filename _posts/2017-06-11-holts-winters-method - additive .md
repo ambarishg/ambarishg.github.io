@@ -27,4 +27,5 @@ $$ {S_t} $$ =  Seasonal component at time t
 
 **Forecast equation**::  $$ {F_{t+m}} = ({L_{t}} + {b_{t}}m){S_{t-s+m}} $$
 
+**Source** : FORECASTING METHODS AND APPLICATIONS.Book by Rob J. Hyndman, Spyros Makridakis, and Steven C. Wheelwright
 

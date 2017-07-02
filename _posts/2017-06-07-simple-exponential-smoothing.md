@@ -29,4 +29,6 @@ $$
 
 From the equation , it is evident that more weight is provided to the RECENT values and less weights are applied to the older values.
 
+**Source** : FORECASTING METHODS AND APPLICATIONS.Book by Rob J. Hyndman, Spyros Makridakis, and Steven C. Wheelwright
+
 

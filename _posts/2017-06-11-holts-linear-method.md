@@ -22,4 +22,4 @@ $$ {b_t} $$ =  Estimate of the slope of the series at time t
 
 **Forecast equation**::  $$ {F_{t+m}} = {L_{t}} + {b_{t}}m $$
 
-
+**Source** : FORECASTING METHODS AND APPLICATIONS.Book by Rob J. Hyndman, Spyros Makridakis, and Steven C. Wheelwright
