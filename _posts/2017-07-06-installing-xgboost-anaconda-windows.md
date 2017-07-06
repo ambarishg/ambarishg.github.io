@@ -27,7 +27,7 @@ git submodule init
 git submodule update
 
 ```
-**Build Preparation**
+**Build Preparation**           
 The steps are performed to download the MinGW-64 for building the XGBoost code.       
 
 --------------------------------------------------------------------------------------------------------------------------   
