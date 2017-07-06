@@ -76,13 +76,13 @@ $ make -j4
 
   --------------------------------------------------------------------------------------------------------------------------
 **Install Python Module**
- Step 11 :
-Navigate to the python-package location.      
+ Step 11 :        
+Navigate to the python-package location.             
 
 ```bash
 cd D:/XGBoostCode/xgboost/python-package
 
 python setup.py install
 ```     
-END.
+END.                        
 --------------------------------------------------------------------------------------------------------------------------
