@@ -11,7 +11,7 @@ The installation instructions are exactly the same as in the [Installing XGBoost
 
 Step 1 : Install Anaconda     
 
-Step 2 : Install **Git on Windows** (https://git-for-windows.github.io/)      
+Step 2 : Install [Git on Windows](https://git-for-windows.github.io/)      
 
 Step 3 : Launch **Git Bash window**
 
