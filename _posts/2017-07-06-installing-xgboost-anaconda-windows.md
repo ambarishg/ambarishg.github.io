@@ -7,6 +7,8 @@ tags:
 - Installation
 ---
 
+The installation instructions are exactly the same as in the [Installing XGBoost For Anaconda on Windows] (https://www.ibm.com/developerworks/community/blogs/jfp/entry/Installing_XGBoost_For_Anaconda_on_Windows?lang=en)  except **Step 10** since the name of the DLL  created is **libxgboost.dll** but the Python Module excepts the dll of the name **xgboost.dll**
+
 Step 1 : Install Anaconda     
 
 Step 2 : Install **Git on Windows** (https://git-for-windows.github.io/)      
