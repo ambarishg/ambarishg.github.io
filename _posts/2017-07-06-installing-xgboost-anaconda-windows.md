@@ -51,7 +51,7 @@ To make our life easier, let us alias it as follows:
 alias make='mingw32-make'
 ```
 --------------------------------------------------------------------------------------------------------------------------
-**Build XGBoost**
+**Build XGBoost**                       
 
 Step 8 :Navigate to the directory where the XGBoost code exists. In  my case it is **D:/XGBoostCode/xgboost**
 
@@ -75,7 +75,7 @@ $ make -j4
  Step 10 : Rename **libxgboost.dll** to **xgboost.dll**       
 
   --------------------------------------------------------------------------------------------------------------------------
-**Install Python Module**
+**Install Python Module**                         
  Step 11 :        
 Navigate to the python-package location.             
 
