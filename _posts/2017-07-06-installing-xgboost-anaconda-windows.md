@@ -7,7 +7,7 @@ tags:
 - Installation
 ---
 
-The installation instructions are exactly the same as in the [Installing XGBoost For Anaconda on Windows](https://www.ibm.com/developerworks/community/blogs/jfp/entry/Installing_XGBoost_For_Anaconda_on_Windows)  except **Step 10** since the name of the DLL  created is **libxgboost.dll** but the Python Module excepts the dll of the name **xgboost.dll**
+The installation instructions are exactly the same as in the [Installing XGBoost For Anaconda on Windows](https://www.ibm.com/developerworks/community/blogs/jfp/entry/Installing_XGBoost_For_Anaconda_on_Windows)  except **Step 10** since the name of the DLL  created is **libxgboost.dll** but the Python Module excepts the dll of the name **xgboost.dll**.
 
 Step 1 : Install Anaconda     
 
@@ -36,7 +36,7 @@ The steps are performed to download the MinGW-64 for building the XGBoost code.
 
 Step 6 : Download **MinGW-W64-install.exe**
 
-Step 7 :            
+Step 7 :                
 * Click on the installer.                
 * Changed the installation directory to **D:/MinGW-W64**.       
 * The make command and the runtime libraries are in this directory (look for the directory that contains **mingw32-make**).The files are downloaded in **D:/MinGW-W64/mingw64/bin**.         
