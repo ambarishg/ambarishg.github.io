@@ -35,9 +35,9 @@ The steps are performed to download the MinGW-64 for building the XGBoost code.
 Step 6 : Download **MinGW-W64-install.exe**
 
 Step 7 : Click on the installer.      
-Changed the installation directory to **D:/MinGW-W64**.       
-The make command and the runtime libraries are in this directory (look for the directory that contains **mingw32-make**).The files are downloaded in **D:/MinGW-W64/mingw64/bin**.         
-Add this path to the Windows **PATH** variable.     
+* Changed the installation directory to **D:/MinGW-W64**.       
+* The make command and the runtime libraries are in this directory (look for the directory that contains **mingw32-make**).The files are downloaded in **D:/MinGW-W64/mingw64/bin**.         
+* Add this path to the Windows **PATH** variable.     
 
 Step 8 : Then close the Git Bash terminal, and launch it again.  This will take into account the new Path variable.  To check you are fine, type the following     
 
@@ -85,4 +85,5 @@ cd D:/XGBoostCode/xgboost/python-package
 python setup.py install
 ```     
 END.                        
+
 --------------------------------------------------------------------------------------------------------------------------
