@@ -27,14 +27,13 @@ x = c(-15:40)
 y = exp(x)
 
 sumy = sum(y)
-sigmoid = y/(1+y)
 
+sigmoid = y/(1+y)
 softmax = y/sumy
 
 df = data.frame(x=x,y=sigmoid)
 
 dfSoftmax = data.frame(x=x,y=softmax)
-
 
 ggplot(df,aes(x= x,y=sigmoid)) +  
   geom_point(size = 3,colour = 'red') +
