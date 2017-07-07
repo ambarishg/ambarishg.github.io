@@ -39,7 +39,7 @@ Step 6 : Download **MinGW-W64-install.exe**
 Step 7 :                
 * Click on the installer.                
 * Select the x86_64 item in the architecture menu      
-![XGBInstall](/images/XGBInstall/Architecture.jpg){:class="img-responsive")
+![XGBInstall](/images/XGBInstall/Architecture.jpg){:class="img-responsive")        
 
 *  Then click Next            
 * Changed the installation directory to **D:/MinGW-W64**.       
