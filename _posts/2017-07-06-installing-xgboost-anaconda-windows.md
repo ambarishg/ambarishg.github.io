@@ -38,10 +38,17 @@ Step 6 : Download **MinGW-W64-install.exe**
 
 Step 7 :                
 * Click on the installer.                
+<<<<<<< HEAD
 * Select the x86_64 item in the architecture menu      
 ![XGBInstall](/images/XGBInstall/Architecture.jpg){:class="img-responsive")}            
 
 *  Then click Next            
+=======
+* Select the x86_64 item in the architecture menu       
+![XGBInstall](/images/XGBInstall/Architecture.jpg){:class="img-responsive"}   
+
+* Then click Next              
+>>>>>>> e0667b10c596519c056e5dd26f3616e90aee747f
 * Changed the installation directory to **D:/MinGW-W64**.       
 * The make command and the runtime libraries are in this directory (look for the directory that contains **mingw32-make**).The files are downloaded in **D:/MinGW-W64/mingw64/bin**.         
 * Add this path to the Windows **PATH** variable.     
