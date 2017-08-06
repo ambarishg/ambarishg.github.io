@@ -8,7 +8,7 @@ tagline:          'Business and Technology'
 description:      'Blog about Business and Technology'
 url:              'http://github.com/ambarishg.github.io'
 baseurl:          /
-url2:             'http://ambarishg.github.io/'
+url2:             'https://ambarishg.github.io/'
 
 author:
   name:           'Ambarish Ganguly'
