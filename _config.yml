@@ -7,7 +7,7 @@ title:            Business and Technology
 tagline:          'Business and Technology'
 description:      'Blog about Business and Technology'
 url:              'http://github.com/ambarishg.github.io'
-baseurl:          /
+baseurl:          ./
 url2:             'http://ambarishg.github.io'
 
 author:
