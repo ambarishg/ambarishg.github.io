@@ -47,6 +47,11 @@
 
 
 <script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
+<script src="libs/datatables-binding-0.2/datatables.js"></script>
+<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-bootstrap-1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="libs/dt-core-bootstrap-1.10.12/js/dataTables.bootstrap.min.js"></script>
 <link href="libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-0.7.7/leaflet.js"></script>
 <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
@@ -57,11 +62,6 @@
 <script src="libs/leaflet-binding-1.1.0/leaflet.js"></script>
 <script src="libs/leaflet-providers-1.0.27/leaflet-providers.js"></script>
 <script src="libs/leaflet-providers-plugin-1.1.0/leaflet-providers-plugin.js"></script>
-<script src="libs/datatables-binding-0.2/datatables.js"></script>
-<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-bootstrap-1.10.12/js/jquery.dataTables.min.js"></script>
-<script src="libs/dt-core-bootstrap-1.10.12/js/dataTables.bootstrap.min.js"></script>
 
 
 <style type="text/css">
@@ -121,7 +121,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#create-a-r-project"><i class="fa fa-check"></i><b>2.3</b> Create a R project</a></li>
 <li class="chapter" data-level="2.4" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#get-the-data"><i class="fa fa-check"></i><b>2.4</b> Get the Data</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="read-the-data.html"><a href="read-the-data.html"><i class="fa fa-check"></i><b>3</b> Read the Data</a></li>
+<li class="chapter" data-level="3" data-path="read-the-data.html"><a href="read-the-data.html"><i class="fa fa-check"></i><b>3</b> Read the Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="read-the-data.html"><a href="read-the-data.html#peek-into-the-data"><i class="fa fa-check"></i><b>3.1</b> Peek into the data</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="latitude-and-longitude.html"><a href="latitude-and-longitude.html"><i class="fa fa-check"></i><b>4</b> Latitude and Longitude</a></li>
 <li class="chapter" data-level="5" data-path="rename-the-fields-to-remove-spaces-in-between-fields.html"><a href="rename-the-fields-to-remove-spaces-in-between-fields.html"><i class="fa fa-check"></i><b>5</b> Rename the Fields to remove Spaces in between Fields</a></li>
 <li class="chapter" data-level="6" data-path="month-of-crime.html"><a href="month-of-crime.html"><i class="fa fa-check"></i><b>6</b> Month of Crime</a></li>
@@ -175,8 +177,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
              <span class="dt">color =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>))  %&gt;%
 <span class="st">  </span><span class="co"># controls</span>
 <span class="st">  </span><span class="kw">setView</span>(<span class="dt">lng=</span>center_lon, <span class="dt">lat=</span>center_lat, <span class="dt">zoom=</span><span class="dv">10</span>)</code></pre></div>
-<div id="htmlwidget-00eaf340a22f8ec48bc4" style="width:672px;height:480px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-00eaf340a22f8ec48bc4">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.NatGeoWorldMap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]},{"method":"addCircles","args":[[34.0124,34.1016,34.1905,34.0998,34.1016,33.944,33.9469,33.9869,34.2248,33.9563,34.244,33.9638,34.0953,33.9348,34.0073,33.9829,33.9713,33.9638,33.9565,34.0473,34.1903,34.0168,33.9875,33.9792,34.0617,33.7321,33.9628,33.9713,34.1576,33.9625,34.0495,33.979,33.9475,34.1608,33.9363,33.9345,34.0001,33.9465,34.0085,34.009,34.0171,34.1667,34.1976,34.0001,33.966,34.0998,33.9582,33.932,34.0753,34.0215],[-118.3373,-118.3414,-118.6059,-118.3324,-118.3325,-118.4059,-118.2762,-118.2915,-118.4494,-118.287,-118.5562,-118.263,-118.3267,-118.2739,-118.2959,-118.3309,-118.2739,-118.2739,-118.2766,-118.2577,-118.4555,-118.3477,-118.4723,-118.2959,-118.2412,-118.2924,-118.2959,-118.2651,-118.438,-118.285,-118.2553,-118.309,-118.2608,-118.3742,-118.2434,-118.2652,-118.3089,-118.2695,-118.3296,-118.3089,-118.3526,-118.3724,-118.4574,-118.3257,-118.2849,-118.3237,-118.309,-118.2502,-118.3785,-118.2868],[2735.76314764272,2627.35608549736,2454.50606028993,2450.10203869145,2415.13974750945,2294.95097986863,2216.55137544791,2183.82691621841,2147.25406042229,2102.99786019863,2056.03988288165,2034.47781998232,2017.15145688171,1993.13822902477,1964.94274725754,1957.37068538384,1957.37068538384,1957.14077163601,1932.14906257255,1916.95070359151,1906.12171699501,1903.75943858461,1898.55207987561,1889.04737897174,1879.73402373846,1878.77619742214,1877.57822739826,1875.89978410362,1867.24395835145,1841.52111038674,1841.03231910795,1836.38231313635,1833.4393908717,1815.92951405059,1815.92951405059,1815.43383244887,1809.47506200003,1807.48443976705,1799.74998263648,1797.24789609002,1795.74497075726,1778.87604964483,1769.74574445031,1767.20117700278,1766.43709200186,1766.1823235442,1763.37744116227,1763.37744116227,1753.90991786922,1743.10068556007],null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":true,"color":"red","weight":5,"opacity":0.5,"fill":true,"fillColor":"red","fillOpacity":0.2,"dashArray":null},null,null,null,null,null,null]}],"limits":{"lat":[33.7321,34.244],"lng":[-118.6059,-118.2412]},"setView":[[34.0626,-118.3296],10,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-05b0931249e667ad8fda" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-05b0931249e667ad8fda">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.NatGeoWorldMap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]},{"method":"addCircles","args":[[34.0124,34.1016,34.1905,34.0998,34.1016,33.944,33.9469,33.9869,34.2248,33.9563,34.244,33.9638,34.0953,33.9348,34.0073,33.9829,33.9713,33.9638,33.9565,34.0473,34.1903,34.0168,33.9875,33.9792,34.0617,33.7321,33.9628,33.9713,34.1576,33.9625,34.0495,33.979,33.9475,34.1608,33.9363,33.9345,34.0001,33.9465,34.0085,34.009,34.0171,34.1667,34.1976,34.0001,33.966,34.0998,33.9582,33.932,34.0753,34.0215],[-118.3373,-118.3414,-118.6059,-118.3324,-118.3325,-118.4059,-118.2762,-118.2915,-118.4494,-118.287,-118.5562,-118.263,-118.3267,-118.2739,-118.2959,-118.3309,-118.2739,-118.2739,-118.2766,-118.2577,-118.4555,-118.3477,-118.4723,-118.2959,-118.2412,-118.2924,-118.2959,-118.2651,-118.438,-118.285,-118.2553,-118.309,-118.2608,-118.3742,-118.2434,-118.2652,-118.3089,-118.2695,-118.3296,-118.3089,-118.3526,-118.3724,-118.4574,-118.3257,-118.2849,-118.3237,-118.309,-118.2502,-118.3785,-118.2868],[2735.76314764272,2627.35608549736,2454.50606028993,2450.10203869145,2415.13974750945,2294.95097986863,2216.55137544791,2183.82691621841,2147.25406042229,2102.99786019863,2056.03988288165,2034.47781998232,2017.15145688171,1993.13822902477,1964.94274725754,1957.37068538384,1957.37068538384,1957.14077163601,1932.14906257255,1916.95070359151,1906.12171699501,1903.75943858461,1898.55207987561,1889.04737897174,1879.73402373846,1878.77619742214,1877.57822739826,1875.89978410362,1867.24395835145,1841.52111038674,1841.03231910795,1836.38231313635,1833.4393908717,1815.92951405059,1815.92951405059,1815.43383244887,1809.47506200003,1807.48443976705,1799.74998263648,1797.24789609002,1795.74497075726,1778.87604964483,1769.74574445031,1767.20117700278,1766.43709200186,1766.1823235442,1763.37744116227,1763.37744116227,1753.90991786922,1743.10068556007],null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":true,"color":"red","weight":5,"opacity":0.5,"fill":true,"fillColor":"red","fillOpacity":0.2,"dashArray":null},null,null,null,null,null,null]}],"limits":{"lat":[33.7321,34.244],"lng":[-118.6059,-118.2412]},"setView":[[34.0626,-118.3296],10,[]]},"evals":[],"jsHooks":[]}</script>
 </div>
             </section>
 

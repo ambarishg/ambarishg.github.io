@@ -47,6 +47,11 @@
 
 
 <script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
+<script src="libs/datatables-binding-0.2/datatables.js"></script>
+<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-bootstrap-1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="libs/dt-core-bootstrap-1.10.12/js/dataTables.bootstrap.min.js"></script>
 <link href="libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-0.7.7/leaflet.js"></script>
 <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
@@ -57,11 +62,6 @@
 <script src="libs/leaflet-binding-1.1.0/leaflet.js"></script>
 <script src="libs/leaflet-providers-1.0.27/leaflet-providers.js"></script>
 <script src="libs/leaflet-providers-plugin-1.1.0/leaflet-providers-plugin.js"></script>
-<script src="libs/datatables-binding-0.2/datatables.js"></script>
-<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-bootstrap-1.10.12/js/jquery.dataTables.min.js"></script>
-<script src="libs/dt-core-bootstrap-1.10.12/js/dataTables.bootstrap.min.js"></script>
 
 
 <style type="text/css">
@@ -121,7 +121,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#create-a-r-project"><i class="fa fa-check"></i><b>2.3</b> Create a R project</a></li>
 <li class="chapter" data-level="2.4" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#get-the-data"><i class="fa fa-check"></i><b>2.4</b> Get the Data</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="read-the-data.html"><a href="read-the-data.html"><i class="fa fa-check"></i><b>3</b> Read the Data</a></li>
+<li class="chapter" data-level="3" data-path="read-the-data.html"><a href="read-the-data.html"><i class="fa fa-check"></i><b>3</b> Read the Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="read-the-data.html"><a href="read-the-data.html#peek-into-the-data"><i class="fa fa-check"></i><b>3.1</b> Peek into the data</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="latitude-and-longitude.html"><a href="latitude-and-longitude.html"><i class="fa fa-check"></i><b>4</b> Latitude and Longitude</a></li>
 <li class="chapter" data-level="5" data-path="rename-the-fields-to-remove-spaces-in-between-fields.html"><a href="rename-the-fields-to-remove-spaces-in-between-fields.html"><i class="fa fa-check"></i><b>5</b> Rename the Fields to remove Spaces in between Fields</a></li>
 <li class="chapter" data-level="6" data-path="month-of-crime.html"><a href="month-of-crime.html"><i class="fa fa-check"></i><b>6</b> Month of Crime</a></li>
@@ -169,6 +171,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="read-the-data" class="section level1">
 <h1><span class="header-section-number">3</span> Read the Data</h1>
+<p>Read the CrimeData using the function <strong>read_csv</strong>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(leaflet)
 <span class="kw">library</span>(stringr)
@@ -184,7 +187,15 @@ fillColor =<span class="st"> &quot;#FFA07A&quot;</span>
 fillColor2 =<span class="st"> &quot;#F1C40F&quot;</span>
 
 LACrime =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;input/Crime_Data_2010_2017.csv&quot;</span>)</code></pre></div>
+<div id="peek-into-the-data" class="section level2">
+<h2><span class="header-section-number">3.1</span> Peek into the data</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">datatable</span>(<span class="kw">head</span>(LACrime), <span class="dt">style=</span><span class="st">&quot;bootstrap&quot;</span>, 
+          <span class="dt">class=</span><span class="st">&quot;table-condensed&quot;</span>, 
+          <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">dom =</span> <span class="st">&#39;tp&#39;</span>,<span class="dt">scrollX =</span> <span class="ot">TRUE</span>))</code></pre></div>
+<div id="htmlwidget-0d7c65553a6e870a12f4" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0d7c65553a6e870a12f4">{"x":{"style":"bootstrap","filter":"none","data":[["1","2","3","4","5","6"],[1208575,102005556,418,101822289,42104479,120125367],["03/14/2013","01/25/2010","03/19/2013","11/11/2010","01/11/2014","01/08/2013"],["03/11/2013","01/22/2010","03/18/2013","11/10/2010","01/04/2014","01/08/2013"],[1800,2300,2030,1800,2300,1400],[12,20,18,18,21,1],["77th Street","Olympic","Southeast","Southeast","Topanga","Central"],[1241,2071,1823,1803,2133,111],[626,510,510,510,745,110],["INTIMATE PARTNER - SIMPLE ASSAULT","VEHICLE - STOLEN","VEHICLE - STOLEN","VEHICLE - STOLEN","VANDALISM - MISDEAMEANOR ($399 OR UNDER)","CRIMINAL HOMICIDE"],["0416 0446 1243 2000",null,null,null,"0329","1243 2000 1813 1814 2002 0416 0400"],[30,null,12,null,84,49],["F",null,null,null,"M","F"],["W",null,null,null,"W","W"],[502,101,101,101,501,501],["MULTI-UNIT DWELLING (APARTMENT, DUPLEX, ETC)","STREET","STREET","STREET","SINGLE FAMILY DWELLING","SINGLE FAMILY DWELLING"],[400,null,null,null,null,400],["STRONG-ARM (HANDS, FIST, FEET OR BODILY FORCE)",null,null,null,null,"STRONG-ARM (HANDS, FIST, FEET OR BODILY FORCE)"],["AO","IC","IC","IC","IC","AA"],["Adult Other","Invest Cont","Invest Cont","Invest Cont","Invest Cont","Adult Arrest"],[626,510,510,510,745,110],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],["6300    BRYNHURST                    AV","VAN NESS","200 E  104TH                        ST","88TH","7200    CIRRUS                       WY","600 N  HILL                         ST"],[null,"15TH",null,"WALL",null,null],["(33.9829, -118.3338)","(34.0454, -118.3157)","(33.942, -118.2717)","(33.9572, -118.2717)","(34.2009, -118.6369)","(34.0591, -118.2412)"]],"container":"<table class=\"table table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>DR Number<\/th>\n      <th>Date Reported<\/th>\n      <th>Date Occurred<\/th>\n      <th>Time Occurred<\/th>\n      <th>Area ID<\/th>\n      <th>Area Name<\/th>\n      <th>Reporting District<\/th>\n      <th>Crime Code<\/th>\n      <th>Crime Code Description<\/th>\n      <th>MO Codes<\/th>\n      <th>Victim Age<\/th>\n      <th>Victim Sex<\/th>\n      <th>Victim Descent<\/th>\n      <th>Premise Code<\/th>\n      <th>Premise Description<\/th>\n      <th>Weapon Used Code<\/th>\n      <th>Weapon Description<\/th>\n      <th>Status Code<\/th>\n      <th>Status Description<\/th>\n      <th>Crime Code 1<\/th>\n      <th>Crime Code 2<\/th>\n      <th>Crime Code 3<\/th>\n      <th>Crime Code 4<\/th>\n      <th>Address<\/th>\n      <th>Cross Street<\/th>\n      <th>Location<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,4,5,7,8,11,14,16,20,21]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
 
+</div>
 </div>
             </section>
 

@@ -47,6 +47,11 @@
 
 
 <script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
+<script src="libs/datatables-binding-0.2/datatables.js"></script>
+<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-bootstrap-1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="libs/dt-core-bootstrap-1.10.12/js/dataTables.bootstrap.min.js"></script>
 <link href="libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-0.7.7/leaflet.js"></script>
 <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
@@ -57,11 +62,6 @@
 <script src="libs/leaflet-binding-1.1.0/leaflet.js"></script>
 <script src="libs/leaflet-providers-1.0.27/leaflet-providers.js"></script>
 <script src="libs/leaflet-providers-plugin-1.1.0/leaflet-providers-plugin.js"></script>
-<script src="libs/datatables-binding-0.2/datatables.js"></script>
-<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-bootstrap-1.10.12/js/jquery.dataTables.min.js"></script>
-<script src="libs/dt-core-bootstrap-1.10.12/js/dataTables.bootstrap.min.js"></script>
 
 
 <style type="text/css">
@@ -121,7 +121,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#create-a-r-project"><i class="fa fa-check"></i><b>2.3</b> Create a R project</a></li>
 <li class="chapter" data-level="2.4" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#get-the-data"><i class="fa fa-check"></i><b>2.4</b> Get the Data</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="read-the-data.html"><a href="read-the-data.html"><i class="fa fa-check"></i><b>3</b> Read the Data</a></li>
+<li class="chapter" data-level="3" data-path="read-the-data.html"><a href="read-the-data.html"><i class="fa fa-check"></i><b>3</b> Read the Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="read-the-data.html"><a href="read-the-data.html#peek-into-the-data"><i class="fa fa-check"></i><b>3.1</b> Peek into the data</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="latitude-and-longitude.html"><a href="latitude-and-longitude.html"><i class="fa fa-check"></i><b>4</b> Latitude and Longitude</a></li>
 <li class="chapter" data-level="5" data-path="rename-the-fields-to-remove-spaces-in-between-fields.html"><a href="rename-the-fields-to-remove-spaces-in-between-fields.html"><i class="fa fa-check"></i><b>5</b> Rename the Fields to remove Spaces in between Fields</a></li>
 <li class="chapter" data-level="6" data-path="month-of-crime.html"><a href="month-of-crime.html"><i class="fa fa-check"></i><b>6</b> Month of Crime</a></li>
@@ -204,7 +206,7 @@ LACrime %&gt;%
       <span class="dt">title =</span> <span class="st">&#39;Count of Incidents and VictimDescent&#39;</span>) +
 <span class="st"> </span><span class="kw">coord_flip</span>() +<span class="st"> </span>
 <span class="st"> </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="mainfiles/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="mainFiles/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>We observe <strong>Hispanic, White and Black</strong> are the top categories where the Victims are present.</p>
 
 </div>
