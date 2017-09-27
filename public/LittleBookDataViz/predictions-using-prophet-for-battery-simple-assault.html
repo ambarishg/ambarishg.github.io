@@ -47,11 +47,6 @@
 
 
 <script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
-<script src="libs/datatables-binding-0.2/datatables.js"></script>
-<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-bootstrap-1.10.12/js/jquery.dataTables.min.js"></script>
-<script src="libs/dt-core-bootstrap-1.10.12/js/dataTables.bootstrap.min.js"></script>
 <link href="libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-0.7.7/leaflet.js"></script>
 <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
@@ -114,7 +109,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#live-version"><i class="fa fa-check"></i><b>1.1</b> Live version</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html"><i class="fa fa-check"></i><b>2</b> Prepare for Analysis</a><ul>
 <li class="chapter" data-level="2.1" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#install-the-software"><i class="fa fa-check"></i><b>2.1</b> Install the Software</a></li>
 <li class="chapter" data-level="2.2" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#install-the-packages"><i class="fa fa-check"></i><b>2.2</b> Install the packages</a></li>
@@ -195,9 +192,54 @@ dataSetCrimes =<span class="st"> </span><span class="kw">cbind</span>(dataSetMon
 
 <span class="kw">colnames</span>(dataSetCrimes) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Months&quot;</span>,<span class="st">&quot;Predictions&quot;</span>)
 
-<span class="kw">datatable</span>(dataSetCrimes, <span class="dt">style=</span><span class="st">&quot;bootstrap&quot;</span>, <span class="dt">class=</span><span class="st">&quot;table-condensed&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">dom =</span> <span class="st">&#39;tp&#39;</span>,<span class="dt">scrollX =</span> <span class="ot">TRUE</span>))</code></pre></div>
-<div id="htmlwidget-93fdb42edfb5b64b68db" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-93fdb42edfb5b64b68db">{"x":{"style":"bootstrap","filter":"none","data":[["1","2","3","4"],["September 2017","October 2017","November 2017","December 2017"],[1562,1609,1387,1393]],"container":"<table class=\"table table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Months<\/th>\n      <th>Predictions<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
+<span class="kw">kable</span>(dataSetCrimes,<span class="st">&quot;html&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>))</code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Months
+</th>
+<th style="text-align:right;">
+Predictions
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+September 2017
+</td>
+<td style="text-align:right;">
+1562
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+October 2017
+</td>
+<td style="text-align:right;">
+1609
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+November 2017
+</td>
+<td style="text-align:right;">
+1387
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+December 2017
+</td>
+<td style="text-align:right;">
+1393
+</td>
+</tr>
+</tbody>
+</table>
 
 </div>
             </section>

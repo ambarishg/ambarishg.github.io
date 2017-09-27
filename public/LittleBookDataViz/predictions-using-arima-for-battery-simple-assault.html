@@ -47,11 +47,6 @@
 
 
 <script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
-<script src="libs/datatables-binding-0.2/datatables.js"></script>
-<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-bootstrap-1.10.12/js/jquery.dataTables.min.js"></script>
-<script src="libs/dt-core-bootstrap-1.10.12/js/dataTables.bootstrap.min.js"></script>
 <link href="libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-0.7.7/leaflet.js"></script>
 <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
@@ -114,7 +109,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#live-version"><i class="fa fa-check"></i><b>1.1</b> Live version</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html"><i class="fa fa-check"></i><b>2</b> Prepare for Analysis</a><ul>
 <li class="chapter" data-level="2.1" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#install-the-software"><i class="fa fa-check"></i><b>2.1</b> Install the Software</a></li>
 <li class="chapter" data-level="2.2" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#install-the-packages"><i class="fa fa-check"></i><b>2.2</b> Install the packages</a></li>
@@ -181,8 +178,52 @@ predictions =<span class="st"> </span>fit %&gt;%<span class="st"> </span><span c
 predictions %&gt;%<span class="st"> </span><span class="kw">autoplot</span>(<span class="dt">include=</span><span class="dv">80</span>) +<span class="kw">theme_bw</span>()</code></pre></div>
 <p><img src="mainFiles/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <p>The predictions for months of September to December 2017 using ARIMA are shown here.</p>
-<div id="htmlwidget-ecce82b2fb0a8bf4f17d" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ecce82b2fb0a8bf4f17d">{"x":{"style":"bootstrap","filter":"none","data":[["1","2","3","4"],["September 2017","October 2017","November 2017","December 2017"],[1573,1445,1360,1312]],"container":"<table class=\"table table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Months<\/th>\n      <th>Predictions<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Months
+</th>
+<th style="text-align:right;">
+Predictions
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+September 2017
+</td>
+<td style="text-align:right;">
+1573
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+October 2017
+</td>
+<td style="text-align:right;">
+1445
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+November 2017
+</td>
+<td style="text-align:right;">
+1360
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+December 2017
+</td>
+<td style="text-align:right;">
+1312
+</td>
+</tr>
+</tbody>
+</table>
 </div>
             </section>
 

@@ -47,11 +47,6 @@
 
 
 <script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
-<script src="libs/datatables-binding-0.2/datatables.js"></script>
-<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-bootstrap-1.10.12/js/jquery.dataTables.min.js"></script>
-<script src="libs/dt-core-bootstrap-1.10.12/js/dataTables.bootstrap.min.js"></script>
 <link href="libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-0.7.7/leaflet.js"></script>
 <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
@@ -114,7 +109,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#live-version"><i class="fa fa-check"></i><b>1.1</b> Live version</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html"><i class="fa fa-check"></i><b>2</b> Prepare for Analysis</a><ul>
 <li class="chapter" data-level="2.1" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#install-the-software"><i class="fa fa-check"></i><b>2.1</b> Install the Software</a></li>
 <li class="chapter" data-level="2.2" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#install-the-packages"><i class="fa fa-check"></i><b>2.2</b> Install the packages</a></li>
@@ -178,8 +175,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">library</span>(rgdal)
 <span class="kw">library</span>(lubridate)
 <span class="kw">library</span>(forecast)
-<span class="kw">library</span>(DT)
+<span class="kw">library</span>(knitr)
+<span class="kw">library</span>(kableExtra)
 <span class="kw">library</span>(prophet)
+<span class="kw">library</span>(webshot)
 
 <span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
 
@@ -189,11 +188,577 @@ fillColor2 =<span class="st"> &quot;#F1C40F&quot;</span>
 LACrime =<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;input/Crime_Data_2010_2017.csv&quot;</span>)</code></pre></div>
 <div id="peek-into-the-data" class="section level2">
 <h2><span class="header-section-number">3.1</span> Peek into the data</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">datatable</span>(<span class="kw">head</span>(LACrime), <span class="dt">style=</span><span class="st">&quot;bootstrap&quot;</span>, 
-          <span class="dt">class=</span><span class="st">&quot;table-condensed&quot;</span>, 
-          <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">dom =</span> <span class="st">&#39;tp&#39;</span>,<span class="dt">scrollX =</span> <span class="ot">TRUE</span>))</code></pre></div>
-<div id="htmlwidget-0d7c65553a6e870a12f4" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0d7c65553a6e870a12f4">{"x":{"style":"bootstrap","filter":"none","data":[["1","2","3","4","5","6"],[1208575,102005556,418,101822289,42104479,120125367],["03/14/2013","01/25/2010","03/19/2013","11/11/2010","01/11/2014","01/08/2013"],["03/11/2013","01/22/2010","03/18/2013","11/10/2010","01/04/2014","01/08/2013"],[1800,2300,2030,1800,2300,1400],[12,20,18,18,21,1],["77th Street","Olympic","Southeast","Southeast","Topanga","Central"],[1241,2071,1823,1803,2133,111],[626,510,510,510,745,110],["INTIMATE PARTNER - SIMPLE ASSAULT","VEHICLE - STOLEN","VEHICLE - STOLEN","VEHICLE - STOLEN","VANDALISM - MISDEAMEANOR ($399 OR UNDER)","CRIMINAL HOMICIDE"],["0416 0446 1243 2000",null,null,null,"0329","1243 2000 1813 1814 2002 0416 0400"],[30,null,12,null,84,49],["F",null,null,null,"M","F"],["W",null,null,null,"W","W"],[502,101,101,101,501,501],["MULTI-UNIT DWELLING (APARTMENT, DUPLEX, ETC)","STREET","STREET","STREET","SINGLE FAMILY DWELLING","SINGLE FAMILY DWELLING"],[400,null,null,null,null,400],["STRONG-ARM (HANDS, FIST, FEET OR BODILY FORCE)",null,null,null,null,"STRONG-ARM (HANDS, FIST, FEET OR BODILY FORCE)"],["AO","IC","IC","IC","IC","AA"],["Adult Other","Invest Cont","Invest Cont","Invest Cont","Invest Cont","Adult Arrest"],[626,510,510,510,745,110],[null,null,null,null,null,null],[null,null,null,null,null,null],[null,null,null,null,null,null],["6300    BRYNHURST                    AV","VAN NESS","200 E  104TH                        ST","88TH","7200    CIRRUS                       WY","600 N  HILL                         ST"],[null,"15TH",null,"WALL",null,null],["(33.9829, -118.3338)","(34.0454, -118.3157)","(33.942, -118.2717)","(33.9572, -118.2717)","(34.2009, -118.6369)","(34.0591, -118.2412)"]],"container":"<table class=\"table table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>DR Number<\/th>\n      <th>Date Reported<\/th>\n      <th>Date Occurred<\/th>\n      <th>Time Occurred<\/th>\n      <th>Area ID<\/th>\n      <th>Area Name<\/th>\n      <th>Reporting District<\/th>\n      <th>Crime Code<\/th>\n      <th>Crime Code Description<\/th>\n      <th>MO Codes<\/th>\n      <th>Victim Age<\/th>\n      <th>Victim Sex<\/th>\n      <th>Victim Descent<\/th>\n      <th>Premise Code<\/th>\n      <th>Premise Description<\/th>\n      <th>Weapon Used Code<\/th>\n      <th>Weapon Description<\/th>\n      <th>Status Code<\/th>\n      <th>Status Description<\/th>\n      <th>Crime Code 1<\/th>\n      <th>Crime Code 2<\/th>\n      <th>Crime Code 3<\/th>\n      <th>Crime Code 4<\/th>\n      <th>Address<\/th>\n      <th>Cross Street<\/th>\n      <th>Location<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,4,5,7,8,11,14,16,20,21]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false},"selection":{"mode":"multiple","selected":null,"target":"row"}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kable</span>(<span class="kw">head</span>(LACrime),<span class="st">&quot;html&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>)) %&gt;%
+<span class="st">  </span><span class="kw">scroll_box</span>(<span class="dt">width =</span> <span class="st">&quot;800px&quot;</span>)</code></pre></div>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:800px; ">
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+DR Number
+</th>
+<th style="text-align:left;">
+Date Reported
+</th>
+<th style="text-align:left;">
+Date Occurred
+</th>
+<th style="text-align:right;">
+Time Occurred
+</th>
+<th style="text-align:right;">
+Area ID
+</th>
+<th style="text-align:left;">
+Area Name
+</th>
+<th style="text-align:right;">
+Reporting District
+</th>
+<th style="text-align:right;">
+Crime Code
+</th>
+<th style="text-align:left;">
+Crime Code Description
+</th>
+<th style="text-align:left;">
+MO Codes
+</th>
+<th style="text-align:right;">
+Victim Age
+</th>
+<th style="text-align:left;">
+Victim Sex
+</th>
+<th style="text-align:left;">
+Victim Descent
+</th>
+<th style="text-align:right;">
+Premise Code
+</th>
+<th style="text-align:left;">
+Premise Description
+</th>
+<th style="text-align:right;">
+Weapon Used Code
+</th>
+<th style="text-align:left;">
+Weapon Description
+</th>
+<th style="text-align:left;">
+Status Code
+</th>
+<th style="text-align:left;">
+Status Description
+</th>
+<th style="text-align:right;">
+Crime Code 1
+</th>
+<th style="text-align:right;">
+Crime Code 2
+</th>
+<th style="text-align:left;">
+Crime Code 3
+</th>
+<th style="text-align:left;">
+Crime Code 4
+</th>
+<th style="text-align:left;">
+Address
+</th>
+<th style="text-align:left;">
+Cross Street
+</th>
+<th style="text-align:left;">
+Location
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1208575
+</td>
+<td style="text-align:left;">
+03/14/2013
+</td>
+<td style="text-align:left;">
+03/11/2013
+</td>
+<td style="text-align:right;">
+1800
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+77th Street
+</td>
+<td style="text-align:right;">
+1241
+</td>
+<td style="text-align:right;">
+626
+</td>
+<td style="text-align:left;">
+INTIMATE PARTNER - SIMPLE ASSAULT
+</td>
+<td style="text-align:left;">
+0416 0446 1243 2000
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+502
+</td>
+<td style="text-align:left;">
+MULTI-UNIT DWELLING (APARTMENT, DUPLEX, ETC)
+</td>
+<td style="text-align:right;">
+400
+</td>
+<td style="text-align:left;">
+STRONG-ARM (HANDS, FIST, FEET OR BODILY FORCE)
+</td>
+<td style="text-align:left;">
+AO
+</td>
+<td style="text-align:left;">
+Adult Other
+</td>
+<td style="text-align:right;">
+626
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+6300 BRYNHURST AV
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+(33.9829, -118.3338)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+102005556
+</td>
+<td style="text-align:left;">
+01/25/2010
+</td>
+<td style="text-align:left;">
+01/22/2010
+</td>
+<td style="text-align:right;">
+2300
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+Olympic
+</td>
+<td style="text-align:right;">
+2071
+</td>
+<td style="text-align:right;">
+510
+</td>
+<td style="text-align:left;">
+VEHICLE - STOLEN
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+101
+</td>
+<td style="text-align:left;">
+STREET
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+IC
+</td>
+<td style="text-align:left;">
+Invest Cont
+</td>
+<td style="text-align:right;">
+510
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+VAN NESS
+</td>
+<td style="text-align:left;">
+15TH
+</td>
+<td style="text-align:left;">
+(34.0454, -118.3157)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+418
+</td>
+<td style="text-align:left;">
+03/19/2013
+</td>
+<td style="text-align:left;">
+03/18/2013
+</td>
+<td style="text-align:right;">
+2030
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+Southeast
+</td>
+<td style="text-align:right;">
+1823
+</td>
+<td style="text-align:right;">
+510
+</td>
+<td style="text-align:left;">
+VEHICLE - STOLEN
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+101
+</td>
+<td style="text-align:left;">
+STREET
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+IC
+</td>
+<td style="text-align:left;">
+Invest Cont
+</td>
+<td style="text-align:right;">
+510
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+200 E 104TH ST
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+(33.942, -118.2717)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+101822289
+</td>
+<td style="text-align:left;">
+11/11/2010
+</td>
+<td style="text-align:left;">
+11/10/2010
+</td>
+<td style="text-align:right;">
+1800
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+Southeast
+</td>
+<td style="text-align:right;">
+1803
+</td>
+<td style="text-align:right;">
+510
+</td>
+<td style="text-align:left;">
+VEHICLE - STOLEN
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+101
+</td>
+<td style="text-align:left;">
+STREET
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+IC
+</td>
+<td style="text-align:left;">
+Invest Cont
+</td>
+<td style="text-align:right;">
+510
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+88TH
+</td>
+<td style="text-align:left;">
+WALL
+</td>
+<td style="text-align:left;">
+(33.9572, -118.2717)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+42104479
+</td>
+<td style="text-align:left;">
+01/11/2014
+</td>
+<td style="text-align:left;">
+01/04/2014
+</td>
+<td style="text-align:right;">
+2300
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+Topanga
+</td>
+<td style="text-align:right;">
+2133
+</td>
+<td style="text-align:right;">
+745
+</td>
+<td style="text-align:left;">
+VANDALISM - MISDEAMEANOR ($399 OR UNDER)
+</td>
+<td style="text-align:left;">
+0329
+</td>
+<td style="text-align:right;">
+84
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+501
+</td>
+<td style="text-align:left;">
+SINGLE FAMILY DWELLING
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+IC
+</td>
+<td style="text-align:left;">
+Invest Cont
+</td>
+<td style="text-align:right;">
+745
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+7200 CIRRUS WY
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+(34.2009, -118.6369)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+120125367
+</td>
+<td style="text-align:left;">
+01/08/2013
+</td>
+<td style="text-align:left;">
+01/08/2013
+</td>
+<td style="text-align:right;">
+1400
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Central
+</td>
+<td style="text-align:right;">
+111
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:left;">
+CRIMINAL HOMICIDE
+</td>
+<td style="text-align:left;">
+1243 2000 1813 1814 2002 0416 0400
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:right;">
+501
+</td>
+<td style="text-align:left;">
+SINGLE FAMILY DWELLING
+</td>
+<td style="text-align:right;">
+400
+</td>
+<td style="text-align:left;">
+STRONG-ARM (HANDS, FIST, FEET OR BODILY FORCE)
+</td>
+<td style="text-align:left;">
+AA
+</td>
+<td style="text-align:left;">
+Adult Arrest
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+600 N HILL ST
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+(34.0591, -118.2412)
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 
 </div>
 </div>
