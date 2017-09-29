@@ -47,11 +47,6 @@
 
 
 <script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
-<script src="libs/datatables-binding-0.2/datatables.js"></script>
-<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-<link href="libs/dt-core-bootstrap-1.10.12/css/dataTables.bootstrap.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-bootstrap-1.10.12/js/jquery.dataTables.min.js"></script>
-<script src="libs/dt-core-bootstrap-1.10.12/js/dataTables.bootstrap.min.js"></script>
 <link href="libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-0.7.7/leaflet.js"></script>
 <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
@@ -102,6 +97,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -114,7 +110,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li><a href="./">Little Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#live-version"><i class="fa fa-check"></i><b>1.1</b> Live version</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html"><i class="fa fa-check"></i><b>2</b> Prepare for Analysis</a><ul>
 <li class="chapter" data-level="2.1" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#install-the-software"><i class="fa fa-check"></i><b>2.1</b> Install the Software</a></li>
 <li class="chapter" data-level="2.2" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#install-the-packages"><i class="fa fa-check"></i><b>2.2</b> Install the packages</a></li>
@@ -152,6 +153,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="25" data-path="predictions-using-arima-for-battery-simple-assault.html"><a href="predictions-using-arima-for-battery-simple-assault.html"><i class="fa fa-check"></i><b>25</b> Predictions using ARIMA for Battery - Simple Assault</a></li>
 <li class="chapter" data-level="26" data-path="predictions-using-ets-for-battery-simple-assault.html"><a href="predictions-using-ets-for-battery-simple-assault.html"><i class="fa fa-check"></i><b>26</b> Predictions using ETS for Battery - Simple Assault</a></li>
 <li class="chapter" data-level="27" data-path="predictions-using-prophet-for-battery-simple-assault.html"><a href="predictions-using-prophet-for-battery-simple-assault.html"><i class="fa fa-check"></i><b>27</b> Predictions using Prophet for Battery - Simple Assault</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -170,7 +174,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="age-and-sex-of-the-victims" class="section level1">
-<h1><span class="header-section-number">10</span> Age and Sex of the Victims</h1>
+<h1><span class="header-section-number">Chapter 10</span> Age and Sex of the Victims</h1>
 <p>We examine the age and sex of the Victims involved in Crime.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">breaks =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">5</span>)
 
@@ -185,7 +189,7 @@ LACrime %&gt;%
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Victim Age&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Count of Crimes&#39;</span>, 
        <span class="dt">title =</span> <span class="st">&#39;Age , Sex and Crimes&#39;</span>) +
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="mainFiles/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>Most Victims are around the age 25 to 30.It is evident that Females are Victimised more than Males in the age group 25 to 30.</p>
 
 </div>
