@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Little Book on Data Visualization and Time series Forecasts</title>
-  <meta name="description" content="Little Book on Data Visualization and Time series Forecasts">
+  <title>Little Book on Data Visualization and Modelling</title>
+  <meta name="description" content="Little Book on Data Visualization and Modelling">
   <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Little Book on Data Visualization and Time series Forecasts" />
+  <meta property="og:title" content="Little Book on Data Visualization and Modelling" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Little Book on Data Visualization and Time series Forecasts" />
+  <meta name="twitter:title" content="Little Book on Data Visualization and Modelling" />
   
   
   
@@ -153,6 +153,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="25" data-path="predictions-using-arima-for-battery-simple-assault.html"><a href="predictions-using-arima-for-battery-simple-assault.html"><i class="fa fa-check"></i><b>25</b> Predictions using ARIMA for Battery - Simple Assault</a></li>
 <li class="chapter" data-level="26" data-path="predictions-using-ets-for-battery-simple-assault.html"><a href="predictions-using-ets-for-battery-simple-assault.html"><i class="fa fa-check"></i><b>26</b> Predictions using ETS for Battery - Simple Assault</a></li>
 <li class="chapter" data-level="27" data-path="predictions-using-prophet-for-battery-simple-assault.html"><a href="predictions-using-prophet-for-battery-simple-assault.html"><i class="fa fa-check"></i><b>27</b> Predictions using Prophet for Battery - Simple Assault</a></li>
+<li class="chapter" data-level="28" data-path="modelling.html"><a href="modelling.html"><i class="fa fa-check"></i><b>28</b> Modelling</a><ul>
+<li class="chapter" data-level="28.1" data-path="modelling.html"><a href="modelling.html#prediction-variable"><i class="fa fa-check"></i><b>28.1</b> Prediction variable</a></li>
+<li class="chapter" data-level="28.2" data-path="modelling.html"><a href="modelling.html#columns-in-the-dataset"><i class="fa fa-check"></i><b>28.2</b> Columns in the dataset</a></li>
+<li class="chapter" data-level="28.3" data-path="modelling.html"><a href="modelling.html#columns-for-modelling"><i class="fa fa-check"></i><b>28.3</b> Columns for Modelling</a></li>
+<li class="chapter" data-level="28.4" data-path="modelling.html"><a href="modelling.html#classification-or-regression"><i class="fa fa-check"></i><b>28.4</b> Classification or Regression</a></li>
+<li class="chapter" data-level="28.5" data-path="modelling.html"><a href="modelling.html#values-of-crime-code"><i class="fa fa-check"></i><b>28.5</b> Values of Crime Code</a></li>
+<li class="chapter" data-level="28.6" data-path="modelling.html"><a href="modelling.html#selected-columns-and-their-class"><i class="fa fa-check"></i><b>28.6</b> Selected Columns and their class</a><ul>
+<li class="chapter" data-level="28.6.1" data-path="modelling.html"><a href="modelling.html#selected-columns-class"><i class="fa fa-check"></i><b>28.6.1</b> Selected Columns class</a></li>
+</ul></li>
+<li class="chapter" data-level="28.7" data-path="modelling.html"><a href="modelling.html#transform-to-numeric"><i class="fa fa-check"></i><b>28.7</b> Transform to Numeric</a></li>
+<li class="chapter" data-level="28.8" data-path="modelling.html"><a href="modelling.html#xgboost"><i class="fa fa-check"></i><b>28.8</b> XGBoost</a><ul>
+<li class="chapter" data-level="28.8.1" data-path="modelling.html"><a href="modelling.html#traincontrol-function"><i class="fa fa-check"></i><b>28.8.1</b> trainControl function</a></li>
+<li class="chapter" data-level="28.8.2" data-path="modelling.html"><a href="modelling.html#tuning-parameters"><i class="fa fa-check"></i><b>28.8.2</b> Tuning parameters</a></li>
+<li class="chapter" data-level="28.8.3" data-path="modelling.html"><a href="modelling.html#xgboost-model"><i class="fa fa-check"></i><b>28.8.3</b> XGBoost Model</a></li>
+</ul></li>
+<li class="chapter" data-level="28.9" data-path="modelling.html"><a href="modelling.html#variable-importance"><i class="fa fa-check"></i><b>28.9</b> Variable Importance</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -165,7 +182,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Little Book on Data Visualization and Time series Forecasts</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Little Book on Data Visualization and Modelling</a>
           </h1>
         </div>
 
@@ -174,7 +191,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Little Book on Data Visualization and Time series Forecasts</h1>
+<h1 class="title">Little Book on Data Visualization and Modelling</h1>
 <h4 class="author"><em>Ambarish Ganguly</em></h4>
 </div>
 <div id="introduction" class="section level1">
@@ -183,6 +200,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>We do <strong>Exploratory Data analysis</strong> on various topics such as the Month of Crime ,Day of Crime,Time of Crime. We also explore how the Crimes are related to the Sex and Age of the Victims, Crime Types, Crime Types of persons aged 70 and above. We explore on the Crimes at different Premises,Types of Crimes at different Premises,victim Descent Analysis and an analysis of Weapons used in Crime.</p>
 <p>We explore the various <strong>Maps</strong> where the Crime has occurred.</p>
 <p>We do <strong>Time series forecasting</strong> for the most commonly occurring crime type <strong>Simple Assault</strong> using different Time Series forecasting techniques such as Arima, ETS and Prophet.</p>
+<p>We also determine <strong>Crime Code</strong> of the crimes based on different parameters of the Crime. We use the very popular <code>XGBoost</code> algorithm to determine the Crime code.</p>
 <div id="live-version" class="section level2">
 <h2><span class="header-section-number">1.1</span> Live version</h2>
 <p>If you wish to have a peek of the end result, you can view this in <a href="https://ambarishg.github.io//public/dataviz/EDALACrimesForWebSite.html">LA Crime Report</a></p>
