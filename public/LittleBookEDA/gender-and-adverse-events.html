@@ -276,7 +276,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="gender-and-adverse-events" class="section level1 tabset tabset-fade tabset-pills">
 <h1><span class="header-section-number">Chapter 28</span> Gender and Adverse Events</h1>
 <p>We find that <strong>Females</strong> report Adverse Events more than <strong>Males</strong>.</p>
-<p>There is a <strong>distinct difference</strong> in the products which cause adverse events for Femeales and Males. The products which cause the adverse events in Females are different kind of <strong>Vitamins , Cleansing Conditioner</strong>. The products which cause the adverse events in Males are <strong>Super Beta Prostate , Hydroxy Cut ( a weight loss product ) , Raw Oysters , Peanut Butter</strong>.</p>
+<p>There is a <strong>distinct difference</strong> in the products which cause adverse events for Females and Males. The products which cause the adverse events in Females are different kind of <strong>Vitamins , Cleansing Conditioner</strong>. The products which cause the adverse events in Males are <strong>Super Beta Prostate , Hydroxy Cut ( a weight loss product ) , Raw Oysters , Peanut Butter</strong>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AdverseFoodEvents %&gt;%
 <span class="st">  </span><span class="kw">group_by</span>(Gender) %&gt;%
 <span class="st">  </span><span class="kw">filter</span>(!<span class="kw">is.na</span>(Gender)) %&gt;%
