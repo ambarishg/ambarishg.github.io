@@ -11,7 +11,7 @@ This Little Book on Exploratory Data Analysis provides a gentle and hands on int
 
 <li>Meteorite Landings dataset from NASA</li>
 
-<li>Adverse Food Events dataset from FDA<li>
+<li>Adverse Food Events dataset from FDA</li>
 
 </div>
 
