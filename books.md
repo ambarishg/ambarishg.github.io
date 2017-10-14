@@ -15,6 +15,7 @@ This Little Book on Exploratory Data Analysis provides a gentle and hands on int
 
 </div>
 
+<hr>
 <div class="message">
 <a href="https://ambarishg.github.io/public/LittleBookDataViz/">Little Book on Data Visualizations and Time Forecasts</a>
 <br>
