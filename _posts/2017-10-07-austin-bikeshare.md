@@ -5,7 +5,6 @@ categories: DataVisualization
 tags:
 - DataVisualization
 - cartography
-
 ---
 
 *Catching a show on Red River? Eating on the East Side? Paddleboarding at Zilker? All of the above?*
