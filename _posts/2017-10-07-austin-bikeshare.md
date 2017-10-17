@@ -1,11 +1,11 @@
 ---
 title: "Austin Bike Share EDA with Maps and TimeSeries"
 layout: post
+categories: DataVisualization
 tags:
 - DataVisualization
 - cartography
 
-categories: DataVisualization
 ---
 
 *Catching a show on Red River? Eating on the East Side? Paddleboarding at Zilker? All of the above?*
