@@ -11,7 +11,7 @@ categories: DataVisualization
 
 Hop on a B-cycle and coast your way through the People’s Republic of **Austin**
 
-![Start Riding](images/AustinBikeShare/Rates.png)
+![Start Riding](../images/AustinBikeShare/Rates.png)
 
 We explore the Austin Bike Share data for the following topics :                       
 
