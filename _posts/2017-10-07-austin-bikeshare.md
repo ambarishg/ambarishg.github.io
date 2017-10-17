@@ -1,5 +1,5 @@
 ---
-title: "Austin Bike Share"
+title: "Austin Bike Share EDA with Maps and TimeSeries"
 layout: post
 tags:
 - DataVisualization
@@ -32,5 +32,5 @@ We explore the Austin Bike Share data for the following topics :
 
 
 
-A detailed report[Austin Bike Share Analysis](https://www.kaggle.com/ambarish/austin-bike-eda-heatmaps-timeseries) has the complete Data Visualization with Maps.                 
+A detailed report [Austin Bike Share Analysis](https://www.kaggle.com/ambarish/austin-bike-eda-heatmaps-timeseries) has the complete Data Visualization with Maps.                 
 
