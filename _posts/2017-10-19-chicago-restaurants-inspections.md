@@ -28,7 +28,7 @@ We examine the inspections in the following topics
 * TF- IDF of Unigrams (One Word )                 
 * Word Cloud for Unigrams                       
 * TF - IDF Bigrams                             
-* Verification of important words for “Out of Business”                    
+* Verification of important words for `Out of Business`                    
 * Word Cloud for Bigrams                            
 * Relationship among words                            
 * Sentiment Analysis for Results                       
@@ -36,7 +36,7 @@ We examine the inspections in the following topics
 * Sentiment analysis by word for Each Result Type                         
 * Sentiment analysis by Inspection Text                        
 * Plot of Results and Risks                          
-* Modelling with XGBoost                               
+* Modelling with XGBoost whether the Business will be `Out of Business`                
 
 
 A detailed report [Chicago Restaurants Inspections Text Mining](https://www.kaggle.com/ambarish/chicagofoodinspections-textminingleafletsxgboost) has the complete Data Visualization with Text Mining and Modelling.                 
