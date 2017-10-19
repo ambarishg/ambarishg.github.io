@@ -1,5 +1,5 @@
 ---
-title: "Fun in TextMining with Simpsons"
+title: "Chicago Restaurants Inspections Text Mining"
 layout: post
 categories: DataVisualization
 tags:
