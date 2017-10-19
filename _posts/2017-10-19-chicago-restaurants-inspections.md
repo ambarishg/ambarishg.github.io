@@ -21,9 +21,9 @@ We examine the inspections in the following topics
 * Trend of Inspections Daywise                        
 * Maps of Food Places                          
 * Top Twenty most Common Words                
-  - WordCloud of the Common Words                   
+  - WordCloud of the Common Words                      
 * TF - IDF Theory                          
-  - The Math                        
+  - The Math                                
 * Term Frequency of Words (TF)                       
 * TF- IDF of Unigrams (One Word )                 
 * Word Cloud for Unigrams                       
