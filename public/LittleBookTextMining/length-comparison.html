@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Little Book on Text Mining</title>
+  <meta name="description" content="Little Book on Text Mining">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Little Book on Text Mining" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Little Book on Text Mining" />
+  
+  
+  
+
+<meta name="author" content="Ambarish Ganguly">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="peek-into-the-data.html">
+<link rel="next" href="words-length-distribution.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#spooky-author-identification-dataset"><i class="fa fa-check"></i><b>1.1</b> Spooky Author Identification Dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="read-the-data.html"><a href="read-the-data.html"><i class="fa fa-check"></i><b>2</b> Read the Data</a></li>
+<li class="chapter" data-level="3" data-path="add-feature-number-of-words.html"><a href="add-feature-number-of-words.html"><i class="fa fa-check"></i><b>3</b> Add Feature Number of Words</a></li>
+<li class="chapter" data-level="4" data-path="peek-into-the-data.html"><a href="peek-into-the-data.html"><i class="fa fa-check"></i><b>4</b> Peek into the Data</a></li>
+<li class="chapter" data-level="5" data-path="length-comparison.html"><a href="length-comparison.html"><i class="fa fa-check"></i><b>5</b> Length Comparison</a></li>
+<li class="chapter" data-level="6" data-path="words-length-distribution.html"><a href="words-length-distribution.html"><i class="fa fa-check"></i><b>6</b> Words Length Distribution</a><ul>
+<li class="chapter" data-level="6.1" data-path="words-length-distribution.html"><a href="words-length-distribution.html#words-length-distribution-plot-2"><i class="fa fa-check"></i><b>6.1</b> Words Length Distribution Plot 2</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html"><i class="fa fa-check"></i><b>7</b> Top Twenty most Common Words</a><ul>
+<li class="chapter" data-level="7.1" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-the-common-words"><i class="fa fa-check"></i><b>7.1</b> WordCloud of the Common Words</a></li>
+<li class="chapter" data-level="7.2" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-hpl"><i class="fa fa-check"></i><b>7.2</b> WordCloud of HPL</a></li>
+<li class="chapter" data-level="7.3" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-mws"><i class="fa fa-check"></i><b>7.3</b> WordCloud of MWS</a></li>
+<li class="chapter" data-level="7.4" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-eap"><i class="fa fa-check"></i><b>7.4</b> WordCloud of EAP</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tf-idf.html"><a href="tf-idf.html"><i class="fa fa-check"></i><b>8</b> TF-IDF</a><ul>
+<li class="chapter" data-level="8.1" data-path="tf-idf.html"><a href="tf-idf.html#the-math"><i class="fa fa-check"></i><b>8.1</b> The Math</a></li>
+<li class="chapter" data-level="8.2" data-path="tf-idf.html"><a href="tf-idf.html#twenty-most-important-words"><i class="fa fa-check"></i><b>8.2</b> Twenty Most Important words</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="tf-idf.html"><a href="tf-idf.html#twenty-most-important-words-hpl"><i class="fa fa-check"></i><b>8.2.1</b> Twenty most important words HPL</a></li>
+<li class="chapter" data-level="8.2.2" data-path="tf-idf.html"><a href="tf-idf.html#twenty-most-important-words-eap"><i class="fa fa-check"></i><b>8.2.2</b> Twenty most important words EAP</a></li>
+<li class="chapter" data-level="8.2.3" data-path="tf-idf.html"><a href="tf-idf.html#twenty-most-important-words-mws"><i class="fa fa-check"></i><b>8.2.3</b> Twenty most important words MWS</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="tf-idf.html"><a href="tf-idf.html#word-cloud-for-the-most-important-words"><i class="fa fa-check"></i><b>8.3</b> Word Cloud for the Most Important Words</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="most-common-bigrams.html"><a href="most-common-bigrams.html"><i class="fa fa-check"></i><b>9</b> Most Common Bigrams</a></li>
+<li class="chapter" data-level="10" data-path="most-common-trigrams.html"><a href="most-common-trigrams.html"><i class="fa fa-check"></i><b>10</b> Most Common Trigrams</a></li>
+<li class="chapter" data-level="11" data-path="relationship-among-words.html"><a href="relationship-among-words.html"><i class="fa fa-check"></i><b>11</b> Relationship among words</a></li>
+<li class="chapter" data-level="12" data-path="sentiment-analysis.html"><a href="sentiment-analysis.html"><i class="fa fa-check"></i><b>12</b> Sentiment Analysis</a><ul>
+<li class="chapter" data-level="12.1" data-path="sentiment-analysis.html"><a href="sentiment-analysis.html#postive-authors-and-not-so-positive-authors"><i class="fa fa-check"></i><b>12.1</b> Postive Authors and Not so Positive Authors</a></li>
+<li class="chapter" data-level="12.2" data-path="sentiment-analysis.html"><a href="sentiment-analysis.html#postive-and-not-so-postive-words-of-authors"><i class="fa fa-check"></i><b>12.2</b> Postive and Not So Postive Words of Authors</a></li>
+<li class="chapter" data-level="12.3" data-path="sentiment-analysis.html"><a href="sentiment-analysis.html#postive-and-not-so-postive-words-of-author-hpl"><i class="fa fa-check"></i><b>12.3</b> Postive and Not So Postive Words of Author HPL</a></li>
+<li class="chapter" data-level="12.4" data-path="sentiment-analysis.html"><a href="sentiment-analysis.html#postive-and-not-so-postive-words-of-author-eap"><i class="fa fa-check"></i><b>12.4</b> Postive and Not So Postive Words of Author EAP</a></li>
+<li class="chapter" data-level="12.5" data-path="sentiment-analysis.html"><a href="sentiment-analysis.html#postive-and-not-so-postive-words-of-author-mws"><i class="fa fa-check"></i><b>12.5</b> Postive and Not So Postive Words of Author MWS</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="sentiment-analysis-using-nrc-sentiment-lexicon.html"><a href="sentiment-analysis-using-nrc-sentiment-lexicon.html"><i class="fa fa-check"></i><b>13</b> Sentiment Analysis using NRC Sentiment lexicon</a><ul>
+<li class="chapter" data-level="13.1" data-path="sentiment-analysis-using-nrc-sentiment-lexicon.html"><a href="sentiment-analysis-using-nrc-sentiment-lexicon.html#sentiment-analysis-words---fear"><i class="fa fa-check"></i><b>13.1</b> Sentiment Analysis Words - Fear</a></li>
+<li class="chapter" data-level="13.2" data-path="sentiment-analysis-using-nrc-sentiment-lexicon.html"><a href="sentiment-analysis-using-nrc-sentiment-lexicon.html#fear-word-cloud---mwp"><i class="fa fa-check"></i><b>13.2</b> Fear Word Cloud - MWP</a></li>
+<li class="chapter" data-level="13.3" data-path="sentiment-analysis-using-nrc-sentiment-lexicon.html"><a href="sentiment-analysis-using-nrc-sentiment-lexicon.html#sentiment-analysis-words---surprise"><i class="fa fa-check"></i><b>13.3</b> Sentiment Analysis Words - Surprise</a></li>
+<li class="chapter" data-level="13.4" data-path="sentiment-analysis-using-nrc-sentiment-lexicon.html"><a href="sentiment-analysis-using-nrc-sentiment-lexicon.html#surprise-word-cloud---mwp"><i class="fa fa-check"></i><b>13.4</b> Surprise Word Cloud - MWP</a></li>
+<li class="chapter" data-level="13.5" data-path="sentiment-analysis-using-nrc-sentiment-lexicon.html"><a href="sentiment-analysis-using-nrc-sentiment-lexicon.html#sentiment-analysis-words---joy"><i class="fa fa-check"></i><b>13.5</b> Sentiment Analysis Words - Joy</a></li>
+<li class="chapter" data-level="13.6" data-path="sentiment-analysis-using-nrc-sentiment-lexicon.html"><a href="sentiment-analysis-using-nrc-sentiment-lexicon.html#joy-word-cloud---mwp"><i class="fa fa-check"></i><b>13.6</b> Joy Word Cloud - MWP</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="positive-and-not-so-postive-lines.html"><a href="positive-and-not-so-postive-lines.html"><i class="fa fa-check"></i><b>14</b> Positive and Not So Postive Lines</a></li>
+<li class="chapter" data-level="15" data-path="feature-sentiment-score.html"><a href="feature-sentiment-score.html"><i class="fa fa-check"></i><b>15</b> Feature Sentiment Score</a></li>
+<li class="chapter" data-level="16" data-path="feature-nrc-sentiments.html"><a href="feature-nrc-sentiments.html"><i class="fa fa-check"></i><b>16</b> Feature NRC Sentiments</a></li>
+<li class="chapter" data-level="17" data-path="he-or-she-analysis.html"><a href="he-or-she-analysis.html"><i class="fa fa-check"></i><b>17</b> He or She Analysis</a><ul>
+<li class="chapter" data-level="17.1" data-path="he-or-she-analysis.html"><a href="he-or-she-analysis.html#gender-associated-verbs"><i class="fa fa-check"></i><b>17.1</b> Gender associated verbs</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="document-term-matrix.html"><a href="document-term-matrix.html"><i class="fa fa-check"></i><b>18</b> Document Term Matrix</a></li>
+<li class="chapter" data-level="19" data-path="modelling-with-xgboost.html"><a href="modelling-with-xgboost.html"><i class="fa fa-check"></i><b>19</b> Modelling with XGBoost</a><ul>
+<li class="chapter" data-level="19.1" data-path="modelling-with-xgboost.html"><a href="modelling-with-xgboost.html#add-features"><i class="fa fa-check"></i><b>19.1</b> Add features</a></li>
+<li class="chapter" data-level="19.2" data-path="modelling-with-xgboost.html"><a href="modelling-with-xgboost.html#creating-the-xgboost-model"><i class="fa fa-check"></i><b>19.2</b> Creating the XGBoost Model</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="predictions-using-the-xgb-model.html"><a href="predictions-using-the-xgb-model.html"><i class="fa fa-check"></i><b>20</b> Predictions using the XGB Model</a></li>
+<li class="chapter" data-level="21" data-path="predictions-using-glmnet-model.html"><a href="predictions-using-glmnet-model.html"><i class="fa fa-check"></i><b>21</b> Predictions using glmnet Model</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Little Book on Text Mining</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="length-comparison" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Length Comparison</h1>
+<p>We examine the <code>median</code> length of the sentences by the different <code>authors</code> and plot in a flipped bar plot.</p>
+<p>HP Lovecraft writes <code>long</code> sentences with the highest number of words per sentence.Edgar Allen Poe writes <code>short</code> sentences compared to the other Two authors.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">train %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(author) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">CountMedian =</span> <span class="kw">median</span>(len,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) %&gt;%
+<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">author =</span> <span class="kw">reorder</span>(author,CountMedian)) %&gt;%
+<span class="st">  </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> author,<span class="dt">y =</span> CountMedian)) +
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&#39;identity&#39;</span>,<span class="dt">colour=</span><span class="st">&quot;white&quot;</span>, <span class="dt">fill =</span> fillColor2) +
+<span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> author, <span class="dt">y =</span> <span class="dv">1</span>, <span class="dt">label =</span> <span class="kw">paste0</span>(<span class="st">&quot;(&quot;</span>,CountMedian,<span class="st">&quot;)&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)),
+            <span class="dt">hjust=</span><span class="dv">0</span>, <span class="dt">vjust=</span>.<span class="dv">5</span>, <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">colour =</span> <span class="st">&#39;black&#39;</span>,
+            <span class="dt">fontface =</span> <span class="st">&#39;bold&#39;</span>) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;author&#39;</span>, 
+       <span class="dt">y =</span> <span class="st">&#39;Count&#39;</span>, 
+       <span class="dt">title =</span> <span class="st">&#39;author and Count&#39;</span>) +
+<span class="st">  </span><span class="kw">coord_flip</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="peek-into-the-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="words-length-distribution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
