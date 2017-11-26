@@ -111,8 +111,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html"><i class="fa fa-check"></i><b>7</b> Top Twenty most Common Words</a><ul>
 <li class="chapter" data-level="7.1" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-the-common-words"><i class="fa fa-check"></i><b>7.1</b> WordCloud of the Common Words</a></li>
 <li class="chapter" data-level="7.2" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-hpl"><i class="fa fa-check"></i><b>7.2</b> WordCloud of HPL</a></li>
-<li class="chapter" data-level="7.3" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-mws"><i class="fa fa-check"></i><b>7.3</b> WordCloud of MWS</a></li>
-<li class="chapter" data-level="7.4" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-eap"><i class="fa fa-check"></i><b>7.4</b> WordCloud of EAP</a></li>
+<li class="chapter" data-level="7.3" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#barplot-for-words-of-hpl"><i class="fa fa-check"></i><b>7.3</b> BarPlot for words of HPL</a></li>
+<li class="chapter" data-level="7.4" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-mws"><i class="fa fa-check"></i><b>7.4</b> WordCloud of MWS</a></li>
+<li class="chapter" data-level="7.5" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#barplot-for-words-of-mws"><i class="fa fa-check"></i><b>7.5</b> BarPlot for words of MWS</a></li>
+<li class="chapter" data-level="7.6" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-eap"><i class="fa fa-check"></i><b>7.6</b> WordCloud of EAP</a></li>
+<li class="chapter" data-level="7.7" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#barplot-for-words-of-eap"><i class="fa fa-check"></i><b>7.7</b> BarPlot for words of EAP</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="tf-idf.html"><a href="tf-idf.html"><i class="fa fa-check"></i><b>8</b> TF-IDF</a><ul>
 <li class="chapter" data-level="8.1" data-path="tf-idf.html"><a href="tf-idf.html#the-math"><i class="fa fa-check"></i><b>8.1</b> The Math</a></li>
@@ -214,7 +217,7 @@ train %&gt;%
 
 
 <span class="kw">plotEmotions</span>(<span class="st">&quot;fear&quot;</span>)</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 </div>
 <div id="fear-word-cloud---mwp" class="section level2">
 <h2><span class="header-section-number">13.2</span> Fear Word Cloud - MWP</h2>
@@ -308,13 +311,13 @@ change
 </table>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wordcloud</span>(FearWordsMWS$word, FearWordsMWS$Count, <span class="dt">max.words =</span> <span class="dv">30</span>,<span class="dt">colors=</span><span class="kw">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>))</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 </div>
 <div id="sentiment-analysis-words---surprise" class="section level2">
 <h2><span class="header-section-number">13.3</span> Sentiment Analysis Words - Surprise</h2>
 <p>The plot shows the authors with the <strong>Count</strong> of Surprise words.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plotEmotions</span>(<span class="st">&quot;surprise&quot;</span>,fillColor)</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 </div>
 <div id="surprise-word-cloud---mwp" class="section level2">
 <h2><span class="header-section-number">13.4</span> Surprise Word Cloud - MWP</h2>
@@ -389,13 +392,13 @@ suddenly
 </table>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wordcloud</span>(SurpriseWordsMWS$word, SurpriseWordsMWS$Count, <span class="dt">max.words =</span> <span class="dv">30</span>,<span class="dt">colors=</span><span class="kw">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>))</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 </div>
 <div id="sentiment-analysis-words---joy" class="section level2">
 <h2><span class="header-section-number">13.5</span> Sentiment Analysis Words - Joy</h2>
 <p>The plot shows the authors with the <strong>Count</strong> of Joy words.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plotEmotions</span>(<span class="st">&quot;joy&quot;</span>,fillColor2)</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 </div>
 <div id="joy-word-cloud---mwp" class="section level2">
 <h2><span class="header-section-number">13.6</span> Joy Word Cloud - MWP</h2>
@@ -471,7 +474,7 @@ beauty
 </table>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wordcloud</span>(JoyWordsMWS$word, JoyWordsMWS$Count, <span class="dt">max.words =</span> <span class="dv">30</span>,<span class="dt">colors=</span><span class="kw">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>))</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 
 </div>
 </div>

@@ -111,8 +111,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html"><i class="fa fa-check"></i><b>7</b> Top Twenty most Common Words</a><ul>
 <li class="chapter" data-level="7.1" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-the-common-words"><i class="fa fa-check"></i><b>7.1</b> WordCloud of the Common Words</a></li>
 <li class="chapter" data-level="7.2" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-hpl"><i class="fa fa-check"></i><b>7.2</b> WordCloud of HPL</a></li>
-<li class="chapter" data-level="7.3" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-mws"><i class="fa fa-check"></i><b>7.3</b> WordCloud of MWS</a></li>
-<li class="chapter" data-level="7.4" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-eap"><i class="fa fa-check"></i><b>7.4</b> WordCloud of EAP</a></li>
+<li class="chapter" data-level="7.3" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#barplot-for-words-of-hpl"><i class="fa fa-check"></i><b>7.3</b> BarPlot for words of HPL</a></li>
+<li class="chapter" data-level="7.4" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-mws"><i class="fa fa-check"></i><b>7.4</b> WordCloud of MWS</a></li>
+<li class="chapter" data-level="7.5" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#barplot-for-words-of-mws"><i class="fa fa-check"></i><b>7.5</b> BarPlot for words of MWS</a></li>
+<li class="chapter" data-level="7.6" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-eap"><i class="fa fa-check"></i><b>7.6</b> WordCloud of EAP</a></li>
+<li class="chapter" data-level="7.7" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#barplot-for-words-of-eap"><i class="fa fa-check"></i><b>7.7</b> BarPlot for words of EAP</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="tf-idf.html"><a href="tf-idf.html"><i class="fa fa-check"></i><b>8</b> TF-IDF</a><ul>
 <li class="chapter" data-level="8.1" data-path="tf-idf.html"><a href="tf-idf.html#the-math"><i class="fa fa-check"></i><b>8.1</b> The Math</a></li>
@@ -174,7 +177,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="top-twenty-most-common-words" class="section level1">
 <h1><span class="header-section-number">Chapter 7</span> Top Twenty most Common Words</h1>
 <p>We examine the Top Twenty Most Common words and show them in a bar graph. Several words which occur a lot are <strong>time , life , found , night, eyes, day , death, mind , heard</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">train %&gt;%
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">createBarPlotCommonWords =<span class="st"> </span>function(train,title)
+{
+  train %&gt;%
 <span class="st">  </span><span class="kw">unnest_tokens</span>(word, text) %&gt;%
 <span class="st">  </span><span class="kw">filter</span>(!word %in%<span class="st"> </span>stop_words$word) %&gt;%
 <span class="st">  </span><span class="kw">count</span>(word,<span class="dt">sort =</span> <span class="ot">TRUE</span>) %&gt;%
@@ -188,9 +193,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <span class="dt">hjust=</span><span class="dv">0</span>, <span class="dt">vjust=</span>.<span class="dv">5</span>, <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">colour =</span> <span class="st">&#39;black&#39;</span>,
             <span class="dt">fontface =</span> <span class="st">&#39;bold&#39;</span>) +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Word&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Word Count&#39;</span>, 
-       <span class="dt">title =</span> <span class="st">&#39;Top 10 most Common Words&#39;</span>) +
+       <span class="dt">title =</span> title) +
 <span class="st">  </span><span class="kw">coord_flip</span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
+<span class="st">  </span><span class="kw">theme_bw</span>()
+
+}
+
+<span class="kw">createBarPlotCommonWords</span>(train,<span class="st">&#39;Top 10 most Common Words&#39;</span>)</code></pre></div>
 <p><img src="littleBook_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <div id="wordcloud-of-the-common-words" class="section level2">
 <h2><span class="header-section-number">7.1</span> WordCloud of the Common Words</h2>
@@ -216,17 +225,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">createWordCloud</span>(train %&gt;%<span class="st"> </span><span class="kw">filter</span>(author ==<span class="st"> &#39;HPL&#39;</span>))</code></pre></div>
 <p><img src="littleBook_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
-<div id="wordcloud-of-mws" class="section level2">
-<h2><span class="header-section-number">7.3</span> WordCloud of MWS</h2>
-<p><strong>Raymond,heart, love, time and eyes</strong> are the most common words written by Mary Wollstonecraft Shelley</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">createWordCloud</span>(train %&gt;%<span class="st"> </span><span class="kw">filter</span>(author ==<span class="st"> &#39;MWS&#39;</span>))</code></pre></div>
+<div id="barplot-for-words-of-hpl" class="section level2">
+<h2><span class="header-section-number">7.3</span> BarPlot for words of HPL</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">createBarPlotCommonWords</span>(train %&gt;%<span class="st"> </span><span class="kw">filter</span>(author ==<span class="st"> &#39;HPL&#39;</span>),<span class="st">&#39;Top 10 most Common Words of HPL&#39;</span>)</code></pre></div>
 <p><img src="littleBook_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 </div>
+<div id="wordcloud-of-mws" class="section level2">
+<h2><span class="header-section-number">7.4</span> WordCloud of MWS</h2>
+<p><strong>Raymond,heart, love, time and eyes</strong> are the most common words written by Mary Wollstonecraft Shelley</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">createWordCloud</span>(train %&gt;%<span class="st"> </span><span class="kw">filter</span>(author ==<span class="st"> &#39;MWS&#39;</span>))</code></pre></div>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="barplot-for-words-of-mws" class="section level2">
+<h2><span class="header-section-number">7.5</span> BarPlot for words of MWS</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">createBarPlotCommonWords</span>(train %&gt;%<span class="st"> </span><span class="kw">filter</span>(author ==<span class="st"> &#39;MWS&#39;</span>),<span class="st">&#39;Top 10 most Common Words of MWS&#39;</span>)</code></pre></div>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+</div>
 <div id="wordcloud-of-eap" class="section level2">
-<h2><span class="header-section-number">7.4</span> WordCloud of EAP</h2>
+<h2><span class="header-section-number">7.6</span> WordCloud of EAP</h2>
 <p><strong>Found, time, eyes, length, head, day</strong> are the most common words written by Edgar Allan Poe.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">createWordCloud</span>(train %&gt;%<span class="st"> </span><span class="kw">filter</span>(author ==<span class="st"> &#39;EAP&#39;</span>))</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+<div id="barplot-for-words-of-eap" class="section level2">
+<h2><span class="header-section-number">7.7</span> BarPlot for words of EAP</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">createBarPlotCommonWords</span>(train %&gt;%<span class="st"> </span><span class="kw">filter</span>(author ==<span class="st"> &#39;EAP&#39;</span>),<span class="st">&#39;Top 10 most Common Words of EAP&#39;</span>)</code></pre></div>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 
 </div>
 </div>

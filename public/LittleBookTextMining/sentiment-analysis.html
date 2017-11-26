@@ -111,8 +111,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html"><i class="fa fa-check"></i><b>7</b> Top Twenty most Common Words</a><ul>
 <li class="chapter" data-level="7.1" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-the-common-words"><i class="fa fa-check"></i><b>7.1</b> WordCloud of the Common Words</a></li>
 <li class="chapter" data-level="7.2" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-hpl"><i class="fa fa-check"></i><b>7.2</b> WordCloud of HPL</a></li>
-<li class="chapter" data-level="7.3" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-mws"><i class="fa fa-check"></i><b>7.3</b> WordCloud of MWS</a></li>
-<li class="chapter" data-level="7.4" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-eap"><i class="fa fa-check"></i><b>7.4</b> WordCloud of EAP</a></li>
+<li class="chapter" data-level="7.3" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#barplot-for-words-of-hpl"><i class="fa fa-check"></i><b>7.3</b> BarPlot for words of HPL</a></li>
+<li class="chapter" data-level="7.4" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-mws"><i class="fa fa-check"></i><b>7.4</b> WordCloud of MWS</a></li>
+<li class="chapter" data-level="7.5" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#barplot-for-words-of-mws"><i class="fa fa-check"></i><b>7.5</b> BarPlot for words of MWS</a></li>
+<li class="chapter" data-level="7.6" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-eap"><i class="fa fa-check"></i><b>7.6</b> WordCloud of EAP</a></li>
+<li class="chapter" data-level="7.7" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#barplot-for-words-of-eap"><i class="fa fa-check"></i><b>7.7</b> BarPlot for words of EAP</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="tf-idf.html"><a href="tf-idf.html"><i class="fa fa-check"></i><b>8</b> TF-IDF</a><ul>
 <li class="chapter" data-level="8.1" data-path="tf-idf.html"><a href="tf-idf.html#the-math"><i class="fa fa-check"></i><b>8.1</b> The Math</a></li>
@@ -202,7 +205,7 @@ trainWords &lt;-<span class="st"> </span>train %&gt;%
 <span class="st">  </span><span class="kw">ungroup</span>()
 
 <span class="kw">visualize_sentiments</span>(trainWords)</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 </div>
 <div id="postive-and-not-so-postive-words-of-authors" class="section level2">
 <h2><span class="header-section-number">12.2</span> Postive and Not So Postive Words of Authors</h2>
@@ -228,28 +231,28 @@ trainWords &lt;-<span class="st"> </span>train %&gt;%
 }
 
 <span class="kw">positiveWordsBarGraph</span>(train)</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 </div>
 <div id="postive-and-not-so-postive-words-of-author-hpl" class="section level2">
 <h2><span class="header-section-number">12.3</span> Postive and Not So Postive Words of Author HPL</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">trainHPL =<span class="st"> </span>train %&gt;%<span class="st"> </span><span class="kw">filter</span>(author ==<span class="st"> &#39;HPL&#39;</span>)
 
 <span class="kw">positiveWordsBarGraph</span>(trainHPL)</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 </div>
 <div id="postive-and-not-so-postive-words-of-author-eap" class="section level2">
 <h2><span class="header-section-number">12.4</span> Postive and Not So Postive Words of Author EAP</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">trainEAP =<span class="st"> </span>train %&gt;%<span class="st"> </span><span class="kw">filter</span>(author ==<span class="st"> &#39;EAP&#39;</span>)
 
 <span class="kw">positiveWordsBarGraph</span>(trainEAP)</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 </div>
 <div id="postive-and-not-so-postive-words-of-author-mws" class="section level2">
 <h2><span class="header-section-number">12.5</span> Postive and Not So Postive Words of Author MWS</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">trainMWS =<span class="st"> </span>train %&gt;%<span class="st"> </span><span class="kw">filter</span>(author ==<span class="st"> &#39;MWS&#39;</span>)
 
 <span class="kw">positiveWordsBarGraph</span>(trainMWS)</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 
 </div>
 </div>

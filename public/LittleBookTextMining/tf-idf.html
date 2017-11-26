@@ -111,8 +111,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html"><i class="fa fa-check"></i><b>7</b> Top Twenty most Common Words</a><ul>
 <li class="chapter" data-level="7.1" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-the-common-words"><i class="fa fa-check"></i><b>7.1</b> WordCloud of the Common Words</a></li>
 <li class="chapter" data-level="7.2" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-hpl"><i class="fa fa-check"></i><b>7.2</b> WordCloud of HPL</a></li>
-<li class="chapter" data-level="7.3" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-mws"><i class="fa fa-check"></i><b>7.3</b> WordCloud of MWS</a></li>
-<li class="chapter" data-level="7.4" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-eap"><i class="fa fa-check"></i><b>7.4</b> WordCloud of EAP</a></li>
+<li class="chapter" data-level="7.3" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#barplot-for-words-of-hpl"><i class="fa fa-check"></i><b>7.3</b> BarPlot for words of HPL</a></li>
+<li class="chapter" data-level="7.4" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-mws"><i class="fa fa-check"></i><b>7.4</b> WordCloud of MWS</a></li>
+<li class="chapter" data-level="7.5" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#barplot-for-words-of-mws"><i class="fa fa-check"></i><b>7.5</b> BarPlot for words of MWS</a></li>
+<li class="chapter" data-level="7.6" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-eap"><i class="fa fa-check"></i><b>7.6</b> WordCloud of EAP</a></li>
+<li class="chapter" data-level="7.7" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#barplot-for-words-of-eap"><i class="fa fa-check"></i><b>7.7</b> BarPlot for words of EAP</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="tf-idf.html"><a href="tf-idf.html"><i class="fa fa-check"></i><b>8</b> TF-IDF</a><ul>
 <li class="chapter" data-level="8.1" data-path="tf-idf.html"><a href="tf-idf.html#the-math"><i class="fa fa-check"></i><b>8.1</b> The Math</a></li>
@@ -223,7 +226,7 @@ plot_trainWords %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;tf-idf&quot;</span>) +
 <span class="st">  </span><span class="kw">coord_flip</span>() +
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <div id="twenty-most-important-words-hpl" class="section level3">
 <h3><span class="header-section-number">8.2.1</span> Twenty most important words HPL</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plot_trainWords %&gt;%
@@ -234,7 +237,7 @@ plot_trainWords %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;tf-idf&quot;</span>) +
 <span class="st">  </span><span class="kw">coord_flip</span>() +
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 </div>
 <div id="twenty-most-important-words-eap" class="section level3">
 <h3><span class="header-section-number">8.2.2</span> Twenty most important words EAP</h3>
@@ -246,7 +249,7 @@ plot_trainWords %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;tf-idf&quot;</span>) +
 <span class="st">  </span><span class="kw">coord_flip</span>() +
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 </div>
 <div id="twenty-most-important-words-mws" class="section level3">
 <h3><span class="header-section-number">8.2.3</span> Twenty most important words MWS</h3>
@@ -258,7 +261,7 @@ plot_trainWords %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;tf-idf&quot;</span>) +
 <span class="st">  </span><span class="kw">coord_flip</span>() +
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 </div>
 </div>
 <div id="word-cloud-for-the-most-important-words" class="section level2">
@@ -266,7 +269,7 @@ plot_trainWords %&gt;%<span class="st"> </span>
 <p>We show the <strong>Hundred</strong> most important words. This Word Cloud is based on the <strong>TF- IDF</strong> scores. Higher the score, bigger is the size of the text.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plot_trainWords %&gt;%
 <span class="st">  </span><span class="kw">with</span>(<span class="kw">wordcloud</span>(word, tf_idf, <span class="dt">max.words =</span> <span class="dv">100</span>,<span class="dt">colors=</span><span class="kw">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>)))</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 
 </div>
 </div>
