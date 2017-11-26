@@ -26,7 +26,9 @@ This is a Little Book on Data Visualization , Maps and Time series Forecasts and
 
 <hr>
 <div class="message">
-<a href="https://ambarishg.github.io/public/LittleBookTextMining/">Little Book on Text Mining<br>
+<a href="https://ambarishg.github.io/public/LittleBookTextMining/">Little Book on Text Mining</a>
+
+<br>
 
 This **Little Book on Text Mining** provides a gentle and hands on introduction to Text Mining. If you are tired of reading through pages of text and would like to get your hands dirty and experience on how to do a quick and detailed `text mining`, then  you are in the right place. This book does a detailed EDA on **Spooky Author Identification** dataset from Kaggle.              
 
