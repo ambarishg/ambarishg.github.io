@@ -35,9 +35,13 @@ This <b>Little Book on Text Mining</b> provides a gentle and hands on introducti
 
 <br>
 
+
+
 The live kernel is in <a href ="https://www.kaggle.com/ambarish/detailed-spooky-fun-eda-and-modelling">Detailed Spooky Fun EDA and Modelling</a>                    
 
 <br>
+
+
 
 The book focuses on the following topics               
 
