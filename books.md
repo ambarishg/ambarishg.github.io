@@ -34,13 +34,13 @@ This is a Little Book on Data Visualization , Maps and Time series Forecasts and
 This <b>Little Book on Text Mining</b> provides a gentle and hands on introduction to Text Mining. If you are tired of reading through pages of text and would like to get your hands dirty and experience on how to do a quick and detailed text mining, then  you are in the right place. This book does a detailed EDA on <b>Spooky Author Identification</b> dataset from Kaggle.              
 
 <br>
-
+<br>
 
 
 The live kernel is in <a href ="https://www.kaggle.com/ambarish/detailed-spooky-fun-eda-and-modelling">Detailed Spooky Fun EDA and Modelling</a>                    
 
 <br>
-
+<br>
 
 
 The book focuses on the following topics               
@@ -55,7 +55,7 @@ The book focuses on the following topics
 
 <li> Trigrams</li>                    
 
-<li> Relationship among various words    ( `Word Clouds` and `Bar Plots`)  </li>                
+<li> Relationship among various words    ( <i>Word Clouds and Bar Plots</i> )  </li>                
  
 <li> Sentiment Analysis</li>                            
 
