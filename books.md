@@ -2,6 +2,7 @@
 layout: page
 title: Books
 ---
+<tr>
 
 <div class="message">
 <a href="https://ambarishg.github.io/public/LittleBookEDA/">Little Book on Exploratory Data Analysis</a>
@@ -83,6 +84,5 @@ Please let me know your comments and suggestions.
 <br>
 
 </div>
-
 
 

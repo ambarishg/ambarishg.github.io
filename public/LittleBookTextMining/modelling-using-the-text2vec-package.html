@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="feature-nrc-sentiments.html">
-<link rel="next" href="document-term-matrix.html">
+<link rel="prev" href="predictions-using-glmnet-model.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -180,63 +180,85 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="he-or-she-analysis" class="section level1">
-<h1><span class="header-section-number">Chapter 17</span> He or She Analysis</h1>
-<p>We examine the words which start with <code>he</code> or <code>she</code>. This section draws inspiration from the blog post by <code>David Robinson</code> in his <a href="http://varianceexplained.org/r/tidytext-gender-plots/">writeup</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">train %&gt;%
-<span class="st">  </span><span class="kw">unnest_tokens</span>(bigram, text, <span class="dt">token =</span> <span class="st">&quot;ngrams&quot;</span>, <span class="dt">n =</span> <span class="dv">2</span>) %&gt;%
-<span class="st">  </span><span class="kw">separate</span>(bigram, <span class="kw">c</span>(<span class="st">&quot;word1&quot;</span>, <span class="st">&quot;word2&quot;</span>), <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(word1 %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;he&quot;</span>, <span class="st">&quot;she&quot;</span>))</code></pre></div>
-<pre><code>## # A tibble: 5,680 x 5
-##         id author   len word1       word2
-##      &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;
-##  1 id00004    EAP   134    he       might
-##  2 id00004    EAP   134    he necessarily
-##  3 id00017    EAP   469    he       makes
-##  4 id00029    MWS   115    he     entered
-##  5 id00035    HPL    75    he         was
-##  6 id00036    HPL   201    he         had
-##  7 id00037    MWS   274    he       owned
-##  8 id00037    MWS   274    he         the
-##  9 id00043    HPL   167    he    absorbed
-## 10 id00045    MWS   237    he       found
-## # ... with 5,670 more rows</code></pre>
-<div id="gender-associated-verbs" class="section level2">
-<h2><span class="header-section-number">17.1</span> Gender associated verbs</h2>
-<p>Which words were most shifted towards occurring after “he” or “she”? We’ll filter for words that appeared at least 20 times.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">train %&gt;%
-<span class="st">  </span><span class="kw">unnest_tokens</span>(bigram, text, <span class="dt">token =</span> <span class="st">&quot;ngrams&quot;</span>, <span class="dt">n =</span> <span class="dv">2</span>) %&gt;%
-<span class="st">  </span><span class="kw">separate</span>(bigram, <span class="kw">c</span>(<span class="st">&quot;word1&quot;</span>, <span class="st">&quot;word2&quot;</span>), <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(word1 %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;he&quot;</span>, <span class="st">&quot;she&quot;</span>)) %&gt;%
-<span class="st">  </span><span class="kw">count</span>(word1,word2) %&gt;%
-<span class="st">  </span><span class="kw">spread</span>(word1, n, <span class="dt">fill =</span> <span class="dv">0</span>) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">total =</span> he +<span class="st"> </span>she,
-       <span class="dt">he =</span> (he +<span class="st"> </span><span class="dv">1</span>) /<span class="st"> </span><span class="kw">sum</span>(he +<span class="st"> </span><span class="dv">1</span>),
-       <span class="dt">she =</span> (she +<span class="st"> </span><span class="dv">1</span>) /<span class="st"> </span><span class="kw">sum</span>(she +<span class="st"> </span><span class="dv">1</span>),
-       <span class="dt">log_ratio =</span> <span class="kw">log2</span>(she /<span class="st"> </span>he),
-       <span class="dt">abs_ratio =</span> <span class="kw">abs</span>(log_ratio)) %&gt;%
-<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(log_ratio)) %&gt;%
-<span class="st">  </span>
-<span class="st">  </span><span class="kw">filter</span>(!word2 %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;himself&quot;</span>, <span class="st">&quot;herself&quot;</span>),
-         !word2 %in%<span class="st"> </span>stop_words$word,
-         total&gt;=<span class="st"> </span><span class="dv">20</span>) %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(<span class="dt">direction =</span> <span class="kw">ifelse</span>(log_ratio &gt;<span class="st"> </span><span class="dv">0</span>, <span class="st">&#39;More &quot;she&quot;&#39;</span>, <span class="st">&quot;More &#39;he&#39;&quot;</span>)) %&gt;%
-<span class="st">  </span><span class="kw">top_n</span>(<span class="dv">15</span>, abs_ratio) %&gt;%
-<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">word2 =</span> <span class="kw">reorder</span>(word2, log_ratio)) %&gt;%
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(word2, log_ratio, <span class="dt">fill =</span> direction)) +
-<span class="st">  </span><span class="kw">geom_col</span>() +
-<span class="st">  </span><span class="kw">coord_flip</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>,
-       <span class="dt">y =</span> <span class="st">&#39;Relative appearance after &quot;she&quot; compared to &quot;he&quot;&#39;</span>,
-       <span class="dt">fill =</span> <span class="st">&quot;&quot;</span>,
-       <span class="dt">title =</span> <span class="st">&quot;Gender associated with Verbs &quot;</span>) +
-<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;4X&quot;</span>, <span class="st">&quot;2X&quot;</span>, <span class="st">&quot;Same&quot;</span>, <span class="st">&quot;2X&quot;</span>),
-                     <span class="dt">breaks =</span> <span class="kw">seq</span>(-<span class="dv">2</span>, <span class="dv">1</span>)) +
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="kw">guide_legend</span>(<span class="dt">reverse =</span> <span class="ot">TRUE</span>)) +
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="littleBook_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
-<p>She cried , She loved , She died ,She heard is common while He told, He spoke, He sat, He wished , He found are common</p>
+<div id="modelling-using-the-text2vec-package" class="section level1">
+<h1><span class="header-section-number">Chapter 22</span> Modelling using the text2vec package</h1>
+<p>We create a vocabulary-based DTM. Here we collect unique terms from all documents and mark each of them with a unique ID using the create_vocabulary() function. We use an iterator to create the vocabulary. We also prune the vocabulary to reduce the terms in the matrix.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">prep_fun  =<span class="st"> </span>function(x) {
+  stringr::<span class="kw">str_replace_all</span>(<span class="kw">tolower</span>(x), <span class="st">&quot;[^[:alpha:]]&quot;</span>, <span class="st">&quot; &quot;</span>)
+}
+
+tok_fun =<span class="st"> </span>word_tokenizer
+
+it_train =<span class="st"> </span><span class="kw">itoken</span>(train$text, 
+                  <span class="dt">preprocessor =</span> prep_fun, 
+                  <span class="dt">tokenizer =</span> tok_fun, 
+                  <span class="dt">ids =</span> train$id, 
+                  <span class="dt">progressbar =</span> <span class="ot">FALSE</span>)
+
+
+
+it_test =<span class="st"> </span>test$text %&gt;%<span class="st"> </span>
+<span class="st">  </span>prep_fun %&gt;%<span class="st"> </span>
+<span class="st">  </span>tok_fun %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">itoken</span>(<span class="dt">ids =</span> test$id,  <span class="dt">progressbar =</span> <span class="ot">FALSE</span>)
+
+
+NFOLDS =<span class="st"> </span><span class="dv">4</span>
+vocab =<span class="st"> </span><span class="kw">create_vocabulary</span>(it_train, <span class="dt">ngram =</span> <span class="kw">c</span>(1L, 3L))
+vocab =<span class="st"> </span>vocab %&gt;%<span class="st"> </span><span class="kw">prune_vocabulary</span>(<span class="dt">term_count_min =</span> <span class="dv">10</span>, 
+                                   <span class="dt">doc_proportion_max =</span> <span class="fl">0.5</span>,
+                                   <span class="dt">doc_proportion_min =</span> <span class="fl">0.01</span>)
+
+trigram_vectorizer =<span class="st"> </span><span class="kw">vocab_vectorizer</span>(vocab)
+
+dtm_train =<span class="st"> </span><span class="kw">create_dtm</span>(it_train, trigram_vectorizer)
+dtm_test =<span class="st"> </span><span class="kw">create_dtm</span>(it_test, trigram_vectorizer)</code></pre></div>
+<div id="inspect-the-vocabulary" class="section level2">
+<h2><span class="header-section-number">22.1</span> Inspect the vocabulary</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vocab</code></pre></div>
+<pre><code>## Number of docs: 19579 
+## 0 stopwords:  ... 
+## ngram_min = 1; ngram_max = 3 
+## Vocabulary: 
+##          term term_count doc_count
+##   1:    black        198       196
+##   2:    until        200       200
+##   3: over_the        201       198
+##   4:   spirit        202       198
+##   5:     open        203       199
+##  ---                              
+## 325:      was       6647      5493
+## 326:       in       9458      7101
+## 327:        a      10750      7507
+## 328:        i      10811      7075
+## 329:       to      12843      8665</code></pre>
+</div>
+<div id="inspect-the-document-term-matrix" class="section level2">
+<h2><span class="header-section-number">22.2</span> Inspect the Document Term Matrix</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(dtm_train)</code></pre></div>
+<pre><code>## [1] 19579   329</code></pre>
+</div>
+<div id="build-the-multinomial-logistic-regression-model" class="section level2">
+<h2><span class="header-section-number">22.3</span> Build the Multinomial Logistic Regression Model</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dtm_train &lt;-<span class="st"> </span><span class="kw">cBind</span>(train$len, dtm_train)
+dtm_test &lt;-<span class="st"> </span><span class="kw">cBind</span>(test$len, dtm_test)
+
+glmnet_classifier =<span class="st"> </span><span class="kw">cv.glmnet</span>(<span class="dt">x =</span> dtm_train, <span class="dt">y =</span> train[[<span class="st">&#39;author&#39;</span>]], 
+                              <span class="dt">family =</span> <span class="st">&#39;multinomial&#39;</span>, 
+                              <span class="dt">alpha =</span> <span class="dv">1</span>,
+                              <span class="dt">type.measure =</span> <span class="st">&quot;class&quot;</span>,
+                              <span class="dt">nfolds =</span> NFOLDS,
+                              <span class="dt">thresh =</span> <span class="fl">1e-3</span>,
+                              <span class="dt">maxit =</span> <span class="fl">1e3</span>)</code></pre></div>
+</div>
+<div id="predict-using-the-multinomial-logistic-regression-model" class="section level2">
+<h2><span class="header-section-number">22.4</span> Predict using the Multinomial Logistic Regression Model</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">preds =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">id=</span>test$id,<span class="kw">predict</span>(glmnet_classifier, dtm_test, <span class="dt">type =</span> <span class="st">&#39;response&#39;</span>))
+<span class="kw">names</span>(preds)[<span class="dv">2</span>] &lt;-<span class="st"> &quot;EAP&quot;</span>
+<span class="kw">names</span>(preds)[<span class="dv">3</span>] &lt;-<span class="st"> &quot;HPL&quot;</span>
+<span class="kw">names</span>(preds)[<span class="dv">4</span>] &lt;-<span class="st"> &quot;MWS&quot;</span>
+
+<span class="kw">write_csv</span>(preds, <span class="st">&quot;glmnet_benchmark_vocab_3N-grams.csv&quot;</span>)</code></pre></div>
 
 </div>
 </div>
@@ -245,8 +267,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="feature-nrc-sentiments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="document-term-matrix.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="predictions-using-glmnet-model.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
