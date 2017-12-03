@@ -5,9 +5,11 @@ title: Books
 
 <table>
 
+  <hr>
+
   <tr>
 
-  <td>
+  <td width="50%">
 
     <div class="message">
     <a href="https://ambarishg.github.io/public/LittleBookEDA/">Little Book on Exploratory Data Analysis</a>
@@ -25,7 +27,7 @@ title: Books
 
 <hr>
 
-    <td>
+    <td width="50%">
       <div class="message">
       <a href="https://ambarishg.github.io/public/LittleBookDataViz/">Little Book on Data Visualizations and Time Forecasts</a>
       <br>
@@ -39,7 +41,7 @@ title: Books
 
 <tr>
 
-<td>
+<td colspan =2>
 
 <hr>
 
