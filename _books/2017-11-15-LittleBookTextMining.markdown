@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Little Book on Text Mining"
+description: Gentle , detailed guide for Text Mining using R programming language
 ---
 
 This book provides a gentle and hands on introduction to Text Mining. If you are tired of reading through pages of text and would like to get your hands dirty and experience on how to do a quick and detailed text mining, then  you are in the right place. This book does a detailed EDA on **Spooky Author Identification** dataset from Kaggle.     
