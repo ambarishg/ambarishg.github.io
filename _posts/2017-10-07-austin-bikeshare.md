@@ -5,13 +5,17 @@ categories: DataVisualization
 tags:
 - DataVisualization
 - cartography
+description: We explore the Austin Bike Share data for Start and Destination stations, Bicycle Routes, Time , Day and Month analysis of Bike use....
 ---
 
 *Catching a show on Red River? Eating on the East Side? Paddleboarding at Zilker? All of the above?*
 
 Hop on a B-cycle and coast your way through the People’s Republic of **Austin**
 
-![Start Riding](/images/AustinBikeShare/Rates.png){:class="img-responsive"}
+<div class="img_row">
+	<img class="col three" src="/img/AustinBikeShare/Rates.png">
+</div>
+
 
 We explore the Austin Bike Share data for the following topics :                       
 

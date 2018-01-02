@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Little Book on Exploratory Data Analysis</title>
+  <meta name="description" content="Little Book on Exploratory Data Analysis">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Little Book on Exploratory Data Analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Little Book on Exploratory Data Analysis" />
+  
+  
+  
+
+<meta name="author" content="Ambarish Ganguly">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="distribution-of-meteorite-landings.html">
+<link rel="next" href="distribution-of-us-meteorite-landings.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
+<link href="libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-0.7.7/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<link href="libs/leaflet-label-0.2.2/leaflet.label.css" rel="stylesheet" />
+<script src="libs/leaflet-label-0.2.2/leaflet.label.js"></script>
+<script src="libs/Proj4Leaflet-0.7.2/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-0.7.2/proj4leaflet.js"></script>
+<script src="libs/leaflet-binding-1.1.0/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.0.27/leaflet-providers.js"></script>
+<script src="libs/leaflet-providers-plugin-1.1.0/leaflet-providers-plugin.js"></script>
+<script src="libs/Leaflet.heat-0.1.0/leaflet-heat.js"></script>
+<script src="libs/Leaflet.heat-0.1.0/heat-bindings.js"></script>
+<link href="libs/leaflet-markercluster-0.5.0/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-0.5.0/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-0.5.0/leaflet.markercluster.js"></script>
+<script src="libs/leaflet-markercluster-0.5.0/leaflet.markercluster.layersupport-src.js"></script>
+<script src="libs/leaflet-markercluster-0.5.0/leaflet.markercluster.freezable-src.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Little Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#meteorite-landings-dataset"><i class="fa fa-check"></i><b>1.1</b> Meteorite Landings Dataset</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#adverse-food-events-dataset"><i class="fa fa-check"></i><b>1.2</b> Adverse Food Events Dataset</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#live-version"><i class="fa fa-check"></i><b>1.3</b> Live version</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="variable-types.html"><a href="variable-types.html"><i class="fa fa-check"></i><b>2</b> Variable Types</a><ul>
+<li class="chapter" data-level="2.1" data-path="variable-types.html"><a href="variable-types.html#numeric-variables"><i class="fa fa-check"></i><b>2.1</b> Numeric Variables</a></li>
+<li class="chapter" data-level="2.2" data-path="variable-types.html"><a href="variable-types.html#categorical-variables"><i class="fa fa-check"></i><b>2.2</b> Categorical Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="graph-types.html"><a href="graph-types.html"><i class="fa fa-check"></i><b>3</b> Graph Types</a><ul>
+<li class="chapter" data-level="3.1" data-path="graph-types.html"><a href="graph-types.html#bar-plot"><i class="fa fa-check"></i><b>3.1</b> Bar Plot</a></li>
+<li class="chapter" data-level="3.2" data-path="graph-types.html"><a href="graph-types.html#histogram"><i class="fa fa-check"></i><b>3.2</b> Histogram</a></li>
+<li class="chapter" data-level="3.3" data-path="graph-types.html"><a href="graph-types.html#boxplot"><i class="fa fa-check"></i><b>3.3</b> BoxPlot</a></li>
+<li class="chapter" data-level="3.4" data-path="graph-types.html"><a href="graph-types.html#scatter-plot"><i class="fa fa-check"></i><b>3.4</b> Scatter Plot</a></li>
+<li class="chapter" data-level="3.5" data-path="graph-types.html"><a href="graph-types.html#facet"><i class="fa fa-check"></i><b>3.5</b> Facet</a></li>
+<li class="chapter" data-level="3.6" data-path="graph-types.html"><a href="graph-types.html#maps"><i class="fa fa-check"></i><b>3.6</b> Maps</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="grammar-of-data-manipulation.html"><a href="grammar-of-data-manipulation.html"><i class="fa fa-check"></i><b>4</b> Grammar of Data manipulation</a><ul>
+<li class="chapter" data-level="4.1" data-path="grammar-of-data-manipulation.html"><a href="grammar-of-data-manipulation.html#reorder-function"><i class="fa fa-check"></i><b>4.1</b> Reorder function</a></li>
+</ul></li>
+<li class="part"><span><b>I Meteorite Landings</b></span></li>
+<li class="chapter" data-level="5" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html"><i class="fa fa-check"></i><b>5</b> Prepare for Analysis</a><ul>
+<li class="chapter" data-level="5.1" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#install-the-software"><i class="fa fa-check"></i><b>5.1</b> Install the Software</a></li>
+<li class="chapter" data-level="5.2" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#install-the-packages"><i class="fa fa-check"></i><b>5.2</b> Install the packages</a></li>
+<li class="chapter" data-level="5.3" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#create-a-r-project"><i class="fa fa-check"></i><b>5.3</b> Create a R project</a></li>
+<li class="chapter" data-level="5.4" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#get-the-data"><i class="fa fa-check"></i><b>5.4</b> Get the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="read-the-data.html"><a href="read-the-data.html"><i class="fa fa-check"></i><b>6</b> Read the Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="read-the-data.html"><a href="read-the-data.html#peek-into-the-data"><i class="fa fa-check"></i><b>6.1</b> Peek into the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="class-analysis.html"><a href="class-analysis.html"><i class="fa fa-check"></i><b>7</b> Class Analysis</a><ul>
+<li class="chapter" data-level="7.1" data-path="class-analysis.html"><a href="class-analysis.html#meteorites-class-count"><i class="fa fa-check"></i><b>7.1</b> Meteorites Class Count</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="class-analysis.html"><a href="class-analysis.html#top-20-class-of-meteorites-by-count"><i class="fa fa-check"></i><b>7.1.1</b> Top 20 Class Of Meteorites by Count</a></li>
+<li class="chapter" data-level="7.1.2" data-path="class-analysis.html"><a href="class-analysis.html#top-20-meteorites-and-their-counts"><i class="fa fa-check"></i><b>7.1.2</b> Top 20 Meteorites and their Counts</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="class-analysis.html"><a href="class-analysis.html#top-20-class-of-meteorites-by-mass"><i class="fa fa-check"></i><b>7.2</b> Top 20 Class Of Meteorites by Mass</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="class-analysis.html"><a href="class-analysis.html#median-mass"><i class="fa fa-check"></i><b>7.2.1</b> Median Mass</a></li>
+<li class="chapter" data-level="7.2.2" data-path="class-analysis.html"><a href="class-analysis.html#median-mass-tabular-data"><i class="fa fa-check"></i><b>7.2.2</b> Median Mass Tabular Data</a></li>
+<li class="chapter" data-level="7.2.3" data-path="class-analysis.html"><a href="class-analysis.html#mean-mass"><i class="fa fa-check"></i><b>7.2.3</b> Mean Mass</a></li>
+<li class="chapter" data-level="7.2.4" data-path="class-analysis.html"><a href="class-analysis.html#mean-mass-tabular-data"><i class="fa fa-check"></i><b>7.2.4</b> Mean Mass Tabular Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html"><i class="fa fa-check"></i><b>8</b> Distribution of Mass</a><ul>
+<li class="chapter" data-level="8.1" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#heaviest-meteorite"><i class="fa fa-check"></i><b>8.1</b> Heaviest Meteorite</a></li>
+<li class="chapter" data-level="8.2" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#lightest-meteorite"><i class="fa fa-check"></i><b>8.2</b> Lightest Meteorite</a></li>
+<li class="chapter" data-level="8.3" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#valid-lightest-meteorite"><i class="fa fa-check"></i><b>8.3</b> Valid Lightest Meteorite</a></li>
+<li class="chapter" data-level="8.4" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#distribution-of-mass-classified-by-fall-type"><i class="fa fa-check"></i><b>8.4</b> Distribution of Mass classified by Fall Type</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#autoselect-fall-type-colors"><i class="fa fa-check"></i><b>8.4.1</b> Autoselect Fall Type Colors</a></li>
+<li class="chapter" data-level="8.4.2" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#select-fall-type-colors"><i class="fa fa-check"></i><b>8.4.2</b> Select Fall Type Colors</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#mass-with-plots-for-each-fall-type"><i class="fa fa-check"></i><b>8.5</b> Mass with plots for each fall Type</a></li>
+<li class="chapter" data-level="8.6" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#mass-with-plots-for-each-fall-type-1"><i class="fa fa-check"></i><b>8.6</b> Mass with plots for each fall Type</a></li>
+<li class="chapter" data-level="8.7" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#mass-with-plots-for-each-fall-type-partially-removing-outliers"><i class="fa fa-check"></i><b>8.7</b> Mass with plots for each fall Type ( partially removing outliers)</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="distribution-of-meteorite-landings.html"><a href="distribution-of-meteorite-landings.html"><i class="fa fa-check"></i><b>9</b> Distribution of Meteorite Landings</a><ul>
+<li class="chapter" data-level="9.1" data-path="distribution-of-meteorite-landings.html"><a href="distribution-of-meteorite-landings.html#distribution-of-meteorite-landings-with-meteorite-mass"><i class="fa fa-check"></i><b>9.1</b> Distribution of Meteorite Landings with Meteorite Mass</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html"><i class="fa fa-check"></i><b>10</b> Distribution of Indian Meteorite Landings</a><ul>
+<li class="chapter" data-level="10.1" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html#peek-into-the-indian-met-landings-data"><i class="fa fa-check"></i><b>10.1</b> Peek into the Indian Met Landings Data</a></li>
+<li class="chapter" data-level="10.2" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html#distribution-of-indian-meteorite-landings-with-fall-classification"><i class="fa fa-check"></i><b>10.2</b> Distribution of Indian Meteorite Landings with Fall Classification</a></li>
+<li class="chapter" data-level="10.3" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html#distribution-of-indian-meteorite-landings-with-meteorite-mass"><i class="fa fa-check"></i><b>10.3</b> Distribution of Indian Meteorite Landings with Meteorite Mass</a></li>
+<li class="chapter" data-level="10.4" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html#heatmap-of-indian-meteorite-landings"><i class="fa fa-check"></i><b>10.4</b> Heatmap of Indian Meteorite Landings</a></li>
+<li class="chapter" data-level="10.5" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html#distribution-of-indian-meteorite-landings-with-cluster-markers"><i class="fa fa-check"></i><b>10.5</b> Distribution of Indian Meteorite Landings with Cluster Markers</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="distribution-of-us-meteorite-landings.html"><a href="distribution-of-us-meteorite-landings.html"><i class="fa fa-check"></i><b>11</b> Distribution of US Meteorite Landings</a><ul>
+<li class="chapter" data-level="11.1" data-path="distribution-of-us-meteorite-landings.html"><a href="distribution-of-us-meteorite-landings.html#peek-into-the-us-met-landings-data"><i class="fa fa-check"></i><b>11.1</b> Peek into the US Met Landings Data</a></li>
+<li class="chapter" data-level="11.2" data-path="distribution-of-us-meteorite-landings.html"><a href="distribution-of-us-meteorite-landings.html#distribution-of-us-meteorite-landings-with-meteorite-mass"><i class="fa fa-check"></i><b>11.2</b> Distribution of US Meteorite Landings with Meteorite Mass</a></li>
+<li class="chapter" data-level="11.3" data-path="distribution-of-us-meteorite-landings.html"><a href="distribution-of-us-meteorite-landings.html#heatmap-of-us-meteorite-landings"><i class="fa fa-check"></i><b>11.3</b> Heatmap of US Meteorite Landings</a></li>
+<li class="chapter" data-level="11.4" data-path="distribution-of-us-meteorite-landings.html"><a href="distribution-of-us-meteorite-landings.html#distribution-of-us-meteorite-landings-with-cluster-markers"><i class="fa fa-check"></i><b>11.4</b> Distribution of US Meteorite Landings with Cluster Markers</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="distribution-of-african-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-african-meteorite-landings-with-meteorite-mass.html"><i class="fa fa-check"></i><b>12</b> Distribution of African Meteorite Landings with Meteorite Mass</a><ul>
+<li class="chapter" data-level="12.1" data-path="distribution-of-african-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-african-meteorite-landings-with-meteorite-mass.html#peek-into-the-africa-met-landings-data"><i class="fa fa-check"></i><b>12.1</b> Peek into the Africa Met Landings Data</a></li>
+<li class="chapter" data-level="12.2" data-path="distribution-of-african-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-african-meteorite-landings-with-meteorite-mass.html#heatmap-of-africa-meteorite-landings"><i class="fa fa-check"></i><b>12.2</b> Heatmap of Africa Meteorite Landings</a></li>
+<li class="chapter" data-level="12.3" data-path="distribution-of-african-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-african-meteorite-landings-with-meteorite-mass.html#distribution-of-africa-meteorite-landings-with-cluster-markers"><i class="fa fa-check"></i><b>12.3</b> Distribution of Africa Meteorite Landings with Cluster Markers</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="distribution-of-aus-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-aus-meteorite-landings-with-meteorite-mass.html"><i class="fa fa-check"></i><b>13</b> Distribution of Aus Meteorite Landings with Meteorite Mass</a><ul>
+<li class="chapter" data-level="13.1" data-path="distribution-of-aus-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-aus-meteorite-landings-with-meteorite-mass.html#peek-into-the-aus-met-landings-data"><i class="fa fa-check"></i><b>13.1</b> Peek into the Aus Met Landings Data</a></li>
+<li class="chapter" data-level="13.2" data-path="distribution-of-aus-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-aus-meteorite-landings-with-meteorite-mass.html#heatmap-of-aus-meteorite-landings"><i class="fa fa-check"></i><b>13.2</b> Heatmap of Aus Meteorite Landings</a></li>
+<li class="chapter" data-level="13.3" data-path="distribution-of-aus-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-aus-meteorite-landings-with-meteorite-mass.html#distribution-of-aus-meteorite-landings-with-cluster-markers"><i class="fa fa-check"></i><b>13.3</b> Distribution of Aus Meteorite Landings with Cluster Markers</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="year-analysis.html"><a href="year-analysis.html"><i class="fa fa-check"></i><b>14</b> Year Analysis</a><ul>
+<li class="chapter" data-level="14.1" data-path="year-analysis.html"><a href="year-analysis.html#years-with-the-most-meteorite-landings"><i class="fa fa-check"></i><b>14.1</b> Years with the Most Meteorite Landings</a></li>
+<li class="chapter" data-level="14.2" data-path="year-analysis.html"><a href="year-analysis.html#time-series-from-year-1970"><i class="fa fa-check"></i><b>14.2</b> Time Series from Year 1970</a></li>
+<li class="chapter" data-level="14.3" data-path="year-analysis.html"><a href="year-analysis.html#comparison-of-mass-and-years"><i class="fa fa-check"></i><b>14.3</b> Comparison of Mass and Years</a></li>
+<li class="chapter" data-level="14.4" data-path="year-analysis.html"><a href="year-analysis.html#comparison-of-mass-and-years-from-1900-onwards"><i class="fa fa-check"></i><b>14.4</b> Comparison of Mass and Years from 1900 onwards</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html"><i class="fa fa-check"></i><b>15</b> L6 Meteorite Analysis</a><ul>
+<li class="chapter" data-level="15.1" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html#distribution-of-l6-meteorite-landings"><i class="fa fa-check"></i><b>15.1</b> Distribution of L6 Meteorite Landings</a></li>
+<li class="chapter" data-level="15.2" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html#summary-of-the-l6-meteorites-mass"><i class="fa fa-check"></i><b>15.2</b> Summary of the L6 Meteorites Mass</a></li>
+<li class="chapter" data-level="15.3" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html#time-series-from-year-1970-for-l6"><i class="fa fa-check"></i><b>15.3</b> Time Series from Year 1970 for L6</a></li>
+<li class="chapter" data-level="15.4" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html#distribution-of-l6-us-meteorite-landings-with-meteorite-mass"><i class="fa fa-check"></i><b>15.4</b> Distribution of L6 US Meteorite Landings with Meteorite Mass</a></li>
+<li class="chapter" data-level="15.5" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html#distribution-of-indian-meteorite-l6-landings-with-meteorite-mass"><i class="fa fa-check"></i><b>15.5</b> Distribution of Indian Meteorite L6 Landings with Meteorite Mass</a></li>
+</ul></li>
+<li class="part"><span><b>II Adverse Food Event</b></span></li>
+<li class="chapter" data-level="16" data-path="read-the-data-1.html"><a href="read-the-data-1.html"><i class="fa fa-check"></i><b>16</b> Read the Data</a></li>
+<li class="chapter" data-level="17" data-path="peek-into-the-data-1.html"><a href="peek-into-the-data-1.html"><i class="fa fa-check"></i><b>17</b> Peek into the Data</a></li>
+<li class="chapter" data-level="18" data-path="rename-fields.html"><a href="rename-fields.html"><i class="fa fa-check"></i><b>18</b> Rename Fields</a></li>
+<li class="chapter" data-level="19" data-path="ten-most-common-symptoms.html"><a href="ten-most-common-symptoms.html"><i class="fa fa-check"></i><b>19</b> Ten Most Common Symptoms</a></li>
+<li class="chapter" data-level="20" data-path="ten-most-common-product-name.html"><a href="ten-most-common-product-name.html"><i class="fa fa-check"></i><b>20</b> Ten Most Common Product Name</a></li>
+<li class="chapter" data-level="21" data-path="ten-most-common-industry-name.html"><a href="ten-most-common-industry-name.html"><i class="fa fa-check"></i><b>21</b> Ten Most Common Industry Name</a></li>
+<li class="chapter" data-level="22" data-path="ages-commonly-affected.html"><a href="ages-commonly-affected.html"><i class="fa fa-check"></i><b>22</b> Ages Commonly Affected</a></li>
+<li class="chapter" data-level="23" data-path="distribution-of-ages.html"><a href="distribution-of-ages.html"><i class="fa fa-check"></i><b>23</b> Distribution of Ages</a><ul>
+<li class="chapter" data-level="23.1" data-path="distribution-of-ages.html"><a href="distribution-of-ages.html#and-above-adverse-products"><i class="fa fa-check"></i><b>23.1</b> 70 and Above Adverse Products</a></li>
+<li class="chapter" data-level="23.2" data-path="distribution-of-ages.html"><a href="distribution-of-ages.html#age-60---69-adverse-products"><i class="fa fa-check"></i><b>23.2</b> Age 60 - 69 Adverse Products</a></li>
+<li class="chapter" data-level="23.3" data-path="distribution-of-ages.html"><a href="distribution-of-ages.html#age-50---59-adverse-products"><i class="fa fa-check"></i><b>23.3</b> Age 50 - 59 Adverse Products</a></li>
+<li class="chapter" data-level="23.4" data-path="distribution-of-ages.html"><a href="distribution-of-ages.html#less-than-5-adverse-products"><i class="fa fa-check"></i><b>23.4</b> Less than 5 Adverse Products</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="ten-most-common-outcomes.html"><a href="ten-most-common-outcomes.html"><i class="fa fa-check"></i><b>24</b> Ten Most Common Outcomes</a></li>
+<li class="chapter" data-level="25" data-path="outcomes-and-products-associated-with-adverse-events.html"><a href="outcomes-and-products-associated-with-adverse-events.html"><i class="fa fa-check"></i><b>25</b> Outcomes and Products associated with Adverse Events</a><ul>
+<li class="chapter" data-level="25.1" data-path="outcomes-and-products-associated-with-adverse-events.html"><a href="outcomes-and-products-associated-with-adverse-events.html#death-products"><i class="fa fa-check"></i><b>25.1</b> Death Products</a></li>
+<li class="chapter" data-level="25.2" data-path="outcomes-and-products-associated-with-adverse-events.html"><a href="outcomes-and-products-associated-with-adverse-events.html#death-products-for-age-70-and-above"><i class="fa fa-check"></i><b>25.2</b> Death Products for Age 70 and Above</a></li>
+<li class="chapter" data-level="25.3" data-path="outcomes-and-products-associated-with-adverse-events.html"><a href="outcomes-and-products-associated-with-adverse-events.html#disability-products"><i class="fa fa-check"></i><b>25.3</b> Disability Products</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="symptoms-and-the-products-causing-it.html"><a href="symptoms-and-the-products-causing-it.html"><i class="fa fa-check"></i><b>26</b> Symptoms and the Products Causing it</a><ul>
+<li class="chapter" data-level="26.1" data-path="symptoms-and-the-products-causing-it.html"><a href="symptoms-and-the-products-causing-it.html#diarrhoea"><i class="fa fa-check"></i><b>26.1</b> Diarrhoea</a></li>
+<li class="chapter" data-level="26.2" data-path="symptoms-and-the-products-causing-it.html"><a href="symptoms-and-the-products-causing-it.html#vomiting"><i class="fa fa-check"></i><b>26.2</b> Vomiting</a></li>
+<li class="chapter" data-level="26.3" data-path="symptoms-and-the-products-causing-it.html"><a href="symptoms-and-the-products-causing-it.html#abdominal-pain"><i class="fa fa-check"></i><b>26.3</b> Abdominal Pain</a></li>
+<li class="chapter" data-level="26.4" data-path="symptoms-and-the-products-causing-it.html"><a href="symptoms-and-the-products-causing-it.html#dizziness"><i class="fa fa-check"></i><b>26.4</b> Dizziness</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="time-analysis-of-adverse-events.html"><a href="time-analysis-of-adverse-events.html"><i class="fa fa-check"></i><b>27</b> Time Analysis of Adverse Events</a><ul>
+<li class="chapter" data-level="27.1" data-path="time-analysis-of-adverse-events.html"><a href="time-analysis-of-adverse-events.html#year-wise"><i class="fa fa-check"></i><b>27.1</b> Year wise</a></li>
+<li class="chapter" data-level="27.2" data-path="time-analysis-of-adverse-events.html"><a href="time-analysis-of-adverse-events.html#most-common-month-for-adverse-events"><i class="fa fa-check"></i><b>27.2</b> Most Common Month for Adverse Events</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html"><i class="fa fa-check"></i><b>28</b> Products in Adverse Events for January</a><ul>
+<li class="chapter" data-level="28.1" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html#wen-cleansing-conditioner-symptoms"><i class="fa fa-check"></i><b>28.1</b> Wen Cleansing Conditioner Symptoms</a></li>
+<li class="chapter" data-level="28.2" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html#vitamin-d-symptoms"><i class="fa fa-check"></i><b>28.2</b> Vitamin D Symptoms</a></li>
+<li class="chapter" data-level="28.3" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html#hydroxycut-symptoms"><i class="fa fa-check"></i><b>28.3</b> Hydroxycut Symptoms</a></li>
+<li class="chapter" data-level="28.4" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html#multivitamin-symptoms"><i class="fa fa-check"></i><b>28.4</b> MultiVitamin Symptoms</a></li>
+<li class="chapter" data-level="28.5" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html#fish-oil-symptoms"><i class="fa fa-check"></i><b>28.5</b> Fish Oil Symptoms</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="gender-and-adverse-events.html"><a href="gender-and-adverse-events.html"><i class="fa fa-check"></i><b>29</b> Gender and Adverse Events</a><ul>
+<li class="chapter" data-level="29.1" data-path="gender-and-adverse-events.html"><a href="gender-and-adverse-events.html#plot-products-for-female"><i class="fa fa-check"></i><b>29.1</b> Plot Products for Female</a></li>
+<li class="chapter" data-level="29.2" data-path="gender-and-adverse-events.html"><a href="gender-and-adverse-events.html#plot-products-for-male"><i class="fa fa-check"></i><b>29.2</b> Plot Products for Male</a></li>
+<li class="chapter" data-level="29.3" data-path="gender-and-adverse-events.html"><a href="gender-and-adverse-events.html#female-symptoms-top-10"><i class="fa fa-check"></i><b>29.3</b> Female Symptoms Top 10</a></li>
+<li class="chapter" data-level="29.4" data-path="gender-and-adverse-events.html"><a href="gender-and-adverse-events.html#male-symptoms-top-10"><i class="fa fa-check"></i><b>29.4</b> Male Symptoms Top 10</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Little Book on Exploratory Data Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="distribution-of-indian-meteorite-landings" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Distribution of Indian Meteorite Landings</h1>
+<p>The following plot shows the distribution of the <strong>Indian</strong> meteorite landings.Here we have filtered the <strong>Indian</strong> meteorite landings by filtering the <strong>latitude and longitude</strong>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">IndiaMetLandings =<span class="st"> </span>MetLandings %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(reclat &gt;<span class="st"> </span><span class="dv">8</span>) %&gt;%
+<span class="st">  </span><span class="kw">filter</span> ( reclat &lt;<span class="st"> </span><span class="dv">38</span>) %&gt;%
+<span class="st">  </span><span class="kw">filter</span>( reclong &gt;<span class="st"> </span><span class="dv">68</span> ) %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(reclong &lt;<span class="st"> </span><span class="dv">98</span>)
+
+center_lon =<span class="st"> </span><span class="kw">median</span>(IndiaMetLandings$reclong,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
+center_lat =<span class="st"> </span><span class="kw">median</span>(IndiaMetLandings$reclat,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
+
+
+<span class="kw">leaflet</span>(IndiaMetLandings) %&gt;%<span class="st"> </span><span class="kw">addProviderTiles</span>(<span class="st">&quot;Esri.NatGeoWorldMap&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">addCircles</span>(<span class="dt">lng =</span> ~reclong, <span class="dt">lat =</span> ~reclat, 
+             <span class="dt">color =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>))  %&gt;%
+<span class="st">  </span><span class="co"># controls</span>
+<span class="st">  </span><span class="kw">setView</span>(<span class="dt">lng=</span>center_lon, <span class="dt">lat=</span>center_lat,<span class="dt">zoom =</span> <span class="dv">5</span>) </code></pre></div>
+<div id="htmlwidget-f7173355971793a745bc" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f7173355971793a745bc">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.NatGeoWorldMap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]},{"method":"addCircles","args":[[32.1,29.71667,27.66667,26.58333,20.88333,25.25417,28.48333,27.7,30.4,31.61667,25.36667,20.88333,26.50833,20.83333,22.68333,22.08333,25.38333,21.95,26.78333,27.08333,25.36667,25.85,20.26667,27.28333,29.48333,14.5,10.2,26.91667,28.56667,26.68333,25.73333,19,24.225,22.37778,14.88333,32.23333,23.5,21.86667,30.3,26.25,28.26667,19.03333,25.95,27.35,27.88333,24.23333,22.98333,13.78333,26.8,28.38333,26.75,31,18.75,31.3,22.68,12.85,27.08333,27.25,12.38333,17.83333,26.03333,14.18333,32.08333,20.33916,31.58333,29.58333,25.14333,20.4625,29.53333,25.55,26.95,28.01667,25.1,29.68333,10.83333,26.78333,21.86667,24.45,29.53333,26.96556,24.95,19,25.91667,27.66667,23.05,20.96667,34.23333,29.01667,25.48333,25.9,25.68333,28.78333,26.83333,12.63333,9.33333,24.5,26.13333,23.05,26.98333,12.28333,19.25,21.25,18.68333,21.20833,9.23333,26.2,20.93694,23.15,23.325,26.03472,25.8,29.58333,26.71667,23.36667,13.33333,17.76667,27.72528,28.225,26.45,24.16667,23.98333,25.38333,28.2,27.43333,23.08333,25.66667,26.75,22.25,21.68389,23.1,24.55,25.85,33.71667,24.33333,26.21667,20.91667,27.13333,12.66667,25.93333,26.71667,33.4,13.63333,24.65,30,13.48333,30.33333,11.98333,23.1,16.83333,25.45,14.3,29.06,26,26.16667,10.26667,29.36667,20.13333,24.4,18.31667],[71.8,77.95,78.25,85.56667,76.86667,80.625,78.5,76.33333,78.2,76.8,82.91667,74.83333,73.11528,71.46667,90.65,86.9,82.6,78.03333,82.83333,84.08333,81.66667,83.48333,76.01667,79.05,75.5,76.5,76.26667,83.96667,77.25,93.86667,73.61667,81,76.525,71.42722,75.6,76.46667,90.33333,82.45,76.63333,82,78.78333,81.89167,80.81667,68.53333,68.53333,89.05,76.05,78.56667,82.53333,75.78333,68.41667,75,75.33333,72.38333,70.31333,76.8,78.33333,79.96667,78.51667,73.98333,81.46667,75.8,76.3,73.22329,71.6,77.58333,75.81333,86.70278,72.3,83.11667,77.88333,75.81667,81.53333,78.38333,76.03333,82.71667,76.03333,78.56667,71.8,72.62667,75.15,97,86.36667,95.78333,86.7,76.1,72.08333,77.8,81.98333,83.61667,83.25,78.83333,77.33333,77.01667,80.83333,90.21667,85.53333,72.63333,78.21667,79.2,77,83.66667,83.48333,94.91667,78.35,85.4,82.05,91.18333,91,73.94167,88.45,76,82.66667,75.18333,78.95,95.18333,76.465,70.2,82.9,87.76667,87.08333,72.01667,76.66667,82.08333,91.66667,74.86667,84.78333,79,79.50083,87.3,84.83333,87.5775,74.83333,90.16667,69.55,82.58333,84.06667,78.03333,84.28333,84.21667,70.6,79.41667,76.86667,90.75,74.78333,76.33333,79.75,87.43333,80.75,70,79.76667,74.44,92,90.6,77.4,79.43333,75.5,81.88333,73.91667],10,null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":true,"color":"red","weight":5,"opacity":0.5,"fill":true,"fillColor":"red","fillOpacity":0.2,"dashArray":null},null,null,null,null,null,null]}],"limits":{"lat":[9.23333,34.23333],"lng":[68.41667,97]},"setView":[[25.48333,78.51667],5,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="peek-into-the-indian-met-landings-data" class="section level2">
+<h2><span class="header-section-number">10.1</span> Peek into the Indian Met Landings Data</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">IndiaMetLandings =<span class="st"> </span>IndiaMetLandings %&gt;%<span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(mass))
+
+<span class="kw">kable</span>(<span class="kw">head</span>(IndiaMetLandings,<span class="dv">6</span>),<span class="st">&quot;html&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>)) %&gt;%
+<span class="st">  </span><span class="kw">scroll_box</span>(<span class="dt">width =</span> <span class="st">&quot;800px&quot;</span>)</code></pre></div>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:800px; ">
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:left;">
+nametype
+</th>
+<th style="text-align:left;">
+recclass
+</th>
+<th style="text-align:right;">
+mass
+</th>
+<th style="text-align:left;">
+fall
+</th>
+<th style="text-align:right;">
+year
+</th>
+<th style="text-align:right;">
+reclat
+</th>
+<th style="text-align:right;">
+reclong
+</th>
+<th style="text-align:left;">
+GeoLocation
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Sulagiri
+</td>
+<td style="text-align:right;">
+48951
+</td>
+<td style="text-align:left;">
+Valid
+</td>
+<td style="text-align:left;">
+LL6
+</td>
+<td style="text-align:right;">
+110000
+</td>
+<td style="text-align:left;">
+Fell
+</td>
+<td style="text-align:right;">
+2008
+</td>
+<td style="text-align:right;">
+12.66667
+</td>
+<td style="text-align:right;">
+78.03333
+</td>
+<td style="text-align:left;">
+(12.666670, 78.033330)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Parnallee
+</td>
+<td style="text-align:right;">
+18108
+</td>
+<td style="text-align:left;">
+Valid
+</td>
+<td style="text-align:left;">
+LL3.6
+</td>
+<td style="text-align:right;">
+77600
+</td>
+<td style="text-align:left;">
+Fell
+</td>
+<td style="text-align:right;">
+1857
+</td>
+<td style="text-align:right;">
+9.23333
+</td>
+<td style="text-align:right;">
+78.35000
+</td>
+<td style="text-align:left;">
+(9.233330, 78.350000)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Merua
+</td>
+<td style="text-align:right;">
+15492
+</td>
+<td style="text-align:left;">
+Valid
+</td>
+<td style="text-align:left;">
+H5
+</td>
+<td style="text-align:right;">
+71400
+</td>
+<td style="text-align:left;">
+Fell
+</td>
+<td style="text-align:right;">
+1920
+</td>
+<td style="text-align:right;">
+25.48333
+</td>
+<td style="text-align:right;">
+81.98333
+</td>
+<td style="text-align:left;">
+(25.483330, 81.983330)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mahadevpur
+</td>
+<td style="text-align:right;">
+47361
+</td>
+<td style="text-align:left;">
+Valid
+</td>
+<td style="text-align:left;">
+H4/5
+</td>
+<td style="text-align:right;">
+70500
+</td>
+<td style="text-align:left;">
+Fell
+</td>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:right;">
+27.66667
+</td>
+<td style="text-align:right;">
+95.78333
+</td>
+<td style="text-align:left;">
+(27.666670, 95.783330)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rahimyar Khan
+</td>
+<td style="text-align:right;">
+31302
+</td>
+<td style="text-align:left;">
+Valid
+</td>
+<td style="text-align:left;">
+L5
+</td>
+<td style="text-align:right;">
+67225
+</td>
+<td style="text-align:left;">
+Fell
+</td>
+<td style="text-align:right;">
+1983
+</td>
+<td style="text-align:right;">
+28.22500
+</td>
+<td style="text-align:right;">
+70.20000
+</td>
+<td style="text-align:left;">
+(28.225000, 70.200000)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dhajala
+</td>
+<td style="text-align:right;">
+6698
+</td>
+<td style="text-align:left;">
+Valid
+</td>
+<td style="text-align:left;">
+H3.8
+</td>
+<td style="text-align:right;">
+45000
+</td>
+<td style="text-align:left;">
+Fell
+</td>
+<td style="text-align:right;">
+1976
+</td>
+<td style="text-align:right;">
+22.37778
+</td>
+<td style="text-align:right;">
+71.42722
+</td>
+<td style="text-align:left;">
+(22.377780, 71.427220)
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="distribution-of-indian-meteorite-landings-with-fall-classification" class="section level2">
+<h2><span class="header-section-number">10.2</span> Distribution of Indian Meteorite Landings with Fall Classification</h2>
+<p>The Different Fall Types are classified by the Red and Blue Colours.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">factpal &lt;-<span class="st"> </span><span class="kw">colorFactor</span>(<span class="kw">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>), 
+                       IndiaMetLandings$fall)
+
+
+<span class="kw">leaflet</span>(IndiaMetLandings) %&gt;%<span class="st"> </span><span class="kw">addProviderTiles</span>(<span class="st">&quot;Esri.NatGeoWorldMap&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">addCircles</span>(<span class="dt">lng =</span> ~reclong, <span class="dt">lat =</span> ~reclat, 
+             <span class="dt">color =</span> ~<span class="kw">factpal</span>(fall))  %&gt;%
+<span class="st">  </span><span class="co"># controls</span>
+<span class="st">  </span><span class="kw">setView</span>(<span class="dt">lng=</span>center_lon, <span class="dt">lat=</span>center_lat,<span class="dt">zoom =</span> <span class="dv">5</span>) %&gt;%
+<span class="st">  </span>
+<span class="st">  </span><span class="kw">addLegend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="dt">pal =</span> factpal, <span class="dt">values =</span> ~fall,
+            <span class="dt">title =</span> <span class="st">&quot;Meteorites landings and fall&quot;</span>,
+            <span class="dt">opacity =</span> <span class="dv">1</span>)</code></pre></div>
+<div id="htmlwidget-ef4fa03564ccfff83225" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ef4fa03564ccfff83225">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.NatGeoWorldMap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]},{"method":"addCircles","args":[[12.66667,9.23333,25.48333,27.66667,28.225,22.37778,10.83333,26.03472,26.96556,23.15,32.23333,27.08333,25.73333,23.325,21.68389,20.88333,19.25,29.58333,10.26667,27.7,18.31667,29.53333,14.3,30.3,26.68333,29.48333,19,28.48333,27.72528,25.1,24.95,20.26667,21.95,25.68333,26.21667,25.85,26.71667,26.75,25.14333,20.4625,27.66667,27.35,17.76667,31.3,26.91667,24.55,33.71667,29.36667,24.5,31.61667,17.83333,34.23333,12.28333,18.68333,29.06,12.63333,20.93694,32.1,20.13333,25.95,23.1,23.5,26.45,25.36667,25.55,25.85,13.48333,28.2,25.38333,24.33333,31.58333,11.98333,26.03333,26.58333,26,26.16667,22.08333,25.66667,22.98333,23.1,31,29.71667,14.88333,25.93333,23.05,24.23333,20.33916,20.91667,26.78333,26.83333,10.2,16.83333,14.18333,25.25417,27.43333,26.13333,29.58333,24.225,27.28333,22.68333,25.38333,26.8,29.53333,25.91667,26.75,26.78333,25.8,28.26667,26.2,21.20833,22.25,12.85,26.50833,25.45,23.36667,19,23.08333,26.95,32.08333,27.88333,24.45,12.38333,25.9,26.71667,33.4,28.38333,26.25,23.98333,24.4,21.86667,27.25,13.63333,21.86667,19.03333,21.25,20.83333,22.68,28.01667,13.33333,24.16667,30.33333,27.08333,27.13333,14.5,28.78333,20.96667,13.78333,9.33333,18.75,29.01667,26.98333,20.88333,30.4,24.65,29.68333,28.56667,25.36667,23.05,30],[78.03333,78.35,81.98333,95.78333,70.2,71.42722,76.03333,73.94167,72.62667,91.18333,76.46667,84.08333,73.61667,91,79.50083,76.86667,77,77.58333,77.4,76.33333,73.91667,72.3,79.76667,76.63333,93.86667,75.5,81,78.5,76.465,81.53333,75.15,76.01667,78.03333,83.25,69.55,83.48333,84.21667,84.78333,75.81333,86.70278,78.25,68.53333,95.18333,72.38333,83.96667,84.83333,74.83333,79.43333,90.21667,76.8,73.98333,72.08333,79.2,83.48333,74.44,77.01667,82.05,71.8,75.5,80.81667,87.3,90.33333,82.9,82.91667,83.11667,87.5775,74.78333,76.66667,72.01667,90.16667,71.6,79.75,81.46667,85.56667,92,90.6,86.9,74.86667,76.05,87.43333,75,77.95,75.6,84.28333,86.7,89.05,73.22329,82.58333,82.83333,77.33333,76.26667,80.75,75.8,80.625,82.08333,85.53333,76,76.525,79.05,90.65,82.6,82.53333,71.8,86.36667,68.41667,82.71667,88.45,78.78333,85.4,94.91667,79,76.8,73.11528,70,75.18333,97,91.66667,77.88333,76.3,68.53333,78.56667,78.51667,83.61667,82.66667,70.6,75.78333,82,87.08333,81.88333,82.45,79.96667,79.41667,76.03333,81.89167,83.66667,71.46667,70.31333,75.81667,78.95,87.76667,76.33333,78.33333,84.06667,76.5,78.83333,76.1,78.56667,80.83333,75.33333,77.8,78.21667,74.83333,78.2,76.86667,78.38333,77.25,81.66667,72.63333,90.75],10,null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":true,"color":["#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000"],"fillOpacity":0.2,"dashArray":null},null,null,null,null,null,null]},{"method":"addLegend","args":[{"colors":["#FF0000","#0000FF"],"labels":["Fell","Found"],"na_color":null,"na_label":"NA","opacity":1,"position":"bottomright","type":"factor","title":"Meteorites landings and fall","extra":null,"layerId":null,"className":"info legend"}]}],"limits":{"lat":[9.23333,34.23333],"lng":[68.41667,97]},"setView":[[25.48333,78.51667],5,[]]},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="distribution-of-indian-meteorite-landings-with-meteorite-mass" class="section level2">
+<h2><span class="header-section-number">10.3</span> Distribution of Indian Meteorite Landings with Meteorite Mass</h2>
+<p>The mass of the Meteorites are indicated by the <strong>Radius</strong> of the Circles.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">factpal &lt;-<span class="st"> </span><span class="kw">colorFactor</span>(<span class="kw">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>), 
+                       IndiaMetLandings$fall)
+
+<span class="kw">leaflet</span>(IndiaMetLandings) %&gt;%<span class="st"> </span><span class="kw">addProviderTiles</span>(<span class="st">&quot;Esri.NatGeoWorldMap&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">addCircles</span>(<span class="dt">lng =</span> ~reclong, <span class="dt">lat =</span> ~reclat,<span class="dt">radius =</span> ~(mass) ,
+             <span class="dt">color =</span> ~<span class="kw">factpal</span>(fall))  %&gt;%
+<span class="st">  </span><span class="co"># controls</span>
+<span class="st">  </span><span class="kw">setView</span>(<span class="dt">lng=</span>center_lon, <span class="dt">lat=</span>center_lat,<span class="dt">zoom =</span> <span class="dv">5</span>) %&gt;%
+<span class="st">  </span>
+<span class="st">  </span><span class="kw">addLegend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="dt">pal =</span> factpal, <span class="dt">values =</span> ~fall,
+            <span class="dt">title =</span> <span class="st">&quot;Meteorites landings and fall&quot;</span>,
+            <span class="dt">opacity =</span> <span class="dv">1</span>)</code></pre></div>
+<div id="htmlwidget-e0159c8c35cd4e74dc67" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e0159c8c35cd4e74dc67">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.NatGeoWorldMap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]},{"method":"addCircles","args":[[12.66667,9.23333,25.48333,27.66667,28.225,22.37778,10.83333,26.03472,26.96556,23.15,32.23333,27.08333,25.73333,23.325,21.68389,20.88333,19.25,29.58333,10.26667,27.7,18.31667,29.53333,14.3,30.3,26.68333,29.48333,19,28.48333,27.72528,25.1,24.95,20.26667,21.95,25.68333,26.21667,25.85,26.71667,26.75,25.14333,20.4625,27.66667,27.35,17.76667,31.3,26.91667,24.55,33.71667,29.36667,24.5,31.61667,17.83333,34.23333,12.28333,18.68333,29.06,12.63333,20.93694,32.1,20.13333,25.95,23.1,23.5,26.45,25.36667,25.55,25.85,13.48333,28.2,25.38333,24.33333,31.58333,11.98333,26.03333,26.58333,26,26.16667,22.08333,25.66667,22.98333,23.1,31,29.71667,14.88333,25.93333,23.05,24.23333,20.33916,20.91667,26.78333,26.83333,10.2,16.83333,14.18333,25.25417,27.43333,26.13333,29.58333,24.225,27.28333,22.68333,25.38333,26.8,29.53333,25.91667,26.75,26.78333,25.8,28.26667,26.2,21.20833,22.25,12.85,26.50833,25.45,23.36667,19,23.08333,26.95,32.08333,27.88333,24.45,12.38333,25.9,26.71667,33.4,28.38333,26.25,23.98333,24.4,21.86667,27.25,13.63333,21.86667,19.03333,21.25,20.83333,22.68,28.01667,13.33333,24.16667,30.33333,27.08333,27.13333,14.5,28.78333,20.96667,13.78333,9.33333,18.75,29.01667,26.98333,20.88333,30.4,24.65,29.68333,28.56667,25.36667,23.05,30],[78.03333,78.35,81.98333,95.78333,70.2,71.42722,76.03333,73.94167,72.62667,91.18333,76.46667,84.08333,73.61667,91,79.50083,76.86667,77,77.58333,77.4,76.33333,73.91667,72.3,79.76667,76.63333,93.86667,75.5,81,78.5,76.465,81.53333,75.15,76.01667,78.03333,83.25,69.55,83.48333,84.21667,84.78333,75.81333,86.70278,78.25,68.53333,95.18333,72.38333,83.96667,84.83333,74.83333,79.43333,90.21667,76.8,73.98333,72.08333,79.2,83.48333,74.44,77.01667,82.05,71.8,75.5,80.81667,87.3,90.33333,82.9,82.91667,83.11667,87.5775,74.78333,76.66667,72.01667,90.16667,71.6,79.75,81.46667,85.56667,92,90.6,86.9,74.86667,76.05,87.43333,75,77.95,75.6,84.28333,86.7,89.05,73.22329,82.58333,82.83333,77.33333,76.26667,80.75,75.8,80.625,82.08333,85.53333,76,76.525,79.05,90.65,82.6,82.53333,71.8,86.36667,68.41667,82.71667,88.45,78.78333,85.4,94.91667,79,76.8,73.11528,70,75.18333,97,91.66667,77.88333,76.3,68.53333,78.56667,78.51667,83.61667,82.66667,70.6,75.78333,82,87.08333,81.88333,82.45,79.96667,79.41667,76.03333,81.89167,83.66667,71.46667,70.31333,75.81667,78.95,87.76667,76.33333,78.33333,84.06667,76.5,78.83333,76.1,78.56667,80.83333,75.33333,77.8,78.21667,74.83333,78.2,76.86667,78.38333,77.25,81.66667,72.63333,90.75],[110000,77600,71400,70500,67225,45000,45000,42000,40000,37350,32000,29000,25400,23474,20000,17900,17000,16820,15900,15000,14180,13600,13600,13200,12500,12000,12000,10322,10200,9700,9241,8800,8600,8510,8400,8200,7235,6930,6800,6669.2,6400,6400,6045,5900,5650,5000,5000,5000,4703,4500,4500,4500,4500,4500,4460,4400,4375,4239,4064,4000,4000,3840,3766,3700,3698,3679.7,3600,3332,3224.5,3200,2950,2799,2770,2700,2700,2700,2500,2462,2449,2437,1967,1800,1800,1710.5,1700,1600,1600,1600,1500,1500,1460,1303.8,1293,1280,1250,1245,1161,1140,1100,1047,1039,1000,1000,1000,973,900,842,840,800,737.6,691,680,678,594,560,540,478,450,400,380,372,350,350,350,342,315,300,290.4,265,230,230,230,212.5,113,105,100,100,100,100,100,100,89,72.9,72,70,50,28,25.5,22,22,20,18,14,7.7,5,0.8,0.5,null,null],null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":true,"color":["#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000"],"fillOpacity":0.2,"dashArray":null},null,null,null,null,null,null]},{"method":"addLegend","args":[{"colors":["#FF0000","#0000FF"],"labels":["Fell","Found"],"na_color":null,"na_label":"NA","opacity":1,"position":"bottomright","type":"factor","title":"Meteorites landings and fall","extra":null,"layerId":null,"className":"info legend"}]}],"limits":{"lat":[9.23333,34.23333],"lng":[68.41667,97]},"setView":[[25.48333,78.51667],5,[]]},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="heatmap-of-indian-meteorite-landings" class="section level2">
+<h2><span class="header-section-number">10.4</span> Heatmap of Indian Meteorite Landings</h2>
+<p>The <strong>intensity</strong> of the Heatmap is based on the <strong>mass</strong> of the meteorites.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">IndiaMetLandings %&gt;%<span class="st"> </span><span class="kw">leaflet</span>() %&gt;%<span class="st"> </span><span class="kw">addProviderTiles</span>(<span class="st">&quot;Esri.NatGeoWorldMap&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">addHeatmap</span>(<span class="dt">lng =</span> ~reclong, <span class="dt">lat =</span> ~reclat, <span class="dt">intensity =</span> ~mass,
+             <span class="dt">blur =</span> <span class="dv">20</span>, <span class="dt">max =</span> <span class="fl">0.05</span>, <span class="dt">radius =</span> <span class="dv">15</span>) %&gt;%
+<span class="st">  </span><span class="co"># controls</span>
+<span class="st">  </span><span class="kw">setView</span>(<span class="dt">lng=</span>center_lon, <span class="dt">lat=</span>center_lat,<span class="dt">zoom =</span> <span class="dv">5</span>) </code></pre></div>
+<div id="htmlwidget-40e820010f446f6e0474" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-40e820010f446f6e0474">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.NatGeoWorldMap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]},{"method":"addHeatmap","args":[[[12.66667,78.03333,110000],[9.23333,78.35,77600],[25.48333,81.98333,71400],[27.66667,95.78333,70500],[28.225,70.2,67225],[22.37778,71.42722,45000],[10.83333,76.03333,45000],[26.03472,73.94167,42000],[26.96556,72.62667,40000],[23.15,91.18333,37350],[32.23333,76.46667,32000],[27.08333,84.08333,29000],[25.73333,73.61667,25400],[23.325,91,23474],[21.68389,79.50083,20000],[20.88333,76.86667,17900],[19.25,77,17000],[29.58333,77.58333,16820],[10.26667,77.4,15900],[27.7,76.33333,15000],[18.31667,73.91667,14180],[29.53333,72.3,13600],[14.3,79.76667,13600],[30.3,76.63333,13200],[26.68333,93.86667,12500],[29.48333,75.5,12000],[19,81,12000],[28.48333,78.5,10322],[27.72528,76.465,10200],[25.1,81.53333,9700],[24.95,75.15,9241],[20.26667,76.01667,8800],[21.95,78.03333,8600],[25.68333,83.25,8510],[26.21667,69.55,8400],[25.85,83.48333,8200],[26.71667,84.21667,7235],[26.75,84.78333,6930],[25.14333,75.81333,6800],[20.4625,86.70278,6669.2],[27.66667,78.25,6400],[27.35,68.53333,6400],[17.76667,95.18333,6045],[31.3,72.38333,5900],[26.91667,83.96667,5650],[24.55,84.83333,5000],[33.71667,74.83333,5000],[29.36667,79.43333,5000],[24.5,90.21667,4703],[31.61667,76.8,4500],[17.83333,73.98333,4500],[34.23333,72.08333,4500],[12.28333,79.2,4500],[18.68333,83.48333,4500],[29.06,74.44,4460],[12.63333,77.01667,4400],[20.93694,82.05,4375],[32.1,71.8,4239],[20.13333,75.5,4064],[25.95,80.81667,4000],[23.1,87.3,4000],[23.5,90.33333,3840],[26.45,82.9,3766],[25.36667,82.91667,3700],[25.55,83.11667,3698],[25.85,87.5775,3679.7],[13.48333,74.78333,3600],[28.2,76.66667,3332],[25.38333,72.01667,3224.5],[24.33333,90.16667,3200],[31.58333,71.6,2950],[11.98333,79.75,2799],[26.03333,81.46667,2770],[26.58333,85.56667,2700],[26,92,2700],[26.16667,90.6,2700],[22.08333,86.9,2500],[25.66667,74.86667,2462],[22.98333,76.05,2449],[23.1,87.43333,2437],[31,75,1967],[29.71667,77.95,1800],[14.88333,75.6,1800],[25.93333,84.28333,1710.5],[23.05,86.7,1700],[24.23333,89.05,1600],[20.33916,73.22329,1600],[20.91667,82.58333,1600],[26.78333,82.83333,1500],[26.83333,77.33333,1500],[10.2,76.26667,1460],[16.83333,80.75,1303.8],[14.18333,75.8,1293],[25.25417,80.625,1280],[27.43333,82.08333,1250],[26.13333,85.53333,1245],[29.58333,76,1161],[24.225,76.525,1140],[27.28333,79.05,1100],[22.68333,90.65,1047],[25.38333,82.6,1039],[26.8,82.53333,1000],[29.53333,71.8,1000],[25.91667,86.36667,1000],[26.75,68.41667,973],[26.78333,82.71667,900],[25.8,88.45,842],[28.26667,78.78333,840],[26.2,85.4,800],[21.20833,94.91667,737.6],[22.25,79,691],[12.85,76.8,680],[26.50833,73.11528,678],[25.45,70,594],[23.36667,75.18333,560],[19,97,540],[23.08333,91.66667,478],[26.95,77.88333,450],[32.08333,76.3,400],[27.88333,68.53333,380],[24.45,78.56667,372],[12.38333,78.51667,350],[25.9,83.61667,350],[26.71667,82.66667,350],[33.4,70.6,342],[28.38333,75.78333,315],[26.25,82,300],[23.98333,87.08333,290.4],[24.4,81.88333,265],[21.86667,82.45,230],[27.25,79.96667,230],[13.63333,79.41667,230],[21.86667,76.03333,212.5],[19.03333,81.89167,113],[21.25,83.66667,105],[20.83333,71.46667,100],[22.68,70.31333,100],[28.01667,75.81667,100],[13.33333,78.95,100],[24.16667,87.76667,100],[30.33333,76.33333,100],[27.08333,78.33333,89],[27.13333,84.06667,72.9],[14.5,76.5,72],[28.78333,78.83333,70],[20.96667,76.1,50],[13.78333,78.56667,28],[9.33333,80.83333,25.5],[18.75,75.33333,22],[29.01667,77.8,22],[26.98333,78.21667,20],[20.88333,74.83333,18],[30.4,78.2,14],[24.65,76.86667,7.7],[29.68333,78.38333,5],[28.56667,77.25,0.8],[25.36667,81.66667,0.5],[23.05,72.63333,null],[30,90.75,null]],null,null,{"minOpacity":0.05,"max":0.05,"radius":15,"blur":20}]}],"limits":{"lat":[9.23333,34.23333],"lng":[68.41667,97]},"setView":[[25.48333,78.51667],5,[]]},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="distribution-of-indian-meteorite-landings-with-cluster-markers" class="section level2">
+<h2><span class="header-section-number">10.5</span> Distribution of Indian Meteorite Landings with Cluster Markers</h2>
+<p>The meteorite landings have been <code>clustered</code> and their <strong>numbers</strong> are being shown in the map.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">IndiaMetLandings %&gt;%<span class="st"> </span><span class="kw">leaflet</span>() %&gt;%<span class="st"> </span><span class="kw">addProviderTiles</span>(<span class="st">&quot;Esri.OceanBasemap&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">addMarkers</span>(<span class="dt">lng =</span> ~reclong, <span class="dt">lat =</span> ~reclat,<span class="dt">clusterOptions =</span> <span class="kw">markerClusterOptions</span>()) %&gt;%
+<span class="st">    </span><span class="co"># controls</span>
+<span class="st">  </span><span class="kw">setView</span>(<span class="dt">lng=</span>center_lon, <span class="dt">lat=</span>center_lat,<span class="dt">zoom =</span> <span class="dv">5</span>) </code></pre></div>
+<div id="htmlwidget-79715f852ab40a331217" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-79715f852ab40a331217">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.OceanBasemap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]},{"method":"addMarkers","args":[[12.66667,9.23333,25.48333,27.66667,28.225,22.37778,10.83333,26.03472,26.96556,23.15,32.23333,27.08333,25.73333,23.325,21.68389,20.88333,19.25,29.58333,10.26667,27.7,18.31667,29.53333,14.3,30.3,26.68333,29.48333,19,28.48333,27.72528,25.1,24.95,20.26667,21.95,25.68333,26.21667,25.85,26.71667,26.75,25.14333,20.4625,27.66667,27.35,17.76667,31.3,26.91667,24.55,33.71667,29.36667,24.5,31.61667,17.83333,34.23333,12.28333,18.68333,29.06,12.63333,20.93694,32.1,20.13333,25.95,23.1,23.5,26.45,25.36667,25.55,25.85,13.48333,28.2,25.38333,24.33333,31.58333,11.98333,26.03333,26.58333,26,26.16667,22.08333,25.66667,22.98333,23.1,31,29.71667,14.88333,25.93333,23.05,24.23333,20.33916,20.91667,26.78333,26.83333,10.2,16.83333,14.18333,25.25417,27.43333,26.13333,29.58333,24.225,27.28333,22.68333,25.38333,26.8,29.53333,25.91667,26.75,26.78333,25.8,28.26667,26.2,21.20833,22.25,12.85,26.50833,25.45,23.36667,19,23.08333,26.95,32.08333,27.88333,24.45,12.38333,25.9,26.71667,33.4,28.38333,26.25,23.98333,24.4,21.86667,27.25,13.63333,21.86667,19.03333,21.25,20.83333,22.68,28.01667,13.33333,24.16667,30.33333,27.08333,27.13333,14.5,28.78333,20.96667,13.78333,9.33333,18.75,29.01667,26.98333,20.88333,30.4,24.65,29.68333,28.56667,25.36667,23.05,30],[78.03333,78.35,81.98333,95.78333,70.2,71.42722,76.03333,73.94167,72.62667,91.18333,76.46667,84.08333,73.61667,91,79.50083,76.86667,77,77.58333,77.4,76.33333,73.91667,72.3,79.76667,76.63333,93.86667,75.5,81,78.5,76.465,81.53333,75.15,76.01667,78.03333,83.25,69.55,83.48333,84.21667,84.78333,75.81333,86.70278,78.25,68.53333,95.18333,72.38333,83.96667,84.83333,74.83333,79.43333,90.21667,76.8,73.98333,72.08333,79.2,83.48333,74.44,77.01667,82.05,71.8,75.5,80.81667,87.3,90.33333,82.9,82.91667,83.11667,87.5775,74.78333,76.66667,72.01667,90.16667,71.6,79.75,81.46667,85.56667,92,90.6,86.9,74.86667,76.05,87.43333,75,77.95,75.6,84.28333,86.7,89.05,73.22329,82.58333,82.83333,77.33333,76.26667,80.75,75.8,80.625,82.08333,85.53333,76,76.525,79.05,90.65,82.6,82.53333,71.8,86.36667,68.41667,82.71667,88.45,78.78333,85.4,94.91667,79,76.8,73.11528,70,75.18333,97,91.66667,77.88333,76.3,68.53333,78.56667,78.51667,83.61667,82.66667,70.6,75.78333,82,87.08333,81.88333,82.45,79.96667,79.41667,76.03333,81.89167,83.66667,71.46667,70.31333,75.81667,78.95,87.76667,76.33333,78.33333,84.06667,76.5,78.83333,76.1,78.56667,80.83333,75.33333,77.8,78.21667,74.83333,78.2,76.86667,78.38333,77.25,81.66667,72.63333,90.75],null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,{"showCoverageOnHover":true,"zoomToBoundsOnClick":true,"spiderfyOnMaxZoom":true,"removeOutsideVisibleBounds":true,"spiderLegPolylineOptions":{"weight":1.5,"color":"#222","opacity":0.5},"freezeAtZoom":false},null,null,null,null]}],"limits":{"lat":[9.23333,34.23333],"lng":[68.41667,97]},"setView":[[25.48333,78.51667],5,[]]},"evals":[],"jsHooks":[]}</script>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="distribution-of-meteorite-landings.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="distribution-of-us-meteorite-landings.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

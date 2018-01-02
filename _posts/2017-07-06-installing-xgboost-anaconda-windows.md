@@ -5,6 +5,7 @@ categories: Installation
 tags:
 - XGBoost
 - Installation
+description: We describe the installation instructions of <b>XGBoost on Windows</b>...
 ---
 
 The installation instructions are exactly the same as in the [Installing XGBoost For Anaconda on Windows](https://www.ibm.com/developerworks/community/blogs/jfp/entry/Installing_XGBoost_For_Anaconda_on_Windows)  except **Step 10** since the name of the DLL  created is **libxgboost.dll** but the Python Module expects the dll of the name **xgboost.dll**.
@@ -39,7 +40,7 @@ Step 6 : Download **MinGW-W64-install.exe**
 Step 7 :                
 * Click on the installer.                
 * Select the x86_64 item in the architecture menu      
-![XGBInstall](/images/XGBInstall/Architecture.jpg){:class="img-responsive")}          
+![XGBInstall](/img/XGBInstall/Architecture.jpg){:class="img-responsive")}          
 
 
 *  Then click Next            

@@ -1,31 +1,39 @@
-# Permalinks
-permalink:        pretty
-# relative_permalinks: true
+# Site settings
+title: *folio
+email: you@example.com
+description: > # this means to ignore newlines until "baseurl:"
+  A simple, whitespace, helvetica based portfolio theme.
+baseurl:  
+url:  "http://localhost:4000"
+twitter_username: twitter_username
+github_username:  github_username
 
-# Setup
-title:            Business and Technology
-tagline:          'Business and Technology'
-description:      ''
-url:              'http://github.com/ambarishg.github.io'
-baseurl:          /
-url2:             'https://ambarishg.github.io/'
+# Build settings
+markdown: kramdown
 
-author:
-  name:           'Ambarish Ganguly'
-  url:            ''
+highlighter: rouge
 
-paginate:         5
+# Pagination
+paginate: 6
+paginate_path: "page:num"
 
-# Custom vars
-version:          2.1.0
 
-github:
-  repo:           http://github.com/ambarishg.github.io
-  
+collections:
+  portfolio:
+    output: true
+    permalink: /portfolio/:path/
+  poetry:
+    output: true
+    permalink: /poetry/:path/
+  books:
+    output: true
+    permalink: /books/:path/
+  awards:
+    output: true
+    permalink: /awards/:path/
+ 
  # Gems
-gems:
+plugins:
   - jekyll-paginate
-  - jekyll-gist
-  
-markdown:         kramdown
-highlighter:      rouge
+
+

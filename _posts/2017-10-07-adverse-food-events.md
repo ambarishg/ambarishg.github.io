@@ -4,6 +4,7 @@ layout: post
 tags:
 - DataVisualization
 categories: DataVisualization
+description : We explore the Symptoms, Products, Industries , Ages affected by <b>Adverse Food Events</b>...
 ---
 
 The CFSAN Adverse Event Reporting System (CAERS) is a database that contains information on adverse event and product complaint reports submitted to FDA for foods, dietary supplements, and cosmetics. The database is designed to support CFSAN’s safety surveillance program.

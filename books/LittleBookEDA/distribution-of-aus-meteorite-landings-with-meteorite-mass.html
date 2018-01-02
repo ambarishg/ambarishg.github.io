@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Little Book on Exploratory Data Analysis</title>
+  <meta name="description" content="Little Book on Exploratory Data Analysis">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Little Book on Exploratory Data Analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Little Book on Exploratory Data Analysis" />
+  
+  
+  
+
+<meta name="author" content="Ambarish Ganguly">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="distribution-of-african-meteorite-landings-with-meteorite-mass.html">
+<link rel="next" href="year-analysis.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
+<link href="libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-0.7.7/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<link href="libs/leaflet-label-0.2.2/leaflet.label.css" rel="stylesheet" />
+<script src="libs/leaflet-label-0.2.2/leaflet.label.js"></script>
+<script src="libs/Proj4Leaflet-0.7.2/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-0.7.2/proj4leaflet.js"></script>
+<script src="libs/leaflet-binding-1.1.0/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.0.27/leaflet-providers.js"></script>
+<script src="libs/leaflet-providers-plugin-1.1.0/leaflet-providers-plugin.js"></script>
+<script src="libs/Leaflet.heat-0.1.0/leaflet-heat.js"></script>
+<script src="libs/Leaflet.heat-0.1.0/heat-bindings.js"></script>
+<link href="libs/leaflet-markercluster-0.5.0/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-0.5.0/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-0.5.0/leaflet.markercluster.js"></script>
+<script src="libs/leaflet-markercluster-0.5.0/leaflet.markercluster.layersupport-src.js"></script>
+<script src="libs/leaflet-markercluster-0.5.0/leaflet.markercluster.freezable-src.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Little Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#meteorite-landings-dataset"><i class="fa fa-check"></i><b>1.1</b> Meteorite Landings Dataset</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#adverse-food-events-dataset"><i class="fa fa-check"></i><b>1.2</b> Adverse Food Events Dataset</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#live-version"><i class="fa fa-check"></i><b>1.3</b> Live version</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="variable-types.html"><a href="variable-types.html"><i class="fa fa-check"></i><b>2</b> Variable Types</a><ul>
+<li class="chapter" data-level="2.1" data-path="variable-types.html"><a href="variable-types.html#numeric-variables"><i class="fa fa-check"></i><b>2.1</b> Numeric Variables</a></li>
+<li class="chapter" data-level="2.2" data-path="variable-types.html"><a href="variable-types.html#categorical-variables"><i class="fa fa-check"></i><b>2.2</b> Categorical Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="graph-types.html"><a href="graph-types.html"><i class="fa fa-check"></i><b>3</b> Graph Types</a><ul>
+<li class="chapter" data-level="3.1" data-path="graph-types.html"><a href="graph-types.html#bar-plot"><i class="fa fa-check"></i><b>3.1</b> Bar Plot</a></li>
+<li class="chapter" data-level="3.2" data-path="graph-types.html"><a href="graph-types.html#histogram"><i class="fa fa-check"></i><b>3.2</b> Histogram</a></li>
+<li class="chapter" data-level="3.3" data-path="graph-types.html"><a href="graph-types.html#boxplot"><i class="fa fa-check"></i><b>3.3</b> BoxPlot</a></li>
+<li class="chapter" data-level="3.4" data-path="graph-types.html"><a href="graph-types.html#scatter-plot"><i class="fa fa-check"></i><b>3.4</b> Scatter Plot</a></li>
+<li class="chapter" data-level="3.5" data-path="graph-types.html"><a href="graph-types.html#facet"><i class="fa fa-check"></i><b>3.5</b> Facet</a></li>
+<li class="chapter" data-level="3.6" data-path="graph-types.html"><a href="graph-types.html#maps"><i class="fa fa-check"></i><b>3.6</b> Maps</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="grammar-of-data-manipulation.html"><a href="grammar-of-data-manipulation.html"><i class="fa fa-check"></i><b>4</b> Grammar of Data manipulation</a><ul>
+<li class="chapter" data-level="4.1" data-path="grammar-of-data-manipulation.html"><a href="grammar-of-data-manipulation.html#reorder-function"><i class="fa fa-check"></i><b>4.1</b> Reorder function</a></li>
+</ul></li>
+<li class="part"><span><b>I Meteorite Landings</b></span></li>
+<li class="chapter" data-level="5" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html"><i class="fa fa-check"></i><b>5</b> Prepare for Analysis</a><ul>
+<li class="chapter" data-level="5.1" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#install-the-software"><i class="fa fa-check"></i><b>5.1</b> Install the Software</a></li>
+<li class="chapter" data-level="5.2" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#install-the-packages"><i class="fa fa-check"></i><b>5.2</b> Install the packages</a></li>
+<li class="chapter" data-level="5.3" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#create-a-r-project"><i class="fa fa-check"></i><b>5.3</b> Create a R project</a></li>
+<li class="chapter" data-level="5.4" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#get-the-data"><i class="fa fa-check"></i><b>5.4</b> Get the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="read-the-data.html"><a href="read-the-data.html"><i class="fa fa-check"></i><b>6</b> Read the Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="read-the-data.html"><a href="read-the-data.html#peek-into-the-data"><i class="fa fa-check"></i><b>6.1</b> Peek into the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="class-analysis.html"><a href="class-analysis.html"><i class="fa fa-check"></i><b>7</b> Class Analysis</a><ul>
+<li class="chapter" data-level="7.1" data-path="class-analysis.html"><a href="class-analysis.html#meteorites-class-count"><i class="fa fa-check"></i><b>7.1</b> Meteorites Class Count</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="class-analysis.html"><a href="class-analysis.html#top-20-class-of-meteorites-by-count"><i class="fa fa-check"></i><b>7.1.1</b> Top 20 Class Of Meteorites by Count</a></li>
+<li class="chapter" data-level="7.1.2" data-path="class-analysis.html"><a href="class-analysis.html#top-20-meteorites-and-their-counts"><i class="fa fa-check"></i><b>7.1.2</b> Top 20 Meteorites and their Counts</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="class-analysis.html"><a href="class-analysis.html#top-20-class-of-meteorites-by-mass"><i class="fa fa-check"></i><b>7.2</b> Top 20 Class Of Meteorites by Mass</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="class-analysis.html"><a href="class-analysis.html#median-mass"><i class="fa fa-check"></i><b>7.2.1</b> Median Mass</a></li>
+<li class="chapter" data-level="7.2.2" data-path="class-analysis.html"><a href="class-analysis.html#median-mass-tabular-data"><i class="fa fa-check"></i><b>7.2.2</b> Median Mass Tabular Data</a></li>
+<li class="chapter" data-level="7.2.3" data-path="class-analysis.html"><a href="class-analysis.html#mean-mass"><i class="fa fa-check"></i><b>7.2.3</b> Mean Mass</a></li>
+<li class="chapter" data-level="7.2.4" data-path="class-analysis.html"><a href="class-analysis.html#mean-mass-tabular-data"><i class="fa fa-check"></i><b>7.2.4</b> Mean Mass Tabular Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html"><i class="fa fa-check"></i><b>8</b> Distribution of Mass</a><ul>
+<li class="chapter" data-level="8.1" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#heaviest-meteorite"><i class="fa fa-check"></i><b>8.1</b> Heaviest Meteorite</a></li>
+<li class="chapter" data-level="8.2" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#lightest-meteorite"><i class="fa fa-check"></i><b>8.2</b> Lightest Meteorite</a></li>
+<li class="chapter" data-level="8.3" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#valid-lightest-meteorite"><i class="fa fa-check"></i><b>8.3</b> Valid Lightest Meteorite</a></li>
+<li class="chapter" data-level="8.4" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#distribution-of-mass-classified-by-fall-type"><i class="fa fa-check"></i><b>8.4</b> Distribution of Mass classified by Fall Type</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#autoselect-fall-type-colors"><i class="fa fa-check"></i><b>8.4.1</b> Autoselect Fall Type Colors</a></li>
+<li class="chapter" data-level="8.4.2" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#select-fall-type-colors"><i class="fa fa-check"></i><b>8.4.2</b> Select Fall Type Colors</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#mass-with-plots-for-each-fall-type"><i class="fa fa-check"></i><b>8.5</b> Mass with plots for each fall Type</a></li>
+<li class="chapter" data-level="8.6" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#mass-with-plots-for-each-fall-type-1"><i class="fa fa-check"></i><b>8.6</b> Mass with plots for each fall Type</a></li>
+<li class="chapter" data-level="8.7" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#mass-with-plots-for-each-fall-type-partially-removing-outliers"><i class="fa fa-check"></i><b>8.7</b> Mass with plots for each fall Type ( partially removing outliers)</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="distribution-of-meteorite-landings.html"><a href="distribution-of-meteorite-landings.html"><i class="fa fa-check"></i><b>9</b> Distribution of Meteorite Landings</a><ul>
+<li class="chapter" data-level="9.1" data-path="distribution-of-meteorite-landings.html"><a href="distribution-of-meteorite-landings.html#distribution-of-meteorite-landings-with-meteorite-mass"><i class="fa fa-check"></i><b>9.1</b> Distribution of Meteorite Landings with Meteorite Mass</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html"><i class="fa fa-check"></i><b>10</b> Distribution of Indian Meteorite Landings</a><ul>
+<li class="chapter" data-level="10.1" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html#peek-into-the-indian-met-landings-data"><i class="fa fa-check"></i><b>10.1</b> Peek into the Indian Met Landings Data</a></li>
+<li class="chapter" data-level="10.2" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html#distribution-of-indian-meteorite-landings-with-fall-classification"><i class="fa fa-check"></i><b>10.2</b> Distribution of Indian Meteorite Landings with Fall Classification</a></li>
+<li class="chapter" data-level="10.3" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html#distribution-of-indian-meteorite-landings-with-meteorite-mass"><i class="fa fa-check"></i><b>10.3</b> Distribution of Indian Meteorite Landings with Meteorite Mass</a></li>
+<li class="chapter" data-level="10.4" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html#heatmap-of-indian-meteorite-landings"><i class="fa fa-check"></i><b>10.4</b> Heatmap of Indian Meteorite Landings</a></li>
+<li class="chapter" data-level="10.5" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html#distribution-of-indian-meteorite-landings-with-cluster-markers"><i class="fa fa-check"></i><b>10.5</b> Distribution of Indian Meteorite Landings with Cluster Markers</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="distribution-of-us-meteorite-landings.html"><a href="distribution-of-us-meteorite-landings.html"><i class="fa fa-check"></i><b>11</b> Distribution of US Meteorite Landings</a><ul>
+<li class="chapter" data-level="11.1" data-path="distribution-of-us-meteorite-landings.html"><a href="distribution-of-us-meteorite-landings.html#peek-into-the-us-met-landings-data"><i class="fa fa-check"></i><b>11.1</b> Peek into the US Met Landings Data</a></li>
+<li class="chapter" data-level="11.2" data-path="distribution-of-us-meteorite-landings.html"><a href="distribution-of-us-meteorite-landings.html#distribution-of-us-meteorite-landings-with-meteorite-mass"><i class="fa fa-check"></i><b>11.2</b> Distribution of US Meteorite Landings with Meteorite Mass</a></li>
+<li class="chapter" data-level="11.3" data-path="distribution-of-us-meteorite-landings.html"><a href="distribution-of-us-meteorite-landings.html#heatmap-of-us-meteorite-landings"><i class="fa fa-check"></i><b>11.3</b> Heatmap of US Meteorite Landings</a></li>
+<li class="chapter" data-level="11.4" data-path="distribution-of-us-meteorite-landings.html"><a href="distribution-of-us-meteorite-landings.html#distribution-of-us-meteorite-landings-with-cluster-markers"><i class="fa fa-check"></i><b>11.4</b> Distribution of US Meteorite Landings with Cluster Markers</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="distribution-of-african-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-african-meteorite-landings-with-meteorite-mass.html"><i class="fa fa-check"></i><b>12</b> Distribution of African Meteorite Landings with Meteorite Mass</a><ul>
+<li class="chapter" data-level="12.1" data-path="distribution-of-african-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-african-meteorite-landings-with-meteorite-mass.html#peek-into-the-africa-met-landings-data"><i class="fa fa-check"></i><b>12.1</b> Peek into the Africa Met Landings Data</a></li>
+<li class="chapter" data-level="12.2" data-path="distribution-of-african-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-african-meteorite-landings-with-meteorite-mass.html#heatmap-of-africa-meteorite-landings"><i class="fa fa-check"></i><b>12.2</b> Heatmap of Africa Meteorite Landings</a></li>
+<li class="chapter" data-level="12.3" data-path="distribution-of-african-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-african-meteorite-landings-with-meteorite-mass.html#distribution-of-africa-meteorite-landings-with-cluster-markers"><i class="fa fa-check"></i><b>12.3</b> Distribution of Africa Meteorite Landings with Cluster Markers</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="distribution-of-aus-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-aus-meteorite-landings-with-meteorite-mass.html"><i class="fa fa-check"></i><b>13</b> Distribution of Aus Meteorite Landings with Meteorite Mass</a><ul>
+<li class="chapter" data-level="13.1" data-path="distribution-of-aus-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-aus-meteorite-landings-with-meteorite-mass.html#peek-into-the-aus-met-landings-data"><i class="fa fa-check"></i><b>13.1</b> Peek into the Aus Met Landings Data</a></li>
+<li class="chapter" data-level="13.2" data-path="distribution-of-aus-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-aus-meteorite-landings-with-meteorite-mass.html#heatmap-of-aus-meteorite-landings"><i class="fa fa-check"></i><b>13.2</b> Heatmap of Aus Meteorite Landings</a></li>
+<li class="chapter" data-level="13.3" data-path="distribution-of-aus-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-aus-meteorite-landings-with-meteorite-mass.html#distribution-of-aus-meteorite-landings-with-cluster-markers"><i class="fa fa-check"></i><b>13.3</b> Distribution of Aus Meteorite Landings with Cluster Markers</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="year-analysis.html"><a href="year-analysis.html"><i class="fa fa-check"></i><b>14</b> Year Analysis</a><ul>
+<li class="chapter" data-level="14.1" data-path="year-analysis.html"><a href="year-analysis.html#years-with-the-most-meteorite-landings"><i class="fa fa-check"></i><b>14.1</b> Years with the Most Meteorite Landings</a></li>
+<li class="chapter" data-level="14.2" data-path="year-analysis.html"><a href="year-analysis.html#time-series-from-year-1970"><i class="fa fa-check"></i><b>14.2</b> Time Series from Year 1970</a></li>
+<li class="chapter" data-level="14.3" data-path="year-analysis.html"><a href="year-analysis.html#comparison-of-mass-and-years"><i class="fa fa-check"></i><b>14.3</b> Comparison of Mass and Years</a></li>
+<li class="chapter" data-level="14.4" data-path="year-analysis.html"><a href="year-analysis.html#comparison-of-mass-and-years-from-1900-onwards"><i class="fa fa-check"></i><b>14.4</b> Comparison of Mass and Years from 1900 onwards</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html"><i class="fa fa-check"></i><b>15</b> L6 Meteorite Analysis</a><ul>
+<li class="chapter" data-level="15.1" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html#distribution-of-l6-meteorite-landings"><i class="fa fa-check"></i><b>15.1</b> Distribution of L6 Meteorite Landings</a></li>
+<li class="chapter" data-level="15.2" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html#summary-of-the-l6-meteorites-mass"><i class="fa fa-check"></i><b>15.2</b> Summary of the L6 Meteorites Mass</a></li>
+<li class="chapter" data-level="15.3" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html#time-series-from-year-1970-for-l6"><i class="fa fa-check"></i><b>15.3</b> Time Series from Year 1970 for L6</a></li>
+<li class="chapter" data-level="15.4" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html#distribution-of-l6-us-meteorite-landings-with-meteorite-mass"><i class="fa fa-check"></i><b>15.4</b> Distribution of L6 US Meteorite Landings with Meteorite Mass</a></li>
+<li class="chapter" data-level="15.5" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html#distribution-of-indian-meteorite-l6-landings-with-meteorite-mass"><i class="fa fa-check"></i><b>15.5</b> Distribution of Indian Meteorite L6 Landings with Meteorite Mass</a></li>
+</ul></li>
+<li class="part"><span><b>II Adverse Food Event</b></span></li>
+<li class="chapter" data-level="16" data-path="read-the-data-1.html"><a href="read-the-data-1.html"><i class="fa fa-check"></i><b>16</b> Read the Data</a></li>
+<li class="chapter" data-level="17" data-path="peek-into-the-data-1.html"><a href="peek-into-the-data-1.html"><i class="fa fa-check"></i><b>17</b> Peek into the Data</a></li>
+<li class="chapter" data-level="18" data-path="rename-fields.html"><a href="rename-fields.html"><i class="fa fa-check"></i><b>18</b> Rename Fields</a></li>
+<li class="chapter" data-level="19" data-path="ten-most-common-symptoms.html"><a href="ten-most-common-symptoms.html"><i class="fa fa-check"></i><b>19</b> Ten Most Common Symptoms</a></li>
+<li class="chapter" data-level="20" data-path="ten-most-common-product-name.html"><a href="ten-most-common-product-name.html"><i class="fa fa-check"></i><b>20</b> Ten Most Common Product Name</a></li>
+<li class="chapter" data-level="21" data-path="ten-most-common-industry-name.html"><a href="ten-most-common-industry-name.html"><i class="fa fa-check"></i><b>21</b> Ten Most Common Industry Name</a></li>
+<li class="chapter" data-level="22" data-path="ages-commonly-affected.html"><a href="ages-commonly-affected.html"><i class="fa fa-check"></i><b>22</b> Ages Commonly Affected</a></li>
+<li class="chapter" data-level="23" data-path="distribution-of-ages.html"><a href="distribution-of-ages.html"><i class="fa fa-check"></i><b>23</b> Distribution of Ages</a><ul>
+<li class="chapter" data-level="23.1" data-path="distribution-of-ages.html"><a href="distribution-of-ages.html#and-above-adverse-products"><i class="fa fa-check"></i><b>23.1</b> 70 and Above Adverse Products</a></li>
+<li class="chapter" data-level="23.2" data-path="distribution-of-ages.html"><a href="distribution-of-ages.html#age-60---69-adverse-products"><i class="fa fa-check"></i><b>23.2</b> Age 60 - 69 Adverse Products</a></li>
+<li class="chapter" data-level="23.3" data-path="distribution-of-ages.html"><a href="distribution-of-ages.html#age-50---59-adverse-products"><i class="fa fa-check"></i><b>23.3</b> Age 50 - 59 Adverse Products</a></li>
+<li class="chapter" data-level="23.4" data-path="distribution-of-ages.html"><a href="distribution-of-ages.html#less-than-5-adverse-products"><i class="fa fa-check"></i><b>23.4</b> Less than 5 Adverse Products</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="ten-most-common-outcomes.html"><a href="ten-most-common-outcomes.html"><i class="fa fa-check"></i><b>24</b> Ten Most Common Outcomes</a></li>
+<li class="chapter" data-level="25" data-path="outcomes-and-products-associated-with-adverse-events.html"><a href="outcomes-and-products-associated-with-adverse-events.html"><i class="fa fa-check"></i><b>25</b> Outcomes and Products associated with Adverse Events</a><ul>
+<li class="chapter" data-level="25.1" data-path="outcomes-and-products-associated-with-adverse-events.html"><a href="outcomes-and-products-associated-with-adverse-events.html#death-products"><i class="fa fa-check"></i><b>25.1</b> Death Products</a></li>
+<li class="chapter" data-level="25.2" data-path="outcomes-and-products-associated-with-adverse-events.html"><a href="outcomes-and-products-associated-with-adverse-events.html#death-products-for-age-70-and-above"><i class="fa fa-check"></i><b>25.2</b> Death Products for Age 70 and Above</a></li>
+<li class="chapter" data-level="25.3" data-path="outcomes-and-products-associated-with-adverse-events.html"><a href="outcomes-and-products-associated-with-adverse-events.html#disability-products"><i class="fa fa-check"></i><b>25.3</b> Disability Products</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="symptoms-and-the-products-causing-it.html"><a href="symptoms-and-the-products-causing-it.html"><i class="fa fa-check"></i><b>26</b> Symptoms and the Products Causing it</a><ul>
+<li class="chapter" data-level="26.1" data-path="symptoms-and-the-products-causing-it.html"><a href="symptoms-and-the-products-causing-it.html#diarrhoea"><i class="fa fa-check"></i><b>26.1</b> Diarrhoea</a></li>
+<li class="chapter" data-level="26.2" data-path="symptoms-and-the-products-causing-it.html"><a href="symptoms-and-the-products-causing-it.html#vomiting"><i class="fa fa-check"></i><b>26.2</b> Vomiting</a></li>
+<li class="chapter" data-level="26.3" data-path="symptoms-and-the-products-causing-it.html"><a href="symptoms-and-the-products-causing-it.html#abdominal-pain"><i class="fa fa-check"></i><b>26.3</b> Abdominal Pain</a></li>
+<li class="chapter" data-level="26.4" data-path="symptoms-and-the-products-causing-it.html"><a href="symptoms-and-the-products-causing-it.html#dizziness"><i class="fa fa-check"></i><b>26.4</b> Dizziness</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="time-analysis-of-adverse-events.html"><a href="time-analysis-of-adverse-events.html"><i class="fa fa-check"></i><b>27</b> Time Analysis of Adverse Events</a><ul>
+<li class="chapter" data-level="27.1" data-path="time-analysis-of-adverse-events.html"><a href="time-analysis-of-adverse-events.html#year-wise"><i class="fa fa-check"></i><b>27.1</b> Year wise</a></li>
+<li class="chapter" data-level="27.2" data-path="time-analysis-of-adverse-events.html"><a href="time-analysis-of-adverse-events.html#most-common-month-for-adverse-events"><i class="fa fa-check"></i><b>27.2</b> Most Common Month for Adverse Events</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html"><i class="fa fa-check"></i><b>28</b> Products in Adverse Events for January</a><ul>
+<li class="chapter" data-level="28.1" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html#wen-cleansing-conditioner-symptoms"><i class="fa fa-check"></i><b>28.1</b> Wen Cleansing Conditioner Symptoms</a></li>
+<li class="chapter" data-level="28.2" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html#vitamin-d-symptoms"><i class="fa fa-check"></i><b>28.2</b> Vitamin D Symptoms</a></li>
+<li class="chapter" data-level="28.3" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html#hydroxycut-symptoms"><i class="fa fa-check"></i><b>28.3</b> Hydroxycut Symptoms</a></li>
+<li class="chapter" data-level="28.4" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html#multivitamin-symptoms"><i class="fa fa-check"></i><b>28.4</b> MultiVitamin Symptoms</a></li>
+<li class="chapter" data-level="28.5" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html#fish-oil-symptoms"><i class="fa fa-check"></i><b>28.5</b> Fish Oil Symptoms</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="gender-and-adverse-events.html"><a href="gender-and-adverse-events.html"><i class="fa fa-check"></i><b>29</b> Gender and Adverse Events</a><ul>
+<li class="chapter" data-level="29.1" data-path="gender-and-adverse-events.html"><a href="gender-and-adverse-events.html#plot-products-for-female"><i class="fa fa-check"></i><b>29.1</b> Plot Products for Female</a></li>
+<li class="chapter" data-level="29.2" data-path="gender-and-adverse-events.html"><a href="gender-and-adverse-events.html#plot-products-for-male"><i class="fa fa-check"></i><b>29.2</b> Plot Products for Male</a></li>
+<li class="chapter" data-level="29.3" data-path="gender-and-adverse-events.html"><a href="gender-and-adverse-events.html#female-symptoms-top-10"><i class="fa fa-check"></i><b>29.3</b> Female Symptoms Top 10</a></li>
+<li class="chapter" data-level="29.4" data-path="gender-and-adverse-events.html"><a href="gender-and-adverse-events.html#male-symptoms-top-10"><i class="fa fa-check"></i><b>29.4</b> Male Symptoms Top 10</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Little Book on Exploratory Data Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="distribution-of-aus-meteorite-landings-with-meteorite-mass" class="section level1">
+<h1><span class="header-section-number">Chapter 13</span> Distribution of Aus Meteorite Landings with Meteorite Mass</h1>
+<p>The mass of the Meteorites are indicated by the <strong>Radius</strong> of the Circles.<em>The mass has been converted to <strong>Kgs</strong> and then multiplied by 10</em></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">top =<span class="st"> </span>-<span class="dv">45</span> <span class="co"># north lat</span>
+left =<span class="st"> </span><span class="dv">110</span> <span class="co"># west long</span>
+right =<span class="st"> </span><span class="dv">145</span> <span class="co"># east long</span>
+bottom =<span class="st">  </span>-<span class="dv">10</span> <span class="co"># south lat</span>
+
+
+AusMetLandings =<span class="st"> </span>MetLandings %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(reclat &lt;=bottom) %&gt;%
+<span class="st">  </span><span class="kw">filter</span> ( reclat &gt;=<span class="st"> </span>top) %&gt;%
+<span class="st">  </span><span class="kw">filter</span>( reclong &gt;=<span class="st"> </span>left ) %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(reclong &lt;=<span class="st"> </span>right)
+
+center_lon =<span class="st"> </span><span class="kw">median</span>(AusMetLandings$reclong,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
+center_lat =<span class="st"> </span><span class="kw">median</span>(AusMetLandings$reclat,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
+
+
+factpal &lt;-<span class="st"> </span><span class="kw">colorFactor</span>(<span class="kw">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>), 
+                       AusMetLandings$fall)
+
+<span class="kw">leaflet</span>(AusMetLandings) %&gt;%<span class="st"> </span><span class="kw">addProviderTiles</span>(<span class="st">&quot;Esri.NatGeoWorldMap&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">addCircles</span>(<span class="dt">lng =</span> ~reclong, <span class="dt">lat =</span> ~reclat,<span class="dt">radius =</span> ~(mass/<span class="fl">1e3</span>)*<span class="dv">10</span> ,
+             <span class="dt">color =</span> ~<span class="kw">factpal</span>(fall))  %&gt;%
+<span class="st">  </span><span class="co"># controls</span>
+<span class="st">  </span><span class="kw">setView</span>(<span class="dt">lng=</span>center_lon, <span class="dt">lat=</span>center_lat,<span class="dt">zoom =</span> <span class="dv">4</span>) %&gt;%
+<span class="st">  </span>
+<span class="st">  </span><span class="kw">addLegend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="dt">pal =</span> factpal, <span class="dt">values =</span> ~fall,
+            <span class="dt">title =</span> <span class="st">&quot;Meteorites landings and fall&quot;</span>,
+            <span class="dt">opacity =</span> <span class="dv">1</span>)</code></pre></div>
+<div id="htmlwidget-33b1a608e783d877cae2" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-33b1a608e783d877cae2">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.NatGeoWorldMap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]},{"method":"addCircles","args":[[-33.15639,-31.35,-35.08333,-26.45,-29.8,-25.73333,-26.59278,-27.75,-23.33333,-21.65972,-23.33333,-26.5,-29.06667,-30.85,-31.61667,-22.75,-37.57083,-27.7,-35.3,-36.8,-30.75,-31.01667,-31.03297,-31.01964,-31.03278,-30.55,-30.13333,-31.4875,-23.5,-30.06667,-29.46667,-22.61667,-31.3,-31.83333,-32.95556,-29.62917,-32.05,-31.96667,-34.06667,-26.45,-30.31667,-30.08333,-30.11667,-30.31667,-30.28333,-30.29167,-30.31667,-30.1085,-30.11967,-30.1255,-30.1255,-30.134,-30.13333,-30.12433,-30.11967,-30.11883,-30.022,-30.0225,-30.07967,-30.07967,-30.06383,-30.0855,-30.08733,-30.09867,-30.09867,-30.09167,-30.09167,-30.09167,-30.09167,-30.09167,-30.09167,-30.09167,-30.09167,-30.09167,-30.09167,-30.09167,-30.1845,-30.18417,-30.31667,-30.31667,-30.11683,-30.12283,-30.13933,-30.11967,-30.107,-30.119,-30.32,-30.32,-30.32,-30.1085,-30.30883,-30.3685,-30.31667,-32.1,-29.16667,-29.16667,-29.15,-29.16667,-29.18333,-37.98333,-29.23333,-29.75,-29.91667,-26.66667,-32.13333,-31.93333,-32.81667,-29.6,-29.785,-31.2,-30.33333,-30.25,-30.31833,-30.70167,-30.24833,-30.50683,-30.61667,-30.50683,-30.16967,-30.23433,-30.91378,-30.94775,-35.41667,-29.85,-30.45,-27.95,-33.3,-30.4,-30.36667,-32.01667,-27.71667,-25.33333,-30.88333,-30.88333,-30.88333,-30.47,-30.53333,-30.58333,-30.16667,-30.66667,-30.73333,-30.573,-30.59694,-30.6,-30.60867,-30.60217,-36.5,-30.43333,-33.61667,-25.93333,-27.5,-29.58639,-31.66997,-31.66417,-34.5,-29.45,-25.29647,-33.86667,-32.03333,-30.44028,-30.81667,-30.98333,-30.9,-30.46667,-30.45833,-30.63333,-30.785,-30.75,-30.15,-30.11667,-30.15,-30.15,-30.15,-30.78333,-30.78333,-30.15383,-30.17417,-30.16667,-30.16667,-30.73783,-30.757,-30.77283,-30.78167,-30.758,-30.756,-30.757,-30.75967,-30.73233,-30.7315,-30.731,-30.73783,-30.71667,-30.75,-30.75,-30.75,-30.75,-30.75,-29.41667,-29.58333,-30.60833,-24.5,-33.68333,-22.9,-34,-12.26333,-33.3,-31,-30.46667,-30.49967,-30.46717,-30.47483,-30.47483,-30.48033,-30.48083,-30.48083,-30.46667,-30.9685,-31.38333,-25.46667,-24.56667,-22.36667,-30.45,-30.58517,-30.60267,-30.57,-30.56833,-30.4,-30.41667,-30.2635,-30.23333,-30.28333,-30.66167,-30.51867,-30.51667,-30.547,-30.55167,-30.568,-30.16833,-30.27467,-30.668,-30.21583,-30.085,-30.53367,-30.70117,-30,-30.55667,-30.60883,-30.40817,-30.668,-30.17306,-30.16833,-30.13389,-30.28333,-30.33333,-30.35,-30.41667,-30.38333,-30.38333,-30.38333,-30.43333,-30.43333,-30.35,-30.31667,-30.33333,-30.55,-30.31667,-30.33333,-30.38333,-30.33333,-30.43333,-30.46667,-30.46667,-30.46667,-30.46667,-30.48333,-30.46667,-30.43333,-30.85,-25.55,-29.58333,-30.33333,-25.91667,-32.61667,-33.25,-34.31667,-33.6,-33.21667,-30.46667,-20.69944,-28.03333,-35.1,-26,-34.15,-24.91667,-33.28333,-31.18333,-33.9,-37.75,-31,-26.21667,-30.71061,-30.71061,-30.71061,-30.71061,-30.71061,-33.06667,-30.53333,-24.83333,-31.03333,-25.66667,-29.75,-31.53333,-31.53333,-31.46667,-28.84519,-35.95,-24.13833,-30.09056,-30.6,-30.13,-30.53583,-34.45,-31.01667,-31.39953,-33.56667,-30.3,-25.73333,-29.95,-28.85,-33.16667,-32.91667,-32.91667,-33.13333,-32.91667,-32.91667,-26.33333,-26.11667,-35.95,-29.4,-30.01667,-28.91667,-30.5,-33.31667,-31.1,-31.2,-29.45,-22.5,-24.76667,-25.87667,-28.16667,-28.83333,-25.66667,-23.83333,-30.08333,-30.05,-30.1755,-30.36667,-30.3695,-30.36667,-30.36667,-30.35,-30.36667,-30.36667,-30.36667,-30.35,-30.28583,-30.06667,-30.06,-30.21333,-30.21083,-30.34533,-30.41667,-30.91667,-30.18333,-30.2,-30.18333,-30.78333,-30.88333,-30.85,-30.75833,-30.475,-30.00833,-30.01667,-30.8,-30.8,-30.01667,-30.33333,-30.93333,-30.12633,-30.14267,-30.12633,-30.12167,-30.7845,-30.5,-30.50583,-30.83333,-30.77972,-26.66667,-29.58333,-30.45383,-31.96667,-29.53333,-29.5,-31,-28.6,-31.08333,-31.51667,-29.86667,-37.31667,-30.03333,-30.5,-30.21667,-30,-30.6,-30.76667,-27.83333,-21.86667,-31,-30.66667,-30.45,-30.78333,-30.78333,-30.49117,-30.46,-30.46867,-30.49083,-30.89617,-29.78,-29.62833,-29.73167,-31.58333,-31.16667,-31.35,-31.45278,-33,-30.75,-30.99311,-30.98622,-30.62472,-30.65364,-30.657,-30.69047,-30.75806,-30.93383,-30.93417,-30.89344,-30.89281,-30.88561,-30.88517,-30.53842,-30.54019,-30.54478,-30.98789,-30.98036,-30.57269,-30.54603,-32.12333,-32.04167,-29.11667,-34.78333,-35.90667,-30.41667,-33.58316,-35.38333,-26.26167,-25.78333,-29.83167,-27.76667,-30.46667,-30.68833,-29.35,-30.15,-20.36667,-35.90667,-31.16667,-30.36667,-30.71667,-30.06667,-30.06667,-30.06667,-30.25,-30.15,-30.6,-30.65,-30.08333,-30.31667,-30.32167,-30.21667,-30.5,-30.08333,-30.08333,-30.28667,-30.16667,-30.16667,-30.08333,-30.51733,-30.51667,-30.06783,-30.30283,-30.30083,-30.31833,-30.28667,-30.24833,-30.31806,-30.12367,-34.66667,-30.36667,-22.33333,-15,-30.58333,-31.88333,-30.25,-30.48333,-30.3,-30.36667,-30.16667,-30.16,-30.2,-30.16283,-30.15,-30.16333,-30.16867,-30.12417,-30.18333,-30.0275,-30.03183,-30.01283,-30.10233,-30.10517,-30.1135,-30.11833,-30.1065,-30.10867,-30.1055,-30.17917,-30.17361,-30.16028,-31.1,-30.46667,-23.25556,-32.86667,-15.7,-32.11667,-33.61667,-25.7,-31.58333,-31.56667,-29.43333,-26.33333,-27.86667,-35.48333,-29.96667,-22.96833,-35.01667,-32.06667,-20.66667,-26.28333,-23.26667,-30.5,-30.71667,-30.48333,-30.48333,-30.5,-30.5,-30.48333,-30.5,-30.5,-30.5,-30.51667,-30.56667,-30.575,-31.69167,-36.43333,-32.26667,-30.75,-30.05,-25.31583,-26.45,-28.23333,-30.1,-28.09697,-26.05,-30,-19.3,-24.91667,-25.65,-28.38333,-29.75,-32.45,-32.08287,-30.31667,-30.36417,-30.28,-30.5,-29.45,-32.03333,-14.25,-31.19167,-29.5,-32.1],[115.67639,129.19,139.91667,120.36667,141.7,142.95,120.32833,115.83333,134.11667,140.90694,134.66667,141.08333,139.91667,122.31667,118.03333,120.83333,143.82533,115.76667,144.56667,143.55,117.78333,131.31667,131.28547,131.30394,131.28553,130.96667,126.36667,122.12389,133.83333,141.06667,128.35,135.2,138.38333,141.76667,136.1375,116.48222,126.16667,125.83333,139.75,120.36667,126.61667,126.61667,126.91667,126.56667,126.51667,126.5875,126.61667,126.62483,126.8835,126.89,126.89,126.8915,126.8905,126.88667,126.8985,126.88533,126.5525,126.552,126.88917,126.88917,126.88417,126.90117,126.90167,126.8855,126.88533,126.88883,126.88883,126.88883,126.88883,126.88883,126.88883,126.88883,126.88883,126.88883,126.88883,126.88883,126.68367,126.7,126.6,126.61667,126.8755,126.888,126.901,126.86683,126.84217,126.838,126.606,126.606,126.606,126.52717,126.5845,126.6125,126.61667,125.68333,127.08333,127.16667,127.16667,127.16667,127.16667,140.98333,139.93333,141.03333,129.83333,120.16667,141.03333,126.21667,134.8,126.50667,126.58833,138.3,130.53333,130.66667,129.06333,130.45611,130.54083,130.404,130.41667,130.404,130.70533,130.60067,130.90386,130.90858,139.75,140.7,126.1,122.88333,136.01667,127.43333,120.73333,139.78333,117.25,116.18333,128.96667,128.975,128.66667,128.745,128.56667,128.66667,128.66667,129.01667,128.91667,128.56367,130.08694,130.06667,130.08017,129.96667,142.03333,126.1,115.91667,119.3,122.36667,122.18167,141.24233,141.23375,144.71667,143.6,133.20006,121.91667,139.78333,121.25694,128.21667,127.88333,128.08333,128.2,128.21667,128.125,128.01667,127.99167,128.08333,127.86667,128.08333,128.08333,128.08333,127.75,127.8,128.07283,128.069,128.08333,126.08333,127.95367,127.95167,127.94667,127.94417,127.94783,127.93717,127.938,127.94983,127.949,127.93917,127.93917,127.95367,127.93333,128.08333,128.08333,128.08333,128.08333,128.08333,129.5,128.91667,115.16667,115.18333,121.8,138.71667,118.1,136.83833,117.66667,125.93333,126.18333,126.22183,126.34367,126.35883,126.35883,126.347,126.34633,126.34633,126.33333,126.252,125.63333,142.8,133.16667,135.76667,129.5,129.58667,129.57528,129.31467,129.6375,129.01667,129.81667,129.81033,129.08333,129.56667,129.11667,129.54017,129.192,129.18917,129.22133,129.713,129.04183,129.0185,129.462,129.72083,129.10283,129.42417,129.46717,129.16667,129.63867,129.62567,129.33833,129.462,129.53611,129.5,129.0625,129.53333,129.5,129.66667,129.65,129.68333,129.7,129.51667,129.6,129.55,129.65,129.68333,129.68333,129.65,129.73333,129.76667,129.81667,129.8,129.76667,129.71667,129.78333,129.8,129.8,129.63333,129.68333,129.5,132.08333,142.78333,121.16667,126.36667,119.3,134.85,135.53333,138.93333,136.1,136.41667,125.7,139.80417,138.13333,143.4,122,141.78333,119.41667,136,126.41667,138.48333,140.3,118.5,122.5,140.15142,140.15142,140.15142,140.15142,140.15142,118.21667,134.75,139.8,138.2,117,116.43333,127.1,127.01667,126.93333,121.397,143.33333,115.87167,128.80583,127.16667,127.38267,127.33967,140.56667,127.21667,127.14467,136.65,131.26667,142.95,128.08333,116.28333,141.75,141.88333,141.88333,141.71667,141.88333,141.88333,121,116.66667,144.51667,139.98333,141.06667,136.25,142.33333,144.78333,138.26667,138.3,119.71667,116.16667,117.7,119.07333,118.5,122.18333,118.1,134.03333,130.03333,130.21667,130.089,130.08333,130.05533,130.08333,130.08333,130.03333,130.08333,130.08333,130.08333,130.03333,129.957,129.8475,130.025,129.87333,129.96833,130.1,129.85,118.2,126.36667,126.36667,126.36667,127.55,127.55,127.53333,127.525,127.51667,127.70833,127.60833,127.61667,127.61667,127.7,127.61667,127.5,127.41033,127.39383,127.41033,127.38683,127.69733,127.5,127.43417,127.5,127.52306,119,139.9,137.99017,126.25,143.98333,144.06667,124.83333,141.15,138.3,117.96667,144.21667,139.85,129.01667,128.1,126.21667,128.91667,127.81667,128.01667,123.86667,120.11667,132,126.4,126.6,126.45,126.45,126.4625,126.38333,126.39133,126.39067,126.44817,126.45667,126.32167,126.23833,127.7,127.75,127.51667,127.8905,121,131.16667,131.33253,131.33211,131.47064,131.47389,131.47814,131.47353,131.44803,131.36169,131.36111,131.39,131.39142,131.38197,131.38011,131.25525,131.25508,131.25928,131.34067,131.34456,131.48094,131.9705,141.07972,126.18333,122.08333,144.66667,141.855,138,118.65662,140.91667,120.73333,137.93333,136.85867,137.85,125.46667,125.51333,121.76667,140.98333,130.11667,141.855,125.26667,126.08333,116.5,128.98333,128.96667,128.96667,128.8,128.8,128.48333,128.40833,128.81667,128.985,128.85,128.3,128.5,128.91667,128.83333,128.635,129,128.91667,128.91667,128.47617,128.45833,128.98483,128.52617,128.5255,128.38333,128.57333,128.63528,128.37333,128.8495,139.28333,126.01667,118,135,125.21667,141.2,126.33333,126.25,126.03333,126.18333,126.40433,126.38667,126.5,126.40833,126.42833,126.4085,126.28717,126.4515,126.36667,126.27017,126.27283,126.25783,126.3515,126.35,126.25117,126.24767,126.26267,126.26033,126.2555,126.40056,126.43444,126.34833,138.26667,141.08333,116.90083,134.28333,135.66667,141.08333,115.91667,143.05,127.6,127.8,142.01667,118.33333,141.73333,142.6,120.6,125.36861,139.91667,125.15,118.83333,126.66667,116.93333,131.55,131.51667,131.55,131.55,131.7,131.7,131.68333,131.68333,131.68333,131.71667,131.5,131.5,131.50164,127.78333,143.63333,139.86667,127.98333,128.93333,142.44467,131,120.85,143.2,118.45561,128.95,138,127.76667,120.06667,114.21667,116.71667,141.03333,135.55,135.64985,131.46667,131.3745,131.35833,131.46667,121.21667,126.175,132.01667,121.53333,118.75,117.71667],[4.881,3.24,417.3,3300,113,1600,1500,360,200,110.9,181,53,208.1,378.5,2.563,24,0.15,422,2000,6.52,1180,1.034,0.13,0.004,1.145,190,8.93,90.56,0.062,120,3.81,5000,2.029,340,9.92,387.5,25.15,0.204,32.9,0.19,250,2.8,0.366,0.328,0.38,0.5096,1.003,0.008,0.134,0.034,0.287,2.15,0.943,0.36,0.003,0.035,0.0644,0.1294,0.006,0.0081,0.0415,0.004,0.006,0.0065,0.0258,0.01,0.052,0.0148,0.01,0.0301,0.0032,0.0233,0.0095,0.007,0.0045,0.0041,0.087,0.0099,0.0357,0.551,0.188,0.376,0.6995,0.1529,0.269,0.0909,0.2827,1.043,0.1363,0.199,0.05,0.614,5.79,0.064,0.495,4.1,1.16,8.09,5.02,8,316,2.94,20,4.29,24.6,195,4.82,0.562,1,3.043,1050,0.61,15.369,1.49,0.97,0.418,1000,0.842,0.354,4.71,0.066,0.468,52.3,68,1.167,21.56,57.17,2.84,108.2,0.038,122,2570,1.095,0.045,0.826,1.279,0.77,2.74,10.6,0.614,1.5,4.38,null,0.3,0.53,1.13,160,1.227,4.14,0.2,1183,44.8,45.14,1.01,152,17.97,1.9,3.97,743.18,18.61,0.977,260,0.74,0.64,0.36,0.473,9.1,1.226,10,3.59,0.346,0.286,0.269,1.04,0.82,0.4687,0.046,0.5441,0.4294,0.0699,0.597,0.0746,0.0767,0.1623,0.0811,0.6411,0.1441,0.487,0.06,0.7768,0.0083,0.0138,0.313,0.99,1.66,0.57,0.1,5,0.52,88,100,0.671,408,336,0,1125,0.197,0.46,0.0281,0.4735,0.4037,0.1601,0.0326,0.0613,0.004,0.013,0.33,5030,270,20000,23000,3.79,3.04,2.84,3.67,0.58,0.44,1.08,0.71,2.63,0.25,40,0.575,0.312,0.58,1.38,0.535,0.905,0.236,1.599,1.04,1.11,3.33,1.72,3.6,0.68,0.62,0.74,1,1.2,0.427,0.2,1.506,0.23,0.359,0.285,0.1,0.085,1.591,0.14,0.39,0.474,0.985,0.256,0.969,11,0.46,0.336,0.474,0.128,4.583,0.689,3.112,6.644,1.868,0.743,0.372,0.409,500,9.14,null,21.98,120,3.925,5.42,136,14.92,0.173,null,36,4.5,null,553,535,327,24.927,79,27.5,234,0.121,0.325,2.01,0.05,1.07,0.54,105,258.5,26,9.06,90,null,0.431,14.43,40.02,25.72,100,3.57,0.166,1.79,0.5389,0.58,0.22,0.315,0.3654,10.5,33.88,2.36,1.133,11.816,7.47,2.7,1.72,1.585,0.729,0.682,74.64,265,34.16,1.168,140.4,770,24.26,323.83,88.1,3.04,7340,3260,220,36.67,166,8.5,2720,229,5.13,0.98,1.04,0.48,12,0.2,0.14,null,0.08,0.18,0.26,0.43,0.73,0.54,0.4,5.38,4.72,4.32,0.377,82,199,8.94,1.692,240000,2.51,2.35,0.092,1.71,0.246,0.306,0.571,0.252,0.266,0.89,0.306,0.0916,0.018,0.2669,0.0441,0.4059,0.24,0.5,0.6,0.13,0.33,11430,0.5299,0.0462,31.8,16.94,55,270,1.73,7.86,200,2.835,0.386,6.089,9.64,3.087,44,2.384,1.2,1.02,400,0.027,1.705,0.4,0.283,0.248,0.455,0.159,0.739,0.87,3.971,10.489,1.291,0.753,7.83,0.769,17.8,1.5,14.03,0.046,0.111,0.19,0.007,0.023,0.243,0.034,0.084,0.529,0.336,0.141,0.073,0.094,0.639,0.175,0.049,1.052,7.863,0.13,5.874,0.854,0.136,0.127,43,6.9,2.004,12.13,394,2.1857,2.77,8.75,0.76,0.83,1.246,27.68,16.38,2.95,15.53,0.74,2.4,87.4,1.441,0.665,1.287,2.95,0.428,9.2,20.5,2.21,0.478,82.2,47.6,13.67,3.3,1.25,0.235,1.1,1.1,1.21,0.56,0.32,0.2,1.88,0.59,0.96,0.214,1.006,0.197,0.306,33.25,1.905,868.6,64,4.29,3.507,12.5,0.395,3.22,1.15,0.0604,0.6039,0.1637,1.453,0.0963,0.1506,1.173,0.874,0.66,0.035,1.738,1.738,0.1424,0.115,0.186,0.256,0.635,0.723,0.303,1.92,1.5,0.1085,0.66,120,27,9.09,757.5,4.386,0.766,621,1.015,0.038,0.186,417,1.57,2.18,2.718,3,4.3,1.915,43.86,569.3,78.68,930,0.838,0.026,0.013,0.016,0.53,0.195,0.015,0.01,0.193,0.041,1.031,0.471,4.105,2.1,942,1.706,6.277,2.71,0.94,5000,40.3,300,2,36.37,7600,378,710,8.5,58,32.9,57.5,9.13,5,0.14,0.046,15,2.625,1320,400,1184,38000],null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":true,"color":["#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF"],"fillOpacity":0.2,"dashArray":null},null,null,null,null,null,null]},{"method":"addLegend","args":[{"colors":["#FF0000","#0000FF"],"labels":["Fell","Found"],"na_color":null,"na_label":"NA","opacity":1,"position":"bottomright","type":"factor","title":"Meteorites landings and fall","extra":null,"layerId":null,"className":"info legend"}]}],"limits":{"lat":[-37.98333,-12.26333],"lng":[114.21667,144.78333]},"setView":[[-30.36667,128.47975],4,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="peek-into-the-aus-met-landings-data" class="section level2">
+<h2><span class="header-section-number">13.1</span> Peek into the Aus Met Landings Data</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AusMetLandings =<span class="st"> </span>AusMetLandings %&gt;%<span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(mass))
+
+<span class="kw">kable</span>(<span class="kw">head</span>(AusMetLandings,<span class="dv">6</span>),<span class="st">&quot;html&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>)) %&gt;%
+<span class="st">  </span><span class="kw">scroll_box</span>(<span class="dt">width =</span> <span class="st">&quot;800px&quot;</span>)</code></pre></div>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:800px; ">
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:left;">
+nametype
+</th>
+<th style="text-align:left;">
+recclass
+</th>
+<th style="text-align:right;">
+mass
+</th>
+<th style="text-align:left;">
+fall
+</th>
+<th style="text-align:right;">
+year
+</th>
+<th style="text-align:right;">
+reclat
+</th>
+<th style="text-align:right;">
+reclong
+</th>
+<th style="text-align:left;">
+GeoLocation
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Mundrabilla
+</td>
+<td style="text-align:right;">
+16852
+</td>
+<td style="text-align:left;">
+Valid
+</td>
+<td style="text-align:left;">
+Iron, IAB-ung
+</td>
+<td style="text-align:right;">
+24000000
+</td>
+<td style="text-align:left;">
+Found
+</td>
+<td style="text-align:right;">
+1911
+</td>
+<td style="text-align:right;">
+-30.78333
+</td>
+<td style="text-align:right;">
+127.5500
+</td>
+<td style="text-align:left;">
+(-30.783330, 127.550000)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Youndegin
+</td>
+<td style="text-align:right;">
+30374
+</td>
+<td style="text-align:left;">
+Valid
+</td>
+<td style="text-align:left;">
+Iron, IAB-MG
+</td>
+<td style="text-align:right;">
+3800000
+</td>
+<td style="text-align:left;">
+Found
+</td>
+<td style="text-align:right;">
+1884
+</td>
+<td style="text-align:right;">
+-32.10000
+</td>
+<td style="text-align:right;">
+117.7167
+</td>
+<td style="text-align:left;">
+(-32.100000, 117.716670)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Huckitta
+</td>
+<td style="text-align:right;">
+11922
+</td>
+<td style="text-align:left;">
+Valid
+</td>
+<td style="text-align:left;">
+Pallasite, PMG-an
+</td>
+<td style="text-align:right;">
+2300000
+</td>
+<td style="text-align:left;">
+Found
+</td>
+<td style="text-align:right;">
+1924
+</td>
+<td style="text-align:right;">
+-22.36667
+</td>
+<td style="text-align:right;">
+135.7667
+</td>
+<td style="text-align:left;">
+(-22.366670, 135.766670)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Henbury
+</td>
+<td style="text-align:right;">
+11872
+</td>
+<td style="text-align:left;">
+Valid
+</td>
+<td style="text-align:left;">
+Iron, IIIAB
+</td>
+<td style="text-align:right;">
+2000000
+</td>
+<td style="text-align:left;">
+Found
+</td>
+<td style="text-align:right;">
+1931
+</td>
+<td style="text-align:right;">
+-24.56667
+</td>
+<td style="text-align:right;">
+133.1667
+</td>
+<td style="text-align:left;">
+(-24.566670, 133.166670)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Murnpeowie
+</td>
+<td style="text-align:right;">
+16878
+</td>
+<td style="text-align:left;">
+Valid
+</td>
+<td style="text-align:left;">
+Iron, IC
+</td>
+<td style="text-align:right;">
+1143000
+</td>
+<td style="text-align:left;">
+Found
+</td>
+<td style="text-align:right;">
+1909
+</td>
+<td style="text-align:right;">
+-29.58333
+</td>
+<td style="text-align:right;">
+139.9000
+</td>
+<td style="text-align:left;">
+(-29.583330, 139.900000)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Wolf Creek
+</td>
+<td style="text-align:right;">
+24326
+</td>
+<td style="text-align:left;">
+Valid
+</td>
+<td style="text-align:left;">
+Iron, IIIAB
+</td>
+<td style="text-align:right;">
+760000
+</td>
+<td style="text-align:left;">
+Found
+</td>
+<td style="text-align:right;">
+1947
+</td>
+<td style="text-align:right;">
+-19.30000
+</td>
+<td style="text-align:right;">
+127.7667
+</td>
+<td style="text-align:left;">
+(-19.300000, 127.766670)
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="heatmap-of-aus-meteorite-landings" class="section level2">
+<h2><span class="header-section-number">13.2</span> Heatmap of Aus Meteorite Landings</h2>
+<p>The <strong>intensity</strong> of the Heatmap is based on the <strong>mass</strong> of the meteorites.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AusMetLandings %&gt;%<span class="st"> </span><span class="kw">leaflet</span>() %&gt;%<span class="st"> </span><span class="kw">addProviderTiles</span>(<span class="st">&quot;Esri.NatGeoWorldMap&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">addHeatmap</span>(<span class="dt">lng =</span> ~reclong, <span class="dt">lat =</span> ~reclat, <span class="dt">intensity =</span> ~mass,
+             <span class="dt">blur =</span> <span class="dv">20</span>, <span class="dt">max =</span> <span class="fl">0.05</span>, <span class="dt">radius =</span> <span class="dv">15</span>) %&gt;%
+<span class="st">  </span><span class="co"># controls</span>
+<span class="st">  </span><span class="kw">setView</span>(<span class="dt">lng=</span>center_lon, <span class="dt">lat=</span>center_lat,<span class="dt">zoom =</span> <span class="dv">4</span>) </code></pre></div>
+<div id="htmlwidget-11f455ccdc4224cb9645" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-11f455ccdc4224cb9645">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.NatGeoWorldMap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]},{"method":"addHeatmap","args":[[[-30.78333,127.55,24000000],[-32.1,117.71667,3800000],[-22.36667,135.76667,2300000],[-24.56667,133.16667,2000000],[-29.58333,139.9,1143000],[-19.3,127.76667,760000],[-29.45,119.71667,734000],[-31.38333,125.63333,503000],[-22.61667,135.2,500000],[-28.23333,120.85,500000],[-26.45,120.36667,330000],[-22.5,116.16667,326000],[-25.66667,118.1,272000],[-25.33333,116.18333,257000],[-35.3,144.56667,200000],[-25.73333,142.95,160000],[-26.59278,120.32833,150000],[-14.25,132.01667,132000],[-29.5,118.75,118400],[-27.5,122.36667,118300],[-30.75,117.78333,118000],[-33.3,117.66667,112500],[-30.33333,130.53333,105000],[-30.61667,130.41667,100000],[-32.26667,139.86667,94200],[-30.5,131.55,93000],[-22.33333,118,86860],[-28.91667,136.25,77000],[-15.7,135.66667,75750],[-32.03333,139.78333,74318],[-25.65,114.21667,71000],[-25.7,143.05,62100],[-26.28333,126.66667,56930],[-34.15,141.78333,55300],[-24.91667,119.41667,53500],[-25.55,142.78333,50000],[-27.7,115.76667,42200],[-35.08333,139.91667,41730],[-26.33333,118.33333,41700],[-22.9,138.71667,40800],[-31,132,40000],[-31.19167,121.53333,40000],[-35.38333,140.91667,39400],[-29.62917,116.48222,38750],[-30.85,122.31667,37850],[-24.91667,120.06667,37800],[-27.75,115.83333,36000],[-31.83333,141.76667,34000],[-34,118.1,33600],[-33.28333,136,32700],[-33.31667,144.78333,32383],[-29.23333,139.93333,31600],[-28.09697,118.45561,30000],[-25.46667,142.8,27000],[-28.6,141.15,27000],[-26.11667,116.66667,26500],[-30.98333,127.88333,26000],[-30.53333,134.75,25850],[-30.31667,126.61667,25000],[-31,118.5,23400],[-23.83333,134.03333,22900],[-24.76667,117.7,22000],[-29.06667,139.91667,20810],[-23.33333,134.11667,20000],[-29.86667,144.21667,20000],[-30.18333,126.36667,19900],[-31.93333,126.21667,19500],[-30.55,130.96667,19000],[-23.33333,134.66667,18100],[-28.16667,118.5,16600],[-36.5,142.03333,16000],[-34.5,144.71667,15200],[-30.01667,141.06667,14040],[-33.6,136.1,13600],[-27.71667,117.25,12200],[-30.06667,141.06667,12000],[-32.61667,134.85,12000],[-30.46667,141.08333,12000],[-29.8,141.7,11300],[-21.65972,140.90694,11090],[-30.36667,120.73333,10820],[-33.06667,118.21667,10500],[-24.5,115.18333,10000],[-35.95,143.33333,10000],[-31.4875,122.12389,9056],[-25.66667,117,9000],[-31.1,138.26667,8810],[-30.60833,115.16667,8800],[-30.71667,116.5,8740],[-30.32167,128.85,8220],[-30.91667,118.2,8200],[-33.9,138.48333,7900],[-23.26667,116.93333,7868],[-26.33333,121,7464],[-29.85,140.7,6800],[-15,135,6400],[-29.75,141.03333,5800],[-32.08287,135.64985,5750],[-33.3,136.01667,5717],[-31,124.83333,5500],[-26.5,141.08333,5300],[-35.41667,139.75,5230],[-30.21667,128.3,4760],[-31.66997,141.24233,4514],[-29.58639,122.18167,4480],[-30.6,127.81667,4400],[-20.66667,118.83333,4386],[-34.78333,144.66667,4300],[-30.1,143.2,4030],[-31.46667,126.93333,4002],[-30.66167,129.11667,4000],[-25.87667,119.07333,3667],[-30,138,3637],[-28.03333,138.13333,3600],[-35.95,144.51667,3416],[-30.3,131.26667,3388],[-34.66667,139.28333,3325],[-34.06667,139.75,3290],[-32.45,135.55,3290],[-29.53333,143.98333,3180],[-29.35,121.76667,2768],[-37.75,140.3,2750],[-23.25556,116.90083,2700],[-24.83333,139.8,2600],[-28.84519,121.397,2572],[-32.05,126.16667,2515],[-31.18333,126.41667,2492.7],[-32.13333,141.03333,2460],[-30.5,142.33333,2426],[-22.75,120.83333,2400],[-25.91667,119.3,2198],[-27.95,122.88333,2156],[-30.65,128.40833,2050],[-29.91667,129.83333,2000],[-30.44028,121.25694,1861],[-29.45,143.6,1797],[-31.45278,127.8905,1780],[-29.5,144.06667,1694],[-30.15,140.98333,1638],[-35.90667,141.855,1553],[-30.31833,129.06333,1536.9],[-29.45,121.21667,1500],[-33.21667,136.41667,1492],[-31.53333,127.01667,1443],[-30.75,131.16667,1403],[-30.5,128.5,1367],[-30.25,126.33333,1250],[-33.58316,118.65662,1213],[-30.3695,130.05533,1200],[-28.85,116.28333,1181.6],[-30.31667,129.73333,1100],[-30.16667,128.66667,1060],[-33.56667,136.65,1050],[-29.62833,126.32167,1048.9],[-30.15,128.08333,1000],[-32.95556,136.1375,992],[-30.21667,126.21667,964],[-30.6,128.48333,920],[-29.58333,121.16667,914],[-30.31667,131.46667,913],[-30.785,128.01667,910],[-32.86667,134.28333,909],[-31.03333,138.2,906],[-30.2,126.36667,894],[-30.13333,126.36667,893],[-29.83167,136.85867,875],[-28.83333,122.18333,850],[-28.38333,116.71667,850],[-29.16667,127.16667,809],[-37.98333,140.98333,800],[-30.98036,131.34456,786.3],[-31.51667,117.96667,786],[-31.16667,127.75,783],[-33.16667,141.75,747],[-35.90667,141.855,690],[-30.46667,129.8,664.4],[-36.8,143.55,652],[-30.05,128.93333,627.7],[-30.5,128.1,608.9],[-30.54603,131.9705,587.4],[-30.31667,126.61667,579],[-34.31667,138.93333,542],[-30.21333,129.87333,538],[-30.08333,130.03333,513],[-29.18333,127.16667,502],[-29.41667,129.5,500],[-30.36417,131.3745,500],[-33.15639,115.67639,488.1],[-32.81667,134.8,482],[-30.21083,129.96833,472],[-30.23433,130.60067,471],[-30.46667,129.71667,458.3],[-35.1,143.4,450],[-32.11667,141.08333,438.6],[-30.573,128.56367,438],[-30.34533,130.1,432],[-35.01667,139.91667,430],[-26.66667,120.16667,429],[-30.58333,125.21667,429],[-33.61667,115.91667,414],[-31.69167,127.78333,410.5],[-29.16667,127.16667,410],[-29.78,126.45667,397.1],[-33.86667,121.91667,397],[-33.25,135.53333,392.5],[-29.46667,128.35,381],[-30.45,129.5,379],[-30.57,129.31467,367],[-30,129.16667,360],[-30.11667,127.86667,359],[-24.13833,115.87167,357],[-31.88333,141.2,350.7],[-30.53367,129.42417,333],[-30.08333,128.91667,330],[-31.35,129.19,324],[-30.3,126.03333,322],[-30.46667,129.8,311.2],[-30,128.91667,308.7],[-31.2,138.3,304.3],[-30.58517,129.58667,304],[-31.2,138.3,304],[-22.96833,125.36861,300],[-20.36667,130.11667,295],[-30.25,128.8,295],[-29.75,141.03333,294],[-30.4,127.43333,284],[-30.60267,129.57528,284],[-37.31667,139.85,283.5],[-30.08333,126.61667,280],[-25.78333,137.93333,277],[-30.58333,128.66667,274],[-29.96667,120.6,271.8],[-25.31583,142.44467,271],[-32.91667,141.88333,270],[-30.23333,129.08333,263],[-32.03333,126.175,262.5],[-31.61667,118.03333,256.3],[-30.88333,127.55,251],[-30.36667,126.08333,240],[-30.76667,128.01667,238.4],[-25.73333,142.95,236],[-30.85,127.53333,235],[-30.08333,128.81667,221],[-26.26167,120.73333,218.57],[-35.48333,142.6,218],[-30.134,126.8915,215],[-36.43333,143.63333,210],[-31.3,138.38333,202.9],[-30.71061,140.15142,201],[-30.41667,138,200.4],[-26.05,128.95,200],[-30.17917,126.40056,192],[-32.06667,125.15,191.5],[-30.36667,126.01667,190.5],[-25.29647,133.20006,190],[-30.30283,128.52617,188],[-30.48333,129.63333,186.8],[-30.6,127.16667,179],[-30.03183,126.27283,173.8],[-30.01283,126.25783,173.8],[-31.08333,138.3,173],[-30.70117,129.46717,172],[-32.91667,141.88333,172],[-30.475,127.51667,171],[-30.75,127.98333,170.6],[-30.45,126.6,170.5],[-30.18333,126.36667,169.2],[-30.75,128.08333,166],[-30.668,129.462,159.9],[-30.38333,129.51667,159.1],[-33.13333,141.71667,158.5],[-27.86667,141.73333,157],[-30.28333,129.53333,150.6],[-30.73333,128.91667,150],[-33,121,150],[-30.17361,126.43444,150],[-30.70167,130.45611,149],[-30.16283,126.40833,145.3],[-30.06667,128.98333,144.1],[-30.55167,129.22133,138],[-29.73167,126.23833,129.1],[-30.06667,128.96667,128.7],[-30.47,128.745,127.9],[-30.08333,128.83333,125],[-30.68833,125.51333,124.6],[-30.43333,126.1,122.7],[-30.75,127.99167,122.6],[-30.08333,128.91667,121],[-30.17306,129.53611,120],[-27.83333,123.86667,120],[-30.16867,126.28717,117.3],[-29.4,139.98333,116.8],[-30.45,126.1,116.7],[-29.15,127.16667,116],[-30.36667,126.18333,115],[-31.03278,131.28553,114.5],[-29.95,128.08333,113.3],[-30.60217,129.96667,113],[-30.085,129.10283,111],[-30.16667,129,110],[-30.16667,128.91667,110],[-30.88333,128.96667,109.5],[-30.41667,129.81667,108],[-30.71061,140.15142,107],[-30.98789,131.34067,105.2],[-30.32,126.606,104.3],[-30.78333,127.75,104],[-30.21583,129.72083,104],[-30.1755,130.089,104],[-31.01667,131.31667,103.4],[-30.56667,131.5,103.1],[-21.86667,120.11667,102],[-31.58333,127.6,101.5],[-31.66417,141.23375,101],[-30.24833,128.63528,100.6],[-30.31667,126.61667,100.3],[-29.785,126.58833,100],[-30.668,129.462,100],[-30.75,128.08333,99],[-30.31667,129.68333,98.5],[-30.05,130.21667,98],[-30.81667,128.21667,97.7],[-30.24833,130.54083,97],[-30.55,129.65,96.9],[-30.31833,128.38333,96],[-30.13333,126.8905,94.3],[-26.45,131,94],[-30.16833,129.04183,90.5],[-30.33333,127.61667,89],[-30.12417,126.4515,87.4],[-30.89617,126.44817,87],[-32.12333,141.07972,85.4],[-30.50683,130.404,84.2],[-30.71667,131.51667,83.8],[-30.46667,125.46667,83],[-30.88333,128.66667,82.6],[-30.78333,127.8,82],[-30.731,127.93917,77.68],[-30.53333,128.56667,77],[-31.35,127.51667,76.9],[-33.61667,115.91667,76.6],[-27.76667,137.85,76],[-31.58333,127.7,75.3],[-30.46667,129.68333,74.3],[-30.9,128.08333,74],[-30.40817,129.33833,74],[-31.16667,125.26667,74],[-30.49083,126.39067,73.9],[-30.28583,129.957,73],[-32.91667,141.88333,72.9],[-30.10867,126.26033,72.3],[-30.2635,129.81033,71],[-30.13933,126.901,69.95],[-30.46667,129.78333,68.9],[-32.91667,141.88333,68.2],[-30.55667,129.63867,68],[-33.68333,121.8,67.1],[-30.06667,128.96667,66.5],[-30.18333,126.36667,66],[-31.1,138.26667,66],[-30.757,127.938,64.11],[-30.46667,128.2,64],[-30.53842,131.25525,63.9],[-30.1065,126.26267,63.5],[-30.60883,129.62567,62],[-30.3685,126.6125,61.4],[-30.66667,129.01667,61.4],[-30.25,130.66667,61],[-30.16,126.38667,60.39],[-30.83333,127.5,60],[-30.757,127.95167,59.7],[-30.30083,128.5255,59],[-30.56833,129.6375,58],[-30.547,129.18917,58],[-30.53583,127.33967,58],[-30.51867,129.54017,57.5],[-30.8,127.61667,57.1],[-30.75,128.08333,57],[-29.6,126.50667,56.2],[-30.51733,128.47617,56],[-30.31667,126.61667,55.1],[-30.16667,128.08333,54.41],[-30.71061,140.15142,54],[-30.06667,129.8475,54],[-30.13,127.38267,53.89],[-30.568,129.713,53.5],[-30.60867,130.08017,53],[-30.5,131.7,53],[-30.45383,137.99017,52.99],[-30.93417,131.36111,52.9],[-29.58333,128.91667,52],[-30.29167,126.5875,50.96],[-30.50583,127.43417,50],[-29.16667,127.08333,49.5],[-30.73233,127.949,48.7],[-30.36667,130.08333,48],[-30.31667,128.985,47.8],[-30.35,129.65,47.4],[-30.33333,129.8,47.4],[-30.46717,126.34367,47.35],[-30.63333,128.125,47.3],[-30.575,131.50164,47.1],[-30.15383,128.07283,46.87],[-30.94775,130.90858,46.8],[-30.46667,126.18333,46],[-30.33333,129.76667,46],[-30.46,126.38333,45.5],[-30.4,129.01667,44],[-31.53333,127.1,43.1],[-30.35,130.03333,43],[-30.16667,126.08333,42.94],[-30.15,128.8,42.8],[-30.16833,129.5,42.7],[-30.50683,130.404,41.8],[-30.85,132.08333,40.9],[-30.7845,127.69733,40.59],[-30.47483,126.35883,40.37],[-30.06,130.025,40],[-30.78333,126.45,40],[-30.48333,126.25,39.5],[-30.43333,129.55,39],[-30.03333,129.01667,38.6],[-30.28333,126.51667,38],[-30.41667,129.85,37.7],[-30.12283,126.888,37.6],[-30.43333,129.5,37.2],[-30.11667,126.91667,36.6],[-31.39953,127.14467,36.54],[-30.12433,126.88667,36],[-30.45833,128.21667,36],[-30.35,129.66667,35.9],[-30.16967,130.70533,35.4],[-30.15,128.08333,34.6],[-30.38333,129.81667,33.6],[-30.89344,131.39,33.6],[-30.9685,126.252,33],[-26.66667,119,33],[-30.31667,126.56667,32.8],[-30.71061,140.15142,32.5],[-30.51667,128.45833,32],[-31.01667,127.21667,31.5],[-30.75,128.08333,31.3],[-30.51667,129.192,31.2],[-30.01667,127.60833,30.6],[-30.93333,127.5,30.6],[-30.12367,128.8495,30.6],[-30.1055,126.2555,30.3],[-30.6,130.06667,30],[-30.1255,126.89,28.7],[-30.15,128.08333,28.6],[-30.41667,129.65,28.5],[-30.78333,126.45,28.3],[-30.32,126.606,28.27],[-30.107,126.84217,26.9],[-30.15,128.08333,26.9],[-30.12633,127.41033,26.69],[-30.01667,127.7,26.6],[-30.36667,130.08333,26],[-30.33333,129.68333,25.6],[-30.11833,126.24767,25.6],[-30.8,127.61667,25.2],[-30.28333,129.56667,25],[-30.49117,126.4625,24.8],[-30.00833,127.70833,24.6],[-30.69047,131.47353,24.3],[-30.5,127.5,24],[-30.27467,129.0185,23.6],[-30.28667,128.635,23.5],[-30.33333,129.5,23],[-34.45,140.56667,22],[-30.28667,128.57333,21.4],[-31.96667,125.83333,20.4],[-25.93333,119.3,20],[-30.13389,129.0625,20],[-30.36667,130.08333,20],[-30.06783,128.98483,20],[-30.1085,126.52717,19.9],[-31,125.93333,19.7],[-30.31806,128.37333,19.7],[-30.48333,131.68333,19.5],[-30.5,131.71667,19.3],[-26.45,120.36667,19],[-30.62472,131.47064,19],[-30.11683,126.8755,18.8],[-30.1135,126.25117,18.6],[-29.43333,142.01667,18.6],[-30.36667,130.08333,18],[-30.54019,131.25508,17.5],[-30.46667,125.7,17.3],[-30.09056,128.80583,16.6],[-30.2,126.5,16.37],[-30.758,127.94783,16.23],[-30.47483,126.35883,16.01],[-30.46867,126.39133,15.9],[-30.11967,126.86683,15.29],[-30.16333,126.4085,15.06],[-37.57083,143.82533,15],[-30.75967,127.94983,14.41],[-30.10233,126.3515,14.24],[-30.89281,131.39142,14.1],[-30.43333,129.6,14],[-30.36667,130.08333,14],[-30.28,131.35833,14],[-30.32,126.606,13.63],[-32.04167,126.18333,13.6],[-30.11967,126.8835,13.4],[-31.03297,131.28547,13],[-30.77972,127.52306,13],[-30.57269,131.48094,13],[-30.0225,126.552,12.94],[-30.43333,129.76667,12.8],[-29.11667,122.08333,12.7],[-26.21667,122.5,12.1],[-30.10517,126.35,11.5],[-30.98622,131.33211,11.1],[-30.16028,126.34833,10.85],[-30.75,128.08333,10],[-30.38333,129.68333,10],[-30.15,126.42833,9.63],[-30.88517,131.38011,9.4],[-30.75833,127.525,9.2],[-30.12633,127.41033,9.16],[-30.119,126.838,9.09],[-30.1845,126.68367,8.7],[-30.38333,129.7,8.5],[-30.93383,131.36169,8.4],[-30.756,127.93717,8.11],[-30.36667,130.08333,8],[-30.78167,127.94417,7.67],[-30.77283,127.94667,7.46],[-30.88561,131.38197,7.3],[-30.73783,127.95367,6.99],[-30.91378,130.90386,6.6],[-30.022,126.5525,6.44],[-32.1,125.68333,6.4],[-23.5,133.83333,6.2],[-30.48083,126.34633,6.13],[-30.16667,126.40433,6.04],[-30.7315,127.93917,6],[-30.09167,126.88883,5.2],[-30.30883,126.5845,5],[-30.71061,140.15142,5],[-30.54478,131.25928,4.9],[-31.96667,126.25,4.62],[-30.17417,128.069,4.6],[-30.99311,131.33253,4.6],[-30.5,131.46667,4.6],[-30.88333,128.975,4.5],[-30.12167,127.38683,4.41],[-30.06383,126.88417,4.15],[-30.51667,131.5,4.1],[-32.01667,139.78333,3.8],[-31.56667,127.8,3.8],[-30.31667,126.6,3.57],[-30.11883,126.88533,3.5],[-30.0275,126.27017,3.5],[-30.1255,126.89,3.4],[-30.75806,131.44803,3.4],[-30.48033,126.347,3.26],[-30.09167,126.88883,3.01],[-30.49967,126.22183,2.81],[-30.66667,126.4,2.7],[-30.48333,131.55,2.6],[-30.09867,126.88533,2.58],[-30.09167,126.88883,2.33],[-30.657,131.47814,2.3],[-30.14267,127.39383,1.8],[-30.5,131.7,1.6],[-30.5,131.68333,1.5],[-30.09167,126.88883,1.48],[-30.71667,127.93333,1.38],[-30.46667,126.33333,1.3],[-30.48333,131.55,1.3],[-30.09167,126.88883,1],[-30.09167,126.88883,1],[-30.5,131.68333,1],[-30.18417,126.7,0.99],[-30.09167,126.88883,0.95],[-30.73783,127.95367,0.83],[-30.07967,126.88917,0.81],[-30.1085,126.62483,0.8],[-30.09167,126.88883,0.7],[-30.65364,131.47389,0.7],[-30.09867,126.8855,0.65],[-30.07967,126.88917,0.6],[-30.08733,126.90167,0.6],[-30.09167,126.88883,0.45],[-30.09167,126.88883,0.41],[-31.01964,131.30394,0.4],[-30.0855,126.90117,0.4],[-30.48083,126.34633,0.4],[-30.09167,126.88883,0.32],[-30.11967,126.8985,0.3],[-12.26333,136.83833,0],[-30.59694,130.08694,null],[-30.33333,126.36667,null],[-20.69944,139.80417,null],[-26,122,null],[-29.75,116.43333,null],[-30.35,130.03333,null]],null,null,{"minOpacity":0.05,"max":0.05,"radius":15,"blur":20}]}],"limits":{"lat":[-37.98333,-12.26333],"lng":[114.21667,144.78333]},"setView":[[-30.36667,128.47975],4,[]]},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="distribution-of-aus-meteorite-landings-with-cluster-markers" class="section level2">
+<h2><span class="header-section-number">13.3</span> Distribution of Aus Meteorite Landings with Cluster Markers</h2>
+<p>The meteorite landings have been <code>clustered</code> and their <strong>numbers</strong> are being shown in the map.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AusMetLandings %&gt;%<span class="st"> </span><span class="kw">leaflet</span>() %&gt;%<span class="st"> </span><span class="kw">addProviderTiles</span>(<span class="st">&quot;Esri.OceanBasemap&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">addMarkers</span>(<span class="dt">lng =</span> ~reclong, <span class="dt">lat =</span> ~reclat,<span class="dt">clusterOptions =</span> <span class="kw">markerClusterOptions</span>()) %&gt;%
+<span class="st">    </span><span class="co"># controls</span>
+<span class="st">  </span><span class="kw">setView</span>(<span class="dt">lng=</span>center_lon, <span class="dt">lat=</span>center_lat,<span class="dt">zoom =</span> <span class="dv">4</span>) </code></pre></div>
+<div id="htmlwidget-424192f9f832977daf7b" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-424192f9f832977daf7b">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.OceanBasemap",null,null,{"errorTileUrl":"","noWrap":false,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false}]},{"method":"addMarkers","args":[[-30.78333,-32.1,-22.36667,-24.56667,-29.58333,-19.3,-29.45,-31.38333,-22.61667,-28.23333,-26.45,-22.5,-25.66667,-25.33333,-35.3,-25.73333,-26.59278,-14.25,-29.5,-27.5,-30.75,-33.3,-30.33333,-30.61667,-32.26667,-30.5,-22.33333,-28.91667,-15.7,-32.03333,-25.65,-25.7,-26.28333,-34.15,-24.91667,-25.55,-27.7,-35.08333,-26.33333,-22.9,-31,-31.19167,-35.38333,-29.62917,-30.85,-24.91667,-27.75,-31.83333,-34,-33.28333,-33.31667,-29.23333,-28.09697,-25.46667,-28.6,-26.11667,-30.98333,-30.53333,-30.31667,-31,-23.83333,-24.76667,-29.06667,-23.33333,-29.86667,-30.18333,-31.93333,-30.55,-23.33333,-28.16667,-36.5,-34.5,-30.01667,-33.6,-27.71667,-30.06667,-32.61667,-30.46667,-29.8,-21.65972,-30.36667,-33.06667,-24.5,-35.95,-31.4875,-25.66667,-31.1,-30.60833,-30.71667,-30.32167,-30.91667,-33.9,-23.26667,-26.33333,-29.85,-15,-29.75,-32.08287,-33.3,-31,-26.5,-35.41667,-30.21667,-31.66997,-29.58639,-30.6,-20.66667,-34.78333,-30.1,-31.46667,-30.66167,-25.87667,-30,-28.03333,-35.95,-30.3,-34.66667,-34.06667,-32.45,-29.53333,-29.35,-37.75,-23.25556,-24.83333,-28.84519,-32.05,-31.18333,-32.13333,-30.5,-22.75,-25.91667,-27.95,-30.65,-29.91667,-30.44028,-29.45,-31.45278,-29.5,-30.15,-35.90667,-30.31833,-29.45,-33.21667,-31.53333,-30.75,-30.5,-30.25,-33.58316,-30.3695,-28.85,-30.31667,-30.16667,-33.56667,-29.62833,-30.15,-32.95556,-30.21667,-30.6,-29.58333,-30.31667,-30.785,-32.86667,-31.03333,-30.2,-30.13333,-29.83167,-28.83333,-28.38333,-29.16667,-37.98333,-30.98036,-31.51667,-31.16667,-33.16667,-35.90667,-30.46667,-36.8,-30.05,-30.5,-30.54603,-30.31667,-34.31667,-30.21333,-30.08333,-29.18333,-29.41667,-30.36417,-33.15639,-32.81667,-30.21083,-30.23433,-30.46667,-35.1,-32.11667,-30.573,-30.34533,-35.01667,-26.66667,-30.58333,-33.61667,-31.69167,-29.16667,-29.78,-33.86667,-33.25,-29.46667,-30.45,-30.57,-30,-30.11667,-24.13833,-31.88333,-30.53367,-30.08333,-31.35,-30.3,-30.46667,-30,-31.2,-30.58517,-31.2,-22.96833,-20.36667,-30.25,-29.75,-30.4,-30.60267,-37.31667,-30.08333,-25.78333,-30.58333,-29.96667,-25.31583,-32.91667,-30.23333,-32.03333,-31.61667,-30.88333,-30.36667,-30.76667,-25.73333,-30.85,-30.08333,-26.26167,-35.48333,-30.134,-36.43333,-31.3,-30.71061,-30.41667,-26.05,-30.17917,-32.06667,-30.36667,-25.29647,-30.30283,-30.48333,-30.6,-30.03183,-30.01283,-31.08333,-30.70117,-32.91667,-30.475,-30.75,-30.45,-30.18333,-30.75,-30.668,-30.38333,-33.13333,-27.86667,-30.28333,-30.73333,-33,-30.17361,-30.70167,-30.16283,-30.06667,-30.55167,-29.73167,-30.06667,-30.47,-30.08333,-30.68833,-30.43333,-30.75,-30.08333,-30.17306,-27.83333,-30.16867,-29.4,-30.45,-29.15,-30.36667,-31.03278,-29.95,-30.60217,-30.085,-30.16667,-30.16667,-30.88333,-30.41667,-30.71061,-30.98789,-30.32,-30.78333,-30.21583,-30.1755,-31.01667,-30.56667,-21.86667,-31.58333,-31.66417,-30.24833,-30.31667,-29.785,-30.668,-30.75,-30.31667,-30.05,-30.81667,-30.24833,-30.55,-30.31833,-30.13333,-26.45,-30.16833,-30.33333,-30.12417,-30.89617,-32.12333,-30.50683,-30.71667,-30.46667,-30.88333,-30.78333,-30.731,-30.53333,-31.35,-33.61667,-27.76667,-31.58333,-30.46667,-30.9,-30.40817,-31.16667,-30.49083,-30.28583,-32.91667,-30.10867,-30.2635,-30.13933,-30.46667,-32.91667,-30.55667,-33.68333,-30.06667,-30.18333,-31.1,-30.757,-30.46667,-30.53842,-30.1065,-30.60883,-30.3685,-30.66667,-30.25,-30.16,-30.83333,-30.757,-30.30083,-30.56833,-30.547,-30.53583,-30.51867,-30.8,-30.75,-29.6,-30.51733,-30.31667,-30.16667,-30.71061,-30.06667,-30.13,-30.568,-30.60867,-30.5,-30.45383,-30.93417,-29.58333,-30.29167,-30.50583,-29.16667,-30.73233,-30.36667,-30.31667,-30.35,-30.33333,-30.46717,-30.63333,-30.575,-30.15383,-30.94775,-30.46667,-30.33333,-30.46,-30.4,-31.53333,-30.35,-30.16667,-30.15,-30.16833,-30.50683,-30.85,-30.7845,-30.47483,-30.06,-30.78333,-30.48333,-30.43333,-30.03333,-30.28333,-30.41667,-30.12283,-30.43333,-30.11667,-31.39953,-30.12433,-30.45833,-30.35,-30.16967,-30.15,-30.38333,-30.89344,-30.9685,-26.66667,-30.31667,-30.71061,-30.51667,-31.01667,-30.75,-30.51667,-30.01667,-30.93333,-30.12367,-30.1055,-30.6,-30.1255,-30.15,-30.41667,-30.78333,-30.32,-30.107,-30.15,-30.12633,-30.01667,-30.36667,-30.33333,-30.11833,-30.8,-30.28333,-30.49117,-30.00833,-30.69047,-30.5,-30.27467,-30.28667,-30.33333,-34.45,-30.28667,-31.96667,-25.93333,-30.13389,-30.36667,-30.06783,-30.1085,-31,-30.31806,-30.48333,-30.5,-26.45,-30.62472,-30.11683,-30.1135,-29.43333,-30.36667,-30.54019,-30.46667,-30.09056,-30.2,-30.758,-30.47483,-30.46867,-30.11967,-30.16333,-37.57083,-30.75967,-30.10233,-30.89281,-30.43333,-30.36667,-30.28,-30.32,-32.04167,-30.11967,-31.03297,-30.77972,-30.57269,-30.0225,-30.43333,-29.11667,-26.21667,-30.10517,-30.98622,-30.16028,-30.75,-30.38333,-30.15,-30.88517,-30.75833,-30.12633,-30.119,-30.1845,-30.38333,-30.93383,-30.756,-30.36667,-30.78167,-30.77283,-30.88561,-30.73783,-30.91378,-30.022,-32.1,-23.5,-30.48083,-30.16667,-30.7315,-30.09167,-30.30883,-30.71061,-30.54478,-31.96667,-30.17417,-30.99311,-30.5,-30.88333,-30.12167,-30.06383,-30.51667,-32.01667,-31.56667,-30.31667,-30.11883,-30.0275,-30.1255,-30.75806,-30.48033,-30.09167,-30.49967,-30.66667,-30.48333,-30.09867,-30.09167,-30.657,-30.14267,-30.5,-30.5,-30.09167,-30.71667,-30.46667,-30.48333,-30.09167,-30.09167,-30.5,-30.18417,-30.09167,-30.73783,-30.07967,-30.1085,-30.09167,-30.65364,-30.09867,-30.07967,-30.08733,-30.09167,-30.09167,-31.01964,-30.0855,-30.48083,-30.09167,-30.11967,-12.26333,-30.59694,-30.33333,-20.69944,-26,-29.75,-30.35],[127.55,117.71667,135.76667,133.16667,139.9,127.76667,119.71667,125.63333,135.2,120.85,120.36667,116.16667,118.1,116.18333,144.56667,142.95,120.32833,132.01667,118.75,122.36667,117.78333,117.66667,130.53333,130.41667,139.86667,131.55,118,136.25,135.66667,139.78333,114.21667,143.05,126.66667,141.78333,119.41667,142.78333,115.76667,139.91667,118.33333,138.71667,132,121.53333,140.91667,116.48222,122.31667,120.06667,115.83333,141.76667,118.1,136,144.78333,139.93333,118.45561,142.8,141.15,116.66667,127.88333,134.75,126.61667,118.5,134.03333,117.7,139.91667,134.11667,144.21667,126.36667,126.21667,130.96667,134.66667,118.5,142.03333,144.71667,141.06667,136.1,117.25,141.06667,134.85,141.08333,141.7,140.90694,120.73333,118.21667,115.18333,143.33333,122.12389,117,138.26667,115.16667,116.5,128.85,118.2,138.48333,116.93333,121,140.7,135,141.03333,135.64985,136.01667,124.83333,141.08333,139.75,128.3,141.24233,122.18167,127.81667,118.83333,144.66667,143.2,126.93333,129.11667,119.07333,138,138.13333,144.51667,131.26667,139.28333,139.75,135.55,143.98333,121.76667,140.3,116.90083,139.8,121.397,126.16667,126.41667,141.03333,142.33333,120.83333,119.3,122.88333,128.40833,129.83333,121.25694,143.6,127.8905,144.06667,140.98333,141.855,129.06333,121.21667,136.41667,127.01667,131.16667,128.5,126.33333,118.65662,130.05533,116.28333,129.73333,128.66667,136.65,126.32167,128.08333,136.1375,126.21667,128.48333,121.16667,131.46667,128.01667,134.28333,138.2,126.36667,126.36667,136.85867,122.18333,116.71667,127.16667,140.98333,131.34456,117.96667,127.75,141.75,141.855,129.8,143.55,128.93333,128.1,131.9705,126.61667,138.93333,129.87333,130.03333,127.16667,129.5,131.3745,115.67639,134.8,129.96833,130.60067,129.71667,143.4,141.08333,128.56367,130.1,139.91667,120.16667,125.21667,115.91667,127.78333,127.16667,126.45667,121.91667,135.53333,128.35,129.5,129.31467,129.16667,127.86667,115.87167,141.2,129.42417,128.91667,129.19,126.03333,129.8,128.91667,138.3,129.58667,138.3,125.36861,130.11667,128.8,141.03333,127.43333,129.57528,139.85,126.61667,137.93333,128.66667,120.6,142.44467,141.88333,129.08333,126.175,118.03333,127.55,126.08333,128.01667,142.95,127.53333,128.81667,120.73333,142.6,126.8915,143.63333,138.38333,140.15142,138,128.95,126.40056,125.15,126.01667,133.20006,128.52617,129.63333,127.16667,126.27283,126.25783,138.3,129.46717,141.88333,127.51667,127.98333,126.6,126.36667,128.08333,129.462,129.51667,141.71667,141.73333,129.53333,128.91667,121,126.43444,130.45611,126.40833,128.98333,129.22133,126.23833,128.96667,128.745,128.83333,125.51333,126.1,127.99167,128.91667,129.53611,123.86667,126.28717,139.98333,126.1,127.16667,126.18333,131.28553,128.08333,129.96667,129.10283,129,128.91667,128.96667,129.81667,140.15142,131.34067,126.606,127.75,129.72083,130.089,131.31667,131.5,120.11667,127.6,141.23375,128.63528,126.61667,126.58833,129.462,128.08333,129.68333,130.21667,128.21667,130.54083,129.65,128.38333,126.8905,131,129.04183,127.61667,126.4515,126.44817,141.07972,130.404,131.51667,125.46667,128.66667,127.8,127.93917,128.56667,127.51667,115.91667,137.85,127.7,129.68333,128.08333,129.33833,125.26667,126.39067,129.957,141.88333,126.26033,129.81033,126.901,129.78333,141.88333,129.63867,121.8,128.96667,126.36667,138.26667,127.938,128.2,131.25525,126.26267,129.62567,126.6125,129.01667,130.66667,126.38667,127.5,127.95167,128.5255,129.6375,129.18917,127.33967,129.54017,127.61667,128.08333,126.50667,128.47617,126.61667,128.08333,140.15142,129.8475,127.38267,129.713,130.08017,131.7,137.99017,131.36111,128.91667,126.5875,127.43417,127.08333,127.949,130.08333,128.985,129.65,129.8,126.34367,128.125,131.50164,128.07283,130.90858,126.18333,129.76667,126.38333,129.01667,127.1,130.03333,126.08333,128.8,129.5,130.404,132.08333,127.69733,126.35883,130.025,126.45,126.25,129.55,129.01667,126.51667,129.85,126.888,129.5,126.91667,127.14467,126.88667,128.21667,129.66667,130.70533,128.08333,129.81667,131.39,126.252,119,126.56667,140.15142,128.45833,127.21667,128.08333,129.192,127.60833,127.5,128.8495,126.2555,130.06667,126.89,128.08333,129.65,126.45,126.606,126.84217,128.08333,127.41033,127.7,130.08333,129.68333,126.24767,127.61667,129.56667,126.4625,127.70833,131.47353,127.5,129.0185,128.635,129.5,140.56667,128.57333,125.83333,119.3,129.0625,130.08333,128.98483,126.52717,125.93333,128.37333,131.68333,131.71667,120.36667,131.47064,126.8755,126.25117,142.01667,130.08333,131.25508,125.7,128.80583,126.5,127.94783,126.35883,126.39133,126.86683,126.4085,143.82533,127.94983,126.3515,131.39142,129.6,130.08333,131.35833,126.606,126.18333,126.8835,131.28547,127.52306,131.48094,126.552,129.76667,122.08333,122.5,126.35,131.33211,126.34833,128.08333,129.68333,126.42833,131.38011,127.525,127.41033,126.838,126.68367,129.7,131.36169,127.93717,130.08333,127.94417,127.94667,131.38197,127.95367,130.90386,126.5525,125.68333,133.83333,126.34633,126.40433,127.93917,126.88883,126.5845,140.15142,131.25928,126.25,128.069,131.33253,131.46667,128.975,127.38683,126.88417,131.5,139.78333,127.8,126.6,126.88533,126.27017,126.89,131.44803,126.347,126.88883,126.22183,126.4,131.55,126.88533,126.88883,131.47814,127.39383,131.7,131.68333,126.88883,127.93333,126.33333,131.55,126.88883,126.88883,131.68333,126.7,126.88883,127.95367,126.88917,126.62483,126.88883,131.47389,126.8855,126.88917,126.90167,126.88883,126.88883,131.30394,126.90117,126.34633,126.88883,126.8985,136.83833,130.08694,126.36667,139.80417,122,116.43333,130.03333],null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,{"showCoverageOnHover":true,"zoomToBoundsOnClick":true,"spiderfyOnMaxZoom":true,"removeOutsideVisibleBounds":true,"spiderLegPolylineOptions":{"weight":1.5,"color":"#222","opacity":0.5},"freezeAtZoom":false},null,null,null,null]}],"limits":{"lat":[-37.98333,-12.26333],"lng":[114.21667,144.78333]},"setView":[[-30.36667,128.47975],4,[]]},"evals":[],"jsHooks":[]}</script>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="distribution-of-african-meteorite-landings-with-meteorite-mass.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="year-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

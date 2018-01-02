@@ -6,9 +6,13 @@ categories:
 tags:
 - DataVisualization
 - cartography
+description: We examine a dataset from <b>NASA Meteorite Landings</b> and do a complete Exploratory Data Analysis...
 ---
 
-![Meteorite Landings](/images/MeteoriteLandings/MetLandings.jpg){:class="img-responsive"}
+<div class="img_row">
+	<img class="col three" src="/img/MeteoriteLandings/MetLandings.jpg">
+</div>
+
 
 We examine a dataset from NASA [Meteorite Landings](https://www.kaggle.com/nasa/meteorite-landings/data)  and do a complete Exploratory Data Analysis.            
 

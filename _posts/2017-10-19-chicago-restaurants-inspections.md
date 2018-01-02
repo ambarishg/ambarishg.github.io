@@ -2,13 +2,16 @@
 title: "Chicago Restaurants Inspections Text Mining"
 layout: post
 categories: DataVisualization
+description : <b>Food Protection Division of the Chicago Department of Public Health (CDPH)</b> inspections promote public health in areas of food safety and sanitation and prevent the occurrence of food-borne illness. We do an extensive text mining data analysis on the same...
 tags:
 - DataVisualization
 - nlp
 - text mining
 ---
+<div class="img_row">
+	<img class="col three" src="/img/ChicagoInspections/ChicagoInspections.jpeg">
+</div>
 
-![Chicago Restaurants Inspections Text Mining](/images/ChicagoInspections/ChicagoInspections.jpeg){:class="img-responsive"}
 
 Restaurant inspections ensure that food served to the public at licensed food establishments follows food safety guidelines. The **Food Protection Division of the Chicago Department of Public Health (CDPH)** is committed to maintaining the safety of food bought, sold, or prepared for public consumption in Chicago by carrying out `science-based inspections` of all retail food establishments. These inspections promote `public health` in areas of `food safety and sanitation` and prevent the occurrence of food-borne illness.
 
