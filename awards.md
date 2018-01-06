@@ -2,7 +2,7 @@
 layout: page
 title: awards
 ---
-These are the awards that I was humbled and honoured to have from [DrivenData](www.drivendata.org) and [Kaggle](www.kaggle.com)          
+These are the awards that I was humbled and honoured to have from [DrivenData](http://www.drivendata.org) and [Kaggle](http://www.kaggle.com)          
 
 <ul class="post-list">
 {% for award in site.awards reversed %}
