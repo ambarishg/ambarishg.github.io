@@ -9,14 +9,14 @@ description: We describe the <b>Confidence Intervals</b>  here...
 
 
 ### Introduction
-
+<br/>
 A confidence interval is a range of numbers believed to include an
 unknown population parameter. Associated with the interval is a measure
 of the confidence we have that the interval does indeed contain the parameter
 of interest.
 
 ### 95% Confidence Interval for **Population Mean** when Population Standard Dev is Known    
-
+<br/>
 A ( 1-  $$\alpha$$  ) confidence interval for the population mean $$\mu$$ when population standard deviation $$\sigma$$ is known and a sampling is done from a normal population , or with a large sample is    
 
  $$\mathbf{\bar{X}}$$  +/-  $$\mathbf{Z_\frac{\alpha}{2}}$$ $$\mathbf{\frac{\sigma}{\sqrt(n)}}$$ 
@@ -36,12 +36,12 @@ Therefore the equation for the **95% confidence interval** is
 $$\mathbf{\bar{X}}$$  +/-  1.96 * $$\mathbf{\frac{\sigma}{\sqrt(n)}}$$ 
 
 ####   6-5
-
+<br/>
 A real estate agent needs to estimate the average value of a residential property
 of a given size in a certain area. The real estate agent believes that the standard deviation
-of the property values is $$5,500.00 and that property values are approximately
+of the property values is $5,500.00 and that property values are approximately
 normally distributed. A random sample of 16 units gives a sample mean of
-$$89,673.12. Give a 95% confidence interval for the average value of all properties of
+$89,673.12. Give a 95% confidence interval for the average value of all properties of
 this kind.
 
 {% highlight R %}
@@ -53,7 +53,7 @@ this kind.
 
 
 ####  6–7 
-
+<br/>
 A car manufacturer wants to estimate the average miles-per-gallon highway
 rating for a new model. From experience with similar models, the manufacturer
 believes the miles-per-gallon standard deviation is 4.6. A random sample of 100 highway
@@ -70,6 +70,7 @@ confidence interval for the population average miles-per-gallon highway rating.
 {% endhighlight %}
 
 ####  6–9
+<br/>
 A wine importer needs to report the average percentage of alcohol in bottles
 of French wine. From experience with previous kinds of wine, the importer believes
 the population standard deviation is 1.2%. The importer randomly samples 60 bottles
@@ -97,7 +98,7 @@ p = qnorm(.05,0,1)
 
 
 #####  6–15 
-
+<br/>
 “Small-fry” funds trade at an average of 20% discount to net asset value. If population standard deviation is 8% and n is 36, give the 95% confidence interval for average population percentage.
 
 {% highlight R %}
@@ -108,7 +109,7 @@ p = qnorm(.05,0,1)
 {% endhighlight %}
 
 
-#### 95% Confidence Interval for **Population Mean** when Population Standard Dev is NOT Known    
+#### 95% Confidence Interval for **Population Mean** when Population Standard Dev is NOT Known    <br/>
 
 A ( 1-  $$\alpha$$  ) confidence interval for the population mean $$\mu$$ when population standard deviation $$\sigma$$ is known and a sampling is done from a normal population , or with a large sample is    
 
@@ -120,7 +121,7 @@ A ( 1-  $$\alpha$$  ) confidence interval for the population mean $$\mu$$ when p
  
  
 ####  6–19
-
+<br/>
 An insurance company handling malpractice cases is interested in estimating
 the average amount of claims against physicians of a certain specialty. The company
 obtains a random sample of 165 claims and finds sample mean $$16,530 and s = $$5,542. Give
@@ -199,7 +200,7 @@ mean - (p * (sd/sqrt(n)))
 
 {% endhighlight %}
 
-#####  Considering the **z distribution**
+####  Considering the **z distribution**
 
 {% highlight R %}
 p = qnorm(.005,0,1)
