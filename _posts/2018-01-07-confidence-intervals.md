@@ -17,13 +17,13 @@ of interest.
 
 ### 95% Confidence Interval for **Population Mean** when Population Standard Dev is Known    
 
-A ( 1-  $\alpha$  ) confidence interval for the population mean $\mu$ when population standard deviation $\sigma$ is known and a sampling is done from a normal population , or with a large sample is    
+A ( 1-  $$\alpha$$  ) confidence interval for the population mean $$\mu$$ when population standard deviation $$\sigma$$ is known and a sampling is done from a normal population , or with a large sample is    
 
- $\mathbf{\bar{X}}$  +/-  $\mathbf{Z_\frac{\alpha}{2}}$ $\mathbf{\frac{\sigma}{\sqrt(n)}}$ 
+ $$\mathbf{\bar{X}}$$  +/-  $$\mathbf{Z_\frac{\alpha}{2}}$$ $$\mathbf{\frac{\sigma}{\sqrt(n)}}$$ 
  
- $\mathbf{\alpha}$ = .05
+ $$\mathbf{\alpha}$$ = .05
  
- $\mathbf{\frac{\alpha}{2}}$ = .025
+ $$\mathbf{\frac{\alpha}{2}}$$ = .025
  
 
 {% highlight R %}
@@ -33,15 +33,15 @@ qnorm(.025,0,1)
 
 Therefore the equation for the **95% confidence interval** is    
 
-$\mathbf{\bar{X}}$  +/-  1.96 * $\mathbf{\frac{\sigma}{\sqrt(n)}}$ 
+$$\mathbf{\bar{X}}$$  +/-  1.96 * $$\mathbf{\frac{\sigma}{\sqrt(n)}}$$ 
 
 ####   6-5
 
 A real estate agent needs to estimate the average value of a residential property
 of a given size in a certain area. The real estate agent believes that the standard deviation
-of the property values is $5,500.00 and that property values are approximately
+of the property values is $$5,500.00 and that property values are approximately
 normally distributed. A random sample of 16 units gives a sample mean of
-$89,673.12. Give a 95% confidence interval for the average value of all properties of
+$$89,673.12. Give a 95% confidence interval for the average value of all properties of
 this kind.
 
 {% highlight R %}
@@ -76,9 +76,9 @@ the population standard deviation is 1.2%. The importer randomly samples 60 bott
 of the new wine and obtains a sample mean  9.3%. Give a 90% confidence interval
 for the average percentage of alcohol in all bottles of the new wine.
  
- $\mathbf{\alpha}$ = .10
+ $$\mathbf{\alpha}$$ = .10
  
- $\mathbf{\frac{\alpha}{2}}$ = .05
+ $$\mathbf{\frac{\alpha}{2}}$$ = .05
  
 
 {% highlight R %}
@@ -110,20 +110,20 @@ p = qnorm(.05,0,1)
 
 #### 95% Confidence Interval for **Population Mean** when Population Standard Dev is NOT Known    
 
-A ( 1-  $\alpha$  ) confidence interval for the population mean $\mu$ when population standard deviation $\sigma$ is known and a sampling is done from a normal population , or with a large sample is    
+A ( 1-  $$\alpha$$  ) confidence interval for the population mean $$\mu$$ when population standard deviation $$\sigma$$ is known and a sampling is done from a normal population , or with a large sample is    
 
- $\mathbf{\bar{X}}$  +/-  $\mathbf{T_\frac{\alpha}{2}}$ $\mathbf{\frac{\sigma}{\sqrt(n)}}$ 
+ $$\mathbf{\bar{X}}$$  +/-  $$\mathbf{T_\frac{\alpha}{2}}$$ $$\mathbf{\frac{\sigma}{\sqrt(n)}}$$ 
  
- $\mathbf{\alpha}$ = .05
+ $$\mathbf{\alpha}$$ = .05
  
- $\mathbf{\frac{\alpha}{2}}$ = .025
+ $$\mathbf{\frac{\alpha}{2}}$$ = .025
  
  
 ####  6–19
 
 An insurance company handling malpractice cases is interested in estimating
 the average amount of claims against physicians of a certain specialty. The company
-obtains a random sample of 165 claims and finds sample mean $16,530 and s = $5,542. Give
+obtains a random sample of 165 claims and finds sample mean $$16,530 and s = $$5,542. Give
 a 95% confidence interval and a 99% confidence interval for the average amount of a
 claim.
 
