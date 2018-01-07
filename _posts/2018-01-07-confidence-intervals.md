@@ -20,8 +20,8 @@ of interest.
 A ( 1-  $$\alpha$$  ) confidence interval for the population mean $$\mu$$ when population standard deviation $$\sigma$$ is known and a sampling is done from a normal population , or with a large sample is    
 
  $$\mathbf{\bar{X}}$$  +/-  $$\mathbf{Z_\frac{\alpha}{2}}$$ $$\mathbf{\frac{\sigma}{\sqrt(n)}}$$ 
- 
- $$\mathbf{\alpha}$$ = .05
+  
+ $$\mathbf{\alpha}$$ = .05 for the **95% Confidence Interval**    
  
  $$\mathbf{\frac{\alpha}{2}}$$ = .025
  
@@ -97,7 +97,7 @@ p = qnorm(.05,0,1)
 {% endhighlight %}
 
 
-#####  6–15 
+#### 6–15 
 <br/>
 “Small-fry” funds trade at an average of 20% discount to net asset value. If population standard deviation is 8% and n is 36, give the 95% confidence interval for average population percentage.
 
