@@ -37,7 +37,12 @@ In probability theory and statistics, the cumulative distribution function (CDF,
 
 This can be represented as 
 
-![Probality Less Than P](/img/ProbablityLessThanp.jpg)
+![Probality Less Than P](/img/ProbablityLessThanp.jpg)          
+
+We follow a **Case Study** approach in explaining the concepts and use the problems in the book 
+**Complete Business Statistics** by **Aczel and Sounderpandian**.The numbers in the headings are the problem numbers in the book.       
+      
+
 
 
 #### 4-23
@@ -187,7 +192,7 @@ qnorm(.05,mean=600,sd=100)
 
 #### 4–47   
                        
-                       
+
 The demand for high-grade gasoline at a service station is normally distributed
 with mean 27,009 gallons per day and standard deviation 4,530. Find two values
 that will give a symmetric 0.95 probability interval for the amount of high-grade
