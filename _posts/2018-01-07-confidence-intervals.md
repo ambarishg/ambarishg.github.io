@@ -23,7 +23,10 @@ A ( 1-  $$\alpha$$  ) confidence interval for the population mean $$\mu$$ when p
   
  $$\mathbf{\alpha}$$ = .05 for the **95% Confidence Interval**    
  
- $$\mathbf{\frac{\alpha}{2}}$$ = .025
+ $$\mathbf{\frac{\alpha}{2}}$$ = .025            
+
+ We follow a **Case Study** approach in explaining the concepts and use the problems in the book 
+**Complete Business Statistics** by **Aczel and Sounderpandian**.The numbers in the headings are the problem numbers in the book.   
  
 
 {% highlight R %}
