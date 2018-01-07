@@ -2,6 +2,7 @@
 layout: post
 title: Confidence Intervals
 categories: Statistics
+date: 2018-01-07 13:00:00 -0700
 tags:
 - statistics
 description: We describe the <b>Confidence Intervals</b>  here...
