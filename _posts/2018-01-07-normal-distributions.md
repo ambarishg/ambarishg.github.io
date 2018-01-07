@@ -2,6 +2,7 @@
 layout: post
 title: Normal Distribution
 categories: Statistics
+date: 2018-01-07 09:00:00 -0700
 tags:
 - statistics
 description: We describe the <b>Normal Distribution</b>  here...
