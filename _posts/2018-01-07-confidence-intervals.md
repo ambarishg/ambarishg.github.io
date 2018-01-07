@@ -26,9 +26,6 @@ A ( 1-  $$\alpha$$  ) confidence interval for the population mean $$\mu$$ when p
  
  $$\mathbf{\frac{\alpha}{2}}$$ = .025            
 
- We follow a **Case Study** approach in explaining the concepts and use the problems in the book 
-**Complete Business Statistics** by **Aczel and Sounderpandian**.The numbers in the headings are the problem numbers in the book.   
- 
 
 {% highlight R %}
 
@@ -38,6 +35,10 @@ qnorm(.025,0,1)
 Therefore the equation for the **95% confidence interval** is    
 
 $$\mathbf{\bar{X}}$$  +/-  1.96 * $$\mathbf{\frac{\sigma}{\sqrt(n)}}$$ 
+
+We follow a **Case Study** approach in explaining the concepts and use the problems in the book 
+**Complete Business Statistics** by **Aczel and Sounderpandian**.The numbers in the headings are the problem numbers in the book.   
+ 
 
 ####   6-5
 <br/>
@@ -113,9 +114,11 @@ p = qnorm(.05,0,1)
 {% endhighlight %}
 
 
-#### 95% Confidence Interval for **Population Mean** when Population Standard Dev is NOT Known    <br/>
+### 95% Confidence Interval for **Population Mean** when Population Standard Dev is NOT Known    
 
-A ( 1-  $$\alpha$$  ) confidence interval for the population mean $$\mu$$ when population standard deviation $$\sigma$$ is known and a sampling is done from a normal population , or with a large sample is    
+<br/>
+
+A ( 1-  $$\alpha$$  ) confidence interval for the population mean $$\mu$$ when population standard deviation $$\sigma$$ is **NOT** known and a sampling is done from a normal population , or with a large sample is    
 
  $$\mathbf{\bar{X}}$$  +/-  $$\mathbf{T_\frac{\alpha}{2}}$$ $$\mathbf{\frac{\sigma}{\sqrt(n)}}$$ 
  
