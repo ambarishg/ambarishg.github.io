@@ -1,10 +1,10 @@
 ---
 layout: post
-title: activation functions
+title: Normal Distribution
 categories: Statistics
 tags:
 - statistics
-description: We describe the <b>Normal Distribution</b>here...
+description: We describe the <b>Normal Distribution</b>  here...
 ---
 
 #Introduction
