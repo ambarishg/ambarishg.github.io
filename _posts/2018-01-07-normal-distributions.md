@@ -7,7 +7,7 @@ tags:
 description: We describe the <b>Normal Distribution</b>  here...
 ---
 
-##  Introduction
+###  Introduction
 
 A normal distribution, sometimes called the bell curve, is a distribution that occurs naturally in many situations.            
 
@@ -24,7 +24,7 @@ The percentage of data that falls within a certain number of standard deviations
 * The total area under the curve is 1.                     
 
 
-## Cumulative Density Function
+### Cumulative Density Function
 
 From **Wikipedia** ,       
 
@@ -38,7 +38,7 @@ This can be represented as
 ![Probality Less Than P](/img/ProbablityLessThanp.jpg)
 
 
-### 4-23
+#### 4-23
 
 Let X be a normally distributed random variable with mean 410 and standard deviation 2.              
 
@@ -53,7 +53,7 @@ p2 -p1
 {% endhighlight %}
 
 
-### 4-29
+#### 4-29
 
 The number of votes cast in favor of a controversial proposition is believed to be approximately **normally distributed** with **mean 8000** and **standard deviation 1000**. The proposition needs at least 9322 votes in order to pass. What is the probablity that the proposition will pass ? (Assume numbers to be of continous scale)
 
@@ -71,7 +71,7 @@ This is the probablity that the number of votes would be **Less than or Equal to
 
 {% endhighlight %}
 
-### 4-33
+#### 4-33
 
 Daily fluctuations of the French CAC-40 stock index from March to June 1997
 seem to follow a normal distribution with mean of 2,600 and standard deviation of 50.
@@ -87,7 +87,7 @@ p2 -p1
 {% endhighlight %}
 
 
-### 4-37
+#### 4-37
 
 The daily price of orange juice 30-day futures is normally distributed. In
 March through April 2007, the mean was 145.5 cents per pound, and standard
@@ -102,7 +102,7 @@ pnorm(100, mean=145.5, sd=25)
 {% endhighlight %}
 
 
-## Standard Normal Distribution
+### Standard Normal Distribution
 
 Standard Normal Distribution is a normal distribution with **mean of 0 and standard deviation of 1**    
 
@@ -144,7 +144,7 @@ The probability that a normal random variable will be within a distance
 of 3 standard deviation from its mean (on either side) is 0.9973002, or
 approximately 0.97.
 
-##  Six Sigma
+###  Six Sigma
 
 
 **6 Standard Deviations Probablity**   
@@ -163,9 +163,9 @@ p2
 The probability that a normal random variable will be within a distance of 6 standard deviation from its mean (on either side) is 0.999999999
 
 
-## Case Studies
+### Case Studies
 
-### 4-45
+#### 4-45
 
 Let X be a normally distributed random variable with mean 600 and variance 10,000. Find two values x1 and x2 such that **P(X is more  than x1)** is equal to 0.01 and **P(X is less than x2)** is equal to 0.05
 
@@ -176,7 +176,7 @@ qnorm(.05,mean=600,sd=100)
 
 {% endhighlight %}
 
-### 4–47   
+#### 4–47   
 
 The demand for high-grade gasoline at a service station is normally distributed
 with mean 27,009 gallons per day and standard deviation 4,530. Find two values
