@@ -4,7 +4,7 @@ title: "Little Book on Exploratory Data Analysis"
 description: Gentle , detailed guide for EDA using R programming language
 ---
 
-<div class="img_row">
+<div>
 	<img class="col one" src="{{ site.baseurl }}/img/EDABookCover.jpg">
 </div>
 
