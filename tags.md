@@ -11,9 +11,7 @@ title: tags
 </p>
 
 {% for tag in site.tags %}
-
 {% capture tag_name %}{{ tag | first }}{% endcapture %}
-
 <h3 id="{{ tag_name }}">{{ tag_name }} </h3>
    
 {% for post in site.tags[tag_name] %}
