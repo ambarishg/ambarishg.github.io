@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Confidence Intervals
+title: Business applications of Confidence Intervals
 categories: Statistics
 date: 2018-01-07 13:00:00 -0700
 tags:
