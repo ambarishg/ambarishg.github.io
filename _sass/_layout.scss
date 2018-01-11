@@ -324,7 +324,7 @@ font-size: $caption_font_size;
     padding: 6px;
    }
 
-   .tagbox {
+.tagbox {
     background-color:rgb(244, 245, 245);
     color: rgb(255, 73, 73);
     border: 1px solid #ccc;
@@ -332,6 +332,13 @@ font-size: $caption_font_size;
     line-height: 300%;
     padding:5px 5px 5px 5px;
     border-radius: 10px;
-    }
+}
 
+.OneFourthBox {
+        width: 50%;
+        height: 25px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        padding: 10px;
+}
    
