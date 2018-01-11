@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Business applications of Confidence Intervals population proportion
+title: confidence intervals of population proportion
 categories: Statistics
 date: 2018-01-11 11:00:00 -0700
 tags:

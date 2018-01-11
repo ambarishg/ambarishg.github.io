@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Business applications of Normal Distribution
+title: normal distribution
 categories: Statistics
 date: 2018-01-07 09:00:00 -0700
 tags:

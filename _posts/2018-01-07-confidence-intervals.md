@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Business applications of Confidence Intervals population means
+title: confidence Intervals of population means
 categories: Statistics
 date: 2018-01-07 13:00:00 -0700
 tags:
