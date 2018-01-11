@@ -5,7 +5,7 @@ categories: Statistics
 date: 2018-01-11 11:00:00 -0700
 tags:
 - statistics
-description: We describe the Business applications of <b>Confidence Intervals proportion</b>  here...
+description: We describe the Business applications of <b>Confidence Intervals of Population proportion</b>  here...
 ---
 
 ### 95% Confidence Interval for **Proportion**   

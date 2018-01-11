@@ -1,11 +1,11 @@
 ---
 layout: post
-title: confidence Intervals of population means
+title: confidence intervals of population means
 categories: Statistics
 date: 2018-01-07 13:00:00 -0700
 tags:
 - statistics
-description: We describe the Business applications of <b>Confidence Intervals means</b>  here...
+description: We describe the Business applications of <b>Confidence Intervals of Population means</b>  here...
 ---
 
 
