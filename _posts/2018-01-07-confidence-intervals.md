@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Business applications of Confidence Intervals
+title: Business applications of Confidence Intervals population means
 categories: Statistics
 date: 2018-01-07 13:00:00 -0700
 tags:
 - statistics
-description: We describe the <b>Confidence Intervals</b>  here...
+description: We describe the Business applications of <b>Confidence Intervals means</b>  here...
 ---
 
 
