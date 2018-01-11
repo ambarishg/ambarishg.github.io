@@ -55,6 +55,16 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 
+input,textarea {
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    font-weight: 100;
+    color: $text-color;
+    background-color: $background-color;
+    -webkit-text-size-adjust: 100%;
+    width: 100%;
+}
 
 
 /**
