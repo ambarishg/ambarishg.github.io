@@ -22,9 +22,9 @@ of all components that are defective is as claimed. A random sample of 100
 items indicates 17 defectives. Use $$\alpha$$ =  0.05 to test the hypothesis that the percentage
 of defective components is 12%.
 
-The **Null Hypothesis** is population proportion is 12% or greater
+The **Null Hypothesis** is population proportion is 12% or less
 
-The **Alternative Hypothesis** is population proportion is less than 12%            
+The **Alternative Hypothesis** is population proportion is greater          
 
 {% highlight R %}
 
@@ -34,7 +34,8 @@ population_prop = 0.12
 
 n =100
 
-z_statistic = (sample_prop - population_prop)/sqrt(population_prop *(1-population_prop)/n)
+z_statistic = (sample_prop - population_prop)/
+sqrt(population_prop *(1-population_prop)/n)
 
 z_statistic
 
@@ -49,7 +50,8 @@ qnorm(.05,mean=0,sd = 1)
 {% endhighlight %}
 
 
-The rejection region is less than **-1.644854** and greater than **+1.644854**              
+The rejection region is less than **-1.644854**        
+        
 
 The zstatistic is outside the rejection region. Therefore we **CANNOT reject the NULL hypothesis**  that the percentage of defective components is 12.             
 
