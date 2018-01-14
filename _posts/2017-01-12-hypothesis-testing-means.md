@@ -19,7 +19,10 @@ Step 2 : Calculate the t-statistic
 
 Step 3 : Cutoff values for the t-statistic
 
-Step 4 : Check whether t-statistic falls in the rejection region
+Step 4 : Check whether t-statistic falls in the rejection region            
+
+We do the **Case Studies** for Hypothesis Testing for the population means.        
+
 
 ### 7–17 
 
@@ -37,7 +40,7 @@ about the shipment? If the shipment were guaranteed to contain an average concen
 of 247 ppm, what would your decision be, based on the statistical
 hypothesis test? Explain.
 
----------------------------------------------------------------------------------------------------
+<hr/>
 
 For calculating the z-statistic we require the population standard deviation.But here we have the sample standard deviation. Approximating we use the sample standard deviation for the population standard deviation.       
 
@@ -79,7 +82,7 @@ The rejection region is less than **-1.959964** and greater than **1.959964**
 
 The zstatistic is outside the rejection region. Therefore we **CANNOT reject the NULL hypothesis**  that the sample mean 247 parts per million (ppm)       
 
-#####  For alpha = .01       
+####  For alpha = .01       
 
 {% highlight R %}
 qnorm(.005,mean=0,sd = 1)
