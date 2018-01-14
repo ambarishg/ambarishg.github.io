@@ -9,6 +9,7 @@ description: We describe the Business applications of <b>hypothesis Testing for 
 ---
 
 ### Introduction
+<br/>
 
 Steps for performing Hypothesis Testing
 
@@ -100,7 +101,7 @@ the changes, the average customer satisfaction rating, on a scale of 0 to 100, w
 A survey questionnaire was sent to a random sample of 50 residents who bought new
 plots after the changes in the market were instituted, and the average satisfaction rating
 for this sample was found to be **84**; the sample standard deviation was found
-to be **s = 28**. Use an $\alpha$ of your choice, and determine whether statistical evidence indicates
+to be **s = 28**. Use an $$\alpha$$ of your choice, and determine whether statistical evidence indicates
 a change in customer satisfaction. If you determine that a change did occur, state
 whether you believe customer satisfaction has improved or deteriorated.             
 
@@ -123,7 +124,7 @@ z_statistic
 
 {% endhighlight %}
 
-**Rejection Region for $\alpha$ = 0.5**
+**Rejection Region for $$\alpha$$ = 0.5**
 
 {% highlight R %}
 
@@ -148,7 +149,7 @@ battery is 102.5 hours. To determine whether the new process affects the average
 of the batteries, the manufacturer collects a random sample of 25 batteries produced
 by the new process and uses them until they run out. The sample mean life is found
 to be 107 hours, and the sample standard deviation is found to be 10 hours. Are these
-results significant at the $\alpha$ =  0.05 level? Are they significant at the $\alpha$ =  0.01 level?
+results significant at the $$\alpha$$ =  0.05 level? Are they significant at the $$\alpha$$ =  0.01 level?
 Explain. Draw your conclusion.   
 
 The **Null Hypothesis** is population mean is 102.5 hours or less
@@ -171,7 +172,7 @@ t_statistic
 
 {% endhighlight %}
 
-**Rejection Region for $\alpha$ = 0.5**
+**Rejection Region for $$\alpha$$ = 0.5**
 
 {% highlight R %}
 
@@ -184,7 +185,7 @@ The rejection region is less than **-1.644854** and greater than **+1.644854**
 The zstatistic is **inside** the rejection region. Therefore we **CAN reject the NULL hypothesis**  that the population mean is 102.5 hours or less.    
 
 
-**Rejection Region for $\alpha$ = 0.01**
+**Rejection Region for $$\alpha$$ = 0.01**
 
 {% highlight R %}
 
