@@ -1,11 +1,11 @@
 ---
 layout: post
-title: hypothesis Testing for means
+title: hypothesis Testing for population means
 categories: Statistics
 date: 2018-01-11 11:00:00 -0700
 tags:
 - statistics
-description: We describe the Business applications of <b>Chypothesis Testing for means</b>  here...
+description: We describe the Business applications of <b>hypothesis Testing for population means</b>  here...
 ---
 
 ### Introduction
