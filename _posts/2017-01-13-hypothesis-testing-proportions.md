@@ -8,12 +8,12 @@ tags:
 description: We describe the Business applications of <b>hypothesis Testing for population proportions</b>  here...
 ---
 
-## Introduction
+### Introduction
 
 We investigate the hypothesis testing for population proportions.         
 
 
-## 7-29 
+### 7-29 
 
 The manufacturer of electronic components needs to inform its buyers of the
 proportion of defective components in its shipments. The company has been stating
