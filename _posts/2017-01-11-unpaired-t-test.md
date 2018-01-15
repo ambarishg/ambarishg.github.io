@@ -191,7 +191,7 @@ The t statistic is in the rejection region. Therefore we will **Reject the NULL 
 
 **State which one it is, and explain how you reached your conclusion.**
 
-The Null hypothesis is that the non music groups is better than music groups score
+The Null hypothesis is that the non music groups is better than or equal to music groups score
 
 {% highlight R %}
 sample_mean2 = 23.5
@@ -294,9 +294,9 @@ df
 
 {% highlight R %}
 
-qt(.05,df)
+qt(.95,df)
 
 {% endhighlight %}
-The rejection region is less than -1.66975        
+The rejection region is more than 1.66975        
 
 Since the TStatistic is outside the rejection region. therefore we cannot reject the NULL hypothesis that Models featuring clothes designed by Calvin Klein clothes earn less than or equal to models featuring Liz Claiborne clothing             
