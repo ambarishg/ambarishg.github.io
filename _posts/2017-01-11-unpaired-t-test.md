@@ -2,7 +2,7 @@
 layout: post
 title: unpaired t test
 categories: Statistics
-date: 2018-01-15 11:00:00 -0700
+date: 2018-01-13 11:00:00 -0700
 tags:
 - statistics
 description: We describe the Business applications of <b>unpaired t test</b>  here...
@@ -189,7 +189,7 @@ The rejection region is less than -2.596695 and more than 2.596695
 The t statistic is in the rejection region. Therefore we will **Reject the NULL Hypothesis** that the the both methods of advertising are equally effective.     
 
 
-**State which one it is, and explain how you reached your conclusion.  **
+**State which one it is, and explain how you reached your conclusion.**
 
 The Null hypothesis is that the non music groups is better than music groups score
 
