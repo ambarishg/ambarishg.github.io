@@ -16,33 +16,33 @@ We discuss the cases when the samples cannot be paired.
 **Cases in Which the Test Statistic Is Z**
 
 * The sample sizes n1 and n2 are both at least 30 and the population
-standard deviations $\sigma_1$ and $\sigma_2$ are known.            
+standard deviations $$\sigma_1$$ and $$\sigma_2$$ are known.            
 
 * Both populations are normally distributed and the population standard
-deviations $\sigma_1$ and $\sigma_2$ are known.             
+deviations $$\sigma_1$$ and $$\sigma_2$$ are known.             
 
 The formula for the test statistic Z is
 
-$Z = \frac{(\bar{X_1} - \bar{X_2}) - (\bar\mu_1 - \bar\mu_2)}{\sqrt(\sigma_1^2/{n_1}+\sigma_2^2/{n_2})  }$
+$$Z = \frac{(\bar{X_1} - \bar{X_2}) - (\bar\mu_1 - \bar\mu_2)}{\sqrt(\sigma_1^2/{n_1}+\sigma_2^2/{n_2})  }$$
 
 
 **Cases in Which the Test Statistic Is t**                
 
 Both populations are normally distributed; population standard deviations
-$\sigma_1$ and $\sigma_2$ are unknown, but the sample standard deviations S1 and S2 are
+$$\sigma_1$$ and $$\sigma_2$$ are unknown, but the sample standard deviations S1 and S2 are
 known.
 
-**Case 1** when the population standard deviations $\sigma_1$ and $\sigma_2$ are equal       
+**Case 1** when the population standard deviations $$\sigma_1$$ and $$\sigma_2$$ are equal       
 
-$t = \frac{(\bar{X_1} - \bar{X_2}) - (\bar\mu_1 - \bar\mu_2)}{\sqrt(S_p^2/(1/{n_1}+1/{n_2})}$     
+$$t = \frac{(\bar{X_1} - \bar{X_2}) - (\bar\mu_1 - \bar\mu_2)}{\sqrt(S_p^2/(1/{n_1}+1/{n_2})}$$     
 
-${S_p}$ is the pooled variance of the two samples
+$${S_p}$$ is the pooled variance of the two samples
 
-The degrees of freedom are ${n_1 + n_2 -1}$
+The degrees of freedom are $${n_1 + n_2 -1}$$
 
-**Case 2** when the population standard deviations $\sigma_1$ and $\sigma_2$ are unequal      
+**Case 2** when the population standard deviations $$\sigma_1$$ and $$\sigma_2$$ are unequal      
 
-$t = \frac{(\bar{X_1} - \bar{X_2}) - (\bar\mu_1 - \bar\mu_2)}{\sqrt(S_1^2/{n_1}+ S_2^2/{n_2})}$      
+$$t = \frac{(\bar{X_1} - \bar{X_2}) - (\bar\mu_1 - \bar\mu_2)}{\sqrt(S_1^2/{n_1}+ S_2^2/{n_2})}$$      
 
 The r function is         
 
@@ -114,7 +114,7 @@ df
 {% endhighlight %}
 
 
-**Calculate the t statistic for $\alpha$ = 0.5**
+**Calculate the t statistic for $$\alpha$$ = 0.5**
 
 {% highlight R %}
 
@@ -174,7 +174,7 @@ df = calculateDegreesofFreedom(s1,s2,n1,n2)
 df
 {% endhighlight %}
 
-**Calculate the t statistic for $\alpha$ = 0..01**
+**Calculate the t statistic for $$\alpha$$ = 0..01**
 
 {% highlight R %}
 
@@ -218,7 +218,7 @@ df = calculateDegreesofFreedom(s1,s2,n1,n2)
 df
 {% endhighlight %}
 
-**Calculate the t statistic for $\alpha$ = 0.01**
+**Calculate the t statistic for $$\alpha$$ = 0.01**
 
 {% highlight R %}
 
@@ -290,7 +290,7 @@ df = calculateDegreesofFreedom(s1,s2,n1,n2)
 df
 {% endhighlight %}
 
-**Calculate the t statistic for $\alpha$ = 0.05**
+**Calculate the t statistic for $$\alpha$$ = 0.05**
 
 {% highlight R %}
 
