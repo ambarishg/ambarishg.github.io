@@ -24,7 +24,7 @@ of defective components is 12%.
 
 The **Null Hypothesis** is population proportion is 12% or less
 
-The **Alternative Hypothesis** is population proportion is greater          
+The **Alternative Hypothesis** is population proportion is greater than 12%          
 
 {% highlight R %}
 
@@ -53,7 +53,7 @@ qnorm(.05,mean=0,sd = 1)
 The rejection region is less than **-1.644854**        
         
 
-The zstatistic is outside the rejection region. Therefore we **CANNOT reject the NULL hypothesis**  that the percentage of defective components is 12.             
+The zstatistic is outside the rejection region. Therefore we **CANNOT reject the NULL hypothesis**  that the percentage of defective components is is 12% or less.                  
 
 <hr/>
 
