@@ -2,7 +2,7 @@
 layout: post
 title: paired t test
 categories: Statistics
-date: 2018-01-15 11:00:00 -0700
+date: 2018-01-12 11:00:00 -0700
 tags:
 - statistics
 description: We describe the Business applications of <b>paired t test</b>  here...
