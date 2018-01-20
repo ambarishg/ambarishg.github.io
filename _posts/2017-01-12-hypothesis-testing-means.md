@@ -202,6 +202,7 @@ The rejection region is less than **-2.492159** and greater than **2.492159**
 The zstatistic is **outside** the rejection region. Therefore we **CANNOT reject the NULL hypothesis**  that the population mean is 102.5 hours or less. 
 
 ### 5.7 Sleep habits of New Yorkers
+                        
 
 This case study is from **OpenIntro Statistics**          
 
@@ -257,7 +258,7 @@ The t statistic is -1.753247. It does not fall within the rejection region.
 
 Therefore we cannot reject the NULL Hypothesis that New Yorkers  sleep 8 hours or less a night on average                 
 
-#5.11 Play the piano
+### 5.11 Play the piano
 
 This case study is from **OpenIntro Statistics**       
 
