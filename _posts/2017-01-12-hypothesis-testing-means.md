@@ -201,4 +201,103 @@ The rejection region is less than **-2.492159** and greater than **2.492159**
 
 The zstatistic is **outside** the rejection region. Therefore we **CANNOT reject the NULL hypothesis**  that the population mean is 102.5 hours or less. 
 
+### 5.7 Sleep habits of New Yorkers
 
+This case study is from **OpenIntro Statistics**          
+
+
+New York is known as “the city that never sleeps”.
+A random sample of 25 New Yorkers were asked how much sleep they get per night. Statistical
+summaries of these data are shown below. Do these data provide strong evidence that New Yorkers
+sleep less than 8 hours a night on average?          
+
+n   $$\bar{x}$$       s     min max               
+25   7.73           0.77 6.17 9.78                     
+
+(a) Write the hypotheses in symbols and in words.
+(b) Check conditions, then calculate the test statistic, T, and the associated degrees of freedom.
+(c) Find and interpret the p-value in this context. Drawing a picture may be helpful.
+(d) What is the conclusion of the hypothesis test?
+(e) If you were to construct a 90% confidence interval that corresponded to this hypothesis test,
+would you expect 8 hours to be in the interval?               
+
+
+The Null Hypothesis is that New Yorkers  sleep 8 hours or less a night on average          
+The Alternative Hypothesis is that New Yorkers sleep more than 8 hours a night on average         
+
+
+{% highlight R %}
+sample_mean = 7.73
+
+sample_standard_dev = 0.77
+
+population_mean = 8
+
+n = 25
+
+t_statistic = (sample_mean - population_mean)/ ((sample_standard_dev)/sqrt(n)) 
+
+
+t_statistic
+
+{% endhighlight %}
+
+
+**Rejection Region for $$\alpha$$ = 0.05**
+
+{% highlight R %}
+
+qt(.95,n-1)
+
+{% endhighlight %}
+
+The rejection region is more than 1.710882           
+
+The t statistic is -1.753247. It does not fall within the rejection region.          
+
+Therefore we cannot reject the NULL Hypothesis that New Yorkers  sleep 8 hours or less a night on average                 
+
+#5.11 Play the piano
+
+This case study is from **OpenIntro Statistics**       
+
+Georgianna claims that in a small city renowned for its music school, the
+average child takes at least 5 years of piano lessons. We have a random sample of 20 children from
+the city, with a mean of 4.6 years of piano lessons and a standard deviation of 2.2 years.
+(a) Evaluate Georgianna’s claim using a hypothesis test.
+(b) Construct a 95% confidence interval for the number of years students in this city take piano
+lessons, and interpret it in context of the data.
+(c) Do your results from the hypothesis test and the confidence interval agree? Explain your
+reasoning.             
+
+The Null Hypothesis is that average child takes 5 years or more of piano lessons            
+The Alternative Hypothesis is that average child takes less than 5 years of piano lessons              
+{% highlight R %}
+sample_mean = 4.6
+
+sample_standard_dev = 2.2
+
+population_mean = 5
+
+n = 20
+
+t_statistic = (sample_mean - population_mean)/ ((sample_standard_dev)/sqrt(n)) 
+
+
+t_statistic
+
+{% endhighlight %}
+
+**Rejection Region for $$\alpha$$ = 0.05**
+
+{% highlight R %}
+
+qt(.05,n-1)
+
+{% endhighlight %}
+
+The rejection region is less than -1.729133         
+
+The t statistic is -0.8131156        
+
+The t statistic lies **outside the rejection region**. Therefore we cannot reject the NULL Hypothesis that average child takes 5 years or more of piano lessons
