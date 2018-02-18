@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Little Book on Text Mining</title>
+  <meta name="description" content="Little Book on Text Mining">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Little Book on Text Mining" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Little Book on Text Mining" />
+  
+  
+  
+
+<meta name="author" content="Ambarish Ganguly">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="reviews-data.html">
+<link rel="next" href="most-popular-categories.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="part"><span><b>I Spooky Authors Text Mining</b></span><ul>
+<li class="chapter" data-level="1.1" data-path="220-YelpReviews.html"><a href="#spooky-author-identification-dataset"><i class="fa fa-check"></i><b>1.1</b> Spooky Author Identification Dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="read-the-data.html"><a href="read-the-data.html"><i class="fa fa-check"></i><b>2</b> Read the Data</a></li>
+<li class="chapter" data-level="3" data-path="add-feature-number-of-words.html"><a href="add-feature-number-of-words.html"><i class="fa fa-check"></i><b>3</b> Add Feature Number of Words</a></li>
+<li class="chapter" data-level="4" data-path="peek-into-the-data.html"><a href="peek-into-the-data.html"><i class="fa fa-check"></i><b>4</b> Peek into the Data</a></li>
+<li class="chapter" data-level="5" data-path="length-comparison.html"><a href="length-comparison.html"><i class="fa fa-check"></i><b>5</b> Length Comparison</a></li>
+<li class="chapter" data-level="6" data-path="words-length-distribution.html"><a href="words-length-distribution.html"><i class="fa fa-check"></i><b>6</b> Words Length Distribution</a><ul>
+<li class="chapter" data-level="6.1" data-path="words-length-distribution.html"><a href="words-length-distribution.html#words-length-distribution-plot-2"><i class="fa fa-check"></i><b>6.1</b> Words Length Distribution Plot 2</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html"><i class="fa fa-check"></i><b>7</b> Top Twenty most Common Words</a><ul>
+<li class="chapter" data-level="7.1" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-the-common-words"><i class="fa fa-check"></i><b>7.1</b> WordCloud of the Common Words</a></li>
+<li class="chapter" data-level="7.2" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-hpl"><i class="fa fa-check"></i><b>7.2</b> WordCloud of HPL</a></li>
+<li class="chapter" data-level="7.3" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#barplot-for-words-of-hpl"><i class="fa fa-check"></i><b>7.3</b> BarPlot for words of HPL</a></li>
+<li class="chapter" data-level="7.4" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-mws"><i class="fa fa-check"></i><b>7.4</b> WordCloud of MWS</a></li>
+<li class="chapter" data-level="7.5" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#barplot-for-words-of-mws"><i class="fa fa-check"></i><b>7.5</b> BarPlot for words of MWS</a></li>
+<li class="chapter" data-level="7.6" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#wordcloud-of-eap"><i class="fa fa-check"></i><b>7.6</b> WordCloud of EAP</a></li>
+<li class="chapter" data-level="7.7" data-path="top-twenty-most-common-words.html"><a href="top-twenty-most-common-words.html#barplot-for-words-of-eap"><i class="fa fa-check"></i><b>7.7</b> BarPlot for words of EAP</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tf-idf.html"><a href="tf-idf.html"><i class="fa fa-check"></i><b>8</b> TF-IDF</a><ul>
+<li class="chapter" data-level="8.1" data-path="tf-idf.html"><a href="tf-idf.html#the-math"><i class="fa fa-check"></i><b>8.1</b> The Math</a></li>
+<li class="chapter" data-level="8.2" data-path="tf-idf.html"><a href="tf-idf.html#twenty-most-important-words"><i class="fa fa-check"></i><b>8.2</b> Twenty Most Important words</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="tf-idf.html"><a href="tf-idf.html#twenty-most-important-words-hpl"><i class="fa fa-check"></i><b>8.2.1</b> Twenty most important words HPL</a></li>
+<li class="chapter" data-level="8.2.2" data-path="tf-idf.html"><a href="tf-idf.html#twenty-most-important-words-eap"><i class="fa fa-check"></i><b>8.2.2</b> Twenty most important words EAP</a></li>
+<li class="chapter" data-level="8.2.3" data-path="tf-idf.html"><a href="tf-idf.html#twenty-most-important-words-mws"><i class="fa fa-check"></i><b>8.2.3</b> Twenty most important words MWS</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="tf-idf.html"><a href="tf-idf.html#word-cloud-for-the-most-important-words"><i class="fa fa-check"></i><b>8.3</b> Word Cloud for the Most Important Words</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="most-common-bigrams.html"><a href="most-common-bigrams.html"><i class="fa fa-check"></i><b>9</b> Most Common Bigrams</a></li>
+<li class="chapter" data-level="10" data-path="most-common-trigrams.html"><a href="most-common-trigrams.html"><i class="fa fa-check"></i><b>10</b> Most Common Trigrams</a></li>
+<li class="chapter" data-level="11" data-path="relationship-among-words.html"><a href="relationship-among-words.html"><i class="fa fa-check"></i><b>11</b> Relationship among words</a></li>
+<li class="chapter" data-level="12" data-path="sentiment-analysis.html"><a href="sentiment-analysis.html"><i class="fa fa-check"></i><b>12</b> Sentiment Analysis</a><ul>
+<li class="chapter" data-level="12.1" data-path="sentiment-analysis.html"><a href="sentiment-analysis.html#postive-authors-and-not-so-positive-authors"><i class="fa fa-check"></i><b>12.1</b> Postive Authors and Not so Positive Authors</a></li>
+<li class="chapter" data-level="12.2" data-path="sentiment-analysis.html"><a href="sentiment-analysis.html#postive-and-not-so-postive-words-of-authors"><i class="fa fa-check"></i><b>12.2</b> Postive and Not So Postive Words of Authors</a></li>
+<li class="chapter" data-level="12.3" data-path="sentiment-analysis.html"><a href="sentiment-analysis.html#postive-and-not-so-postive-words-of-author-hpl"><i class="fa fa-check"></i><b>12.3</b> Postive and Not So Postive Words of Author HPL</a></li>
+<li class="chapter" data-level="12.4" data-path="sentiment-analysis.html"><a href="sentiment-analysis.html#postive-and-not-so-postive-words-of-author-eap"><i class="fa fa-check"></i><b>12.4</b> Postive and Not So Postive Words of Author EAP</a></li>
+<li class="chapter" data-level="12.5" data-path="sentiment-analysis.html"><a href="sentiment-analysis.html#postive-and-not-so-postive-words-of-author-mws"><i class="fa fa-check"></i><b>12.5</b> Postive and Not So Postive Words of Author MWS</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="sentiment-analysis-using-nrc-sentiment-lexicon.html"><a href="sentiment-analysis-using-nrc-sentiment-lexicon.html"><i class="fa fa-check"></i><b>13</b> Sentiment Analysis using NRC Sentiment lexicon</a><ul>
+<li class="chapter" data-level="13.1" data-path="sentiment-analysis-using-nrc-sentiment-lexicon.html"><a href="sentiment-analysis-using-nrc-sentiment-lexicon.html#sentiment-analysis-words---fear"><i class="fa fa-check"></i><b>13.1</b> Sentiment Analysis Words - Fear</a></li>
+<li class="chapter" data-level="13.2" data-path="sentiment-analysis-using-nrc-sentiment-lexicon.html"><a href="sentiment-analysis-using-nrc-sentiment-lexicon.html#fear-word-cloud---mwp"><i class="fa fa-check"></i><b>13.2</b> Fear Word Cloud - MWP</a></li>
+<li class="chapter" data-level="13.3" data-path="sentiment-analysis-using-nrc-sentiment-lexicon.html"><a href="sentiment-analysis-using-nrc-sentiment-lexicon.html#sentiment-analysis-words---surprise"><i class="fa fa-check"></i><b>13.3</b> Sentiment Analysis Words - Surprise</a></li>
+<li class="chapter" data-level="13.4" data-path="sentiment-analysis-using-nrc-sentiment-lexicon.html"><a href="sentiment-analysis-using-nrc-sentiment-lexicon.html#surprise-word-cloud---mwp"><i class="fa fa-check"></i><b>13.4</b> Surprise Word Cloud - MWP</a></li>
+<li class="chapter" data-level="13.5" data-path="sentiment-analysis-using-nrc-sentiment-lexicon.html"><a href="sentiment-analysis-using-nrc-sentiment-lexicon.html#sentiment-analysis-words---joy"><i class="fa fa-check"></i><b>13.5</b> Sentiment Analysis Words - Joy</a></li>
+<li class="chapter" data-level="13.6" data-path="sentiment-analysis-using-nrc-sentiment-lexicon.html"><a href="sentiment-analysis-using-nrc-sentiment-lexicon.html#joy-word-cloud---mwp"><i class="fa fa-check"></i><b>13.6</b> Joy Word Cloud - MWP</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="positive-and-not-so-postive-lines.html"><a href="positive-and-not-so-postive-lines.html"><i class="fa fa-check"></i><b>14</b> Positive and Not So Postive Lines</a></li>
+<li class="chapter" data-level="15" data-path="feature-sentiment-score.html"><a href="feature-sentiment-score.html"><i class="fa fa-check"></i><b>15</b> Feature Sentiment Score</a></li>
+<li class="chapter" data-level="16" data-path="feature-nrc-sentiments.html"><a href="feature-nrc-sentiments.html"><i class="fa fa-check"></i><b>16</b> Feature NRC Sentiments</a></li>
+<li class="chapter" data-level="17" data-path="he-or-she-analysis.html"><a href="he-or-she-analysis.html"><i class="fa fa-check"></i><b>17</b> He or She Analysis</a><ul>
+<li class="chapter" data-level="17.1" data-path="he-or-she-analysis.html"><a href="he-or-she-analysis.html#gender-associated-verbs"><i class="fa fa-check"></i><b>17.1</b> Gender associated verbs</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="document-term-matrix.html"><a href="document-term-matrix.html"><i class="fa fa-check"></i><b>18</b> Document Term Matrix</a></li>
+<li class="chapter" data-level="19" data-path="modelling-with-xgboost.html"><a href="modelling-with-xgboost.html"><i class="fa fa-check"></i><b>19</b> Modelling with XGBoost</a><ul>
+<li class="chapter" data-level="19.1" data-path="modelling-with-xgboost.html"><a href="modelling-with-xgboost.html#add-features"><i class="fa fa-check"></i><b>19.1</b> Add features</a></li>
+<li class="chapter" data-level="19.2" data-path="modelling-with-xgboost.html"><a href="modelling-with-xgboost.html#creating-the-xgboost-model"><i class="fa fa-check"></i><b>19.2</b> Creating the XGBoost Model</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="predictions-using-the-xgb-model.html"><a href="predictions-using-the-xgb-model.html"><i class="fa fa-check"></i><b>20</b> Predictions using the XGB Model</a></li>
+<li class="chapter" data-level="21" data-path="predictions-using-glmnet-model.html"><a href="predictions-using-glmnet-model.html"><i class="fa fa-check"></i><b>21</b> Predictions using glmnet Model</a></li>
+<li class="chapter" data-level="22" data-path="modelling-using-the-text2vec-package.html"><a href="modelling-using-the-text2vec-package.html"><i class="fa fa-check"></i><b>22</b> Modelling using the text2vec package</a><ul>
+<li class="chapter" data-level="22.1" data-path="modelling-using-the-text2vec-package.html"><a href="modelling-using-the-text2vec-package.html#inspect-the-vocabulary"><i class="fa fa-check"></i><b>22.1</b> Inspect the vocabulary</a></li>
+<li class="chapter" data-level="22.2" data-path="modelling-using-the-text2vec-package.html"><a href="modelling-using-the-text2vec-package.html#inspect-the-document-term-matrix"><i class="fa fa-check"></i><b>22.2</b> Inspect the Document Term Matrix</a></li>
+<li class="chapter" data-level="22.3" data-path="modelling-using-the-text2vec-package.html"><a href="modelling-using-the-text2vec-package.html#build-the-multinomial-logistic-regression-model"><i class="fa fa-check"></i><b>22.3</b> Build the Multinomial Logistic Regression Model</a></li>
+<li class="chapter" data-level="22.4" data-path="modelling-using-the-text2vec-package.html"><a href="modelling-using-the-text2vec-package.html#predict-using-the-multinomial-logistic-regression-model"><i class="fa fa-check"></i><b>22.4</b> Predict using the Multinomial Logistic Regression Model</a></li>
+</ul></li>
+<li class="part"><span><b>II Yelp Data Reviews Text Mining</b></span></li>
+<li class="chapter" data-level="23" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i><b>23</b> Introduction</a></li>
+<li class="chapter" data-level="24" data-path="preparation.html"><a href="preparation.html"><i class="fa fa-check"></i><b>24</b> Preparation</a><ul>
+<li class="chapter" data-level="24.1" data-path="preparation.html"><a href="preparation.html#load-libraries"><i class="fa fa-check"></i><b>24.1</b> Load Libraries</a></li>
+<li class="chapter" data-level="24.2" data-path="preparation.html"><a href="preparation.html#read-the-data-1"><i class="fa fa-check"></i><b>24.2</b> Read the data</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="business-data.html"><a href="business-data.html"><i class="fa fa-check"></i><b>25</b> Business data</a></li>
+<li class="chapter" data-level="26" data-path="reviews-data.html"><a href="reviews-data.html"><i class="fa fa-check"></i><b>26</b> Reviews data</a></li>
+<li class="chapter" data-level="27" data-path="detecting-the-language-of-the-reviews.html"><a href="detecting-the-language-of-the-reviews.html"><i class="fa fa-check"></i><b>27</b> Detecting the language of the reviews</a></li>
+<li class="chapter" data-level="28" data-path="most-popular-categories.html"><a href="most-popular-categories.html"><i class="fa fa-check"></i><b>28</b> Most Popular Categories</a></li>
+<li class="chapter" data-level="29" data-path="top-ten-cities-with-the-most-business-parties-mentioned-in-yelp.html"><a href="top-ten-cities-with-the-most-business-parties-mentioned-in-yelp.html"><i class="fa fa-check"></i><b>29</b> Top Ten Cities with the most Business parties mentioned in Yelp</a></li>
+<li class="chapter" data-level="30" data-path="map-of-the-business-parties-in-las-vegas.html"><a href="map-of-the-business-parties-in-las-vegas.html"><i class="fa fa-check"></i><b>30</b> Map of the business parties in Las vegas</a></li>
+<li class="chapter" data-level="31" data-path="business-with-most-five-star-reviews-from-users.html"><a href="business-with-most-five-star-reviews-from-users.html"><i class="fa fa-check"></i><b>31</b> Business with most Five Star Reviews from Users</a></li>
+<li class="chapter" data-level="32" data-path="mon-ami-gabi.html"><a href="mon-ami-gabi.html"><i class="fa fa-check"></i><b>32</b> <strong>“Mon Ami Gabi”</strong></a><ul>
+<li class="chapter" data-level="32.1" data-path="mon-ami-gabi.html"><a href="mon-ami-gabi.html#usefulfunnycool-reviews"><i class="fa fa-check"></i><b>32.1</b> Useful,funny,cool reviews</a></li>
+<li class="chapter" data-level="32.2" data-path="mon-ami-gabi.html"><a href="mon-ami-gabi.html#word-cloud-of-mon-ami-gabi"><i class="fa fa-check"></i><b>32.2</b> Word Cloud of Mon Ami Gabi</a></li>
+<li class="chapter" data-level="32.3" data-path="mon-ami-gabi.html"><a href="mon-ami-gabi.html#top-ten-most-common-words-of-the-business-mon-ami-gabi"><i class="fa fa-check"></i><b>32.3</b> Top Ten most common Words of the business <strong>“Mon Ami Gabi”</strong></a></li>
+<li class="chapter" data-level="32.4" data-path="mon-ami-gabi.html"><a href="mon-ami-gabi.html#sentiment-analysis---postive-and-not-so-postive-words-of-mon-ami-gabi"><i class="fa fa-check"></i><b>32.4</b> Sentiment Analysis - Postive and Not So Postive Words of <strong>“Mon Ami Gabi”</strong></a></li>
+<li class="chapter" data-level="32.5" data-path="mon-ami-gabi.html"><a href="mon-ami-gabi.html#calculate-sentiment-for-the-reviews"><i class="fa fa-check"></i><b>32.5</b> Calculate Sentiment for the reviews</a></li>
+<li class="chapter" data-level="32.6" data-path="mon-ami-gabi.html"><a href="mon-ami-gabi.html#negative-reviews"><i class="fa fa-check"></i><b>32.6</b> Negative Reviews</a></li>
+<li class="chapter" data-level="32.7" data-path="mon-ami-gabi.html"><a href="mon-ami-gabi.html#positive-reviews"><i class="fa fa-check"></i><b>32.7</b> Positive Reviews</a></li>
+<li class="chapter" data-level="32.8" data-path="mon-ami-gabi.html"><a href="mon-ami-gabi.html#most-common-bigrams-of-mon-ami-gabi"><i class="fa fa-check"></i><b>32.8</b> Most Common Bigrams of <strong>“Mon Ami Gabi”</strong></a></li>
+<li class="chapter" data-level="32.9" data-path="mon-ami-gabi.html"><a href="mon-ami-gabi.html#relationship-among-words-1"><i class="fa fa-check"></i><b>32.9</b> Relationship among words</a><ul>
+<li class="chapter" data-level="32.9.1" data-path="mon-ami-gabi.html"><a href="mon-ami-gabi.html#relationship-of-words-with-steak"><i class="fa fa-check"></i><b>32.9.1</b> Relationship of words with <strong>steak</strong></a></li>
+<li class="chapter" data-level="32.9.2" data-path="mon-ami-gabi.html"><a href="mon-ami-gabi.html#relationship-of-words-with-french"><i class="fa fa-check"></i><b>32.9.2</b> Relationship of words with <strong>french</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="33" data-path="bacchanal-buffet.html"><a href="bacchanal-buffet.html"><i class="fa fa-check"></i><b>33</b> <strong>Bacchanal Buffet</strong></a><ul>
+<li class="chapter" data-level="33.1" data-path="bacchanal-buffet.html"><a href="bacchanal-buffet.html#word-cloud-of-bacchanal-buffet"><i class="fa fa-check"></i><b>33.1</b> Word Cloud of <strong>Bacchanal Buffet</strong></a></li>
+<li class="chapter" data-level="33.2" data-path="bacchanal-buffet.html"><a href="bacchanal-buffet.html#top-ten-most-common-words-of-the-business-bacchanal-buffet"><i class="fa fa-check"></i><b>33.2</b> Top Ten most common Words of the business <strong>“Bacchanal Buffet”</strong></a></li>
+<li class="chapter" data-level="33.3" data-path="bacchanal-buffet.html"><a href="bacchanal-buffet.html#sentiment-analysis---postive-and-not-so-postive-words-of-bacchanal-buffet"><i class="fa fa-check"></i><b>33.3</b> Sentiment Analysis - Postive and Not So Postive Words of <strong>Bacchanal Buffet</strong></a></li>
+<li class="chapter" data-level="33.4" data-path="bacchanal-buffet.html"><a href="bacchanal-buffet.html#calculate-sentiment-for-the-reviews-1"><i class="fa fa-check"></i><b>33.4</b> Calculate Sentiment for the reviews</a></li>
+<li class="chapter" data-level="33.5" data-path="bacchanal-buffet.html"><a href="bacchanal-buffet.html#negative-reviews-1"><i class="fa fa-check"></i><b>33.5</b> Negative Reviews</a></li>
+<li class="chapter" data-level="33.6" data-path="bacchanal-buffet.html"><a href="bacchanal-buffet.html#positive-reviews-1"><i class="fa fa-check"></i><b>33.6</b> Positive Reviews</a></li>
+<li class="chapter" data-level="33.7" data-path="bacchanal-buffet.html"><a href="bacchanal-buffet.html#relationship-among-words-in-bacchanal-buffet"><i class="fa fa-check"></i><b>33.7</b> Relationship among words in Bacchanal Buffet</a><ul>
+<li class="chapter" data-level="33.7.1" data-path="bacchanal-buffet.html"><a href="bacchanal-buffet.html#relationship-of-words-with-crab"><i class="fa fa-check"></i><b>33.7.1</b> Relationship of words with <strong>crab</strong></a></li>
+<li class="chapter" data-level="33.7.2" data-path="bacchanal-buffet.html"><a href="bacchanal-buffet.html#relationship-of-words-with-food"><i class="fa fa-check"></i><b>33.7.2</b> Relationship of words with <strong>food</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="34" data-path="top-ten-business-in-toronto.html"><a href="top-ten-business-in-toronto.html"><i class="fa fa-check"></i><b>34</b> Top Ten Business in Toronto</a></li>
+<li class="chapter" data-level="35" data-path="pai-northern-thai-kitchen.html"><a href="pai-northern-thai-kitchen.html"><i class="fa fa-check"></i><b>35</b> <strong>Pai Northern Thai Kitchen</strong></a><ul>
+<li class="chapter" data-level="35.1" data-path="pai-northern-thai-kitchen.html"><a href="pai-northern-thai-kitchen.html#word-cloud-of-business-pai-northern-thai-kitchen"><i class="fa fa-check"></i><b>35.1</b> Word Cloud of business <strong>Pai Northern Thai Kitchen</strong></a></li>
+<li class="chapter" data-level="35.2" data-path="pai-northern-thai-kitchen.html"><a href="pai-northern-thai-kitchen.html#ten-most-common-words-used-in-reviews-of-business-pai-northern-thai-kitchen"><i class="fa fa-check"></i><b>35.2</b> Ten most common words used in reviews of business <strong>Pai Northern Thai Kitchen</strong></a></li>
+<li class="chapter" data-level="35.3" data-path="pai-northern-thai-kitchen.html"><a href="pai-northern-thai-kitchen.html#sentiment-analysis---postive-and-not-so-postive-words-of-pai-northern-thai-kitchen"><i class="fa fa-check"></i><b>35.3</b> Sentiment Analysis - Postive and Not So Postive Words of <strong>Pai Northern Thai Kitchen</strong></a></li>
+<li class="chapter" data-level="35.4" data-path="pai-northern-thai-kitchen.html"><a href="pai-northern-thai-kitchen.html#calculate-sentiment-for-the-reviews-2"><i class="fa fa-check"></i><b>35.4</b> Calculate Sentiment for the reviews</a></li>
+<li class="chapter" data-level="35.5" data-path="pai-northern-thai-kitchen.html"><a href="pai-northern-thai-kitchen.html#negative-reviews-2"><i class="fa fa-check"></i><b>35.5</b> Negative Reviews</a></li>
+<li class="chapter" data-level="35.6" data-path="pai-northern-thai-kitchen.html"><a href="pai-northern-thai-kitchen.html#positive-reviews-2"><i class="fa fa-check"></i><b>35.6</b> Positive Reviews</a></li>
+<li class="chapter" data-level="35.7" data-path="pai-northern-thai-kitchen.html"><a href="pai-northern-thai-kitchen.html#relationship-among-words-in-pai-northern-thai-kitchen"><i class="fa fa-check"></i><b>35.7</b> Relationship among words in <strong>Pai Northern Thai Kitchen</strong></a><ul>
+<li class="chapter" data-level="35.7.1" data-path="pai-northern-thai-kitchen.html"><a href="pai-northern-thai-kitchen.html#relationship-of-words-with-thai"><i class="fa fa-check"></i><b>35.7.1</b> Relationship of words with <strong>thai</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="36" data-path="chipotle-business.html"><a href="chipotle-business.html"><i class="fa fa-check"></i><b>36</b> <strong>Chipotle business</strong></a></li>
+<li class="chapter" data-level="37" data-path="chipotle-business-in-yonge-street-toronto.html"><a href="chipotle-business-in-yonge-street-toronto.html"><i class="fa fa-check"></i><b>37</b> Chipotle Business in Yonge Street Toronto</a><ul>
+<li class="chapter" data-level="37.1" data-path="chipotle-business-in-yonge-street-toronto.html"><a href="chipotle-business-in-yonge-street-toronto.html#word-cloud-of-business-chipotle-business-in-yonge-street-toronto"><i class="fa fa-check"></i><b>37.1</b> Word Cloud of business <strong>Chipotle Business in Yonge Street Toronto</strong></a></li>
+<li class="chapter" data-level="37.2" data-path="chipotle-business-in-yonge-street-toronto.html"><a href="chipotle-business-in-yonge-street-toronto.html#top-ten-most-common-words-of-the-business-chipotle-business-in-yonge-street-toronto"><i class="fa fa-check"></i><b>37.2</b> Top Ten most common Words of the business <strong>“Chipotle Business in Yonge Street Toronto”</strong></a></li>
+<li class="chapter" data-level="37.3" data-path="chipotle-business-in-yonge-street-toronto.html"><a href="chipotle-business-in-yonge-street-toronto.html#sentiment-analysis---postive-and-not-so-postive-words-of-chipotle-business-in-yonge-street-toronto"><i class="fa fa-check"></i><b>37.3</b> Sentiment Analysis - Postive and Not So Postive Words of <strong>Chipotle Business in Yonge Street Toronto</strong></a></li>
+<li class="chapter" data-level="37.4" data-path="chipotle-business-in-yonge-street-toronto.html"><a href="chipotle-business-in-yonge-street-toronto.html#calculate-sentiment-for-the-reviews-3"><i class="fa fa-check"></i><b>37.4</b> Calculate Sentiment for the reviews</a></li>
+<li class="chapter" data-level="37.5" data-path="chipotle-business-in-yonge-street-toronto.html"><a href="chipotle-business-in-yonge-street-toronto.html#negative-reviews-3"><i class="fa fa-check"></i><b>37.5</b> Negative Reviews</a></li>
+<li class="chapter" data-level="37.6" data-path="chipotle-business-in-yonge-street-toronto.html"><a href="chipotle-business-in-yonge-street-toronto.html#positive-reviews-3"><i class="fa fa-check"></i><b>37.6</b> Positive Reviews</a></li>
+<li class="chapter" data-level="37.7" data-path="chipotle-business-in-yonge-street-toronto.html"><a href="chipotle-business-in-yonge-street-toronto.html#relationship-among-words-in-chipotle-business-in-yonge-street-toronto"><i class="fa fa-check"></i><b>37.7</b> Relationship among words in Chipotle Business in Yonge Street Toronto</a></li>
+</ul></li>
+<li class="chapter" data-level="38" data-path="topic-modelling.html"><a href="topic-modelling.html"><i class="fa fa-check"></i><b>38</b> Topic Modelling</a><ul>
+<li class="chapter" data-level="38.1" data-path="topic-modelling.html"><a href="topic-modelling.html#lda-function"><i class="fa fa-check"></i><b>38.1</b> LDA Function</a></li>
+<li class="chapter" data-level="38.2" data-path="topic-modelling.html"><a href="topic-modelling.html#topic-modelling-for-mon-ami-gabi"><i class="fa fa-check"></i><b>38.2</b> Topic Modelling for <strong>Mon Ami Gabi</strong></a></li>
+<li class="chapter" data-level="38.3" data-path="topic-modelling.html"><a href="topic-modelling.html#topic-modelling-for-bacchanal-buffet"><i class="fa fa-check"></i><b>38.3</b> Topic Modelling for <strong>Bacchanal Buffet</strong></a></li>
+<li class="chapter" data-level="38.4" data-path="topic-modelling.html"><a href="topic-modelling.html#topic-modelling-for-pai-northern-thai-kitchen"><i class="fa fa-check"></i><b>38.4</b> Topic Modelling for <strong>Pai Northern Thai Kitchen</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="39" data-path="phoenix-city-analysis.html"><a href="phoenix-city-analysis.html"><i class="fa fa-check"></i><b>39</b> Phoenix City Analysis</a><ul>
+<li class="chapter" data-level="39.1" data-path="phoenix-city-analysis.html"><a href="phoenix-city-analysis.html#top-ten-business-in-phoenix"><i class="fa fa-check"></i><b>39.1</b> Top Ten Business in Phoenix</a></li>
+<li class="chapter" data-level="39.2" data-path="phoenix-city-analysis.html"><a href="phoenix-city-analysis.html#topic-modelling-for-phoenix-city"><i class="fa fa-check"></i><b>39.2</b> Topic Modelling for <strong>Phoenix City</strong></a></li>
+<li class="chapter" data-level="39.3" data-path="phoenix-city-analysis.html"><a href="phoenix-city-analysis.html#word-cloud-of-phoenix-city"><i class="fa fa-check"></i><b>39.3</b> Word Cloud of <strong>Phoenix City</strong></a></li>
+<li class="chapter" data-level="39.4" data-path="phoenix-city-analysis.html"><a href="phoenix-city-analysis.html#top-ten-most-common-words-of-the-business-phoenix-city"><i class="fa fa-check"></i><b>39.4</b> Top Ten most common Words of the business <strong>Phoenix City</strong></a></li>
+<li class="chapter" data-level="39.5" data-path="phoenix-city-analysis.html"><a href="phoenix-city-analysis.html#sentiment-analysis---postive-and-not-so-postive-words-of-phoenix-city"><i class="fa fa-check"></i><b>39.5</b> Sentiment Analysis - Postive and Not So Postive Words of <strong>Phoenix City</strong></a></li>
+<li class="chapter" data-level="39.6" data-path="phoenix-city-analysis.html"><a href="phoenix-city-analysis.html#calculate-sentiment-for-the-reviews-4"><i class="fa fa-check"></i><b>39.6</b> Calculate Sentiment for the reviews</a></li>
+<li class="chapter" data-level="39.7" data-path="phoenix-city-analysis.html"><a href="phoenix-city-analysis.html#negative-reviews-4"><i class="fa fa-check"></i><b>39.7</b> Negative Reviews</a></li>
+<li class="chapter" data-level="39.8" data-path="phoenix-city-analysis.html"><a href="phoenix-city-analysis.html#positive-reviews-4"><i class="fa fa-check"></i><b>39.8</b> Positive Reviews</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Little Book on Text Mining</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="detecting-the-language-of-the-reviews" class="section level1">
+<h1><span class="header-section-number">Chapter 27</span> Detecting the language of the reviews</h1>
+<p>Detecting the language of the first Ten reviews.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">textcat</span>(reviews[<span class="dv">1</span>:<span class="dv">10</span>,]$text)</code></pre></div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="reviews-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="most-popular-categories.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
