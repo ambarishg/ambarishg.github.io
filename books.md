@@ -12,3 +12,7 @@ title: books
       </li>
 {% endfor %}
 </ul>
+
+<p>
+Please provide any feedback through <a href="https://goo.gl/forms/xeLYuyVmLESJHx2q2">Little Books Feedback</a>
+</p>
