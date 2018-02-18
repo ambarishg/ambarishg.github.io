@@ -16,6 +16,7 @@ You can find the book <a href="http://ambarishg.github.io/books/LittleBookEDA/">
  This book takes the following datasets and does a detailed EDA  
 
  <ul>
+ <li>Womens Tennis matches dataset</li>
  <li>Meteorite Landings dataset from NASA</li>
  <li>Adverse Food Events dataset from FDA </li>
  </ul>         
