@@ -8,7 +8,10 @@ This Little Book on Text Mining provides a gentle and hands on introduction to T
 
 * Spooky Author Identification dataset from Kaggle                
 
-* Yelp Data Reviews dataset from Kaggle            
+* Yelp Data Reviews dataset from Kaggle        
+
+* Simpsons dataset from Kaggle     
+
 
 Hope you will have fun going thorough this book as much as I had writing it.     
 
