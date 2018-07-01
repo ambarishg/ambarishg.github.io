@@ -3,8 +3,8 @@ title: "Donors Choose Application Screening Kernel Award"
 layout: post
 tags:
 - DataVisualization
-- cartography
-categories: DataVisualization
+- Classification
+categories: Classification
 description : Winners of the Kernels Award in Donors Choose Application Screening.      
 
 ---

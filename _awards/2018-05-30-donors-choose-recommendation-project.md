@@ -2,9 +2,9 @@
 title: "Donors Choose Recommendation Project ( Two Awards )"
 layout: post
 tags:
+- RecommenderSystems
 - DataVisualization
-- cartography
-categories: DataVisualization
+categories: RecommenderSystems
 description : Winners of the Kernels Award in Donors Choose Recommendation Project.      
 
 ---
@@ -13,7 +13,7 @@ Founded in 2000 by a Bronx history teacher, **DonorsChoose.org** has raised $685
 
 To date, 3 million people and partners have funded 1.1 million DonorsChoose.org projects. But teachers still spend more than a billion dollars of their own money on classroom materials. To get students what they need to learn, the team at DonorsChoose.org needs to be able to connect donors with the projects that most inspire them.                  
 
-In the second Kaggle Data Science for Good challenge, DonorsChoose.org, in partnership with Google.org, is inviting the community to help them pair up donors to the classroom requests that will most motivate them to make an additional gift. To support this challenge, DonorsChoose.org has supplied anonymized data on donor giving from the past five years. The winning methods will be implemented in DonorsChoose.org email marketing campaigns.              
+In the second Kaggle Data Science for Good challenge, DonorsChoose.org, in partnership with Google.org, is inviting the community to `help them pair up donors to the classroom requests that will most motivate them to make an additional gift`. To support this challenge, DonorsChoose.org has supplied anonymized data on donor giving from the past five years. The winning methods will be implemented in DonorsChoose.org email marketing campaigns.              
 
 **Two Prizes** were won in this competition.            
 
