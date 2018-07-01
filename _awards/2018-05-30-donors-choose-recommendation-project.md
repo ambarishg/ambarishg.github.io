@@ -1,5 +1,5 @@
 ---
-title: "Winners of the Kernels Award in Donors Choose Recommendation Project ( Two Awards )"
+title: "Donors Choose Recommendation Project ( Two Awards )"
 layout: post
 tags:
 - DataVisualization
