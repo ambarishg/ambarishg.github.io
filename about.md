@@ -21,7 +21,11 @@ Business and Technology Consultant for more than **Eighteen Years**.
 * Hands on Solution Architect in Utilities Domain           
 * Data Science Competition Winner ( Prize sponsored by **NASA**)             
 * Kaggle Kernel Expert and Kaggle Weekly Kernel Award Winner             
-* Themed Kernel Award Winner - Spooky Author Competition          
+* Themed Kernel Award Winner - Spooky Author Competition             
+* Kernel Award Winner - Data Science for Good: Kiva Crowdfunding dataset                      
+* Kernel Award Winner - DonorsChoose.org Application Screening                  
+* Kernel Award Winner - DonorsChoose.org Recommender Competition                   
+* Kernel Award for Recommender System - DonorsChoose.org Recommender Competition                
 
 <br/>
 <hr/>
