@@ -19,10 +19,10 @@ In the second Kaggle Data Science for Good challenge, DonorsChoose.org, in partn
 
 * `Stage 1 Winner` is the [Exploratory Data Analysis kernel](https://www.kaggle.com/ambarish/eda-and-recommendation-system-donors-choose). This has the extensive exploratory data analysis of this huge dataset                                         
 
-* `Stage 2 Winner` is the [Recommendation kernel](https://www.kaggle.com/ambarish/recommendation-system-donors-choose). This has We did the Item Item Recommendations using        
+* `Stage 2 Winner` is the [Recommendation kernel](https://www.kaggle.com/ambarish/recommendation-system-donors-choose). **Item Item Recommendations** were done using        
 
     - Text Features Only using the Project Title and Projects Essays              
-    - The Non Text features include Category,SubCategory,Grade,ResourceCategory,SchoolState, TeacherPrefix.Text and Non Text Features only.           
-    - Non Text Features only             
+    - Text and Non Text Features only.The Non Text features include Category, SubCategory, Grade,ResourceCategory, SchoolState, TeacherPrefix.                     
+    - Non Text Features only                         
 
 The accuracy is highest for the recommendations using the Non Text Features only.We also did the User User Recommnedations using the Users and the Amount.                
