@@ -3,7 +3,7 @@ title: *folio
 email: ambarish.ganguly@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   A simple, whitespace, helvetica based portfolio theme.
-baseurl:/  
+baseurl:"/blog/"  
 url:  "http://ambarishg.github.io"
 twitter_username: twitter_username
 github_username:  github_username
