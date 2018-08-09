@@ -20,3 +20,5 @@ description: Cloud Computing Models with a Pizza
 **Pizza as a Service**      
 
 ![Pizza as Service](/img/CloudComputing/Pizza_as_a_Service.jpg){:class="img-responsive"}
+
+The pictures are from the `edx Course Microsoft Azure Security Service` 

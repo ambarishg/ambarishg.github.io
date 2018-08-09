@@ -9,10 +9,10 @@ description: Docker commands Part 1
 ---
 <br/>
 
-###  Docker commands Part 1
+###  Docker commands Part 1                     
 
 <br/>
-                         
+
 `docker pull alpine` - Pulls the `alpine image` from the docker registry               
 
 `docker images`  - shows the docker images in the container                         
