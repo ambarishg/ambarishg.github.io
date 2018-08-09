@@ -5,7 +5,7 @@ categories: Cloud Computing
 date: 2018-08-09 10:01:00
 tags:
 - cloud
-- hybrid networking
+- hybrid connectivity
 description: Azure Relay
 ---
 <br/>
