@@ -10,7 +10,7 @@ description: Azure Azure AD Connect
 ---
 <br/>
 
-###Azure AD Connect          
+### Azure AD Connect          
 
 ![Azure](/img/AzureADConnect/AzureADConnect.jpg){:class="img-responsive"}
 <br/>
