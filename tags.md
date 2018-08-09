@@ -13,7 +13,7 @@ title: tags
 {% for tag in site.tags %}
 {% capture tag_name %}{{ tag | first }}{% endcapture %}
 <h3 id="{{ tag_name }}">{{ tag_name }} </h3>
-   
+<br/>
 {% for post in site.tags[tag_name] %}
  * {{ post.date | date_to_string }} &raquo; [ {{ post.title }} ]({{ post.url }})
 {% endfor %}
