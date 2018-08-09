@@ -5,7 +5,7 @@ categories: Cloud Computing
 date: 2018-08-09 10:00:00 -0700
 tags:
 - cloud
-- virtual networks
+- hybrid connectivity
 description: Azure Data Management Gateway
 ---
 <br/>
