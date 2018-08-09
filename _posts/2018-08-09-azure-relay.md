@@ -5,7 +5,7 @@ categories: Cloud Computing
 date: 2018-08-09 10:01:00
 tags:
 - cloud
-- hybrid networking
+- hybrid connectivity
 description: Azure Relay
 ---
 <br/>
@@ -17,4 +17,4 @@ description: Azure Relay
 <br/>
 
 The Azure Relay service facilitates hybrid applications by enabling you to securely `expose services that reside within a corporate enterprise network` to the public cloud, without having to open a firewall connection, or require intrusive changes to a corporate network infrastructure. Relay supports a variety of different transport protocols and web services standards namely `web sockets` and `hybrid connections`                   
-                
+
