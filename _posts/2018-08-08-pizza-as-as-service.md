@@ -2,7 +2,7 @@
 layout: post
 title: Pizza as  Service
 categories: Cloud Computing
-date: 2018-08-08 09:00:00 -0700
+date: 2018-08-08 07:00:00
 tags:
 - cloud
 description: Cloud Computing Models with a Pizza

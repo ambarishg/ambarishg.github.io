@@ -2,7 +2,7 @@
 layout: post
 title: Docker Commands Part 1
 categories: Docker
-date: 2018-08-08 09:00:00 -0700
+date: 2018-08-08 08:00:00
 tags:
 - docker
 description: Docker commands Part 1

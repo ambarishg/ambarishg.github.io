@@ -2,7 +2,7 @@
 layout: post
 title: Azure Data Management Gateway
 categories: Cloud Computing
-date: 2018-08-09 10:00:00 -0700
+date: 2018-08-09 10:00:00
 tags:
 - cloud
 - hybrid connectivity
