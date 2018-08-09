@@ -18,4 +18,4 @@ description: Cloud Computing Models with a Pizza
 
 
 **Pizza as a Service**   
-![Pizza as Service](/img/CloudComputing/Pizza-as-a-Service.jpg){:class="img-responsive"}
+![Pizza as Service](/img/CloudComputing/Pizza_as_a_Service.jpg){:class="img-responsive"}
