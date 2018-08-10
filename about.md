@@ -15,6 +15,7 @@ permalink: /about/
 	The best way to reach me is through email : ambarish (dot) ganguly (at) gmail (dot) com
 </div>
 
+<br/>
 <hr/>
 <br/>
 
@@ -22,3 +23,9 @@ Business and Technology Consultant for more than **Eighteen Years**.
 
 * Hands on Solution Architect in Utilities Domain           
 * **Seven Data Science Competition Awards** ( 1 sponsored by **NASA**, Six sponsored by **Kaggle** -  A Google Company)   
+
+
+<div class="img_row">
+	<img class="col one" src="/img/prof_pic.jpg">
+</div>
+ 
