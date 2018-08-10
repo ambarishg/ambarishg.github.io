@@ -1,6 +1,6 @@
 ---
-layout: post
-title: books
+layout: page
+title: azure
 ---
 
 <ul class="post-list">
