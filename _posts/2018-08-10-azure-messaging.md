@@ -5,7 +5,7 @@ categories: Cloud Computing
 date: 2018-08-10 16:19:00
 tags:
 - azure
-- azure security
+- azure messaging
 description: Comparison of Azure Messaging Services 
 ---
 
