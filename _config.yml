@@ -31,6 +31,9 @@ collections:
   awards:
     output: true
     permalink: /awards/:path/
+  azure:
+    output: true
+    permalink: /azure/:path/
  
  # Gems
 plugins:
