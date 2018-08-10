@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Comparison of Azure Messaging Services 
+title: Event Grid 
 categories: Cloud Computing
 date: 2018-08-10 16:30:00
 tags:
 - azure
 - azure messaging
-description: Comparison of Azure Messaging Services 
+description: Event Grid 
 ---
 
 ![Azure](/img/AzureMessaging/eventgrid.jpg){:class="img-responsive"}
