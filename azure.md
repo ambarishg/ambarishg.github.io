@@ -4,7 +4,7 @@ title: azure
 ---
 
 <ul class="post-list">
-{% for book in site.azure reversed %}
+{% for azure in site.azure reversed %}
     <li>
         <h2><a class="post-title" href="{{ azure.url | prepend: site.baseurl }}">{{ azure.title }}</a></h2>
         <p class="post-meta">{{ azure.date | date: '%B %-d, %Y' }}</p>
