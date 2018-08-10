@@ -34,7 +34,6 @@ collections:
   azure:
     output: true
     permalink: /azure/:path/
- 
  # Gems
 plugins:
   - jekyll-paginate
