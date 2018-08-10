@@ -8,7 +8,7 @@ layout: default
     <p class="post-meta">{{ page.date | date: "%B %-d, %Y — %H:%M" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
   </header>
   <div>
-      {% for tag in post.tags %}
+      {% for tag in page.tags %}
       {% capture tag_name %}{{ tag }}{% endcapture %}
       <a href = "{{ site.baseurl }}/tags.html#{{ tag_name }}" class ="tagbox">{{ tag_name }}</a>
     {% endfor %}
