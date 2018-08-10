@@ -12,14 +12,18 @@ permalink: /about/
 </span>
 
 <hr>
-<img class="col one right" src="/img/prof_pic.jpg">
-
 
 
 Business and Technology Consultant for more than **Eighteen Years**.     
 
 * Hands on Solution Architect in Utilities Domain           
-* **Seven Data Science Competition Awards** ( 1 sponsored by **NASA**, Six sponsored by **Kaggle** -  A Google Company)             
+* **Seven Data Science Competition Awards** ( 1 sponsored by **NASA**, Six sponsored by **Kaggle** -  A Google Company)   
+
+
+<div class="img_row">
+	<img class="col one" src="/img/prof_pic.jpg">
+</div>
+          
 
 <br/>
 <hr/>
