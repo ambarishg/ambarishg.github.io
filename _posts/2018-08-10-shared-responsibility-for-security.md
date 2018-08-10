@@ -4,7 +4,7 @@ title: Azure Shared Responsibility for Security
 categories: Cloud Computing
 date: 2018-08-10 10:38:00
 tags:
-- cloud
+- azure
 - azure security
 description: Azure Shared Responsibility for Security
 ---

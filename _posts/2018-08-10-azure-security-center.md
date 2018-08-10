@@ -4,7 +4,7 @@ title: Azure Security Center
 categories: Cloud Computing
 date: 2018-08-10 13:00:00
 tags:
-- cloud
+- azure
 - azure security
 description: Azure Security Center 
 ---

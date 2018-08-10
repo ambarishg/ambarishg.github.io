@@ -4,7 +4,7 @@ title: Azure Log Analytics
 categories: Cloud Computing
 date: 2018-08-10 14:54:00
 tags:
-- cloud
+- azure
 - azure security
 description: Azure Log Analytics 
 ---
