@@ -33,6 +33,7 @@ collections:
     permalink: /awards/:path/
   azure:
     output: true
+    output_tags: true
     permalink: /azure/:path/
  # Gems
 plugins:
