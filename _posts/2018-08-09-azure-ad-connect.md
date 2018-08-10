@@ -4,7 +4,7 @@ title: Azure AD Connect
 categories: Cloud Computing
 date: 2018-08-09 19:00:00
 tags:
-- cloud
+- azure
 - azure identity
 description: Azure Azure AD Connect
 ---

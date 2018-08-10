@@ -4,7 +4,7 @@ title: Forced Tunneling
 categories: Cloud Computing
 date: 2018-08-09 09:00:00
 tags:
-- cloud
+- azure
 - virtual networks
 description: Forced Tunneling in Virtual Networks
 ---

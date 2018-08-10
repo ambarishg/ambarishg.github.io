@@ -4,7 +4,7 @@ title: Azure Backup
 categories: Cloud Computing
 date: 2018-08-10 10:38:00
 tags:
-- cloud
+- azure
 - storage
 description: Azure backup
 ---

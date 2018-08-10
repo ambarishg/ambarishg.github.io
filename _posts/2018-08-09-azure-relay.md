@@ -4,7 +4,7 @@ title: Azure Relay
 categories: Cloud Computing
 date: 2018-08-09 10:01:00
 tags:
-- cloud
+- azure
 - hybrid connectivity
 description: Azure Relay
 ---

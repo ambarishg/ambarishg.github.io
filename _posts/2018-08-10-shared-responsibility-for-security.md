@@ -5,7 +5,7 @@ categories: Cloud Computing
 date: 2018-08-10 10:38:00
 tags:
 - cloud
-- storage
+- azure security
 description: Azure Shared Responsibility for Security
 ---
 <br/>

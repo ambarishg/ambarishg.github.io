@@ -4,7 +4,7 @@ title: Virtual Networks in Azure Overview
 categories: Cloud Computing
 date: 2018-08-09 08:00:00
 tags:
-- cloud
+- azure
 - virtual networks
 description: Virtual Networks in Azure Overview 
 ---

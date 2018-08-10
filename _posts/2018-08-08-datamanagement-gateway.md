@@ -4,7 +4,7 @@ title: Azure Data Management Gateway
 categories: Cloud Computing
 date: 2018-08-09 10:00:00
 tags:
-- cloud
+- azure
 - hybrid connectivity
 description: Azure Data Management Gateway
 ---
