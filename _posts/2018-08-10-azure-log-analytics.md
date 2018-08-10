@@ -2,7 +2,7 @@
 layout: post
 title: Azure Log Analytics 
 categories: Cloud Computing
-date: 2018-08-10 13:00:00
+date: 2018-08-10 14:54:00
 tags:
 - cloud
 - azure security
