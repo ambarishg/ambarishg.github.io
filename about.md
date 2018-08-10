@@ -11,8 +11,12 @@ permalink: /about/
 	<a href="https://twitter.com/a_ganguly" target="_blank"><i class="fa fa-twitter-square"></i></a>
 </span>
 
-<hr>
+<div class="col three caption">
+	The best way to reach me is through email : ambarish (dot) ganguly (at) gmail (dot) com
+</div>
 
+<hr>
+<br/>
 
 Business and Technology Consultant for more than **Eighteen Years**.     
 
