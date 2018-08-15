@@ -19,7 +19,7 @@ permalink: /about/
 <hr/>
 <br/>
 
-Business and Technology Consultant for more than **Eighteen Years**.     
+Business and Technology Consultant for more than **Nineteen Years**.     
 
 * Hands on Solution Architect in Utilities Domain           
 * **Seven Data Science Competition Awards** ( 1 sponsored by **NASA**, Six sponsored by **Kaggle** -  A Google Company)   
