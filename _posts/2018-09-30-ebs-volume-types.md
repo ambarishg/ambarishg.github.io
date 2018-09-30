@@ -5,6 +5,7 @@ categories: aws
 date: 2018-09-30 09:00:00 -0500
 tags:
 - ebs
+- aws
 description: We describe the <b>aws ebs volume types</b>  here...            
 ---        
 
