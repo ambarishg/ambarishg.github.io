@@ -35,6 +35,10 @@ collections:
     output: true
     output_tags: true
     permalink: /azure/:path/
+  notes:
+    output: true
+    output_tags: true
+    permalink: /notes/:path/
  # Gems
 plugins:
   - jekyll-paginate
