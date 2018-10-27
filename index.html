@@ -2,40 +2,31 @@
 layout: default
 ---
 
-<div class="header-bar">
-  <h1>Ambarish Ganguly</h1>
-  <h2>data science consultant | business consultant </h2>
- 
-  <hr>
-  <br/>
+<div>
+	<h1>Hi I am Ambarish.</h1>
+</div>
+<br/>
+<br/>
+<div>
+	I am a <b>architect , data science , utilties consultant.</b>.
+	I share my work through the <a href='/blog'><b>blog</b></a> 
+	and my daily learning through my <a href='_pages/notes.html'><b>notes</b></a>.
+	
+</div>
+<div class="img_row">
+	<img class="col one" src="/img/prof_pic.jpg">
 </div>
 
+<span class="contacticon center">
+	<a href="mailto:ambarish.ganguly@gmail.com"><i class="fa fa-envelope-square"></i></a>
+	<a href="https://github.com/ambarishg" target="_blank"><i class="fa fa-github-square"></i></a>
+	<a href="https://www.linkedin.com/in/ambarish-ganguly/" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+	<a href="https://www.facebook.com/machinelearningfun/" target="_blank"><i class="fa fa-facebook-square"></i></a>
+	<a href="https://twitter.com/a_ganguly" target="_blank"><i class="fa fa-twitter-square"></i></a>
+</span>
 
-<ul class="post-list">
-    {% for post in paginator.posts %}
-      <li>
-        <h2><a class="post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
-        <p class="post-meta">{{ post.date | date: '%B %-d, %Y — %H:%M' }}</p>
-        <p>{{ post.description }}</p>
-        <br/>
-        <hr/>
-      </li>
-    {% endfor %}
-</ul>
+<hr/>
 
-<!-- Pagination links -->
-<div class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path }}" class="pagination-item newer">Previous</a>
-  {% else %}
-    <span class="pagination-item older">Previous</span>
-  {% endif %}
-  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path }}" class="pagination-item older">Next</a>
-  {% else %}
-    <span class="pagination-item newer">Next</span>
-  {% endif %}
-
-  
+<div class="col three caption">
+	The best way to reach me is through email : ambarish (dot) ganguly (at) gmail (dot) com
 </div>

@@ -13,9 +13,15 @@ markdown: kramdown
 
 highlighter: rouge
 
+# Includes & excludes
+include: ['_pages']
+
+kramdown:
+  input: GFM
+
 # Pagination
 paginate: 6
-paginate_path: "page:num"
+paginate_path: "blog/page:num"
 
 
 collections:
@@ -31,14 +37,11 @@ collections:
   awards:
     output: true
     permalink: /awards/:path/
-  azure:
-    output: true
-    output_tags: true
-    permalink: /azure/:path/
   notes:
     output: true
     output_tags: true
     permalink: /notes/:path/
+
  # Gems
 plugins:
   - jekyll-paginate
