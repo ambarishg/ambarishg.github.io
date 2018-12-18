@@ -4,7 +4,7 @@ title: about
 permalink: /about/
 ---
 
-Business and Technology Consultant for more than **Nineteen Years**. I combine my knowledge in `Business` , `Technology` and `Execution` skills developed over Two decades and in countries like USA, Canada , Australia to provide useful experience to my clients. Presently I lead  the **IOT Practice of Utilities** in the Business and Transformation Group of Utilities. I am a data lover and compete regularly in data science competitions. I had won **Eight Data Science Competition Awards** ( 1 sponsored by **NASA**, Seven sponsored by **Kaggle** -  A Google Company)               
+I am a Business and Technology Consultant for more than **Nineteen Years**.  Presently I lead  the **IOT Practice of Utilities** in the Business and Transformation Group of Utilities. I am a data lover and compete regularly in data science competitions. I had won **Eight Data Science Competition Awards** ( 1 sponsored by **NASA**, Seven sponsored by **Kaggle** -  A Google Company)               
 
 
 <div class="img_row">
