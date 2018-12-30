@@ -1,44 +1,53 @@
 /**
  * Reset some basic elements
  */
-body, h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, hr,
-dl, dd, ol, ul, figure {
-    margin: 0;
-    padding: 0;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+hr,
+dl,
+dd,
+ol,
+ul,
+figure {
+  margin: 0;
+  padding: 0;
 }
 
-
-
 /** Variables **********************************************/
-$base-font-family:              Helvetica, sans-serif;
-$base-line-height:              1.5em;
-$horizontal-spacing-unit:       50px;
-$vertical-spacing-unit:         40px;
-$nav-height:                    56px;
+$base-font-family: Helvetica, sans-serif;
+$base-line-height: 1.5em;
+$horizontal-spacing-unit: 50px;
+$vertical-spacing-unit: 40px;
+$nav-height: 56px;
 
 /* portfolio tinkering */
-$img_spacing: 5px; 
+$img_spacing: 5px;
 $img_height: 275px;
 $caption_font_size: 12px;
-$caption_color: #aaa;
+$caption_color: rgb(124, 40, 40);
 
 /* COLORS  */
-$red:  #FF3636;
-$orange: #F29105;
-$blue: #2698BA;
-$green: #11D68B;
-$lime_green: #B7D12A;
-$purple: #B509AC;
+$red: #ff3636;
+$orange: #f29105;
+$blue: #2698ba;
+$green: #11d68b;
+$lime_green: #b7d12a;
+$purple: #b509ac;
 
-
-$grey-color-dark: #333;   /* footer */
-$grey-color-light: #ddd;  /* navigation bar border */
-$text-color:     #666;
+$grey-color-dark: #333; /* footer */
+$grey-color-light: #ddd; /* navigation bar border */
+$text-color: #666;
 
 /* Set theme color *************************/
-$theme-color:   $red;
-
+$theme-color: $red;
 
 /************************************************************/
 
@@ -46,192 +55,188 @@ $theme-color:   $red;
  * Basic styling
  */
 body {
-    font-family: $base-font-family;
-    font-size: $base-font-size;
-    line-height: $base-line-height;
-    font-weight: 100;
-    color: $text-color;
-    background-color: $background-color;
-    -webkit-text-size-adjust: 100%;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font-weight: 100;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
 }
 
-input,textarea {
-    font-family: $base-font-family;
-    font-size: $base-font-size;
-    line-height: $base-line-height;
-    font-weight: 100;
-    color: $text-color;
-    background-color: $background-color;
-    -webkit-text-size-adjust: 100%;
-    width: 100%;
+input,
+textarea {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font-weight: 100;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
+  width: 100%;
 }
-
 
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
-p, blockquote, pre,
-ul, ol, dl, figure,
+p,
+blockquote,
+pre,
+ul,
+ol,
+dl,
+figure,
 %vertical-rhythm {
-    margin-bottom: $vertical-spacing-unit / 2;
+  margin-bottom: $vertical-spacing-unit / 2;
 }
 
 .alignright {
-    float: right;
+  float: right;
 }
 
-
-hr{
-    /* Inset, by Dan Eden */
-    border: 0;
-    height: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-
+hr {
+  /* Inset, by Dan Eden */
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
-
 
 /**
  * Figures
  */
 figure > img {
-    display: block;
+  display: block;
 }
 
 figcaption {
-    font-size: $small-font-size;
+  font-size: $small-font-size;
 }
-
-
 
 /**
  * Lists
  */
-ul, ol {
-    margin-left: $horizontal-spacing-unit;
+ul,
+ol {
+  margin-left: $horizontal-spacing-unit;
 }
 
 li {
-    > ul,
-    > ol {
-         margin-bottom: 0;
-    }
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
 }
-
-
 
 /**
  * Headings
  */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 100;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 100;
 }
-
 
 /**
  * Links
  */
 a {
-    color: $text-color;
-    text-decoration: none;
-    /*
+  color: $text-color;
+  text-decoration: none;
+  /*
     &:visited {
         color: darken($brand-color, 15%); 
     }
     */
-    &:hover {
-        color: $theme-color;
-        text-decoration: none;
-    }
+  &:hover {
+    color: $theme-color;
+    text-decoration: none;
+  }
 }
 
 article a {
-    color: $theme-color;
-    font-weight: 100;
+  color: $theme-color;
+  font-weight: 100;
 
-    &:hover {
-        text-decoration: none;
-    }
+  &:hover {
+    text-decoration: none;
+  }
 }
-
-
 
 /**
  * Blockquotes
  */
 blockquote {
-    color: $text-color;
-    border-left: 10px solid $grey-color-light;
-    padding-left: $horizontal-spacing-unit / 2;
-    font-size: 18px;
-    font-style: italic;
+  color: $text-color;
+  border-left: 10px solid $grey-color-light;
+  padding-left: $horizontal-spacing-unit / 2;
+  font-size: 18px;
+  font-style: italic;
 
-    > :last-child {
-        margin-bottom: 0;
-    }
+  > :last-child {
+    margin-bottom: 0;
+  }
 }
-
-
 
 /**
  * Code formatting
  */
 pre,
 code {
-    font-size: 15px;
-    border-radius: 3px;
-    background-color: $grey-color-light;
+  font-size: 15px;
+  border-radius: 3px;
+  background-color: $grey-color-light;
 }
 
 code {
-    padding: 1px 5px;
+  padding: 1px 5px;
 }
 
 pre {
-    padding: 8px 12px;
-    overflow-x: scroll;
+  padding: 8px 12px;
+  overflow-x: scroll;
 
-    > code {
-        border: 0;
-        padding-right: 0;
-        padding-left: 0;
-    }
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
-
-
 
 /**
  * Wrapper
- */ 
+ */
 
 .wrapper {
-    max-width: -webkit-calc(800px - (#{$horizontal-spacing-unit} * 2));
-    max-width:         calc(800px - (#{$horizontal-spacing-unit} * 2));
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: $horizontal-spacing-unit;
-    padding-left: $horizontal-spacing-unit;
-    @extend %clearfix;
+  max-width: -webkit-calc(800px - (#{$horizontal-spacing-unit} * 2));
+  max-width: calc(800px - (#{$horizontal-spacing-unit} * 2));
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $horizontal-spacing-unit;
+  padding-left: $horizontal-spacing-unit;
+  @extend %clearfix;
 
-    @include media-query($on-laptop) {
-        max-width: -webkit-calc(800px - (#{$horizontal-spacing-unit}));
-        max-width:         calc(800px - (#{$horizontal-spacing-unit}));
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
-    }
+  @include media-query($on-laptop) {
+    max-width: -webkit-calc(800px - (#{$horizontal-spacing-unit}));
+    max-width: calc(800px - (#{$horizontal-spacing-unit}));
+    padding-right: $spacing-unit / 2;
+    padding-left: $spacing-unit / 2;
+  }
 }
-
 
 /**
  * Clearfix
  */
 %clearfix {
-    &:before,
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
 
 /*
@@ -239,28 +244,46 @@ pre {
 */
 
 .btn {
-    border: none; /* Remove borders */
-    font-family: $base-font-family;
-    font-size: $base-font-size;
-    color: white; /* Add a text color */
-    padding: 14px 28px; /* Add some padding */
-    cursor: pointer; /* Add a pointer cursor on mouse-over */
-    
+  border: none; /* Remove borders */
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  color: white; /* Add a text color */
+  padding: 14px 28px; /* Add some padding */
+  cursor: pointer; /* Add a pointer cursor on mouse-over */
 }
 
-.success {background-color: #4CAF50;} /* Green */
-.success:hover {background-color: #46a049;}
+.success {
+  background-color: #4caf50;
+} /* Green */
+.success:hover {
+  background-color: #46a049;
+}
 
-.info {background-color: #2196F3;} /* Blue */
-.info:hover {background: #0b7dda;}
+.info {
+  background-color: #2196f3;
+} /* Blue */
+.info:hover {
+  background: #0b7dda;
+}
 
-.warning {background-color: #ff9800;} /* Orange */
-.warning:hover {background: #e68a00;}
+.warning {
+  background-color: #ff9800;
+} /* Orange */
+.warning:hover {
+  background: #e68a00;
+}
 
-.danger {background-color: #f44336;} /* Red */ 
-.danger:hover {background: #da190b;}
+.danger {
+  background-color: #f44336;
+} /* Red */
+.danger:hover {
+  background: #da190b;
+}
 
-.default {background-color: #e7e7e7; color: black;} /* Gray */ 
-.default:hover {background: #ddd;}
-
-
+.default {
+  background-color: #e7e7e7;
+  color: black;
+} /* Gray */
+.default:hover {
+  background: #ddd;
+}
