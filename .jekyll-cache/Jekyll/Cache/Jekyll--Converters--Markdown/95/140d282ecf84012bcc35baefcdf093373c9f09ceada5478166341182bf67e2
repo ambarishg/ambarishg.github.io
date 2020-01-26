@@ -1,0 +1,84 @@
+I"·<p>The installation instructions are exactly the same as in the <a href="https://www.ibm.com/developerworks/community/blogs/jfp/entry/Installing_XGBoost_For_Anaconda_on_Windows">Installing XGBoost For Anaconda on Windows</a>  except <strong>Step 10</strong> since the name of the DLL  created is <strong>libxgboost.dll</strong> but the Python Module expects the dll of the name <strong>xgboost.dll</strong>.</p>
+
+<p>Step 1 : Install Anaconda</p>
+
+<p>Step 2 : Install <a href="https://git-for-windows.github.io/">Git on Windows</a></p>
+
+<p>Step 3 : Launch <strong>Git Bash window</strong></p>
+
+<p>Step 4 : The directory in which the  code is to be installed in my case is <strong>D:\XGBoostCode</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>D:/XGBoostCode
+</code></pre></div></div>
+<p>Step 5:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone <span class="nt">--recursive</span> https://github.com/dmlc/xgboost
+<span class="nb">cd </span>xgboost
+git submodule init
+git submodule update
+
+</code></pre></div></div>
+<p><strong>Build Preparation</strong>         <br />
+The steps are performed to download the MinGW-64 for building the XGBoost code.</p>
+
+<hr />
+
+<p>Step 6 : Download <strong>MinGW-W64-install.exe</strong></p>
+
+<p>Step 7 :</p>
+<ul>
+  <li>Click on the installer.</li>
+  <li>
+    <p>Select the x86_64 item in the architecture menu    <br />
+<img src="/img/XGBInstall/Architecture.jpg" alt="XGBInstall" /></p>
+  </li>
+  <li>Then click Next</li>
+  <li>Changed the installation directory to <strong>D:/MinGW-W64</strong>.</li>
+  <li>The make command and the runtime libraries are in this directory (look for the directory that contains <strong>mingw32-make</strong>).The files are downloaded in <strong>D:/MinGW-W64/mingw64/bin</strong>.</li>
+  <li>Add this path to the Windows <strong>PATH</strong> variable.</li>
+</ul>
+
+<p>Step 8 : Then close the Git Bash terminal, and launch it again.  This will take into account the new Path variable.  To check you are fine, type the following</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>which mingw32-make
+</code></pre></div></div>
+<p>This should return the path <strong>D:/MinGW-W64/mingw64/bin/mingw32-make</strong></p>
+
+<p>To make our life easier, let us alias it as follows:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">make</span><span class="o">=</span><span class="s1">'mingw32-make'</span>
+</code></pre></div></div>
+<hr />
+<p><strong>Build XGBoost</strong></p>
+
+<p>Step 8 :Navigate to the directory where the XGBoost code exists. In  my case it is <strong>D:/XGBoostCode/xgboost</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd  </span>D:/XGBoostCode/xgboost
+</code></pre></div></div>
+
+<p>Step 9 : Build the XGBoost code</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>dmlc-core
+<span class="nv">$ </span>make <span class="nt">-j4</span>
+<span class="nv">$ </span><span class="nb">cd</span> ../rabit
+<span class="nv">$ </span>make lib/librabit_empty.a <span class="nt">-j4</span>
+<span class="nv">$ </span><span class="nb">cd</span> ..
+<span class="nv">$ </span><span class="nb">cp </span>make/mingw64.mk config.mk
+<span class="nv">$ </span>make <span class="nt">-j4</span>
+</code></pre></div></div>
+<p>The Build should produce the libraries <strong>libxgboost.dll</strong> in <strong>D:\XGBoostCode\xgboost\lib</strong></p>
+
+<p>Step 10 : Rename <strong>libxgboost.dll</strong> to <strong>xgboost.dll</strong></p>
+
+<hr />
+<p><strong>Install Python Module</strong>                       <br />
+ Step 11 :      <br />
+Navigate to the python-package location.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>D:/XGBoostCode/xgboost/python-package
+
+python setup.py <span class="nb">install</span>
+</code></pre></div></div>
+<p>END.</p>
+
+<hr />
+:ET

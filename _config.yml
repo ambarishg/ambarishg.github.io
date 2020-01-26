@@ -34,6 +34,9 @@ collections:
   books:
     output: true
     permalink: /books/:path/
+  testimonials:
+      output: true
+      permalink: /testimonials/:path/
   awards:
     output: true
     permalink: /awards/:path/

@@ -1,0 +1,20 @@
+I"Ø<p>Melbourne is currently experiencing a housing bubble (some experts say it may burst soon). Maybe someone can find a trend or give a prediction? Which suburbs are the best to buy in? Which ones are value for money? Whereâ€™s the expensive side of town? And more importantly where should your <strong>distant cousin :-)</strong> buy a 2 bedroom unit?</p>
+
+<p>The  <a href="https://www.kaggle.com/ambarish/eda-melbourne-xgboost-with-leaflets">Melbourne Housing Market</a> has a detailed analysis of the same.The analysis provides <strong>insights</strong> into the following</p>
+<ol>
+  <li>Which factors influence the house of the price most ?</li>
+  <li>Which Suburbs are most costly  and least costly ?</li>
+  <li>How the prices change with the
+    <ul>
+      <li>number of room(s)</li>
+      <li>number of bedroom(s)</li>
+      <li>distance from CBD</li>
+      <li>type of the house</li>
+      <li>building area</li>
+      <li>number of bathroom(s)</li>
+    </ul>
+  </li>
+</ol>
+
+<p>If you are interested in the code, please find it in <a href="https://github.com/ambarishg/DataVizMelbHousingMarket">github</a>. The original dataset has been hosted in <a href="https://www.kaggle.com/anthonypino/melbourne-housing-market">Kaggle</a>.</p>
+:ET

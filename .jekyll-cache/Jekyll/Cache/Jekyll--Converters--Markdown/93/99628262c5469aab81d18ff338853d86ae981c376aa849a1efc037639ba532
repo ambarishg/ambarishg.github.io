@@ -1,0 +1,12 @@
+I"I<div class="img_row">
+	<img class="col three" src="/img/MeteoriteLandings/MetLandings.jpg" />
+</div>
+
+<p>We examine a dataset from NASA <a href="https://www.kaggle.com/nasa/meteorite-landings/data">Meteorite Landings</a>  and do a complete Exploratory Data Analysis.</p>
+
+<p>The Meteoritical Society collects data on meteorites that have fallen to Earth from outer space. This dataset includes the location, mass, composition, and fall year for over 45,000 meteorites that have struck our planet.</p>
+
+<p>A detailed report <a href="https://ambarishg.github.io/public/dataviz/MeteoriteAnalysisForWebSite.html">Fun with Meteorite Landings</a> has the complete Exploratory Data Analysis.</p>
+
+<p>A book on this report can be found in <a href="https://ambarishg.github.io/public/LittleBookEDA/">Little Book on Exploratory Data Analysis</a>.</p>
+:ET

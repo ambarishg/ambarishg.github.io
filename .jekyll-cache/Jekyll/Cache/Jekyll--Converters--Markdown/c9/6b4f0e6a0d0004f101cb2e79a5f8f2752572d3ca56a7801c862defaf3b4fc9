@@ -1,0 +1,26 @@
+I"3<h3>Contact Me</h3>
+
+<p><br /></p>
+
+<p>I would love to hear from you.</p>
+<hr />
+
+<p><br /></p>
+
+<form action="https://formspree.io/ambarish.ganguly@gmail.com" method="POST">
+  <div class="OneFourthBox">
+  <input type="email" name="email" placeholder="Your email" width="50%" />
+  </div>
+  <br />
+  <div class="OneFourthBox">
+  <textarea name="message" placeholder="Your message" rows="4" cols="50"></textarea>
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <div class="OneFourthBox">
+  <button class="btn success" type="submit">Send</button> 
+  </div>
+  </form>
+:ET
