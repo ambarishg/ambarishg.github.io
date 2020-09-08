@@ -1,8 +1,8 @@
-I"v<div class="img_row">
+I"Õ<div class="img_row">
 	<img class="col three" src="/img/ChicagoInspections/ChicagoInspections.jpeg" />
 </div>
 
-<p>Restaurant inspections ensure that food served to the public at licensed food establishments follows food safety guidelines. The <strong>Food Protection Division of the Chicago Department of Public Health (CDPH)</strong> is committed to maintaining the safety of food bought, sold, or prepared for public consumption in Chicago by carrying out <code class="highlighter-rouge">science-based inspections</code> of all retail food establishments. These inspections promote <code class="highlighter-rouge">public health</code> in areas of <code class="highlighter-rouge">food safety and sanitation</code> and prevent the occurrence of food-borne illness.</p>
+<p>Restaurant inspections ensure that food served to the public at licensed food establishments follows food safety guidelines. The <strong>Food Protection Division of the Chicago Department of Public Health (CDPH)</strong> is committed to maintaining the safety of food bought, sold, or prepared for public consumption in Chicago by carrying out <code class="language-plaintext highlighter-rouge">science-based inspections</code> of all retail food establishments. These inspections promote <code class="language-plaintext highlighter-rouge">public health</code> in areas of <code class="language-plaintext highlighter-rouge">food safety and sanitation</code> and prevent the occurrence of food-borne illness.</p>
 
 <p>We examine the inspections in the following topics</p>
 
@@ -27,7 +27,7 @@
   <li>TF- IDF of Unigrams (One Word )</li>
   <li>Word Cloud for Unigrams</li>
   <li>TF - IDF Bigrams</li>
-  <li>Verification of important words for <code class="highlighter-rouge">Out of Business</code></li>
+  <li>Verification of important words for <code class="language-plaintext highlighter-rouge">Out of Business</code></li>
   <li>Word Cloud for Bigrams</li>
   <li>Relationship among words</li>
   <li>Sentiment Analysis for Results</li>
@@ -35,7 +35,7 @@
   <li>Sentiment analysis by word for Each Result Type</li>
   <li>Sentiment analysis by Inspection Text</li>
   <li>Plot of Results and Risks</li>
-  <li>Modelling with XGBoost whether the Business will be <code class="highlighter-rouge">Out of Business</code></li>
+  <li>Modelling with XGBoost whether the Business will be <code class="language-plaintext highlighter-rouge">Out of Business</code></li>
 </ul>
 
 <p>A detailed report <a href="https://www.kaggle.com/ambarish/chicagofoodinspections-textminingleafletsxgboost">Chicago Restaurants Inspections Text Mining</a> has the complete Data Visualization with Text Mining and Modelling.</p>
