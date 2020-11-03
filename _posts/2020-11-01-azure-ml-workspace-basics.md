@@ -3,7 +3,7 @@ layout: post
 tags:
 - azure-machinelearning
 - machinelearning
-categories: AzureMachineLearning
+categories: Azure Machine Learning
 title: Azure ML workspace basics
 description: Azure ML workspace basics
 ---

@@ -1,0 +1,6 @@
+I"]<blockquote>
+
+  <p>An experiment is a grouping of many runs from a specified script. It always belongs to a workspace. When we submit a run, we provide an experiment name. Information for the run is stored under that experiment. If the name doesn’t exist when we submit an experiment, a new experiment is automatically created.</p>
+</blockquote>
+
+:ET

@@ -1,0 +1,22 @@
+I"¹<blockquote>
+
+  <p>An experiment is a grouping of many runs from a specified script. It always belongs to a workspace. When we submit a run, we provide an experiment name. Information for the run is stored under that experiment. If the name doesnâ€™t exist when we submit an experiment, a new experiment is automatically created.</p>
+</blockquote>
+
+<p><img src="/img/AzureML/expts.png" /></p>
+
+<blockquote>
+
+  <p>A run is a single execution of a training script. An experiment will typically contain multiple runs.</p>
+</blockquote>
+
+<p><img src="/img/AzureML/runs.png" /></p>
+
+<p>A run has the following characteristics</p>
+
+<ul>
+  <li>Metrics</li>
+  <li>Child Runs</li>
+  <li>Outputs</li>
+</ul>
+:ET
