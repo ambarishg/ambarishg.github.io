@@ -10,7 +10,7 @@ layout: default
   <div>
       {% for tag in page.tags %}
       {% capture tag_name %}{{ tag }}{% endcapture %}
-      <a href = "{{ site.baseurl }}/tags.html#{{ tag_name }}" class ="tagbox">{{ tag_name }}</a>
+      <a href = "{{ site.baseurl }}/_pages/tags.html#{{ tag_name }}" class ="tagbox">{{ tag_name }}</a>
     {% endfor %}
  </div>
   <article class="post-content">
