@@ -1,4 +1,4 @@
-I"(<p>
+I"P<p>
 
 
 <a href="#DataVisualization" class="tagbox">DataVisualization</a>
@@ -35,6 +35,12 @@
 
 
 <a href="#text mining" class="tagbox">text mining</a>
+
+
+<a href="#azure-machinelearning" class="tagbox">azure-machinelearning</a>
+
+
+<a href="#machinelearning" class="tagbox">machinelearning</a>
 
 
 
@@ -174,6 +180,20 @@
   <li>
     <p>07 Oct 2017 » <a href="/datavisualization/2017/10/07/fun-in-textmining-with-Simpsons.html"> Fun in TextMining with Simpsons </a></p>
   </li>
+</ul>
+
+<h3 id="azure-machinelearning">azure-machinelearning </h3>
+<p></p>
+
+<ul>
+  <li>03 Nov 2020 » <a href="/azuremachinelearning/2020/11/03/azure-ml-workspace-basics.html"> Azure ML workspace basics </a></li>
+</ul>
+
+<h3 id="machinelearning">machinelearning </h3>
+<p></p>
+
+<ul>
+  <li>03 Nov 2020 » <a href="/azuremachinelearning/2020/11/03/azure-ml-workspace-basics.html"> Azure ML workspace basics </a></li>
 </ul>
 
 :ET
