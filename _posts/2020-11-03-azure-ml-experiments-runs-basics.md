@@ -35,3 +35,7 @@ A run also has metrics and parameters associated with it
 A run also has outputs associated with it
 
 <img src="/img/AzureML/a-single-run-outputs.PNG">
+
+*References*   
+
+* [Azure Machine Learning documentation](https://docs.microsoft.com/en-in/azure/machine-learning/)

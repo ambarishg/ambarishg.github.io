@@ -1,0 +1,20 @@
+I"Â<p><br /></p>
+
+<p><strong>DataStores</strong></p>
+
+<p>In Azure ML, datastores are references to storage locations, such as Azure Storage blob containers. Every workspace has a default datastore - usually the Azure storage blob container that was created with the workspace.</p>
+
+<p><img src="/img/AzureML/datastores.PNG" /></p>
+
+<p>When data is uploaded into the datastore through the following code</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>default_ds.upload_files(files=['data/diabetes.csv', 'data/diabetes2.csv'], # Upload the diabetes csv files in /data
+                       target_path='diabetes-data/', # Put it in a folder path in the datastore
+                       overwrite=True, # Replace existing files of the same name
+                       show_progress=True)
+
+</code></pre></div></div>
+
+<p>we can see the files in the Azure Storage Account &gt; Containers &gt; Blob Stores</p>
+
+:ET
