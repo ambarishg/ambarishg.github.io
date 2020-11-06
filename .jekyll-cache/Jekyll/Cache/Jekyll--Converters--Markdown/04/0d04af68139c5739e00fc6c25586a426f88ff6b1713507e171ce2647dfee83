@@ -1,0 +1,17 @@
+I"F<p>Different types of <strong>pipelines</strong> are</p>
+
+<p><img src="/img/AzureML/pipelines.PNG" /> 
+In Azure Machine Learning, a pipeline is a workflow of machine learning tasks in which each task is implemented as a step.</p>
+
+<p>Steps can be arranged sequentially or in parallel, enabling you to build sophisticated flow logic to orchestrate machine learning operations. Each step can be run on a specific compute target, making it possible to combine different types of processing as required to achieve an overall goal.</p>
+
+<p>A pipeline can be executed as a process by running the pipeline as an experiment. Each step in the pipeline runs on its allocated compute target as part of the overall experiment run.</p>
+
+<p>You can publish a pipeline as a REST endpoint, enabling client applications to initiate a pipeline run. You can also define a schedule for a pipeline, and have it run automatically at periodic intervals.</p>
+
+<p><em>References</em></p>
+
+<ul>
+  <li><a href="https://docs.microsoft.com/en-in/azure/machine-learning/">Azure Machine Learning documentation</a></li>
+</ul>
+:ET

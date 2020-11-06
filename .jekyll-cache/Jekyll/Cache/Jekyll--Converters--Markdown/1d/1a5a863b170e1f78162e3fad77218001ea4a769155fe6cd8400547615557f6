@@ -1,9 +1,0 @@
-I"I<p><br /></p>
-
-<p><strong>DataStores</strong></p>
-
-<p>In Azure ML, datastores are references to storage locations, such as Azure Storage blob containers. Every workspace has a default datastore - usually the Azure storage blob container that was created with the workspace.</p>
-
-<p><img src="/img/AzureML/datastores.PNG" /></p>
-
-:ET
