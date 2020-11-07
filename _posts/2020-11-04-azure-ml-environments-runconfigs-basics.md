@@ -32,7 +32,7 @@ user_managed_env.python.user_managed_dependencies = True
 
 ```
 
-We use **system-managed environments** when we want Conda to manage the Python environment and the script dependencies for you. A new conda environment is built based on the conda dependencies object. The Azure Machine Learning service assumes this type of environment by default, because of its usefulness on remote compute targets that aren't manually configurable.  
+We use **system-managed environments** when we want Conda to manage the Python environment and the script dependencies.A new conda environment is built based on the conda dependencies object. The Azure Machine Learning service assumes this type of environment by default, because of its usefulness on remote compute targets that aren't manually configurable.  
 
 *References*   
 
