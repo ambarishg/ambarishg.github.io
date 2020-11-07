@@ -35,7 +35,7 @@ we can see the files in the Azure Storage Account > Containers > Blob Stores
 
 > While we can read data directly from `datastores`, Azure Machine Learning provides a further abstraction for data in the form of `datasets`.   
 
-A dataset is a versioned reference to a specific set of data that you may want to use in an experiment.   
+A dataset is a versioned reference to a specific set of data that we may want to use in an experiment.   
 
 Datasets can be tabular or file-based.
 
