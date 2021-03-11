@@ -1,0 +1,56 @@
+I"v<p><br /></p>
+
+<hr />
+
+<p><strong>Parameter</strong></p>
+
+<p>A variable of a model that the machine learning system trains on its own. For example, weights are <code class="language-plaintext highlighter-rouge">parameters</code> whose values the machine learning system gradually learns through successive training iterations.</p>
+
+<hr />
+
+<p><strong>Hyperparameter</strong></p>
+
+<p>The “knobs” that we tweak during successive runs of training a model. For example, learning rate is a hyperparameter.</p>
+
+<hr />
+
+<p>Hyperparameters have the following properties</p>
+
+<ul>
+  <li>
+    <p>Search space - The set of hyperparameter values tried during hyperparameter tuning is known as the search space. The definition of the range of possible values that can be chosen depends on the type of hyperparameter.</p>
+
+    <p>The <strong>Search Space</strong> includes <strong>Discrete</strong> and <strong>Continuos</strong>  values</p>
+  </li>
+  <li>
+    <p>Sampling strategy - The specific values used in a hyperparameter tuning run depend on the type of sampling used.</p>
+
+    <p><strong>Grid sampling</strong> can only be employed when all <code class="language-plaintext highlighter-rouge">hyperparameters are discrete</code>, and is used to try every possible combination of parameters in the search space.</p>
+
+    <p><strong>Random Sampling</strong> is used to <code class="language-plaintext highlighter-rouge">randomly select a value for each hyperparameter</code>, which can be a mix of discrete and continuous values</p>
+
+    <p><strong>Bayesian sampling</strong> chooses hyperparameter values based on the Bayesian optimization algorithm, which tries to select parameter combinations that will result in <code class="language-plaintext highlighter-rouge">improved performance from the previous selection</code>.</p>
+  </li>
+  <li>
+    <p>Early stopping strategy - With a sufficiently large hyperparameter search space, it could take many iterations (child runs) to try every possible combination. Typically, we set a maximum number of iterations, but this could still result in a large number of runs that don’t result in a better model than a combination that has already been tried.</p>
+
+    <p><strong>Bandit policy</strong> to stop a run if the target performance metric underperforms the best run so far by a specified margin.</p>
+
+    <p><strong>Median stopping</strong> policy abandons runs where the target performance metric is worse than the median of the running averages for all runs.</p>
+
+    <p><strong>Truncation selection</strong> policy cancels the lowest performing X% of runs at each evaluation interval based on the truncation_percentage value you specify for X.</p>
+  </li>
+</ul>
+
+<p><strong>HyperDriveConfig</strong></p>
+
+<p>Configuration that defines a HyperDrive run.</p>
+
+<p>HyperDrive configuration includes information about hyperparameter space sampling, termination policy, primary metric, resume from configuration, estimator, and the compute target to execute the experiment runs on.</p>
+
+<p><em>References</em></p>
+
+<ul>
+  <li><a href="https://docs.microsoft.com/en-in/azure/machine-learning/">Azure Machine Learning documentation</a></li>
+</ul>
+:ET
