@@ -1,4 +1,4 @@
-I"ÙT<p>I will tell you about 2 of my experiences with machine learning in data science competitions and writing a research paper. This will give us enough motivation to understand why platforms such as AzureML are required.</p>
+I"‰T<p>Let 2 of my experiences with machine learning in data science competitions and writing a research paper. This will give us enough motivation to understand why platforms such as AzureML are required.</p>
 
 <h1 id="story-1----a-data-science-competition">Story 1 -  A data science competition</h1>
 
@@ -85,6 +85,7 @@ ws = Workspace.create(name='azureml_workspace',
 <p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/0ml6s7upgzwm1gvb469v.png" alt="image" /></p>
 
 <h1 id="upload-data-into-the-azure-ml-workspace">Upload data into the Azure ML Workspace</h1>
+
 <p>Machine Learning is about data. We need data to build our models. The data which we are going to use is the Red Wine Quality dataset. Let us store the data in the Azure ML workspace.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Upload data into the Azure ML Workspace
@@ -228,6 +229,7 @@ print(wine_env.name, 'defined.')
 # Register the environment
 wine_env.register(workspace=ws)
 </code></pre></div></div>
+
 <h1 id="create-the-estimator">Create the Estimator</h1>
 
 <p>Till this point, we have done the following things</p>

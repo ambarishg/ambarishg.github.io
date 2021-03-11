@@ -8,7 +8,7 @@ title: 2 Stories, Azure ML, Azure Kubernetes Service, Model deployment
 description: 2 Stories, Azure ML, Azure Kubernetes Service, Model deployment
 ---
 
-I will tell you about 2 of my experiences with machine learning in data science competitions and writing a research paper. This will give us enough motivation to understand why platforms such as AzureML are required.
+Let's start with 2 of my experiences with machine learning in data science competitions and writing a research paper. This will give us enough motivation to understand why platforms such as AzureML are required.
 
 # Story 1 -  A data science competition 
 
