@@ -38,3 +38,22 @@ The workspace can be used for authoring
 * Automated ML
 * Designer
 
+You can implement via **code** 
+
+```
+import azureml.core
+print(azureml.core.VERSION)
+```
+```
+from azureml.core import Workspace
+from azureml.core.authentication import InteractiveLoginAuthentication
+
+sid = <your-subscription-id>
+forced_interactive_auth = InteractiveLoginAuthentication(tenant_id=<your-tenant-id>)
+ws = Workspace.create(name='azureml_workspace',
+            subscription_id= sid, 
+            resource_group='rgazureml',
+            create_resource_group = True,
+            location='centralus'
+            )
+```

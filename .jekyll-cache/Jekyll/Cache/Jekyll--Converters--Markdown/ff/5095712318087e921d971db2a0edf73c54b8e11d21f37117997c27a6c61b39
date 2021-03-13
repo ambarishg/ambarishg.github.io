@@ -1,0 +1,55 @@
+I"/<p>Azure ML has a top level component which is the <strong>Workspace</strong>. The workspace contains all the components of the Azure Machine Learning space.</p>
+
+<p><img src="/img/AzureML/workspace.png" /></p>
+
+<p>The workspace is associated with</p>
+
+<ul>
+  <li>Azure subscription</li>
+  <li>Azure Key Vault</li>
+  <li>Azure Application Insights</li>
+</ul>
+
+<p>It is associated with the following <strong>assets</strong></p>
+
+<ul>
+  <li>Datasets</li>
+  <li>Experiments</li>
+  <li>Pipelines</li>
+  <li>Models</li>
+  <li>EndPoints</li>
+</ul>
+
+<p>The workspace <strong>manages</strong> the following</p>
+
+<ul>
+  <li>Datastores</li>
+  <li>Compute</li>
+</ul>
+
+<p>The workspace can be used for authoring</p>
+
+<ul>
+  <li>Notebooks</li>
+  <li>Automated ML</li>
+  <li>Designer</li>
+</ul>
+
+<p>You can implement via <strong>code</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import azureml.core
+print(azureml.core.VERSION)
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from azureml.core import Workspace
+from azureml.core.authentication import InteractiveLoginAuthentication
+
+sid = &lt;your-subscription-id&gt;
+forced_interactive_auth = InteractiveLoginAuthentication(tenant_id=&lt;your-tenant-id&gt;)
+ws = Workspace.create(name='azureml_workspace',
+            subscription_id= sid, 
+            resource_group='rgazureml',
+            create_resource_group = True,
+            location='centralus'
+            )
+</code></pre></div></div>
+:ET
