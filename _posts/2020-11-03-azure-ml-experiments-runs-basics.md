@@ -34,7 +34,68 @@ A run also has metrics and parameters associated with it
 
 A run also has outputs associated with it
 
-<img src="/img/AzureML/a-single-run-outputs.PNG">
+<img src="/img/AzureML/a-single-run-outputs.PNG">      
+
+# Code    
+
+
+## Create the workspace   
+
+```
+from azureml.core import Workspace
+from azureml.core import Workspace
+from azureml.core.authentication import InteractiveLoginAuthentication
+
+sid = 'a817a155-2099-4dcb-80ae-e5c2ea0e248e'
+forced_interactive_auth = InteractiveLoginAuthentication(tenant_id="0f942ca0-ebef-4f26-80f8-f501d599ba90", force=True)
+
+ws = Workspace.create(name='azureml_workspace',
+            subscription_id= sid, 
+            resource_group='rgazureml',
+            create_resource_group = True,
+            location='centralus'
+            )
+```
+
+## Create an experiment and a run              
+
+```
+from azureml.core import Experiment
+
+# create an experiment
+exp = Experiment(workspace=ws, name='trial_exp')
+
+# start a run
+run = exp.start_logging()
+
+# log a number
+run.log('trial', 30)
+
+# log a list (Fibonacci numbers)
+run.log_list('my list', [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]) 
+
+# finish the run
+run.complete()
+
+print('Finished logging')
+```
+
+
+## Create another run      
+
+```
+# start a run
+run = exp.start_logging()
+
+# log a number
+run.log('trial2', 35)
+
+# log a list 
+run.log_list('my list2', [1, 1, 2, 2, 5, 5, 13, 13, 13, 13]) 
+
+# finish the run
+run.complete()
+```
 
 *References*   
 

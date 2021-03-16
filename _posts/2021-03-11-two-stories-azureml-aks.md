@@ -52,12 +52,14 @@ We divide into **2 major blocks**:
 # Create the Azure ML workspace         
                   
 
-We need to create an Azure ML workspace that contains the experiments, runs, models, and everything. It is a house for everything. Let's create one
-```
+We need to create an Azure ML workspace that contains the experiments, runs, models, and everything. It is a house for everything. Let's create one      
+
+```python
 import azureml.core
 print(azureml.core.VERSION)
 ```
-```
+
+```python
 from azureml.core import Workspace
 from azureml.core.authentication import InteractiveLoginAuthentication
 
