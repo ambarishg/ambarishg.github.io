@@ -57,7 +57,7 @@ We need to create an Azure ML workspace that contains the experiments, runs, mod
 ```python
 import azureml.core
 print(azureml.core.VERSION)
-```
+```   
 
 ```python
 from azureml.core import Workspace
