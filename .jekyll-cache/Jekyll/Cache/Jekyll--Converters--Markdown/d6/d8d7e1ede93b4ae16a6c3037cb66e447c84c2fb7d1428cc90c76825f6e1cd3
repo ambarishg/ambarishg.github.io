@@ -1,4 +1,4 @@
-I"óT<p>Letâ€™s start with 2 of my experiences with machine learning in data science competitions and writing a research paper. This will give us enough motivation to understand why platforms such as AzureML are required.</p>
+I"èZ<p>Letâ€™s start with 2 of my experiences with machine learning in data science competitions and writing a research paper. This will give us enough motivation to understand why platforms such as AzureML are required.</p>
 
 <h1 id="story-1----a-data-science-competition">Story 1 -  A data science competition</h1>
 
@@ -54,20 +54,22 @@
 <h1 id="create-the-azure-ml-workspace">Create the Azure ML workspace</h1>
 
 <p>We need to create an Azure ML workspace that contains the experiments, runs, models, and everything. It is a house for everything. Letâ€™s create one</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import azureml.core
-print(azureml.core.VERSION)
-</code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from azureml.core import Workspace
-from azureml.core.authentication import InteractiveLoginAuthentication
 
-sid = &lt;your-subscription-id&gt;
-forced_interactive_auth = InteractiveLoginAuthentication(tenant_id=&lt;your-tenant-id&gt;)
-ws = Workspace.create(name='azureml_workspace',
-            subscription_id= sid, 
-            resource_group='rgazureml',
-            create_resource_group = True,
-            location='centralus'
-            )
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">azureml.core</span>
+<span class="k">print</span><span class="p">(</span><span class="n">azureml</span><span class="p">.</span><span class="n">core</span><span class="p">.</span><span class="n">VERSION</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">azureml.core</span> <span class="kn">import</span> <span class="n">Workspace</span>
+<span class="kn">from</span> <span class="nn">azureml.core.authentication</span> <span class="kn">import</span> <span class="n">InteractiveLoginAuthentication</span>
+
+<span class="n">sid</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">subscription</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;</span>
+<span class="n">forced_interactive_auth</span> <span class="o">=</span> <span class="n">InteractiveLoginAuthentication</span><span class="p">(</span><span class="n">tenant_id</span><span class="o">=&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">tenant</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">Workspace</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'azureml_workspace'</span><span class="p">,</span>
+            <span class="n">subscription_id</span><span class="o">=</span> <span class="n">sid</span><span class="p">,</span> 
+            <span class="n">resource_group</span><span class="o">=</span><span class="s">'rgazureml'</span><span class="p">,</span>
+            <span class="n">create_resource_group</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
+            <span class="n">location</span><span class="o">=</span><span class="s">'centralus'</span>
+            <span class="p">)</span>
 </code></pre></div></div>
 
 <p>What does this code segment actually do:</p>

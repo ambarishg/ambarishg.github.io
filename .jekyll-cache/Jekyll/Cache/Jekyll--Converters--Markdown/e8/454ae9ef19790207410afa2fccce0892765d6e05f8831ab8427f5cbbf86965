@@ -1,0 +1,96 @@
+I"÷
+<blockquote>
+
+  <p>An experiment is a grouping of many runs from a specified script. It always belongs to a workspace. When we submit a run, we provide an experiment name. Information for the run is stored under that experiment. If the name doesnâ€™t exist when we submit an experiment, a new experiment is automatically created.</p>
+</blockquote>
+
+<p><img src="/img/AzureML/expts.PNG" /></p>
+
+<blockquote>
+
+  <p>A run is a single execution of a training script. An experiment will typically contain multiple runs.</p>
+</blockquote>
+
+<p><img src="/img/AzureML/runs.PNG" /></p>
+
+<p>A run has the following characteristics</p>
+
+<ul>
+  <li>Metrics</li>
+  <li>Child Runs</li>
+  <li>Outputs</li>
+  <li>Logs</li>
+</ul>
+
+<p><img src="/img/AzureML/a-single-run.PNG" /></p>
+
+<p>A run also has metrics and parameters associated with it</p>
+
+<p><img src="/img/AzureML/a-single-run-metrics.PNG" /></p>
+
+<p>A run also has outputs associated with it</p>
+
+<p><img src="/img/AzureML/a-single-run-outputs.PNG" /></p>
+
+<h1 id="code">Code</h1>
+
+<h2 id="create-the-workspace">Create the workspace</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from azureml.core import Workspace
+from azureml.core import Workspace
+from azureml.core.authentication import InteractiveLoginAuthentication
+
+sid = 'a817a155-2099-4dcb-80ae-e5c2ea0e248e'
+forced_interactive_auth = InteractiveLoginAuthentication(tenant_id="0f942ca0-ebef-4f26-80f8-f501d599ba90", force=True)
+
+ws = Workspace.create(name='azureml_workspace',
+            subscription_id= sid, 
+            resource_group='rgazureml',
+            create_resource_group = True,
+            location='centralus'
+            )
+</code></pre></div></div>
+
+<h2 id="create-an-experiment-and-a-run">Create an experiment and a run</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from azureml.core import Experiment
+
+# create an experiment
+exp = Experiment(workspace=ws, name='trial_exp')
+
+# start a run
+run = exp.start_logging()
+
+# log a number
+run.log('trial', 30)
+
+# log a list (Fibonacci numbers)
+run.log_list('my list', [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]) 
+
+# finish the run
+run.complete()
+
+print('Finished logging')
+</code></pre></div></div>
+
+<h2 id="create-another-run">Create another run</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># start a run
+run = exp.start_logging()
+
+# log a number
+run.log('trial2', 35)
+
+# log a list 
+run.log_list('my list2', [1, 1, 2, 2, 5, 5, 13, 13, 13, 13]) 
+
+# finish the run
+run.complete()
+</code></pre></div></div>
+
+<p><em>References</em></p>
+
+<ul>
+  <li><a href="https://docs.microsoft.com/en-in/azure/machine-learning/">Azure Machine Learning documentation</a></li>
+</ul>
+:ET
