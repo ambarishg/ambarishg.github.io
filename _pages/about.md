@@ -4,7 +4,7 @@ title: about
 permalink: /about/
 ---
 
-I am a Business and Technology Consultant for more than **Nineteen Years**. I am a data lover and compete regularly in data science competitions. I had won **Eight Data Science Competition Awards** ( 1 sponsored by **NASA**, Seven sponsored by **Kaggle** -  A Google Company).               
+I am a Business and Technology Consultant for more than **20 Years**. I am a data lover and compete regularly in data science competitions. I had won **Eight Data Science Competition Awards** ( 1 sponsored by **NASA**, Seven sponsored by **Kaggle** -  A Google Company).               
 
 
 <div class="img_row">
