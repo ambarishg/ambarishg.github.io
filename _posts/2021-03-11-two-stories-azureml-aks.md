@@ -54,7 +54,7 @@ We divide into **2 major blocks**:
 
 We need to create an Azure ML workspace that contains the experiments, runs, models, and everything. It is a house for everything. Let's create one      
 
-```python
+```
 import azureml.core
 print(azureml.core.VERSION)
 ```   

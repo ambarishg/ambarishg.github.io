@@ -10,7 +10,6 @@ github_username:  github_username
 
 # Build settings
 markdown: kramdown
-
 highlighter: rouge
 
 # Includes & excludes
