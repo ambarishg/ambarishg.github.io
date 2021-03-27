@@ -18,7 +18,7 @@ In a supervised learning problem for predicting classes, we predict probabilitie
 This can be represented as 
 
 1. Get the predicted probability of the class
-2. Get the actual label of the class
+2. Get the actual label of the class ( `1 or 0` )
 3. Multiply the `actual label` with the `log of the predicted probability` of the class
 4. Sum the values obtained from each of the classes  
 5. Multiply by -1 the value obtained in Step 4
