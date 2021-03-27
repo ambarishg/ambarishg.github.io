@@ -3,7 +3,7 @@ layout: post
 title: activation functions
 categories: Statistics
 tags:
-- Deep Learning
+- deeplearning
 - statistics
 description: We describe the <b>Sigmoid and Softmax</b> activation functions here...
 ---
