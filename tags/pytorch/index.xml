@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pytorch on Thoughts - Ambarish</title>
+    <link>/tags/pytorch/</link>
+    <description>Recent content in pytorch on Thoughts - Ambarish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Sun, 18 Apr 2021 00:00:00 +0030</lastBuildDate><atom:link href="/tags/pytorch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AdaptiveAvgPool2d in PyTorch</title>
+      <link>/posts/adaptiveavgpool2d-pytorch/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/adaptiveavgpool2d-pytorch/</guid>
+      <description>I had trouble understanding the AdaptiveAvgPool2d function in PyTorch. The following examples helped me to teach myself better. Hopefully, somebody may benefit from this.
+Example 1 import torch import torch.nn as nn import numpy as np m = nn.AdaptiveAvgPool2d((1)) x = np.array( [ [ 2. , 3.], [ 4. , 1.], ]) input = torch.tensor(x) print(input) output = m(input) print(output) print(torch.mean(input)) The output will be equal to torch.mean(input)
+Example 2 with a 3 x 3 x 3 tensor x = np.</description>
+    </item>
+    
+  </channel>
+</rss>

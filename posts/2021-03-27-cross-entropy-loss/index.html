@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Cross Entropy Loss - Thoughts - Ambarish</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Cross Entropy Loss">
+<meta itemprop="description" content="Cross Entropy Loss"><meta itemprop="datePublished" content="2021-03-27T00:00:00&#43;00:30" />
+<meta itemprop="dateModified" content="2021-03-27T00:00:00&#43;00:30" />
+<meta itemprop="wordCount" content="492">
+<meta itemprop="keywords" content="deeplearning,machinelearning," /><meta property="og:title" content="Cross Entropy Loss" />
+<meta property="og:description" content="Cross Entropy Loss" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/2021-03-27-cross-entropy-loss/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-27T00:00:00&#43;00:30" />
+<meta property="article:modified_time" content="2021-03-27T00:00:00&#43;00:30" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cross Entropy Loss"/>
+<meta name="twitter:description" content="Cross Entropy Loss"/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="/css/dark.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+		<script src="/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+	<h1 class="site-title"><a href="/">Thoughts - Ambarish</a></h1>
+	<div class="site-description"><p></p><nav class="nav social">
+			<ul class="flat"><li><a href="mailto:ambarish.ganguly@gmail.com" title="Email"><i data-feather="mail"></i></a></li><li><a href="https://www.linkedin.com/in/ambarish-ganguly/" title="LinkedIn"><i data-feather="linkedin"></i></a></li><li><a href="https://twitter.com/a_ganguly/" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="https://github.com/ambarishg" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+			<li>
+				<a href="/books">Books</a>
+			</li>
+			
+			<li>
+				<a href="/awards/">Awards</a>
+			</li>
+			
+			<li>
+				<a href="/testimonials/">testimonials</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">27</span>
+							<span class="rest">Mar 2021</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Cross Entropy Loss</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<!-- raw HTML omitted -->
+<h1 id="cross-entropy-loss">Cross Entropy Loss</h1>
+<p>In a supervised learning problem for predicting classes, we predict probabilities for the classes. To determine how successful we are predicting the classes, we require a <code>loss function</code>.</p>
+<p><strong>Cross-Entropy loss</strong> function provides a loss function to calculate the loss between the actual classes and the predicted probabilities</p>
+<p>This can be represented as</p>
+<ol>
+<li>Get the predicted probability of the class</li>
+<li>Get the actual label of the class ( <code>1 or 0</code> )</li>
+<li>Multiply the <code>actual label</code> with the <code>log of the predicted probability</code> of the class</li>
+<li>Sum the values obtained from each of the classes</li>
+<li>Multiply by -1 the value obtained in Step 4</li>
+</ol>
+<p>This is the loss for a single observation. Therefore to calculate the <strong>total</strong> loss for a set of observations, we need to sum all the losses of the observations. Therefore to calculate the <strong>average</strong> loss for a set of observations, we need to average the losses of the observations.</p>
+<p>Let&rsquo;s take an example. We develop a fruit prediction model which predicts whether the fruit is orange, apple or guava.</p>
+<p>The results are as follows</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Actual Label</th>
+<th>Predicted Probability</th>
+<th>Log Predicted Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Orange</td>
+<td>0.9</td>
+<td>log(0.9)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Apple</td>
+<td>0.6</td>
+<td>log(0.6)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Guava</td>
+<td>0.7</td>
+<td>log(0.7)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Apple</td>
+<td>0.4</td>
+<td>log(0.4)</td>
+</tr>
+</tbody>
+</table>
+<p>Total loss is therefore -1 * ( log(0.9) + log(0.6) + log(0.7) + log(0.4) )</p>
+<p>Let&rsquo;s go deeper for the 1st row. <code>Here the fruit is orange</code>. Therefore the class label for the orange is 1 and the class labels for apple and guava are 0 and 0. Therefore the cross-entropy loss would be</p>
+<p>-1 * [1 * Log ( Predicted Probability of Orange ) +<br>
+0 *  Log ( Predicted Probability of Apple ) +<br>
+0 *  Log ( Predicted Probability of Guava )] <br>
+= -1 *Log ( Predicted Probability of Orange )</p>
+<ul>
+<li>When the predicted probability is closer to 1, the loss is lower since <strong>log(1) = 0</strong></li>
+<li>When the predicted probability is closer to 0, the loss is higher</li>
+</ul>
+<p>Therefore, <strong>better predictions</strong> produces a lower loss.</p>
+<h1 id="code">Code</h1>
+<!-- raw HTML omitted -->
+<p>We checked the concepts by using Keras and using our concepts from 1st principles. Please also try it in your favorite environment.</p>
+<h2 id="example-1">Example 1</h2>
+<!-- raw HTML omitted -->
+<p>In this example, we have a single observation with 3 classes. We checked with Keras and from 1st principles, our results match.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#00f">import</span> tensorflow <span style="color:#00f">as</span> tf
+<span style="color:#00f">import</span> numpy <span style="color:#00f">as</span> np
+</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">y_true = [[0, 1, 0]]
+y_pred = [[0.05, 0.9, 0.05]]
+cce = tf.keras.losses.CategoricalCrossentropy()
+<span style="color:#00f">print</span>(f<span style="color:#a31515">&#39;cce from keras &#39;</span>,cce(y_true, y_pred).numpy())
+<span style="color:#00f">print</span>(f<span style="color:#a31515">&#39;cce from first principles &#39;</span>,-1 * round(np.log(0.9),9))
+</code></pre></div><h2 id="example-2">Example 2</h2>
+<!-- raw HTML omitted -->
+<p>In this example, we have  3 observations with 3 classes. We see that we had to average the losses and our results match perfectly with the Keras function.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">y_true = [[0, 1, 0],[1, 0, 0],[0, 0, 1]]
+y_pred = [[0.05, 0.9, 0.05],[0.7, 0.2, 0.1],[0.2, 0.2, 0.6]]
+cce = tf.keras.losses.CategoricalCrossentropy()
+<span style="color:#00f">print</span>(f<span style="color:#a31515">&#39;cce from keras &#39;</span>,cce(y_true, y_pred).numpy())
+
+sum = -1 * (np.log(0.9) + np.log(0.7) + np.log(0.6))
+
+<span style="color:#00f">print</span>(f<span style="color:#a31515">&#39;cce from first principles &#39;</span>,sum / 3)
+</code></pre></div><h2 id="kaggle-notebook--link">Kaggle Notebook  Link</h2>
+<!-- raw HTML omitted -->
+<p><a href="https://www.kaggle.com/ambarish/crossentropy">Cross Entropy Kaggle Notebook</a></p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/deeplearning">deeplearning</a></li>
+							
+							<li><a href="/tags/machinelearning">machinelearning</a></li>
+							
+						</ul>
+					
+				
+			</div>
+			
+			<div>
+				<script src="https://utteranc.es/client.js"
+        repo="hugolearner/hugolearner.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+			</div>
+			
+		</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2021  © Copyright notice |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script>feather.replace()</script>
+
+<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function(x){
+          x.parentElement.classList += 'has-jax'})
+      });
+  
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

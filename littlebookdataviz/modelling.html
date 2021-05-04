@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Little Book on Data Visualization and Modelling</title>
+  <meta name="description" content="Little Book on Data Visualization and Modelling">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Little Book on Data Visualization and Modelling" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Little Book on Data Visualization and Modelling" />
+  
+  
+  
+
+<meta name="author" content="Ambarish Ganguly">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="predictions-using-prophet-for-battery-simple-assault.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
+<link href="libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-0.7.7/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<link href="libs/leaflet-label-0.2.2/leaflet.label.css" rel="stylesheet" />
+<script src="libs/leaflet-label-0.2.2/leaflet.label.js"></script>
+<script src="libs/Proj4Leaflet-0.7.2/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-0.7.2/proj4leaflet.js"></script>
+<script src="libs/leaflet-binding-1.1.0/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.0.27/leaflet-providers.js"></script>
+<script src="libs/leaflet-providers-plugin-1.1.0/leaflet-providers-plugin.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Little Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#live-version"><i class="fa fa-check"></i><b>1.1</b> Live version</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html"><i class="fa fa-check"></i><b>2</b> Prepare for Analysis</a><ul>
+<li class="chapter" data-level="2.1" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#install-the-software"><i class="fa fa-check"></i><b>2.1</b> Install the Software</a></li>
+<li class="chapter" data-level="2.2" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#install-the-packages"><i class="fa fa-check"></i><b>2.2</b> Install the packages</a></li>
+<li class="chapter" data-level="2.3" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#create-a-r-project"><i class="fa fa-check"></i><b>2.3</b> Create a R project</a></li>
+<li class="chapter" data-level="2.4" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#get-the-data"><i class="fa fa-check"></i><b>2.4</b> Get the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="read-the-data.html"><a href="read-the-data.html"><i class="fa fa-check"></i><b>3</b> Read the Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="read-the-data.html"><a href="read-the-data.html#peek-into-the-data"><i class="fa fa-check"></i><b>3.1</b> Peek into the data</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="latitude-and-longitude.html"><a href="latitude-and-longitude.html"><i class="fa fa-check"></i><b>4</b> Latitude and Longitude</a></li>
+<li class="chapter" data-level="5" data-path="rename-the-fields-to-remove-spaces-in-between-fields.html"><a href="rename-the-fields-to-remove-spaces-in-between-fields.html"><i class="fa fa-check"></i><b>5</b> Rename the Fields to remove Spaces in between Fields</a></li>
+<li class="chapter" data-level="6" data-path="month-of-crime.html"><a href="month-of-crime.html"><i class="fa fa-check"></i><b>6</b> Month of Crime</a></li>
+<li class="chapter" data-level="7" data-path="day-of-crime.html"><a href="day-of-crime.html"><i class="fa fa-check"></i><b>7</b> Day of Crime</a></li>
+<li class="chapter" data-level="8" data-path="time-of-crime.html"><a href="time-of-crime.html"><i class="fa fa-check"></i><b>8</b> Time of Crime</a><ul>
+<li class="chapter" data-level="8.1" data-path="time-of-crime.html"><a href="time-of-crime.html#most-crimes"><i class="fa fa-check"></i><b>8.1</b> Most Crimes</a></li>
+<li class="chapter" data-level="8.2" data-path="time-of-crime.html"><a href="time-of-crime.html#least-crimes"><i class="fa fa-check"></i><b>8.2</b> Least Crimes</a></li>
+<li class="chapter" data-level="8.3" data-path="time-of-crime.html"><a href="time-of-crime.html#crime-types-at-1200-hrs"><i class="fa fa-check"></i><b>8.3</b> Crime Types at 1200 hrs</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="sex-of-the-victims.html"><a href="sex-of-the-victims.html"><i class="fa fa-check"></i><b>9</b> Sex of the Victims</a></li>
+<li class="chapter" data-level="10" data-path="age-and-sex-of-the-victims.html"><a href="age-and-sex-of-the-victims.html"><i class="fa fa-check"></i><b>10</b> Age and Sex of the Victims</a></li>
+<li class="chapter" data-level="11" data-path="sex-and-types-of-crime.html"><a href="sex-and-types-of-crime.html"><i class="fa fa-check"></i><b>11</b> Sex and Types of Crime</a></li>
+<li class="chapter" data-level="12" data-path="crime-types-for-persons-aged-70-and-above.html"><a href="crime-types-for-persons-aged-70-and-above.html"><i class="fa fa-check"></i><b>12</b> Crime Types for persons aged 70 and above</a></li>
+<li class="chapter" data-level="13" data-path="crimes-at-different-premises.html"><a href="crimes-at-different-premises.html"><i class="fa fa-check"></i><b>13</b> Crimes at different Premises</a></li>
+<li class="chapter" data-level="14" data-path="types-of-crimes-at-different-premises.html"><a href="types-of-crimes-at-different-premises.html"><i class="fa fa-check"></i><b>14</b> Types of Crimes at different Premises</a></li>
+<li class="chapter" data-level="15" data-path="victim-descent.html"><a href="victim-descent.html"><i class="fa fa-check"></i><b>15</b> Victim Descent</a></li>
+<li class="chapter" data-level="16" data-path="weapons-in-crime.html"><a href="weapons-in-crime.html"><i class="fa fa-check"></i><b>16</b> Weapons in Crime</a></li>
+<li class="chapter" data-level="17" data-path="map-the-crime-sites.html"><a href="map-the-crime-sites.html"><i class="fa fa-check"></i><b>17</b> Map the Crime Sites</a></li>
+<li class="chapter" data-level="18" data-path="reporting-district-incidents.html"><a href="reporting-district-incidents.html"><i class="fa fa-check"></i><b>18</b> Reporting District Incidents</a></li>
+<li class="chapter" data-level="19" data-path="map-of-the-reporting-district-incidents.html"><a href="map-of-the-reporting-district-incidents.html"><i class="fa fa-check"></i><b>19</b> Map of the Reporting District Incidents</a></li>
+<li class="chapter" data-level="20" data-path="map-of-the-reporting-districts-with-their-crimes.html"><a href="map-of-the-reporting-districts-with-their-crimes.html"><i class="fa fa-check"></i><b>20</b> Map of the Reporting Districts with their Crimes</a></li>
+<li class="chapter" data-level="21" data-path="type-of-crime-analysis.html"><a href="type-of-crime-analysis.html"><i class="fa fa-check"></i><b>21</b> Type of Crime Analysis</a></li>
+<li class="chapter" data-level="22" data-path="type-of-crime-and-reporting-district.html"><a href="type-of-crime-and-reporting-district.html"><i class="fa fa-check"></i><b>22</b> Type of Crime and Reporting District</a></li>
+<li class="chapter" data-level="23" data-path="trend-of-crimes.html"><a href="trend-of-crimes.html"><i class="fa fa-check"></i><b>23</b> Trend of Crimes</a></li>
+<li class="chapter" data-level="24" data-path="trend-of-battery-simple-assault.html"><a href="trend-of-battery-simple-assault.html"><i class="fa fa-check"></i><b>24</b> Trend of Battery - Simple Assault</a></li>
+<li class="chapter" data-level="25" data-path="predictions-using-arima-for-battery-simple-assault.html"><a href="predictions-using-arima-for-battery-simple-assault.html"><i class="fa fa-check"></i><b>25</b> Predictions using ARIMA for Battery - Simple Assault</a></li>
+<li class="chapter" data-level="26" data-path="predictions-using-ets-for-battery-simple-assault.html"><a href="predictions-using-ets-for-battery-simple-assault.html"><i class="fa fa-check"></i><b>26</b> Predictions using ETS for Battery - Simple Assault</a></li>
+<li class="chapter" data-level="27" data-path="predictions-using-prophet-for-battery-simple-assault.html"><a href="predictions-using-prophet-for-battery-simple-assault.html"><i class="fa fa-check"></i><b>27</b> Predictions using Prophet for Battery - Simple Assault</a></li>
+<li class="chapter" data-level="28" data-path="modelling.html"><a href="modelling.html"><i class="fa fa-check"></i><b>28</b> Modelling</a><ul>
+<li class="chapter" data-level="28.1" data-path="modelling.html"><a href="modelling.html#prediction-variable"><i class="fa fa-check"></i><b>28.1</b> Prediction variable</a></li>
+<li class="chapter" data-level="28.2" data-path="modelling.html"><a href="modelling.html#columns-in-the-dataset"><i class="fa fa-check"></i><b>28.2</b> Columns in the dataset</a></li>
+<li class="chapter" data-level="28.3" data-path="modelling.html"><a href="modelling.html#columns-for-modelling"><i class="fa fa-check"></i><b>28.3</b> Columns for Modelling</a></li>
+<li class="chapter" data-level="28.4" data-path="modelling.html"><a href="modelling.html#classification-or-regression"><i class="fa fa-check"></i><b>28.4</b> Classification or Regression</a></li>
+<li class="chapter" data-level="28.5" data-path="modelling.html"><a href="modelling.html#values-of-crime-code"><i class="fa fa-check"></i><b>28.5</b> Values of Crime Code</a></li>
+<li class="chapter" data-level="28.6" data-path="modelling.html"><a href="modelling.html#selected-columns-and-their-class"><i class="fa fa-check"></i><b>28.6</b> Selected Columns and their class</a><ul>
+<li class="chapter" data-level="28.6.1" data-path="modelling.html"><a href="modelling.html#selected-columns-class"><i class="fa fa-check"></i><b>28.6.1</b> Selected Columns class</a></li>
+</ul></li>
+<li class="chapter" data-level="28.7" data-path="modelling.html"><a href="modelling.html#transform-to-numeric"><i class="fa fa-check"></i><b>28.7</b> Transform to Numeric</a></li>
+<li class="chapter" data-level="28.8" data-path="modelling.html"><a href="modelling.html#xgboost"><i class="fa fa-check"></i><b>28.8</b> XGBoost</a><ul>
+<li class="chapter" data-level="28.8.1" data-path="modelling.html"><a href="modelling.html#traincontrol-function"><i class="fa fa-check"></i><b>28.8.1</b> trainControl function</a></li>
+<li class="chapter" data-level="28.8.2" data-path="modelling.html"><a href="modelling.html#tuning-parameters"><i class="fa fa-check"></i><b>28.8.2</b> Tuning parameters</a></li>
+<li class="chapter" data-level="28.8.3" data-path="modelling.html"><a href="modelling.html#xgboost-model"><i class="fa fa-check"></i><b>28.8.3</b> XGBoost Model</a></li>
+</ul></li>
+<li class="chapter" data-level="28.9" data-path="modelling.html"><a href="modelling.html#variable-importance"><i class="fa fa-check"></i><b>28.9</b> Variable Importance</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Little Book on Data Visualization and Modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="modelling" class="section level1">
+<h1><span class="header-section-number">Chapter 28</span> Modelling</h1>
+<p>We first ask ourselves the following questions</p>
+<ol style="list-style-type: decimal">
+<li>What do we want to predict ?</li>
+<li>What are the columns in the dataset ?</li>
+<li>What columns should be chosen for modelling ?</li>
+</ol>
+<div id="prediction-variable" class="section level2">
+<h2><span class="header-section-number">28.1</span> Prediction variable</h2>
+<p>We would like to predict the <strong>Crime Code</strong> of the Crime.</p>
+</div>
+<div id="columns-in-the-dataset" class="section level2">
+<h2><span class="header-section-number">28.2</span> Columns in the dataset</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(LACrime)</code></pre></div>
+<pre><code>##  [1] &quot;DRNumber&quot;             &quot;DateReported&quot;         &quot;DateOccurred&quot;        
+##  [4] &quot;TimeOccurred&quot;         &quot;AreaID&quot;               &quot;AreaName&quot;            
+##  [7] &quot;ReportingDistrict&quot;    &quot;CrimeCode&quot;            &quot;CrimeCodeDescription&quot;
+## [10] &quot;MOCodes&quot;              &quot;VictimAge&quot;            &quot;VictimSex&quot;           
+## [13] &quot;VictimDescent&quot;        &quot;PremiseCode&quot;          &quot;PremiseDescription&quot;  
+## [16] &quot;WeaponUsedCode&quot;       &quot;WeaponDescription&quot;    &quot;StatusCode&quot;          
+## [19] &quot;StatusDescription&quot;    &quot;CrimeCode1&quot;           &quot;CrimeCode2&quot;          
+## [22] &quot;CrimeCode3&quot;           &quot;CrimeCode4&quot;           &quot;Address&quot;             
+## [25] &quot;CrossStreet&quot;          &quot;latitude&quot;             &quot;longitude&quot;           
+## [28] &quot;MonthOfCrime&quot;         &quot;DayOfCrime&quot;</code></pre>
+</div>
+<div id="columns-for-modelling" class="section level2">
+<h2><span class="header-section-number">28.3</span> Columns for Modelling</h2>
+<ul>
+<li>We discard CrimeCode 1 , CrimeCode 2, CrimeCode 3 since they are dependent on Crime Code<br />
+</li>
+<li>We discard the <strong>Description</strong> Columns<br />
+</li>
+<li>We discard the <strong>Date Occurred</strong> and <strong>Date Reported</strong> Columns since we already have Month and Day of Crime<br />
+</li>
+<li>MOCodes is discarded for the sake of simplicity</li>
+</ul>
+<p>For reducing the time of execution, we reduce the dataset size to 100,000.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LACrimeDataSet =<span class="st"> </span>LACrime %&gt;%<span class="st"> </span><span class="kw">select</span>(-CrimeCode1,-CrimeCode2,-CrimeCode3,-CrimeCode4,
+                   -CrimeCodeDescription,-MOCodes,-StatusDescription,
+                   -Address,-DateOccurred,-PremiseDescription,
+                   -WeaponDescription,-CrossStreet,-DRNumber,
+                   -DateReported,-AreaName) %&gt;%
+<span class="st">                    </span><span class="kw">sample_n</span>(<span class="dv">100000</span>)</code></pre></div>
+
+</div>
+<div id="classification-or-regression" class="section level2">
+<h2><span class="header-section-number">28.4</span> Classification or Regression</h2>
+<p>We need to understand whether it is a <strong>Classification</strong> or <strong>Regression</strong> problem. In our case , Crime Code takes certain specific values , therefore it is a <strong>Classification</strong> problem. The next question we ask ourselves whether Crime Code takes one value or multiple values.</p>
+</div>
+<div id="values-of-crime-code" class="section level2">
+<h2><span class="header-section-number">28.5</span> Values of Crime Code</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unique</span>(LACrimeDataSet$CrimeCode)</code></pre></div>
+<pre><code>##   [1] 745 946 420 121 330 440 354 740 310 649 930 624 510 900 956 230 210
+##  [18] 626 812 220 341 860 231 810 442 761 928 815 331 237 660 763 654 668
+##  [35] 901 813 236 625 421 888 350 820 480 627 753 664 903 940 436 439 932
+##  [52] 320 437 410 653 110 343 949 450 762 623 670 235 910 943 886 902 520
+##  [69] 662 352 122 648 251 661 351 441 444 647 666 821 471 433 951 651 922
+##  [86] 805 850 920 954 760 250 756 622 434 438 933 942 950 473 870 890 485
+## [103] 435 822 487 806 451 347 474 443 865 755 452 814 353 470 921 880 345
+## [120] 475 652 884 924 944 931 882</code></pre>
+<div class="learncheck">
+<p>
+<em><strong>Learning Check</strong></em>
+</p>
+</div>
+<p>Is this a <strong>Single Class</strong> or a <strong>Multi Class</strong> Classification problem ?</p>
+<div class="learncheck">
+
+</div>
+<p>We plan to use the very popular <strong>XGBoost</strong> algorithm for modelling the problem. For this we need to convert all the predictor variables to <strong>numeric</strong>.</p>
+</div>
+<div id="selected-columns-and-their-class" class="section level2">
+<h2><span class="header-section-number">28.6</span> Selected Columns and their class</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(LACrimeDataSet)</code></pre></div>
+<pre><code>##  [1] &quot;TimeOccurred&quot;      &quot;AreaID&quot;            &quot;ReportingDistrict&quot;
+##  [4] &quot;CrimeCode&quot;         &quot;VictimAge&quot;         &quot;VictimSex&quot;        
+##  [7] &quot;VictimDescent&quot;     &quot;PremiseCode&quot;       &quot;WeaponUsedCode&quot;   
+## [10] &quot;StatusCode&quot;        &quot;latitude&quot;          &quot;longitude&quot;        
+## [13] &quot;MonthOfCrime&quot;      &quot;DayOfCrime&quot;</code></pre>
+<div id="selected-columns-class" class="section level3">
+<h3><span class="header-section-number">28.6.1</span> Selected Columns class</h3>
+<p>We can examine the different <strong>Class</strong> of the variables of the LA Crime dataset.<br />
+We observe that several variables which are of <strong>Character</strong> and <strong>Factor</strong> type and these need to be converted into <strong>Numeric</strong>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sapply</span>(LACrimeDataSet,class)</code></pre></div>
+<pre><code>## $TimeOccurred
+## [1] &quot;integer&quot;
+## 
+## $AreaID
+## [1] &quot;integer&quot;
+## 
+## $ReportingDistrict
+## [1] &quot;integer&quot;
+## 
+## $CrimeCode
+## [1] &quot;integer&quot;
+## 
+## $VictimAge
+## [1] &quot;numeric&quot;
+## 
+## $VictimSex
+## [1] &quot;character&quot;
+## 
+## $VictimDescent
+## [1] &quot;character&quot;
+## 
+## $PremiseCode
+## [1] &quot;numeric&quot;
+## 
+## $WeaponUsedCode
+## [1] &quot;numeric&quot;
+## 
+## $StatusCode
+## [1] &quot;character&quot;
+## 
+## $latitude
+## [1] &quot;numeric&quot;
+## 
+## $longitude
+## [1] &quot;numeric&quot;
+## 
+## $MonthOfCrime
+## [1] &quot;character&quot;
+## 
+## $DayOfCrime
+## [1] &quot;ordered&quot; &quot;factor&quot;</code></pre>
+</div>
+</div>
+<div id="transform-to-numeric" class="section level2">
+<h2><span class="header-section-number">28.7</span> Transform to Numeric</h2>
+<p>The following code snippet transforms all the variables to <strong>numeric</strong>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LACrimeDataSet2 =<span class="st"> </span>LACrimeDataSet %&gt;%<span class="st"> </span><span class="kw">select</span>(-CrimeCode)
+
+features &lt;-<span class="st"> </span><span class="kw">colnames</span>(LACrimeDataSet2)
+
+for (f in features) {
+  if ((<span class="kw">class</span>(LACrimeDataSet2[[f]])==<span class="st">&quot;factor&quot;</span>) ||<span class="st"> </span>(<span class="kw">class</span>(LACrimeDataSet2[[f]])==<span class="st">&quot;character&quot;</span>)) {
+    levels &lt;-<span class="st"> </span><span class="kw">unique</span>(LACrimeDataSet2[[f]])
+    LACrimeDataSet2[[f]] &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">factor</span>(LACrimeDataSet2[[f]], <span class="dt">levels=</span>levels))
+  }
+}
+
+LACrimeDataSet2$CrimeCode =<span class="st"> </span><span class="kw">as.factor</span>(LACrimeDataSet$CrimeCode)
+<span class="kw">levels</span>(LACrimeDataSet2$CrimeCode) =<span class="st"> </span><span class="kw">make.names</span>(<span class="kw">unique</span>(LACrimeDataSet2$CrimeCode))</code></pre></div>
+
+</div>
+<div id="xgboost" class="section level2">
+<h2><span class="header-section-number">28.8</span> XGBoost</h2>
+<p>We fit a XGBoost model using <strong>Cross Validation</strong>. We are using the <strong>caret</strong> package for training the model.</p>
+<div id="traincontrol-function" class="section level3">
+<h3><span class="header-section-number">28.8.1</span> trainControl function</h3>
+<p>The function <code>trainControl</code> generates parameters that further control how models are created, with possible values</p>
+<ul>
+<li><p><code>method</code> is <code>cv</code> for cross validation</p></li>
+<li><p><code>number</code> is for the number of folds used for cross validation</p></li>
+<li><p><code>classProbs</code> is a logical value determining whether class probabilities should be computed for held-out samples during resample</p></li>
+<li><p><code>summaryFunction</code> is a function to computed alternate performance summaries</p></li>
+</ul>
+<p>All this documentation is obtained from the help of the <code>caret</code> package. Details can be found <a href="http://topepo.github.io/caret/model-training-and-tuning.html#control">here</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">formula =<span class="st"> </span>CrimeCode ~<span class="st"> </span>.
+
+fitControl &lt;-<span class="st"> </span><span class="kw">trainControl</span>(<span class="dt">method=</span><span class="st">&quot;cv&quot;</span>,<span class="dt">number =</span> <span class="dv">3</span>,<span class="dt">classProbs =</span> <span class="ot">TRUE</span>,<span class="dt">summaryFunction=</span>mnLogLoss)</code></pre></div>
+</div>
+<div id="tuning-parameters" class="section level3">
+<h3><span class="header-section-number">28.8.2</span> Tuning parameters</h3>
+<p>The <code>tuning parameters</code> are the XGBoost tuning parameters. Detailed documentation of the XGBoost tuning parameters can be found <a href="http://xgboost.readthedocs.io/en/latest///parameter.html#parameters-in-r-package">here</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xgbGrid &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">nrounds =</span> <span class="dv">3</span>,
+                       <span class="dt">max_depth =</span> <span class="dv">3</span>,
+                       <span class="dt">eta =</span> .<span class="dv">05</span>,
+                       <span class="dt">gamma =</span> <span class="dv">0</span>,
+                       <span class="dt">colsample_bytree =</span> .<span class="dv">8</span>,
+                       <span class="dt">min_child_weight =</span> <span class="dv">1</span>,
+                       <span class="dt">subsample =</span> <span class="dv">1</span>)</code></pre></div>
+</div>
+<div id="xgboost-model" class="section level3">
+<h3><span class="header-section-number">28.8.3</span> XGBoost Model</h3>
+<p>We use the objective as <code>multi:softprob</code> which sets XGBoost to do <code>multiclass classification</code> using the softmax objective.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">13</span>)
+
+LACrimeXGB =<span class="st"> </span><span class="kw">train</span>(formula, <span class="dt">data =</span> LACrimeDataSet2,
+                        <span class="dt">method =</span> <span class="st">&quot;xgbTree&quot;</span>,<span class="dt">trControl =</span> fitControl,
+                        <span class="dt">tuneGrid =</span> xgbGrid,<span class="dt">na.action =</span> na.pass,
+                        <span class="dt">objective=</span><span class="st">&#39;multi:softprob&#39;</span>,<span class="dt">metric =</span> <span class="st">&quot;logLoss&quot;</span>,
+                   <span class="dt">num_class=</span><span class="kw">length</span>(<span class="kw">unique</span>(LACrimeDataSet2$CrimeCode)))</code></pre></div>
+</div>
+</div>
+<div id="variable-importance" class="section level2">
+<h2><span class="header-section-number">28.9</span> Variable Importance</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">importance =<span class="st"> </span><span class="kw">varImp</span>(LACrimeXGB)
+
+varImportance &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Variables =</span> <span class="kw">row.names</span>(importance[[<span class="dv">1</span>]]), 
+                            <span class="dt">Importance =</span> <span class="kw">round</span>(importance[[<span class="dv">1</span>]]$Overall,<span class="dv">2</span>))
+
+<span class="co"># Create a rank variable based on importance</span>
+rankImportance &lt;-<span class="st"> </span>varImportance %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Rank =</span> <span class="kw">paste0</span>(<span class="st">&#39;#&#39;</span>,<span class="kw">dense_rank</span>(<span class="kw">desc</span>(Importance)))) %&gt;%
+<span class="st">  </span><span class="kw">head</span>(<span class="dv">10</span>)
+
+rankImportancefull =<span class="st"> </span>rankImportance
+
+<span class="kw">ggplot</span>(rankImportance, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(Variables, Importance), 
+                           <span class="dt">y =</span> Importance)) +
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&#39;identity&#39;</span>,<span class="dt">colour=</span><span class="st">&quot;white&quot;</span>, <span class="dt">fill =</span> fillColor) +
+<span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Variables, <span class="dt">y =</span> <span class="dv">1</span>, <span class="dt">label =</span> Rank),
+            <span class="dt">hjust=</span><span class="dv">0</span>, <span class="dt">vjust=</span>.<span class="dv">5</span>, <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">colour =</span> <span class="st">&#39;black&#39;</span>,
+            <span class="dt">fontface =</span> <span class="st">&#39;bold&#39;</span>) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Variables&#39;</span>, <span class="dt">title =</span> <span class="st">&#39;Relative Variable Importance&#39;</span>) +
+<span class="st">  </span><span class="kw">coord_flip</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<p>The importance of the variables have been plotted in a bar plot. we observe that <strong>WeaponsUsedCode</strong> is the most important variable determining the Crime Code. Other important variables are <strong>Victim Sex, Premise Code, Status Code, Victim Age, Time Occurred </strong>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="predictions-using-prophet-for-battery-simple-assault.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

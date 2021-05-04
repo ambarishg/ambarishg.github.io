@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>prophet on Thoughts - Ambarish</title>
+    <link>/tags/prophet/</link>
+    <description>Recent content in prophet on Thoughts - Ambarish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Mon, 25 Sep 2017 00:00:00 +0030</lastBuildDate><atom:link href="/tags/prophet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Crime in Los Angeles</title>
+      <link>/posts/2017-09-25-la-crime/</link>
+      <pubDate>Mon, 25 Sep 2017 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2017-09-25-la-crime/</guid>
+      <description>We investigate the Crime in LA. We do Exploratory Data analysis on various topics such as the Month of Crime ,Day of Crime,Time of Crime. We also explore how the Crimes are related to the Sex and Age of the Victims, Crime Types, Crime Types of persons aged 70 and above. We explore on the Crimes at different Premises,Types of Crimes at different Premises,victim Descent Analysis and an analysis of Weapons used in Crime.</description>
+    </item>
+    
+  </channel>
+</rss>

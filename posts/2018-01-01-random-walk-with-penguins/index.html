@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Random walk with Penguins - Thoughts - Ambarish</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Random walk with Penguins">
+<meta itemprop="description" content="Honoured to win the 1st prize in a Data Science competition Random Walk of Penguins hosted by DrivenData. Sharing the winning approach here..."><meta itemprop="datePublished" content="2018-01-01T00:00:00&#43;00:30" />
+<meta itemprop="dateModified" content="2018-01-01T00:00:00&#43;00:30" />
+<meta itemprop="wordCount" content="456">
+<meta itemprop="keywords" content="" /><meta property="og:title" content="Random walk with Penguins" />
+<meta property="og:description" content="Honoured to win the 1st prize in a Data Science competition Random Walk of Penguins hosted by DrivenData. Sharing the winning approach here..." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/2018-01-01-random-walk-with-penguins/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-01-01T00:00:00&#43;00:30" />
+<meta property="article:modified_time" content="2018-01-01T00:00:00&#43;00:30" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Random walk with Penguins"/>
+<meta name="twitter:description" content="Honoured to win the 1st prize in a Data Science competition Random Walk of Penguins hosted by DrivenData. Sharing the winning approach here..."/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="/css/dark.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+		<script src="/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+	<h1 class="site-title"><a href="/">Thoughts - Ambarish</a></h1>
+	<div class="site-description"><p></p><nav class="nav social">
+			<ul class="flat"><li><a href="mailto:ambarish.ganguly@gmail.com" title="Email"><i data-feather="mail"></i></a></li><li><a href="https://www.linkedin.com/in/ambarish-ganguly/" title="LinkedIn"><i data-feather="linkedin"></i></a></li><li><a href="https://twitter.com/a_ganguly/" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="https://github.com/ambarishg" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+			<li>
+				<a href="/books">Books</a>
+			</li>
+			
+			<li>
+				<a href="/awards/">Awards</a>
+			</li>
+			
+			<li>
+				<a href="/testimonials/">testimonials</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">01</span>
+							<span class="rest">Jan 2018</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Random walk with Penguins</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>Honoured to win the 1st prize in a Data Science competition <a href="https://www.drivendata.org/competitions/47/penguins/">Random Walk of Penguins</a> hosted by <a href="https://www.drivendata.org/">DrivenData</a>. Sharing the winning approach here.</p>
+<h1 id="introduction">Introduction</h1>
+<p>Penguins are among the most charismatic animals in the world and have captured the imaginations of news-makers, scientists, film producers, and the general public. Beyond their general intrinsic value, they are considered important ecosystem indicators. In other words, monitoring these beautiful species can tell us a lot about the general health of the Antarctic because penguins are important krill and fish predators, and changes (natural or anthropogenic) that influence prey abundance and environmental conditions will ultimately be detected through changes in distribution or population size.</p>
+<p>Data on penguin populations are limited because most monitored colonies are near permanent research stations and other sites are surveyed only sporadically. Because the data are so patchy, and time series relatively short, it has been difficult to build statistical models that can explain past dynamics or provide reliable future predictions. The goal is to create better models to estimate populations for hard-to-reach sites in the Antarctic, and thereby greatly improve our ability to use penguins to monitor the health of the Southern Ocean!</p>
+<p>This project is a collaborative effort between <strong>Oceanites, Inc., Black Bawks Data Science Ltd., and Dr. Heather Lynch&rsquo;s lab at Stony Brook University</strong>. Prize generously provided by <strong>NASA (Award NNX14AC32G)</strong>.</p>
+<h1 id="details-of-the-data-provided">Details of the data provided</h1>
+<p>The data was provided for three types of penguins namely adelie penguin, chinstrap penguin, and gentoo penguin for 548 different sites in Antarctica from the year 1875 to 2013.  Overall there were 648 combinations of penguin types and sites. There were a lot of missing values in the data. The challenge was to populate the penguin population from 2014 to 2017.</p>
+<h1 id="model-overview">Model Overview</h1>
+<p>The solution is divided into 2 major parts</p>
+<ul>
+<li>Imputation of the data</li>
+<li>Model Building</li>
+</ul>
+<h1 id="imputation-of-the-data">Imputation of the data</h1>
+<p>Before running the model, imputation of the data was done for each of the site and penguin type combinations. The imputations were done in the following order</p>
+<ul>
+<li>Stine in case of R models and Linear in case of Python models</li>
+<li>Last Observation Carried Forward in case of R models only</li>
+<li>Next Observation Carried Backward in case of R and Python models</li>
+<li>Replace by Zero in case of R models and Python model</li>
+</ul>
+<h1 id="model-building">Model Building</h1>
+<p>Built 5 models for each of the site and penguin type combination. Therefore for each of the 648 combinations of site and penguin type, the following models were built</p>
+<ul>
+<li>XGBoost in Python</li>
+<li>RandomForest in Python</li>
+<li>ARIMA in R</li>
+<li>ETS in R</li>
+<li>Prophet in R</li>
+</ul>
+<p>An <strong>average</strong> for all of these models was created for every 648 combinations.</p>
+<p>Thanks reading. If you still like it, please visit an interesting blog post in <a href="http://blog.drivendata.org/2017/08/28/random-walk-of-the-penguins/">DrivenData blog</a></p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+				
+			</div>
+			
+			<div>
+				<script src="https://utteranc.es/client.js"
+        repo="hugolearner/hugolearner.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+			</div>
+			
+		</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2021  © Copyright notice |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script>feather.replace()</script>
+
+<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function(x){
+          x.parentElement.classList += 'has-jax'})
+      });
+  
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

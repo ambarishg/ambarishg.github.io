@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>text mining on Thoughts - Ambarish</title>
+    <link>/tags/text-mining/</link>
+    <description>Recent content in text mining on Thoughts - Ambarish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Thu, 19 Oct 2017 00:00:00 +0030</lastBuildDate><atom:link href="/tags/text-mining/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chicago Restaurants Inspections Text Mining</title>
+      <link>/posts/2017-10-19-chicago-restaurants-inspections/</link>
+      <pubDate>Thu, 19 Oct 2017 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2017-10-19-chicago-restaurants-inspections/</guid>
+      <description>Restaurant inspections ensure that food served to the public at licensed food establishments follows food safety guidelines. The Food Protection Division of the Chicago Department of Public Health (CDPH) is committed to maintaining the safety of food bought, sold, or prepared for public consumption in Chicago by carrying out science-based inspections of all retail food establishments. These inspections promote public health in areas of food safety and sanitation and prevent the occurrence of food-borne illness.</description>
+    </item>
+    
+    <item>
+      <title>Fun in TextMining with Simpsons</title>
+      <link>/posts/2017-10-07-fun-in-textmining-with-simpsons/</link>
+      <pubDate>Sat, 07 Oct 2017 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2017-10-07-fun-in-textmining-with-simpsons/</guid>
+      <description>This dataset contains the characters, locations, episode details, and script lines for approximately 600 Simpsons episodes, dating back to 1989.
+I had fun learning Text Mining with Simpsons.Hope you will also enjoy the same while I had writing the text mining and data visualization code.
+A detailed report Fun in Text Mining with Simpsons has the complete Data Visualization with Text Mining and Modelling.</description>
+    </item>
+    
+  </channel>
+</rss>
