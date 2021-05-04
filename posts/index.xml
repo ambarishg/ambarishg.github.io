@@ -22,6 +22,17 @@ Parentheses;round brackets Matrix $ \\begin{pmatrix} 1 &amp;amp; 2 &amp;amp; 3\\
     </item>
     
     <item>
+      <title>Convolutions in 1 dimension</title>
+      <link>/posts/conv1d-pytorch/</link>
+      <pubDate>Mon, 26 Apr 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/conv1d-pytorch/</guid>
+      <description>Basics The Convolutional block is one of the basic building blocks used in deep learning. We go in-depth with Convolution in 1 dimension and understand the basics of convolution, strides, and padding. We explain visually and also through PyTorch code to verify our concepts.
+The Kernel takes an Input and provides an output which is sometimes referred to as a feature map
+The Kernel is made up of many things .</description>
+    </item>
+    
+    <item>
       <title>Red Wine Quality prediction using AzureML, AKS with TensorFlow Keras</title>
       <link>/posts/red-wine-quality-azureml-keras/</link>
       <pubDate>Sat, 24 Apr 2021 00:00:00 +0030</pubDate>

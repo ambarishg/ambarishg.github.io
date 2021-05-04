@@ -18,6 +18,24 @@
     </item>
     
     <item>
+      <title>deeplearning</title>
+      <link>/tags/deeplearning/</link>
+      <pubDate>Mon, 26 Apr 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/tags/deeplearning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pytorch</title>
+      <link>/tags/pytorch/</link>
+      <pubDate>Mon, 26 Apr 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/tags/pytorch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>azure</title>
       <link>/tags/azure/</link>
       <pubDate>Sat, 24 Apr 2021 00:00:00 +0030</pubDate>
@@ -27,29 +45,11 @@
     </item>
     
     <item>
-      <title>deeplearning</title>
-      <link>/tags/deeplearning/</link>
-      <pubDate>Sat, 24 Apr 2021 00:00:00 +0030</pubDate>
-      
-      <guid>/tags/deeplearning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>tensorflow</title>
       <link>/tags/tensorflow/</link>
       <pubDate>Sat, 24 Apr 2021 00:00:00 +0030</pubDate>
       
       <guid>/tags/tensorflow/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pytorch</title>
-      <link>/tags/pytorch/</link>
-      <pubDate>Sun, 18 Apr 2021 00:00:00 +0030</pubDate>
-      
-      <guid>/tags/pytorch/</guid>
       <description></description>
     </item>
     

@@ -17,10 +17,16 @@
     <loc>/</loc>
     <lastmod>2021-05-04T00:00:00+00:30</lastmod>
   </url><url>
-    <loc>/tags/azure/</loc>
-    <lastmod>2021-04-24T00:00:00+00:30</lastmod>
+    <loc>/posts/conv1d-pytorch/</loc>
+    <lastmod>2021-04-26T00:00:00+00:30</lastmod>
   </url><url>
     <loc>/tags/deeplearning/</loc>
+    <lastmod>2021-04-26T00:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/tags/pytorch/</loc>
+    <lastmod>2021-04-26T00:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/tags/azure/</loc>
     <lastmod>2021-04-24T00:00:00+00:30</lastmod>
   </url><url>
     <loc>/posts/red-wine-quality-azureml-keras/</loc>
@@ -30,9 +36,6 @@
     <lastmod>2021-04-24T00:00:00+00:30</lastmod>
   </url><url>
     <loc>/posts/adaptiveavgpool2d-pytorch/</loc>
-    <lastmod>2021-04-18T00:00:00+00:30</lastmod>
-  </url><url>
-    <loc>/tags/pytorch/</loc>
     <lastmod>2021-04-18T00:00:00+00:30</lastmod>
   </url><url>
     <loc>/tags/azure-cognitiveservices/</loc>
