@@ -7,20 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0030</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 May 2021 01:00:00 +0030</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>azure</title>
       <link>/tags/azure/</link>
-      <pubDate>Thu, 13 May 2021 00:00:00 +0030</pubDate>
+      <pubDate>Fri, 14 May 2021 01:00:00 +0030</pubDate>
       
       <guid>/tags/azure/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>nlp</title>
+      <link>/tags/nlp/</link>
+      <pubDate>Fri, 14 May 2021 01:00:00 +0030</pubDate>
+      
+      <guid>/tags/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>recommender</title>
       <link>/tags/recommender/</link>
-      <pubDate>Thu, 13 May 2021 00:00:00 +0030</pubDate>
+      <pubDate>Fri, 14 May 2021 01:00:00 +0030</pubDate>
       
       <guid>/tags/recommender/</guid>
       <description></description>
@@ -99,15 +108,6 @@
     </item>
     
     <item>
-      <title>RecommenderSystems</title>
-      <link>/tags/recommendersystems/</link>
-      <pubDate>Wed, 30 May 2018 02:01:58 +0530</pubDate>
-      
-      <guid>/tags/recommendersystems/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Classification</title>
       <link>/tags/classification/</link>
       <pubDate>Wed, 25 Apr 2018 02:01:58 +0530</pubDate>
@@ -122,15 +122,6 @@
       <pubDate>Wed, 04 Apr 2018 02:01:58 +0530</pubDate>
       
       <guid>/tags/cartography/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>nlp</title>
-      <link>/tags/nlp/</link>
-      <pubDate>Thu, 19 Oct 2017 00:00:00 +0030</pubDate>
-      
-      <guid>/tags/nlp/</guid>
       <description></description>
     </item>
     

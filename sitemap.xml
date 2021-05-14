@@ -3,21 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/tags/azure/</loc>
-    <lastmod>2021-05-13T00:00:00+00:30</lastmod>
+    <lastmod>2021-05-14T01:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/tags/nlp/</loc>
+    <lastmod>2021-05-14T01:00:00+00:30</lastmod>
   </url><url>
     <loc>/posts/</loc>
-    <lastmod>2021-05-13T00:00:00+00:30</lastmod>
+    <lastmod>2021-05-14T01:00:00+00:30</lastmod>
   </url><url>
-    <loc>/posts/recommender-career/</loc>
-    <lastmod>2021-05-13T00:00:00+00:30</lastmod>
+    <loc>/posts/recommender-career-azure/</loc>
+    <lastmod>2021-05-14T01:00:00+00:30</lastmod>
   </url><url>
     <loc>/tags/recommender/</loc>
-    <lastmod>2021-05-13T00:00:00+00:30</lastmod>
+    <lastmod>2021-05-14T01:00:00+00:30</lastmod>
   </url><url>
     <loc>/tags/</loc>
-    <lastmod>2021-05-13T00:00:00+00:30</lastmod>
+    <lastmod>2021-05-14T01:00:00+00:30</lastmod>
   </url><url>
     <loc>/</loc>
+    <lastmod>2021-05-14T01:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/posts/recommender-career/</loc>
     <lastmod>2021-05-13T00:00:00+00:30</lastmod>
   </url><url>
     <loc>/posts/matrix-helper/</loc>
@@ -92,9 +98,6 @@
     <loc>/awards/2018-05-30-donors-choose-recommendation-project/</loc>
     <lastmod>2018-05-30T02:01:58+05:30</lastmod>
   </url><url>
-    <loc>/tags/recommendersystems/</loc>
-    <lastmod>2018-05-30T02:01:58+05:30</lastmod>
-  </url><url>
     <loc>/tags/classification/</loc>
     <lastmod>2018-04-25T02:01:58+05:30</lastmod>
   </url><url>
@@ -114,9 +117,6 @@
     <lastmod>2017-12-25T02:01:58+05:30</lastmod>
   </url><url>
     <loc>/posts/2017-10-19-chicago-restaurants-inspections/</loc>
-    <lastmod>2017-10-19T00:00:00+00:30</lastmod>
-  </url><url>
-    <loc>/tags/nlp/</loc>
     <lastmod>2017-10-19T00:00:00+00:30</lastmod>
   </url><url>
     <loc>/tags/text-mining/</loc>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Recommendation engine using Text data ,Cosine Similarity and TFIDF technique , Azure ML - Thoughts - Ambarish</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Recommendation engine using Text data ,Cosine Similarity and TFIDF technique , Azure ML">
+<meta itemprop="description" content="Recommendation engine using Text data ,Cosine Similarity and TFIDF technique and deployment into Azure"><meta itemprop="datePublished" content="2021-05-14T01:00:00&#43;00:30" />
+<meta itemprop="dateModified" content="2021-05-14T01:00:00&#43;00:30" />
+<meta itemprop="wordCount" content="1629">
+<meta itemprop="keywords" content="recommender,azure,nlp," /><meta property="og:title" content="Recommendation engine using Text data ,Cosine Similarity and TFIDF technique , Azure ML" />
+<meta property="og:description" content="Recommendation engine using Text data ,Cosine Similarity and TFIDF technique and deployment into Azure" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/recommender-career-azure/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-14T01:00:00&#43;00:30" />
+<meta property="article:modified_time" content="2021-05-14T01:00:00&#43;00:30" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Recommendation engine using Text data ,Cosine Similarity and TFIDF technique , Azure ML"/>
+<meta name="twitter:description" content="Recommendation engine using Text data ,Cosine Similarity and TFIDF technique and deployment into Azure"/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="/css/dark.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+		<script src="/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+	<h1 class="site-title"><a href="/">Thoughts - Ambarish</a></h1>
+	<div class="site-description"><p></p><nav class="nav social">
+			<ul class="flat"><li><a href="mailto:ambarish.ganguly@gmail.com" title="Email"><i data-feather="mail"></i></a></li><li><a href="https://www.linkedin.com/in/ambarish-ganguly/" title="LinkedIn"><i data-feather="linkedin"></i></a></li><li><a href="https://twitter.com/a_ganguly/" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="https://github.com/ambarishg" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+			<li>
+				<a href="/books">Books</a>
+			</li>
+			
+			<li>
+				<a href="/awards/">Awards</a>
+			</li>
+			
+			<li>
+				<a href="/testimonials/">Testimonials</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">14</span>
+							<span class="rest">May 2021</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Recommendation engine using Text data ,Cosine Similarity and TFIDF technique , Azure ML</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<h1 id="what-are-we-trying-to-do">What are we trying to do</h1>
+<p>We will build a very simple recommendation engine using Text Data. To demostrate this we would use a case study approach and build a recommendation engine for a non profit organization <strong>Career Village</strong>. I have detailed post on the methodology of the recommendation engine in the post <a href="../recommender-career">here</a>. In this post we will show of how we train, infer and deploy the solution in Azure.</p>
+<p>We divide our approach into <strong>2 major blocks</strong>:</p>
+<ol>
+<li>Building the Model in Azure ML</li>
+<li>Inference from the Model in Azure ML</li>
+</ol>
+<p><strong>Building the model in Azure ML</strong> has the following steps:</p>
+<ol>
+<li>Create the Azure ML workspace</li>
+<li>Upload data into the Azure ML Workspace</li>
+<li>Create the code folder</li>
+<li>Create the Compute Cluster</li>
+<li>Create the Model</li>
+<li>Create the Compute Environment</li>
+<li>Create the Estimator</li>
+<li>Create the Experiment and Run</li>
+<li>Register the Model</li>
+</ol>
+<p><strong>Inferencing from the model</strong> in Azure ML has the following steps:</p>
+<ol>
+<li>Create the Inference Script</li>
+<li>Create the Inference Dependencies</li>
+<li>Create the Inference Config</li>
+<li>Create the Inference Clusters</li>
+<li>Deploy the Model in the Inference Cluster</li>
+<li>Get the predictions</li>
+</ol>
+<h1 id="create-the-azure-ml-workspace">Create the Azure ML workspace</h1>
+<p>We need to create an Azure ML workspace that contains the experiments, runs, models, and everything. It is a house for everything. Let&rsquo;s create one</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import azureml.core
+print(azureml.core.VERSION)
+</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#00f">from</span> azureml.core <span style="color:#00f">import</span> Workspace
+<span style="color:#00f">from</span> azureml.core.authentication <span style="color:#00f">import</span> InteractiveLoginAuthentication
+
+sid = &lt;your-subscription-id&gt;
+forced_interactive_auth = InteractiveLoginAuthentication(tenant_id=&lt;your-tenant-id&gt;)
+ws = Workspace.create(name=<span style="color:#a31515">&#39;azureml_workspace&#39;</span>,
+            subscription_id= sid, 
+            resource_group=<span style="color:#a31515">&#39;rgazureml&#39;</span>,
+            create_resource_group = True,
+            location=<span style="color:#a31515">&#39;centralus&#39;</span>
+            )
+</code></pre></div><p>What does this code segment actually do:</p>
+<ul>
+<li>Deployed an Azure ML workspace <code>azureml_workspace</code></li>
+<li>Deployed an AppInsights</li>
+<li>Deployed KeyVault</li>
+<li>Deployed StorageAccount</li>
+</ul>
+<p>in the resource group <strong>rgazureml</strong>. You can navigate to the resource group to view these features.</p>
+<h1 id="upload-data-into-the-azure-ml-workspace">Upload data into the Azure ML Workspace</h1>
+<p>Machine Learning is about data. We need data to build our models. The data which we are going to use is the Red Wine Quality dataset. Let us store the data in the Azure ML workspace.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># Upload data into the Azure ML Workspace
+
+#upload data by using get_default_datastore()
+ds = ws.get_default_datastore()
+ds.upload(src_dir=&#39;./recodata&#39;, target_path=&#39;winedata&#39;, overwrite=True, show_progress=True)
+
+print(&#39;Done&#39;)
+</code></pre></div><p>We upload the data to the workspace default store. The default store is associated with the <strong>storage account</strong> we had created earlier.</p>
+<h1 id="create-the-code-folder">Create the code folder</h1>
+<p>We store the code files in a directory</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import os
+
+# create the folder
+folder_training_script = &#39;./recocode&#39;
+os.makedirs(folder_training_script, exist_ok=True)
+
+print(&#39;Done&#39;)
+</code></pre></div><p>Till this point, we have uploaded the data for machine learning. We need to identify the computing environment to process the machine learning models. Let&rsquo;s create a <strong>compute cluster</strong> using the Azure ML SDK.</p>
+<h1 id="create-the-compute-cluster">Create the Compute Cluster</h1>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
+import os
+
+# Step 1: name the cluster and set the minimal and maximal number of nodes 
+compute_name = os.environ.get(&#34;AML_COMPUTE_CLUSTER_NAME&#34;, &#34;cpucluster&#34;)
+min_nodes = os.environ.get(&#34;AML_COMPUTE_CLUSTER_MIN_NODES&#34;, 0)
+max_nodes = os.environ.get(&#34;AML_COMPUTE_CLUSTER_MAX_NODES&#34;, 1)
+
+# Step 2: choose environment variables 
+vm_size = os.environ.get(&#34;AML_COMPUTE_CLUSTER_SKU&#34;, &#34;STANDARD_D2_V2&#34;)
+
+provisioning_config = AmlCompute.provisioning_configuration(
+    vm_size = vm_size, min_nodes = min_nodes, max_nodes = max_nodes)
+
+# create the cluster
+compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
+
+print(&#39;Compute target created&#39;)
+</code></pre></div><h1 id="create-the-model">Create the Model</h1>
+<p>I have detailed post on the methodology of the recommendation engine in the post <a href="../recommender-career">here</a></p>
+<p>Once the training is complete, we save the following</p>
+<ul>
+<li>TF-IDF fitted vectorizer</li>
+<li>TF-IDF matrix of the questions</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">%%writefile $folder_training_script/train.py
+
+import argparse
+import os
+import numpy as np
+import pandas as pd
+import glob
+import gc
+import re
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+import string
+import pickle
+
+from azureml.core import Run
+# from utils import load_data
+
+parser = argparse.ArgumentParser()
+parser.add_argument(&#39;--data-folder&#39;, type=str, dest=&#39;data_folder&#39;, help=&#39;data folder mounting point&#39;)
+args = parser.parse_args()
+
+def clean_text(text):
+    &#39;&#39;&#39;Make text lowercase,remove punctuation
+    .&#39;&#39;&#39;
+    text = str(text).lower()
+    text = re.sub(&#39;[%s]&#39; % re.escape(string.punctuation), &#39;&#39;, text)
+    text = re.sub(&#39;\n&#39;, &#39;&#39;, text)
+    return text
+
+
+data_folder = os.path.join(args.data_folder, &#39;recodata&#39;)
+print(&#39;Data folder:&#39;, data_folder)
+
+questions  = pd.read_csv(os.path.join(data_folder, &#39;questions.csv&#39;))
+professionals = pd.read_csv(os.path.join(data_folder, &#39;professionals.csv&#39;))
+answers = pd.read_csv(os.path.join(data_folder, &#39;answers.csv&#39;))
+
+prof_ans = pd.merge(professionals, answers, how = &#39;left&#39; ,
+                    left_on = &#39;professionals_id&#39;, right_on = &#39;answers_author_id&#39;)
+prof_ans_q = pd.merge(prof_ans, questions, how = &#39;left&#39; ,
+                      left_on = &#39;answers_question_id&#39;, right_on = &#39;questions_id&#39;)
+
+prof_ans_q = prof_ans_q[(~prof_ans_q[&#34;questions_title&#34;].isna()) | (~prof_ans_q[&#34;questions_body&#34;].isna()) ]
+
+q = prof_ans_q[&#34;questions_title&#34;] + &#34; &#34; + prof_ans_q[&#34;questions_body&#34;]
+q  = q.apply(lambda x:clean_text(x))
+
+MAX_DF     = 0.95
+MIN_DF     = 2
+LANGUAGE   = &#39;english&#39;
+
+tfidf_vectorizer = TfidfVectorizer(max_df=MAX_DF, 
+                                   min_df=MIN_DF,
+                                   stop_words=LANGUAGE)
+
+q = q.dropna()
+tfidf_vectorizer.fit(q)
+q_tfidf = tfidf_vectorizer.transform((q))
+
+# Get the experiment run context
+run = Run.get_context()
+
+pickle.dump(tfidf_vectorizer,open(&#39;outputs/tfidf_vectorizer.pkl&#39;,&#34;wb&#34;))
+pickle.dump(q_tfidf,open(&#34;outputs/q_tfidf.pkl&#34;,&#34;wb&#34;))
+
+
+run.complete()
+
+
+</code></pre></div><h1 id="create-the-compute-environment">Create the Compute Environment</h1>
+<p>Till this point, we have done the following things</p>
+<ul>
+<li>Uploaded the data into Azure</li>
+<li>Created the compute resources for the machine learning model</li>
+<li>Created the model in a file</li>
+</ul>
+<p>We need certain packages so that we can perform machine learning. Usually, we would require packages such as <code>sklearn</code>. This is a small machine learning model, but ideally, we would require more packages. In the next step, we create an <strong>Environment</strong> which houses the packages for the machine learning model</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">from azureml.core <span style="color:#00f">import</span> Environment
+from azureml.core.conda_dependencies <span style="color:#00f">import</span> CondaDependencies
+
+<span style="">#</span> Create a Python environment <span style="color:#00f">for</span> the experiment
+reco_env = Environment(<span style="color:#a31515">&#34;reco-experiment-env&#34;</span>)
+reco_env.python.user_managed_dependencies = False <span style="">#</span> Let Azure ML manage dependencies
+reco_env.docker.enabled = False <span style="">#</span> Use a docker container
+
+<span style="">#</span> Create a set of <span style="color:#00f">package</span> dependencies (conda or pip as required)
+wine_packages = CondaDependencies.create(conda_packages=[<span style="">&#39;</span>scikit-learn<span style="">&#39;</span>])
+
+<span style="">#</span> Add the dependencies to the environment
+reco_env.python.conda_dependencies = wine_packages
+
+print(reco_env.name, <span style="">&#39;</span>defined.<span style="">&#39;</span>)
+
+<span style="">#</span> Register the environment
+reco_env.register(workspace=ws)
+</code></pre></div><h1 id="create-the-estimator">Create the Estimator</h1>
+<p>Till this point, we have done the following things</p>
+<ul>
+<li>Uploaded the data into Azure</li>
+<li>Created the compute resources for the machine learning model</li>
+<li>Created the model in a file</li>
+<li>Created the environment for the compute clusters</li>
+</ul>
+<p>We need to bind all this together and we would create an <strong>Estimator</strong> which binds the source code, hyperparameters required for the model, compute clusters, and the compute environment together. To run the model, we would also pass the hyperparameters required for the model.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from azureml.train.estimator import Estimator
+
+script_params = {
+    &#39;--data-folder&#39;: ds.as_mount()
+}
+
+registered_env = Environment.get(ws, &#39;reco-experiment-env&#39;)
+
+# Create an estimator
+estimator = Estimator(source_directory=folder_training_script,
+                      script_params=script_params,
+                      compute_target = compute_target, # Run the experiment on the remote compute target
+                      environment_definition = registered_env,
+                      entry_script=&#39;train.py&#39;)
+</code></pre></div><p>We are now ready for an AzureML <strong>Experiment</strong> which would house a number of <strong>Runs</strong>. The following code segment creates an experiment and also creates a <strong>Run</strong> with the created <strong>Estimator</strong></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># Create the Experiment and Run               
+
+from azureml.core import Experiment
+
+#Create an experiment
+experiment = Experiment(workspace = ws, name = &#34;reco_expt&#34;)
+
+print(&#39;Experiment created&#39;)
+run = experiment.submit(config=estimator)
+run
+</code></pre></div><h1 id="register-the-model">Register the Model</h1>
+<p>We register the following in the workspace using the following code segment</p>
+<ul>
+<li>TF-IDF fitted vectorizer</li>
+<li>TF-IDF matrix of the questions</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">tfidf_vectorizer = run.register_model(model_name=&#39;tfidf_vectorizer_model&#39;,
+                           model_path=&#39;outputs/tfidf_vectorizer.pkl&#39;,
+                           tags = {&#39;area&#39;: &#34;tfidf_vectorizer&#34;, &#39;type&#39;: &#34;sklearn&#34;},
+                           description = &#34;tfidf_vectorizer&#34;)
+
+q_tfidf = run.register_model(model_name=&#39;q_tfidf_model&#39;,
+                           model_path=&#39;outputs/q_tfidf.pkl&#39;,
+                           tags = {&#39;area&#39;: &#34;q_tfidf&#34;, &#39;type&#39;: &#34;sklearn&#34;},
+                           description = &#34;q_tfidf&#34;)
+
+print(tfidf_vectorizer.name, q_tfidf.name, sep=&#39;\t&#39;)
+
+</code></pre></div><h1 id="create-the-inference-script">Create the Inference Script</h1>
+<p>Till this point , we have built the model and registered in our workspace. We will now use this model to predict on new data. The first step is to create an <strong>inference script</strong>.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">%%writefile $folder_training_script/score.py
+
+import json
+import joblib
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+import pickle
+from azureml.core.model import Model
+
+# Called when the service is loaded
+def init():
+    global model_path,model_path2
+    
+    # Get the path to the registered model file and load it
+    model_path = Model.get_model_path(&#39;tfidf_vectorizer_model&#39;)
+    model_path2 = Model.get_model_path(&#39;q_tfidf_model&#39;)
+    
+    
+
+# Called when a request is received
+def run(raw_data):
+    # Get the input data as a numpy array
+    data = np.array(json.loads(raw_data)[&#39;data&#39;])
+    
+
+    with open(model_path, &#39;rb&#39;) as f:
+        tfidf_vectorizer2 = pickle.load(f)
+    with open(model_path2, &#39;rb&#39;) as f:
+        q_tfidf2 = pickle.load(f)
+    
+    q_new_tfidf = tfidf_vectorizer2.transform(data)
+    result = cosine_similarity(q_new_tfidf,q_tfidf2)
+    predictions = result
+    
+    return predictions.tolist()
+
+</code></pre></div><p>We also create the environment for the <code>packages</code> which are required for the inference script through the script</p>
+<h1 id="create-the-inference-dependencies">Create the Inference Dependencies</h1>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from azureml.core.conda_dependencies import CondaDependencies
+
+# Add the dependencies for your model
+myenv = CondaDependencies()
+myenv.add_conda_package(&#34;scikit-learn&#34;)
+
+# Save the environment config as a .yml file
+env_file = &#39;./recocode/env.yml&#39;
+with open(env_file,&#34;w&#34;) as f:
+    f.write(myenv.serialize_to_string())
+print(&#34;Saved dependency info in&#34;, env_file)
+</code></pre></div><p>Till this point, we have the following</p>
+<ul>
+<li>Inference script</li>
+<li>Dependencies required for the inference script</li>
+</ul>
+<p>We need to combine this together and the <strong>InferenceConfig</strong> will help us to do this</p>
+<h1 id="create-the-inference-config">Create the Inference Config</h1>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from azureml.core.model import InferenceConfig
+
+classifier_inference_config = InferenceConfig(runtime= &#34;python&#34;,
+                                              source_directory = &#39;./recocode&#39;,
+                                              entry_script=&#34;score.py&#34;,
+                                              conda_file=&#34;env.yml&#34;)
+</code></pre></div><h1 id="create-the-inference-clusters">Create the Inference Clusters</h1>
+<p>We create the <strong>Inference Clusters</strong>, the AKS clusters required for the inference</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from azureml.core.compute import ComputeTarget, AksCompute
+
+cluster_name = &#39;aks-cluster&#39;
+compute_config = AksCompute.provisioning_configuration(cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
+production_cluster = ComputeTarget.create(ws, cluster_name, compute_config)
+production_cluster.wait_for_completion(show_output=True)
+</code></pre></div><h1 id="deploy-the-model-in-the-inference-cluster">Deploy the Model in the Inference Cluster</h1>
+<p>We create the deployment config for the AKS Web Service</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from azureml.core.webservice import AksWebservice
+
+classifier_deploy_config = AksWebservice.deploy_configuration(cpu_cores = 1,
+                                                              memory_gb = 1)
+</code></pre></div><p>The final step is to combine the</p>
+<ul>
+<li>Inference config</li>
+<li>Deployment config</li>
+<li>Inference Cluster to create an endpoint which can be used for predicting new data</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from azureml.core.model import Model
+
+model1 = ws.models[&#39;tfidf_vectorizer_model&#39;]
+model2 = ws.models[&#39;q_tfidf_model&#39;]
+service = Model.deploy(workspace=ws,
+                       name = &#39;reco-service&#39;,
+                       models = [model1,model2],
+                       inference_config = classifier_inference_config,
+                       deployment_config = classifier_deploy_config,
+                       deployment_target = production_cluster)
+service.wait_for_deployment(show_output = True)
+</code></pre></div><p>We print the endpoint for the model</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">endpoint = service.scoring_uri
+print(endpoint)
+</code></pre></div><h1 id="get-the-recommendations">Get the recommendations</h1>
+<p>We get the <strong>Service Keys</strong> which we would require for prediction</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">primary_key, secondary_key = service.get_keys()
+</code></pre></div><p>The final step is creating predictions from the endpoint which is illustrated below</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import requests
+import json
+
+# An array of new data cases
+x_new = [&#34;I want to be a data scientist. What should I study&#34;]
+
+# Convert the array to a serializable list in a JSON document
+json_data = json.dumps({&#34;data&#34;: x_new})
+
+# Set the content type in the request headers
+request_headers = { &#34;Content-Type&#34;:&#34;application/json&#34;,
+                    &#34;Authorization&#34;:&#34;Bearer &#34; + primary_key }
+
+# Call the service
+response = requests.post(url = endpoint,
+                         data = json_data,
+                         headers = request_headers)
+
+print(response)
+</code></pre></div><h1 id="get-the-3-best-answers">Get the 3 best answers</h1>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import numpy as np
+import pandas as pd
+
+data_folder = &#34;recodata&#34;
+
+questions  = pd.read_csv(os.path.join(data_folder, &#39;questions.csv&#39;))
+professionals = pd.read_csv(os.path.join(data_folder, &#39;professionals.csv&#39;))
+answers = pd.read_csv(os.path.join(data_folder, &#39;answers.csv&#39;))
+
+prof_ans = pd.merge(professionals, answers, how = &#39;left&#39; ,
+                    left_on = &#39;professionals_id&#39;, right_on = &#39;answers_author_id&#39;)
+prof_ans_q = pd.merge(prof_ans, questions, how = &#39;left&#39; ,
+                      left_on = &#39;answers_question_id&#39;, right_on = &#39;questions_id&#39;)
+
+prof_ans_q = prof_ans_q[(~prof_ans_q[&#34;questions_title&#34;].isna()) | (~prof_ans_q[&#34;questions_body&#34;].isna()) ]
+
+index = np.argsort(result)[:,-10:]
+print(index[0])
+
+</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(prof_ans_q.iloc[index[0][-1]][&#34;answers_body&#34;])
+</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(prof_ans_q.iloc[index[0][-2]][&#34;answers_body&#34;])
+</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(prof_ans_q.iloc[index[0][-3]][&#34;answers_body&#34;])
+</code></pre></div>
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/recommender">recommender</a></li>
+							
+							<li><a href="/tags/azure">azure</a></li>
+							
+							<li><a href="/tags/nlp">nlp</a></li>
+							
+						</ul>
+					
+				
+			</div>
+			
+			<div>
+				<script src="https://utteranc.es/client.js"
+        repo="hugolearner/hugolearner.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+			</div>
+			
+		</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2021  © Copyright notice |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113191180-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script>feather.replace()</script>
+
+<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function(x){
+          x.parentElement.classList += 'has-jax'})
+      });
+  
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
