@@ -7,22 +7,41 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Fri, 14 May 2021 01:00:00 +0030</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 May 2021 01:00:00 +0030</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recommendation engine using Text data ,Cosine Similarity and Word Embeddings , Azure ML</title>
+      <link>/posts/recommender-career-spacy-azure/</link>
+      <pubDate>Sat, 15 May 2021 01:00:00 +0030</pubDate>
+      
+      <guid>/posts/recommender-career-spacy-azure/</guid>
+      <description>What are we trying to do We will build a very simple recommendation engine using Text Data. To demostrate this we would use a case study approach and build a recommendation engine for a non profit organization Career Village. I have detailed post on the methodology of the recommendation engine in the post here. In this post we will show of how we train, infer and deploy the solution in Azure.</description>
+    </item>
+    
+    <item>
+      <title>Recommendation engine using Text data ,Cosine Similarity and word embeddings technique</title>
+      <link>/posts/recommender-career-spacy/</link>
+      <pubDate>Sat, 15 May 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/recommender-career-spacy/</guid>
+      <description>What are we trying to do We will build a very simple recommendation engine using Text Data. To demostrate this we would use a case study approach and build a recommendation engine for a non profit organization Career Village.
+CareerVillage.org is a nonprofit that crowdsources career advice for underserved youth. Founded in 2011 in four classrooms in New York City, the platform has now served career advice from 25,000 volunteer professionals to over 3.</description>
+    </item>
+    
     <item>
       <title>Recommendation engine using Text data ,Cosine Similarity and TFIDF technique , Azure ML</title>
-      <link>/posts/recommender-career-azure/</link>
+      <link>/posts/recommender-career-tfidf-azure/</link>
       <pubDate>Fri, 14 May 2021 01:00:00 +0030</pubDate>
       
-      <guid>/posts/recommender-career-azure/</guid>
+      <guid>/posts/recommender-career-tfidf-azure/</guid>
       <description>What are we trying to do We will build a very simple recommendation engine using Text Data. To demostrate this we would use a case study approach and build a recommendation engine for a non profit organization Career Village. I have detailed post on the methodology of the recommendation engine in the post here. In this post we will show of how we train, infer and deploy the solution in Azure.</description>
     </item>
     
     <item>
       <title>Recommendation engine using Text data ,Cosine Similarity and TFIDF technique</title>
-      <link>/posts/recommender-career/</link>
+      <link>/posts/recommender-career-tfidf/</link>
       <pubDate>Thu, 13 May 2021 00:00:00 +0030</pubDate>
       
-      <guid>/posts/recommender-career/</guid>
+      <guid>/posts/recommender-career-tfidf/</guid>
       <description>What are we trying to do We will build a very simple recommendation engine using Text Data. To demostrate this we would use a case study approach and build a recommendation engine for a non profit organization Career Village.
 CareerVillage.org is a nonprofit that crowdsources career advice for underserved youth. Founded in 2011 in four classrooms in New York City, the platform has now served career advice from 25,000 volunteer professionals to over 3.</description>
     </item>

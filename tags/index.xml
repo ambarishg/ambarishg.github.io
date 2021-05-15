@@ -7,20 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Fri, 14 May 2021 01:00:00 +0030</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 May 2021 01:00:00 +0030</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>azure</title>
-      <link>/tags/azure/</link>
-      <pubDate>Fri, 14 May 2021 01:00:00 +0030</pubDate>
+      <title>azure-machinelearning</title>
+      <link>/tags/azure-machinelearning/</link>
+      <pubDate>Sat, 15 May 2021 01:00:00 +0030</pubDate>
       
-      <guid>/tags/azure/</guid>
+      <guid>/tags/azure-machinelearning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nlp</title>
       <link>/tags/nlp/</link>
-      <pubDate>Fri, 14 May 2021 01:00:00 +0030</pubDate>
+      <pubDate>Sat, 15 May 2021 01:00:00 +0030</pubDate>
       
       <guid>/tags/nlp/</guid>
       <description></description>
@@ -29,9 +29,18 @@
     <item>
       <title>recommender</title>
       <link>/tags/recommender/</link>
-      <pubDate>Fri, 14 May 2021 01:00:00 +0030</pubDate>
+      <pubDate>Sat, 15 May 2021 01:00:00 +0030</pubDate>
       
       <guid>/tags/recommender/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spacy</title>
+      <link>/tags/spacy/</link>
+      <pubDate>Sat, 15 May 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/tags/spacy/</guid>
       <description></description>
     </item>
     
@@ -72,20 +81,11 @@
     </item>
     
     <item>
-      <title>azure cognitiveservices</title>
+      <title>azure-cognitiveservices</title>
       <link>/tags/azure-cognitiveservices/</link>
       <pubDate>Wed, 31 Mar 2021 00:00:00 +0030</pubDate>
       
       <guid>/tags/azure-cognitiveservices/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>azure-machinelearning</title>
-      <link>/tags/azure-machinelearning/</link>
-      <pubDate>Wed, 31 Mar 2021 00:00:00 +0030</pubDate>
-      
-      <guid>/tags/azure-machinelearning/</guid>
       <description></description>
     </item>
     

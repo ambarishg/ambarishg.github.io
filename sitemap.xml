@@ -2,28 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/tags/azure/</loc>
-    <lastmod>2021-05-14T01:00:00+00:30</lastmod>
+    <loc>/tags/azure-machinelearning/</loc>
+    <lastmod>2021-05-15T01:00:00+00:30</lastmod>
   </url><url>
     <loc>/tags/nlp/</loc>
-    <lastmod>2021-05-14T01:00:00+00:30</lastmod>
+    <lastmod>2021-05-15T01:00:00+00:30</lastmod>
   </url><url>
     <loc>/posts/</loc>
-    <lastmod>2021-05-14T01:00:00+00:30</lastmod>
+    <lastmod>2021-05-15T01:00:00+00:30</lastmod>
   </url><url>
-    <loc>/posts/recommender-career-azure/</loc>
-    <lastmod>2021-05-14T01:00:00+00:30</lastmod>
+    <loc>/posts/recommender-career-spacy-azure/</loc>
+    <lastmod>2021-05-15T01:00:00+00:30</lastmod>
   </url><url>
     <loc>/tags/recommender/</loc>
-    <lastmod>2021-05-14T01:00:00+00:30</lastmod>
+    <lastmod>2021-05-15T01:00:00+00:30</lastmod>
   </url><url>
     <loc>/tags/</loc>
-    <lastmod>2021-05-14T01:00:00+00:30</lastmod>
+    <lastmod>2021-05-15T01:00:00+00:30</lastmod>
   </url><url>
     <loc>/</loc>
+    <lastmod>2021-05-15T01:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/posts/recommender-career-spacy/</loc>
+    <lastmod>2021-05-15T00:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/tags/spacy/</loc>
+    <lastmod>2021-05-15T00:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/posts/recommender-career-tfidf-azure/</loc>
     <lastmod>2021-05-14T01:00:00+00:30</lastmod>
   </url><url>
-    <loc>/posts/recommender-career/</loc>
+    <loc>/posts/recommender-career-tfidf/</loc>
     <lastmod>2021-05-13T00:00:00+00:30</lastmod>
   </url><url>
     <loc>/posts/matrix-helper/</loc>
@@ -51,9 +60,6 @@
     <lastmod>2021-04-18T00:00:00+00:30</lastmod>
   </url><url>
     <loc>/tags/azure-cognitiveservices/</loc>
-    <lastmod>2021-03-31T00:00:00+00:30</lastmod>
-  </url><url>
-    <loc>/tags/azure-machinelearning/</loc>
     <lastmod>2021-03-31T00:00:00+00:30</lastmod>
   </url><url>
     <loc>/posts/bees-health-detection-azure-cognitive-services/</loc>
