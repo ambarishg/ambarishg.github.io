@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>word embeddings on Thoughts - Ambarish</title>
+    <link>/tags/word-embeddings/</link>
+    <description>Recent content in word embeddings on Thoughts - Ambarish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Tue, 18 May 2021 00:00:00 +0030</lastBuildDate><atom:link href="/tags/word-embeddings/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Word embeddings</title>
+      <link>/posts/word-embeddings/</link>
+      <pubDate>Tue, 18 May 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/word-embeddings/</guid>
+      <description>From the TensorFlow documentation word embeddings documentation
+ Word embeddings give us a way to use an efficient, dense representation in which similar words have a similar encoding.
+  Importantly, you do not have to specify this encoding by hand. An embedding is a dense vector of floating point values (the length of the vector is a parameter you specify).
+  Instead of specifying the values for the embedding manually, they are trainable parameters (weights learned by the model during training, in the same way a model learns weights for a dense layer).</description>
+    </item>
+    
+  </channel>
+</rss>

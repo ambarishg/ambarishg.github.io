@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Sat, 15 May 2021 01:00:00 +0030</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 May 2021 00:00:00 +0030</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Word embeddings</title>
+      <link>/posts/word-embeddings/</link>
+      <pubDate>Tue, 18 May 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/word-embeddings/</guid>
+      <description>From the TensorFlow documentation word embeddings documentation
+ Word embeddings give us a way to use an efficient, dense representation in which similar words have a similar encoding.
+  Importantly, you do not have to specify this encoding by hand. An embedding is a dense vector of floating point values (the length of the vector is a parameter you specify).
+  Instead of specifying the values for the embedding manually, they are trainable parameters (weights learned by the model during training, in the same way a model learns weights for a dense layer).</description>
+    </item>
+    
     <item>
       <title>Recommendation engine using Text data ,Cosine Similarity and Word Embeddings , Azure ML</title>
       <link>/posts/recommender-career-spacy-azure/</link>
