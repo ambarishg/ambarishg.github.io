@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Tue, 18 May 2021 00:00:00 +0030</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 May 2021 01:00:00 +0030</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>nlp</title>
       <link>/tags/nlp/</link>
-      <pubDate>Tue, 18 May 2021 00:00:00 +0030</pubDate>
+      <pubDate>Tue, 18 May 2021 01:00:00 +0030</pubDate>
       
       <guid>/tags/nlp/</guid>
       <description></description>
@@ -20,7 +20,7 @@
     <item>
       <title>word embeddings</title>
       <link>/tags/word-embeddings/</link>
-      <pubDate>Tue, 18 May 2021 00:00:00 +0030</pubDate>
+      <pubDate>Tue, 18 May 2021 01:00:00 +0030</pubDate>
       
       <guid>/tags/word-embeddings/</guid>
       <description></description>
