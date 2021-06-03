@@ -209,7 +209,7 @@ ul {
 
 .highlight {
     background: 0 0;
-    background-color: #FAFAFA;
+    background-color: rgb(218, 211, 211);
 }
 
 .wrapper {
@@ -484,3 +484,8 @@ ul {
         line-height: 1.4em;
     }
 }
+
+code{
+    background-color: rgb(218, 211, 211);
+}
+
