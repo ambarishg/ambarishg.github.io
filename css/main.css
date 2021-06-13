@@ -205,11 +205,13 @@ ul {
     margin-top: 0;
     padding: 20px;
     background-color: transparent !important;
+    
 }
 
 .highlight {
     background: 0 0;
     background-color: rgb(218, 211, 211);
+    border-radius: 24px;
 }
 
 .wrapper {
@@ -487,5 +489,6 @@ ul {
 
 code{
     background-color: rgb(218, 211, 211);
+    
 }
 
