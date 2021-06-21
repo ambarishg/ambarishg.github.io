@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Tue, 18 May 2021 01:00:00 +0030</lastBuildDate><atom:link href="/tags/word-embeddings/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Jun 2021 01:00:00 +0030</lastBuildDate><atom:link href="/tags/word-embeddings/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recommendation series in Microsoft Reactor</title>
+      <link>/posts/reactor-recommendation-series/</link>
+      <pubDate>Mon, 21 Jun 2021 01:00:00 +0030</pubDate>
+      
+      <guid>/posts/reactor-recommendation-series/</guid>
+      <description>We will adopt a case study approach in understanding the concepts and build a recommendation engine from scratch using TF-IDF , cosine similarity, word embeddings and deploy it in Azure ML. The series will span 5 Fridays 5PM - 6PM IST time zone.
+  Introduction to Azure ML - Friday, June 25, 2021 
+  Recommendation engine using Text data ,Cosine Similarity and TFIDF technique -Friday, July 2, 2021</description>
+    </item>
+    
     <item>
       <title>Roadmap of the Recommendation series Reading</title>
       <link>/posts/roadmap-recommendation-series/</link>

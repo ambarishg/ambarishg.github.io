@@ -3,21 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/tags/nlp/</loc>
-    <lastmod>2021-05-18T01:00:00+00:30</lastmod>
+    <lastmod>2021-06-21T01:00:00+00:30</lastmod>
   </url><url>
     <loc>/posts/</loc>
-    <lastmod>2021-05-18T01:00:00+00:30</lastmod>
+    <lastmod>2021-06-21T01:00:00+00:30</lastmod>
   </url><url>
-    <loc>/posts/roadmap-recommendation-series/</loc>
-    <lastmod>2021-05-18T01:00:00+00:30</lastmod>
+    <loc>/posts/reactor-recommendation-series/</loc>
+    <lastmod>2021-06-21T01:00:00+00:30</lastmod>
   </url><url>
     <loc>/tags/</loc>
-    <lastmod>2021-05-18T01:00:00+00:30</lastmod>
+    <lastmod>2021-06-21T01:00:00+00:30</lastmod>
   </url><url>
     <loc>/</loc>
-    <lastmod>2021-05-18T01:00:00+00:30</lastmod>
+    <lastmod>2021-06-21T01:00:00+00:30</lastmod>
   </url><url>
     <loc>/tags/word-embeddings/</loc>
+    <lastmod>2021-06-21T01:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/posts/roadmap-recommendation-series/</loc>
     <lastmod>2021-05-18T01:00:00+00:30</lastmod>
   </url><url>
     <loc>/posts/word-embeddings/</loc>
