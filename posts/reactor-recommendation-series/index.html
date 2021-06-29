@@ -2,12 +2,34 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Recommendation series in Microsoft Reactor - Thoughts - Ambarish</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function(x){
+          x.parentElement.classList += 'has-jax'})
+      });
+  
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><title>Recommendation series in Microsoft Reactor - Thoughts - Ambarish</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta itemprop="name" content="Recommendation series in Microsoft Reactor">
 <meta itemprop="description" content="Recommendation series involving TF-IDF , Cosine Similarity , Word Embeddings and deploying into AzureML"><meta itemprop="datePublished" content="2021-06-21T01:00:00&#43;00:30" />
 <meta itemprop="dateModified" content="2021-06-21T01:00:00&#43;00:30" />
 <meta itemprop="wordCount" content="118">
-<meta itemprop="keywords" content="word embeddings,nlp," /><meta property="og:title" content="Recommendation series in Microsoft Reactor" />
+<meta itemprop="keywords" content="word embeddings,nlp,azure-machinelearning," /><meta property="og:title" content="Recommendation series in Microsoft Reactor" />
 <meta property="og:description" content="Recommendation series involving TF-IDF , Cosine Similarity , Word Embeddings and deploying into AzureML" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/reactor-recommendation-series/" /><meta property="article:section" content="posts" />
@@ -119,6 +141,8 @@
 							<li><a href="/tags/word-embeddings">word embeddings</a></li>
 							
 							<li><a href="/tags/nlp">nlp</a></li>
+							
+							<li><a href="/tags/azure-machinelearning">azure-machinelearning</a></li>
 							
 						</ul>
 					

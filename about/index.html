@@ -2,7 +2,29 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>About - Thoughts - Ambarish</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function(x){
+          x.parentElement.classList += 'has-jax'})
+      });
+  
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><title>About - Thoughts - Ambarish</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta itemprop="name" content="About">
 <meta itemprop="description" content="I am a Business and Technology Consultant for more than 20 Years. I am a data lover and compete regularly in data science competitions. I had won Eight Data Science Competition Awards ( 1 sponsored by NASA, Seven sponsored by Kaggle - A Google Company).
 NASA has recognized me as a Citizen Scientist and has been extremely generous to have a page here"><meta itemprop="datePublished" content="2019-04-19T21:37:58&#43;05:30" />
