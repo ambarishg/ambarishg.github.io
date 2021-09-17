@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Mon, 21 Jun 2021 01:00:00 +0030</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Sep 2021 00:00:00 +0030</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>descriptive statistics</title>
+      <link>/tags/descriptive-statistics/</link>
+      <pubDate>Thu, 09 Sep 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/tags/descriptive-statistics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>statistics</title>
+      <link>/tags/statistics/</link>
+      <pubDate>Thu, 09 Sep 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/tags/statistics/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>azure-machinelearning</title>
       <link>/tags/azure-machinelearning/</link>
@@ -203,15 +221,6 @@
       <pubDate>Thu, 06 Jul 2017 00:00:00 +0030</pubDate>
       
       <guid>/tags/installation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>statistics</title>
-      <link>/tags/statistics/</link>
-      <pubDate>Thu, 06 Jul 2017 00:00:00 +0030</pubDate>
-      
-      <guid>/tags/statistics/</guid>
       <description></description>
     </item>
     

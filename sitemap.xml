@@ -2,22 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/posts/binomial-distributions/</loc>
+    <lastmod>2021-09-09T00:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/tags/descriptive-statistics/</loc>
+    <lastmod>2021-09-09T00:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2021-09-09T00:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/tags/statistics/</loc>
+    <lastmod>2021-09-09T00:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2021-09-09T00:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2021-09-09T00:00:00+00:30</lastmod>
+  </url><url>
     <loc>/tags/azure-machinelearning/</loc>
     <lastmod>2021-06-21T01:00:00+00:30</lastmod>
   </url><url>
     <loc>/tags/nlp/</loc>
     <lastmod>2021-06-21T01:00:00+00:30</lastmod>
   </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2021-06-21T01:00:00+00:30</lastmod>
-  </url><url>
     <loc>/posts/reactor-recommendation-series/</loc>
-    <lastmod>2021-06-21T01:00:00+00:30</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2021-06-21T01:00:00+00:30</lastmod>
-  </url><url>
-    <loc>/</loc>
     <lastmod>2021-06-21T01:00:00+00:30</lastmod>
   </url><url>
     <loc>/tags/word-embeddings/</loc>
@@ -186,9 +195,6 @@
     <lastmod>2017-07-06T00:00:00+00:30</lastmod>
   </url><url>
     <loc>/posts/2017-07-06-installing-xgboost-anaconda-windows/</loc>
-    <lastmod>2017-07-06T00:00:00+00:30</lastmod>
-  </url><url>
-    <loc>/tags/statistics/</loc>
     <lastmod>2017-07-06T00:00:00+00:30</lastmod>
   </url><url>
     <loc>/tags/xgboost/</loc>
