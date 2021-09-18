@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Fri, 10 Sep 2021 10:00:00 +0030</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Sep 2021 00:00:00 +0030</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Normal distribution</title>
+      <link>/posts/normal-distributions/</link>
+      <pubDate>Sat, 11 Sep 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/normal-distributions/</guid>
+      <description>Normal distribution is characterised by mean $\mu$ and standard deviation $\sigma$
+No matter what $\mu$ and standard deviation $\sigma$ is,
+  the area between $\mu + \sigma$ and $\mu - \sigma$ is 68%
+  the area between $\mu + 2\sigma$ and $\mu - 2\sigma$ is 95%
+  the area between $\mu + 3\sigma$ and $\mu - 3\sigma$ is 97%
+  Standard Normal Distribution The standard normal distribution is characterised by $\mu$ of 0 and $\sigma$ is 1.</description>
+    </item>
+    
     <item>
       <title>Binomial Distributions</title>
       <link>/posts/binomial-distributions/</link>
