@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DataVisualization on Thoughts - Ambarish</title>
+    <link>/tags/datavisualization/</link>
+    <description>Recent content in DataVisualization on Thoughts - Ambarish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Wed, 30 May 2018 02:01:58 +0530</lastBuildDate><atom:link href="/tags/datavisualization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Donors Choose Recommendation Project ( Two Awards )</title>
+      <link>/awards/2018-05-30-donors-choose-recommendation-project/</link>
+      <pubDate>Wed, 30 May 2018 02:01:58 +0530</pubDate>
+      
+      <guid>/awards/2018-05-30-donors-choose-recommendation-project/</guid>
+      <description>Founded in 2000 by a Bronx history teacher, DonorsChoose.org has raised $685 million for America&amp;rsquo;s classrooms. Teachers at three-quarters of all the public schools in the U.S. have come to DonorsChoose.org to request what their students need, making DonorsChoose.org the leading platform for supporting public education.
+To date, 3 million people and partners have funded 1.1 million DonorsChoose.org projects. But teachers still spend more than a billion dollars of their own money on classroom materials.</description>
+    </item>
+    
+    <item>
+      <title>Donors Choose Application Screening Kernel Award</title>
+      <link>/awards/2018-04-25-donors-choose-application-screening/</link>
+      <pubDate>Wed, 25 Apr 2018 02:01:58 +0530</pubDate>
+      
+      <guid>/awards/2018-04-25-donors-choose-application-screening/</guid>
+      <description>Founded in 2000 by a high school teacher in the Bronx, DonorsChoose.org empowers public school teachers from across the country to request much-needed materials and experiences for their students. At any given time, there are thousands of classroom requests that can be brought to life with a gift of any amount.
+DonorsChoose.org receives hundreds of thousands of project proposals each year for classroom projects in need of funding. Right now, a large number of volunteers is needed to manually screen each submission before it&amp;rsquo;s approved to be posted on the DonorsChoose.</description>
+    </item>
+    
+    <item>
+      <title>Kiva Kernel Award</title>
+      <link>/awards/2018-04-04-kiva-kernels-award/</link>
+      <pubDate>Wed, 04 Apr 2018 02:01:58 +0530</pubDate>
+      
+      <guid>/awards/2018-04-04-kiva-kernels-award/</guid>
+      <description>Kiva.org is an online crowdfunding platform to extend financial services to poor and financially excluded people around the world. Kiva lenders have provided over $1 billion dollars in loans to over 2 million people. In order to set investment priorities, help inform lenders, and understand their target communities, knowing the level of poverty of each borrower is critical. However, this requires inference based on a limited set of information for each borrower.</description>
+    </item>
+    
+    <item>
+      <title>Themed Kernel Award Winner - Spooky EDA</title>
+      <link>/awards/2017-12-25-spooky-eda/</link>
+      <pubDate>Mon, 25 Dec 2017 02:01:58 +0530</pubDate>
+      
+      <guid>/awards/2017-12-25-spooky-eda/</guid>
+      <description>Kaggle organized a Halloween playground competition, in which Text Miners were challenged to predict the author of excerpts from horror stories by Edgar Allan Poe, Mary Shelley, and HP Lovecraft.
+Prizes were given for most upvoted kernels, most upvoted discussions and themed kernels such as Python Tutorial, R Tutorial, Creative Feature Engineering and Creative Data Visualization. Honoured to receive the R Tutorial prize for the kernel Tutorial:Detailed Spooky Fun EDA and Modelling</description>
+    </item>
+    
+    <item>
+      <title>Chicago Restaurants Inspections Text Mining</title>
+      <link>/posts/2017-10-19-chicago-restaurants-inspections/</link>
+      <pubDate>Thu, 19 Oct 2017 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2017-10-19-chicago-restaurants-inspections/</guid>
+      <description>Restaurant inspections ensure that food served to the public at licensed food establishments follows food safety guidelines. The Food Protection Division of the Chicago Department of Public Health (CDPH) is committed to maintaining the safety of food bought, sold, or prepared for public consumption in Chicago by carrying out science-based inspections of all retail food establishments. These inspections promote public health in areas of food safety and sanitation and prevent the occurrence of food-borne illness.</description>
+    </item>
+    
+    <item>
+      <title>African Conflicts</title>
+      <link>/posts/2017-10-17-african-conflicts/</link>
+      <pubDate>Tue, 17 Oct 2017 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2017-10-17-african-conflicts/</guid>
+      <description>We examine a dataset from ACLED(Armed Conflict Location and Event Project).The Armed Conflict Location and Event Data Project is designed for disaggregated conflict analysis and crisis mapping. This dataset codes the dates and locations of all reported political violence and protest events in dozens of developing countries in Africa. Political violence and protest includes events that occur within civil wars and periods of instability, public protest and regime breakdown. The project covers all African countries from 1997 to the present.</description>
+    </item>
+    
+    <item>
+      <title>Austin Bike Share EDA with Maps and TimeSeries</title>
+      <link>/posts/2017-10-07-austin-bikeshare/</link>
+      <pubDate>Sat, 07 Oct 2017 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2017-10-07-austin-bikeshare/</guid>
+      <description>Catching a show on Red River? Eating on the East Side? Paddleboarding at Zilker? All of the above?
+Hop on a B-cycle and coast your way through the People’s Republic of Austin
+We explore the Austin Bike Share data for the following topics :
+ Top 10 Common Start Stations Top 10 Common Destination Stations Get Top 10 Most Popular Routes Map of Bike Stations Month , Day , Time Analysis Types of Subscriber Month , Day , Time Analysis for Local365 Duration of Trips Trips for Station ID #2575 BikeTrips for Station ID #2575 (Week wise) SXSW 2017 SXSW 2016  A detailed report Austin Bike Share Analysis has the complete Data Visualization with Maps.</description>
+    </item>
+    
+    <item>
+      <title>Fun in TextMining with Simpsons</title>
+      <link>/posts/2017-10-07-fun-in-textmining-with-simpsons/</link>
+      <pubDate>Sat, 07 Oct 2017 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2017-10-07-fun-in-textmining-with-simpsons/</guid>
+      <description>This dataset contains the characters, locations, episode details, and script lines for approximately 600 Simpsons episodes, dating back to 1989.
+I had fun learning Text Mining with Simpsons.Hope you will also enjoy the same while I had writing the text mining and data visualization code.
+A detailed report Fun in Text Mining with Simpsons has the complete Data Visualization with Text Mining and Modelling.</description>
+    </item>
+    
+    <item>
+      <title>Meteorite Landings</title>
+      <link>/posts/2017-10-05-meteorite-landings/</link>
+      <pubDate>Thu, 05 Oct 2017 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2017-10-05-meteorite-landings/</guid>
+      <description>We examine a dataset from NASA Meteorite Landings and do a complete Exploratory Data Analysis.
+The Meteoritical Society collects data on meteorites that have fallen to Earth from outer space. This dataset includes the location, mass, composition, and fall year for over 45,000 meteorites that have struck our planet.
+A detailed report Fun with Meteorite Landings has the complete Exploratory Data Analysis.
+A book on this report can be found in Little Book on Exploratory Data Analysis.</description>
+    </item>
+    
+    <item>
+      <title>Crime in Los Angeles</title>
+      <link>/posts/2017-09-25-la-crime/</link>
+      <pubDate>Mon, 25 Sep 2017 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2017-09-25-la-crime/</guid>
+      <description>We investigate the Crime in LA. We do Exploratory Data analysis on various topics such as the Month of Crime ,Day of Crime,Time of Crime. We also explore how the Crimes are related to the Sex and Age of the Victims, Crime Types, Crime Types of persons aged 70 and above. We explore on the Crimes at different Premises,Types of Crimes at different Premises,victim Descent Analysis and an analysis of Weapons used in Crime.</description>
+    </item>
+    
+    <item>
+      <title>Weekly Kaggle Kernel Award Winner - African Conflicts</title>
+      <link>/awards/2017-08-18-weekly-kernel-winner-african-conflicts-copy/</link>
+      <pubDate>Fri, 18 Aug 2017 02:01:58 +0530</pubDate>
+      
+      <guid>/awards/2017-08-18-weekly-kernel-winner-african-conflicts-copy/</guid>
+      <description>We examine a dataset from ACLED(Armed Conflict Location and Event Project).The Armed Conflict Location and Event Data Project is designed for disaggregated conflict analysis and crisis mapping. This dataset codes the dates and locations of all reported political violence and protest events in dozens of developing countries in Africa. Political violence and protest includes events that occur within civil wars and periods of instability, public protest and regime breakdown. The project covers all African countries from 1997 to the present.</description>
+    </item>
+    
+    <item>
+      <title>California WireTapping</title>
+      <link>/posts/2017-06-17-california-wiretapping/</link>
+      <pubDate>Sat, 17 Jun 2017 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2017-06-17-california-wiretapping/</guid>
+      <description>In 2016, California investigators used state wiretapping laws 563 times to capture 7.8 million communications from 181,000 people, and only 19% of these communications were incriminating. The year&amp;rsquo;s wiretaps cost nearly $30 million.
+We know this, and much more, now that the California Department of Justice (CADOJ) for the first time has released to EFF the dataset underlying its annual wiretap report to the state legislature.
+The California WireTappinghas a detailed analysis of the same.</description>
+    </item>
+    
+    <item>
+      <title>Uttar Pradesh Assembly Elections 2017 Data Visualization</title>
+      <link>/posts/2017-06-15-up-elections-2017/</link>
+      <pubDate>Thu, 15 Jun 2017 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2017-06-15-up-elections-2017/</guid>
+      <description>The assembly election results for Uttar Pradesh(UP) ,largest state in India were surprising to say the least. Never in the past has any single party secured a similar mandate. UP with a population of around 220 million is as big as the whole of United States. It has 403 constituencies each having its own demographic breakup. The election was conducted in 7 phases.
+The Exploratory Analysis UP Elections 2017has a detailed analysis of the same.</description>
+    </item>
+    
+    <item>
+      <title>Adverse Food Events</title>
+      <link>/posts/2017-10-07-adverse-food-events/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2017-10-07-adverse-food-events/</guid>
+      <description>The CFSAN Adverse Event Reporting System (CAERS) is a database that contains information on adverse event and product complaint reports submitted to FDA for foods, dietary supplements, and cosmetics. The database is designed to support CFSAN’s safety surveillance program.
+We explore the data as outlined below :
+ Ten Most Common Symptoms Ten Most Common Product Name Ten Most Common Industry Name Ages Commonly Affected Distribution of Ages Ten Most Common Outcomes Outcomes and Products associated with Adverse Events Symptoms and the Products Causing it Time Analysis of Adverse Events Products in Adverse Events for January Gender and Adverse Events  A detailed report Adverse Food Events EDA has the complete Data Visualization.</description>
+    </item>
+    
+    <item>
+      <title>Melbourne Housing Market Data Visualization</title>
+      <link>/posts/2017-06-16-melb-housing-market/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2017-06-16-melb-housing-market/</guid>
+      <description>Melbourne is currently experiencing a housing bubble (some experts say it may burst soon). Maybe someone can find a trend or give a prediction? Which suburbs are the best to buy in? Which ones are value for money? Where&amp;rsquo;s the expensive side of town? And more importantly where should your distant cousin :-) buy a 2 bedroom unit?
+The Melbourne Housing Market has a detailed analysis of the same.The analysis provides insights into the following</description>
+    </item>
+    
+  </channel>
+</rss>

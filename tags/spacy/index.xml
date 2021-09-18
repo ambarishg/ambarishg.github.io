@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>spacy on Thoughts - Ambarish</title>
+    <link>/tags/spacy/</link>
+    <description>Recent content in spacy on Thoughts - Ambarish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Sat, 15 May 2021 00:00:00 +0030</lastBuildDate><atom:link href="/tags/spacy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recommendation engine using Text data ,Cosine Similarity and word embeddings technique</title>
+      <link>/posts/recommender-career-spacy/</link>
+      <pubDate>Sat, 15 May 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/recommender-career-spacy/</guid>
+      <description>What are we trying to do We will build a very simple recommendation engine using Text Data. To demostrate this we would use a case study approach and build a recommendation engine for a non profit organization Career Village.
+CareerVillage.org is a nonprofit that crowdsources career advice for underserved youth. Founded in 2011 in four classrooms in New York City, the platform has now served career advice from 25,000 volunteer professionals to over 3.</description>
+    </item>
+    
+  </channel>
+</rss>

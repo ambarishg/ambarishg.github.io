@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>azure-machinelearning on Thoughts - Ambarish</title>
+    <link>/tags/azure-machinelearning/</link>
+    <description>Recent content in azure-machinelearning on Thoughts - Ambarish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Mon, 21 Jun 2021 01:00:00 +0030</lastBuildDate><atom:link href="/tags/azure-machinelearning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recommendation series in Microsoft Reactor</title>
+      <link>/posts/reactor-recommendation-series/</link>
+      <pubDate>Mon, 21 Jun 2021 01:00:00 +0030</pubDate>
+      
+      <guid>/posts/reactor-recommendation-series/</guid>
+      <description>We will adopt a case study approach in understanding the concepts and build a recommendation engine from scratch using TF-IDF , cosine similarity, word embeddings and deploy it in Azure ML. The series will span 5 Fridays 5PM - 6PM IST time zone.
+  Introduction to Azure ML - Friday, June 25, 2021 
+  Recommendation engine using Text data ,Cosine Similarity and TFIDF technique -Friday, July 2, 2021</description>
+    </item>
+    
+    <item>
+      <title>Recommendation engine using Text data ,Cosine Similarity and Word Embeddings , Azure ML</title>
+      <link>/posts/recommender-career-spacy-azure/</link>
+      <pubDate>Sat, 15 May 2021 01:00:00 +0030</pubDate>
+      
+      <guid>/posts/recommender-career-spacy-azure/</guid>
+      <description>What are we trying to do We will build a very simple recommendation engine using Text Data. To demostrate this we would use a case study approach and build a recommendation engine for a non profit organization Career Village. I have detailed post on the methodology of the recommendation engine in the post here. In this post we will show of how we train, infer and deploy the solution in Azure.</description>
+    </item>
+    
+    <item>
+      <title>Recommendation engine using Text data ,Cosine Similarity and TFIDF technique , Azure ML</title>
+      <link>/posts/recommender-career-tfidf-azure/</link>
+      <pubDate>Fri, 14 May 2021 01:00:00 +0030</pubDate>
+      
+      <guid>/posts/recommender-career-tfidf-azure/</guid>
+      <description>What are we trying to do We will build a very simple recommendation engine using Text Data. To demostrate this we would use a case study approach and build a recommendation engine for a non profit organization Career Village. I have detailed post on the methodology of the recommendation engine in the post here. In this post we will show of how we train, infer and deploy the solution in Azure.</description>
+    </item>
+    
+    <item>
+      <title>Red Wine Quality prediction using AzureML, AKS with TensorFlow Keras</title>
+      <link>/posts/red-wine-quality-azureml-keras/</link>
+      <pubDate>Sat, 24 Apr 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/red-wine-quality-azureml-keras/</guid>
+      <description>What are we trying to do Predict the Quality of Red Wine using Tensorflow Keras deep learning framework given certain attributes such as fixed acidity, volatile acidity, citric acid, residual sugar, chlorides, free sulfur dioxide, total sulfur dioxide, density, pH, sulphates, and alcohol
+We divide our approach into 2 major blocks:
+ Building the Model in Azure ML Inference from the Model in Azure ML  Building the model in Azure ML has the following steps:</description>
+    </item>
+    
+    <item>
+      <title>Bees Health detection using Azure Custom Vision Service</title>
+      <link>/posts/bees-health-detection-azure-cognitive-services/</link>
+      <pubDate>Wed, 31 Mar 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/bees-health-detection-azure-cognitive-services/</guid>
+      <description>Every third bite of food relies on pollination by bees. Honey beehive losses are quite prevalent due to the diseased bees.
+While many indications of hive strength and health are visible on the inside of the hive, frequent check-ups on the hive are time-consuming and disruptive to the bees&#39; workflow and hive in general. By investigating the bees that leave the hive, we can gain a more complete understanding of the hive itself.</description>
+    </item>
+    
+    <item>
+      <title>Azure ML DataStores and Datasets</title>
+      <link>/posts/2021-03-15-azure-ml-datastores-datasets-basics/</link>
+      <pubDate>Mon, 15 Mar 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2021-03-15-azure-ml-datastores-datasets-basics/</guid>
+      <description>DataStores
+In Azure ML, datastores are references to storage locations, such as Azure Storage blob containers. Every workspace has a default datastore - usually the Azure storage blob container that was created with the workspace.
+When data is uploaded into the datastore through the following code
+default_ds.upload_files(files=[&amp;#39;data/diabetes.csv&amp;#39;, &amp;#39;data/diabetes2.csv&amp;#39;], # Upload the diabetes csv files in /data target_path=&amp;#39;diabetes-data/&amp;#39;, # Put it in a folder path in the datastore overwrite=True, # Replace existing files of the same name show_progress=True) we can see the files in the Azure Storage Account &amp;gt; Containers &amp;gt; Blob Stores</description>
+    </item>
+    
+    <item>
+      <title>Azure ML Experiments and Runs basics</title>
+      <link>/posts/2021-03-13-azure-ml-experiments-runs-basics/</link>
+      <pubDate>Sat, 13 Mar 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2021-03-13-azure-ml-experiments-runs-basics/</guid>
+      <description>An experiment is a grouping of many runs from a specified script. It always belongs to a workspace. When we submit a run, we provide an experiment name. Information for the run is stored under that experiment. If the name doesn&amp;rsquo;t exist when we submit an experiment, a new experiment is automatically created.
+  A run is a single execution of a training script. An experiment will typically contain multiple runs.</description>
+    </item>
+    
+    <item>
+      <title>2 Stories, Azure ML, Azure Kubernetes Service, Model deployment</title>
+      <link>/posts/2021-03-11-two-stories-azureml-aks/</link>
+      <pubDate>Thu, 11 Mar 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2021-03-11-two-stories-azureml-aks/</guid>
+      <description>Let&amp;rsquo;s start with 2 of my experiences with machine learning in data science competitions and writing a research paper. This will give us enough motivation to understand why platforms such as AzureML are required.
+Story 1 - A data science competition  I participated in a data science competition that required predicting time series data. For this, I tried 5 different algorithms Arima, ETS, Facebook Prophet, XGBoost, and Random Forest. I also used several imputation techniques which also involved a number of hyperparameters.</description>
+    </item>
+    
+    <item>
+      <title>Azure ML HyperParameters</title>
+      <link>/posts/2020-11-08-azure-hyperparameters-basics/</link>
+      <pubDate>Sun, 08 Nov 2020 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2020-11-08-azure-hyperparameters-basics/</guid>
+      <description>Parameter
+A variable of a model that the machine learning system trains on its own. For example, weights are parameters whose values the machine learning system gradually learns through successive training iterations.
+Hyperparameter
+The &amp;ldquo;knobs&amp;rdquo; that we tweak during successive runs of training a model. For example, learning rate is a hyperparameter.
+Hyperparameters have the following properties
+  Search space - The set of hyperparameter values tried during hyperparameter tuning is known as the search space.</description>
+    </item>
+    
+    <item>
+      <title>Azure ML Environments</title>
+      <link>/posts/2020-11-04-azure-ml-environments-runconfigs-basics/</link>
+      <pubDate>Wed, 04 Nov 2020 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2020-11-04-azure-ml-environments-runconfigs-basics/</guid>
+      <description>An environment is the encapsulation of the environment where training or scoring of the machine learning model happens. The environment specifies
+ the Python packages, environment variables, and software settings around your training and scoring scripts.  Environments are of three types curated, user-managed, and system-managed.
+Curated environments are provided by Azure Machine Learning and are available in the workspace by default.
+In user-managed environments, the person is responsible for setting up the environment and installing every package that the training script needs on the compute target.</description>
+    </item>
+    
+    <item>
+      <title>Azure ML workspace basics</title>
+      <link>/posts/2020-11-01-azure-ml-workspace-basics/</link>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2020-11-01-azure-ml-workspace-basics/</guid>
+      <description>Azure ML has a top level component which is the Workspace. The workspace contains all the components of the Azure Machine Learning space.
+The workspace is associated with
+ Azure subscription Azure Key Vault Azure Application Insights  It is associated with the following assets
+ Datasets Experiments Pipelines Models EndPoints  The workspace manages the following
+ Datastores Compute  The workspace can be used for authoring
+ Notebooks Automated ML Designer  You can implement via code</description>
+    </item>
+    
+    <item>
+      <title>Azure ML Pipelines</title>
+      <link>/posts/2020-11-05-azure-pipelines-basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2020-11-05-azure-pipelines-basics/</guid>
+      <description>Different types of pipelines are
+In Azure Machine Learning, a pipeline is a workflow of machine learning tasks in which each task is implemented as a step.
+ Steps can be arranged sequentially or in parallel Each step can be run on a specific compute target, making it possible to combine different types of processing as required to achieve an overall goal A pipeline can be executed as a process by running the pipeline as an experiment Each step in the pipeline runs on its allocated compute target as part of the overall experiment run.</description>
+    </item>
+    
+  </channel>
+</rss>

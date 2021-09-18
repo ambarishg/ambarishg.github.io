@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Little Book on Exploratory Data Analysis</title>
+  <meta name="description" content="Little Book on Exploratory Data Analysis">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Little Book on Exploratory Data Analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Little Book on Exploratory Data Analysis" />
+  
+  
+  
+
+<meta name="author" content="Ambarish Ganguly">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="height-difference-between-winners-and-losers.html">
+<link rel="next" href="feature-engineering-first-second-third-set-winners-and-losers.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.9/htmlwidgets.js"></script>
+<link href="libs/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-0.7.7/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<link href="libs/leaflet-label-0.2.2/leaflet.label.css" rel="stylesheet" />
+<script src="libs/leaflet-label-0.2.2/leaflet.label.js"></script>
+<script src="libs/Proj4Leaflet-0.7.2/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-0.7.2/proj4leaflet.js"></script>
+<script src="libs/leaflet-binding-1.1.0/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.0.27/leaflet-providers.js"></script>
+<script src="libs/leaflet-providers-plugin-1.1.0/leaflet-providers-plugin.js"></script>
+<script src="libs/Leaflet.heat-0.1.0/leaflet-heat.js"></script>
+<script src="libs/Leaflet.heat-0.1.0/heat-bindings.js"></script>
+<link href="libs/leaflet-markercluster-0.5.0/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-0.5.0/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-0.5.0/leaflet.markercluster.js"></script>
+<script src="libs/leaflet-markercluster-0.5.0/leaflet.markercluster.layersupport-src.js"></script>
+<script src="libs/leaflet-markercluster-0.5.0/leaflet.markercluster.freezable-src.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Little Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#womens-tennis-matches-dataset"><i class="fa fa-check"></i><b>1.1</b> Womens Tennis Matches Dataset</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#meteorite-landings-dataset"><i class="fa fa-check"></i><b>1.2</b> Meteorite Landings Dataset</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#adverse-food-events-dataset"><i class="fa fa-check"></i><b>1.3</b> Adverse Food Events Dataset</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#live-version"><i class="fa fa-check"></i><b>1.4</b> Live version</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="variable-types.html"><a href="variable-types.html"><i class="fa fa-check"></i><b>2</b> Variable Types</a><ul>
+<li class="chapter" data-level="2.1" data-path="variable-types.html"><a href="variable-types.html#numeric-variables"><i class="fa fa-check"></i><b>2.1</b> Numeric Variables</a></li>
+<li class="chapter" data-level="2.2" data-path="variable-types.html"><a href="variable-types.html#categorical-variables"><i class="fa fa-check"></i><b>2.2</b> Categorical Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="graph-types.html"><a href="graph-types.html"><i class="fa fa-check"></i><b>3</b> Graph Types</a><ul>
+<li class="chapter" data-level="3.1" data-path="graph-types.html"><a href="graph-types.html#bar-plot"><i class="fa fa-check"></i><b>3.1</b> Bar Plot</a></li>
+<li class="chapter" data-level="3.2" data-path="graph-types.html"><a href="graph-types.html#histogram"><i class="fa fa-check"></i><b>3.2</b> Histogram</a></li>
+<li class="chapter" data-level="3.3" data-path="graph-types.html"><a href="graph-types.html#boxplot"><i class="fa fa-check"></i><b>3.3</b> BoxPlot</a></li>
+<li class="chapter" data-level="3.4" data-path="graph-types.html"><a href="graph-types.html#scatter-plot"><i class="fa fa-check"></i><b>3.4</b> Scatter Plot</a></li>
+<li class="chapter" data-level="3.5" data-path="graph-types.html"><a href="graph-types.html#facet"><i class="fa fa-check"></i><b>3.5</b> Facet</a></li>
+<li class="chapter" data-level="3.6" data-path="graph-types.html"><a href="graph-types.html#maps"><i class="fa fa-check"></i><b>3.6</b> Maps</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="grammar-of-data-manipulation.html"><a href="grammar-of-data-manipulation.html"><i class="fa fa-check"></i><b>4</b> Grammar of Data manipulation</a><ul>
+<li class="chapter" data-level="4.1" data-path="grammar-of-data-manipulation.html"><a href="grammar-of-data-manipulation.html#reorder-function"><i class="fa fa-check"></i><b>4.1</b> Reorder function</a></li>
+</ul></li>
+<li class="part"><span><b>I Womens Tennis</b></span></li>
+<li class="chapter" data-level="5" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i><b>5</b> Introduction</a></li>
+<li class="chapter" data-level="6" data-path="load-libraries.html"><a href="load-libraries.html"><i class="fa fa-check"></i><b>6</b> Load Libraries</a></li>
+<li class="chapter" data-level="7" data-path="read-the-data.html"><a href="read-the-data.html"><i class="fa fa-check"></i><b>7</b> Read the data</a></li>
+<li class="chapter" data-level="8" data-path="countries-and-players.html"><a href="countries-and-players.html"><i class="fa fa-check"></i><b>8</b> Countries and Players</a></li>
+<li class="chapter" data-level="9" data-path="rankings-and-year.html"><a href="rankings-and-year.html"><i class="fa fa-check"></i><b>9</b> Rankings and Year</a></li>
+<li class="chapter" data-level="10" data-path="number-of-no-1-tennis-players-each-year.html"><a href="number-of-no-1-tennis-players-each-year.html"><i class="fa fa-check"></i><b>10</b> Number of No 1 Tennis Players each year</a><ul>
+<li class="chapter" data-level="10.1" data-path="number-of-no-1-tennis-players-each-year.html"><a href="number-of-no-1-tennis-players-each-year.html#number-of-no-1-tennis-players-from-2017-to-2003"><i class="fa fa-check"></i><b>10.1</b> Number of No 1 Tennis Players from 2017 to 2003</a></li>
+<li class="chapter" data-level="10.2" data-path="number-of-no-1-tennis-players-each-year.html"><a href="number-of-no-1-tennis-players-each-year.html#number-of-no-1-tennis-players-from-1984-to-2003"><i class="fa fa-check"></i><b>10.2</b> Number of No 1 Tennis Players from 1984 to 2003</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="trend-of-rankings-of-serena-williams.html"><a href="trend-of-rankings-of-serena-williams.html"><i class="fa fa-check"></i><b>11</b> Trend of rankings of Serena Williams</a><ul>
+<li class="chapter" data-level="11.1" data-path="trend-of-rankings-of-serena-williams.html"><a href="trend-of-rankings-of-serena-williams.html#rankings-above-100"><i class="fa fa-check"></i><b>11.1</b> Rankings above 100</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="trend-of-rankings-of-steffi-graf.html"><a href="trend-of-rankings-of-steffi-graf.html"><i class="fa fa-check"></i><b>12</b> Trend of rankings of Steffi Graf</a></li>
+<li class="chapter" data-level="13" data-path="trend-of-rankings-of-simona-halep.html"><a href="trend-of-rankings-of-simona-halep.html"><i class="fa fa-check"></i><b>13</b> Trend of rankings of Simona Halep</a></li>
+<li class="chapter" data-level="14" data-path="trend-of-rankings-of-sania-mirza.html"><a href="trend-of-rankings-of-sania-mirza.html"><i class="fa fa-check"></i><b>14</b> Trend of rankings of Sania Mirza</a></li>
+<li class="chapter" data-level="15" data-path="australian-open-winners.html"><a href="australian-open-winners.html"><i class="fa fa-check"></i><b>15</b> Australian Open Winners</a><ul>
+<li class="chapter" data-level="15.1" data-path="australian-open-winners.html"><a href="australian-open-winners.html#distribution-of-age-of-australian-open-winners"><i class="fa fa-check"></i><b>15.1</b> Distribution of Age of Australian Open Winners</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="french-open-winners.html"><a href="french-open-winners.html"><i class="fa fa-check"></i><b>16</b> French Open Winners</a><ul>
+<li class="chapter" data-level="16.1" data-path="french-open-winners.html"><a href="french-open-winners.html#distribution-of-age-of-french-open-winners"><i class="fa fa-check"></i><b>16.1</b> Distribution of Age of French Open Winners</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="wimbledon-winners.html"><a href="wimbledon-winners.html"><i class="fa fa-check"></i><b>17</b> Wimbledon Winners</a><ul>
+<li class="chapter" data-level="17.1" data-path="wimbledon-winners.html"><a href="wimbledon-winners.html#distribution-of-age-of-wimbledon-winners"><i class="fa fa-check"></i><b>17.1</b> Distribution of Age of Wimbledon Winners</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="us-open-winners.html"><a href="us-open-winners.html"><i class="fa fa-check"></i><b>18</b> US Open Winners</a><ul>
+<li class="chapter" data-level="18.1" data-path="us-open-winners.html"><a href="us-open-winners.html#distribution-of-age-of-us-open-winners"><i class="fa fa-check"></i><b>18.1</b> Distribution of Age of US Open Winners</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="height-difference-between-winners-and-losers.html"><a href="height-difference-between-winners-and-losers.html"><i class="fa fa-check"></i><b>19</b> Height difference between winners and losers</a><ul>
+<li class="chapter" data-level="19.1" data-path="height-difference-between-winners-and-losers.html"><a href="height-difference-between-winners-and-losers.html#histogram-1"><i class="fa fa-check"></i><b>19.1</b> Histogram</a></li>
+<li class="chapter" data-level="19.2" data-path="height-difference-between-winners-and-losers.html"><a href="height-difference-between-winners-and-losers.html#density-plot"><i class="fa fa-check"></i><b>19.2</b> Density Plot</a></li>
+<li class="chapter" data-level="19.3" data-path="height-difference-between-winners-and-losers.html"><a href="height-difference-between-winners-and-losers.html#tabular-data"><i class="fa fa-check"></i><b>19.3</b> Tabular data</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="age-difference-between-winners-and-losers.html"><a href="age-difference-between-winners-and-losers.html"><i class="fa fa-check"></i><b>20</b> Age difference between winners and losers</a></li>
+<li class="chapter" data-level="21" data-path="feature-engineering-first-second-third-set-winners-and-losers.html"><a href="feature-engineering-first-second-third-set-winners-and-losers.html"><i class="fa fa-check"></i><b>21</b> Feature Engineering : First, Second , Third Set Winners and Losers</a><ul>
+<li class="chapter" data-level="21.1" data-path="feature-engineering-first-second-third-set-winners-and-losers.html"><a href="feature-engineering-first-second-third-set-winners-and-losers.html#percentage-of-winners-after-losing-1st-set"><i class="fa fa-check"></i><b>21.1</b> Percentage of Winners after losing 1st set</a></li>
+<li class="chapter" data-level="21.2" data-path="feature-engineering-first-second-third-set-winners-and-losers.html"><a href="feature-engineering-first-second-third-set-winners-and-losers.html#most-wins-after-losing-the-first-set"><i class="fa fa-check"></i><b>21.2</b> Most wins after losing the first set</a></li>
+<li class="chapter" data-level="21.3" data-path="feature-engineering-first-second-third-set-winners-and-losers.html"><a href="feature-engineering-first-second-third-set-winners-and-losers.html#percentage-of-winners-after-losing-2nd-set"><i class="fa fa-check"></i><b>21.3</b> Percentage of Winners after losing 2nd set</a></li>
+<li class="chapter" data-level="21.4" data-path="feature-engineering-first-second-third-set-winners-and-losers.html"><a href="feature-engineering-first-second-third-set-winners-and-losers.html#most-wins-after-losing-the-second-set"><i class="fa fa-check"></i><b>21.4</b> Most wins after losing the second set</a></li>
+<li class="chapter" data-level="21.5" data-path="feature-engineering-first-second-third-set-winners-and-losers.html"><a href="feature-engineering-first-second-third-set-winners-and-losers.html#percentage-of-winners-after-losing-1st-set-in-grand-slams"><i class="fa fa-check"></i><b>21.5</b> Percentage of Winners after losing 1st set in Grand Slams</a></li>
+<li class="chapter" data-level="21.6" data-path="feature-engineering-first-second-third-set-winners-and-losers.html"><a href="feature-engineering-first-second-third-set-winners-and-losers.html#percentage-of-winners-after-losing-2nd-set-in-grand-slams"><i class="fa fa-check"></i><b>21.6</b> Percentage of Winners after losing 2nd set in Grand Slams</a></li>
+<li class="chapter" data-level="21.7" data-path="feature-engineering-first-second-third-set-winners-and-losers.html"><a href="feature-engineering-first-second-third-set-winners-and-losers.html#percentage-of-winners-after-losing-1st-set-in-australian-open"><i class="fa fa-check"></i><b>21.7</b> Percentage of Winners after losing 1st set in Australian Open</a></li>
+<li class="chapter" data-level="21.8" data-path="feature-engineering-first-second-third-set-winners-and-losers.html"><a href="feature-engineering-first-second-third-set-winners-and-losers.html#percentage-of-winners-after-losing-2nd-set-in-australian-open"><i class="fa fa-check"></i><b>21.8</b> Percentage of Winners after losing 2nd set in Australian Open</a></li>
+<li class="chapter" data-level="21.9" data-path="feature-engineering-first-second-third-set-winners-and-losers.html"><a href="feature-engineering-first-second-third-set-winners-and-losers.html#percentage-of-winners-after-losing-1st-set-in-wimbledon"><i class="fa fa-check"></i><b>21.9</b> Percentage of Winners after losing 1st set in Wimbledon</a></li>
+<li class="chapter" data-level="21.10" data-path="feature-engineering-first-second-third-set-winners-and-losers.html"><a href="feature-engineering-first-second-third-set-winners-and-losers.html#percentage-of-winners-after-losing-1st-set-in-french-open"><i class="fa fa-check"></i><b>21.10</b> Percentage of Winners after losing 1st set in French Open</a></li>
+<li class="chapter" data-level="21.11" data-path="feature-engineering-first-second-third-set-winners-and-losers.html"><a href="feature-engineering-first-second-third-set-winners-and-losers.html#percentage-of-winners-after-losing-1st-set-in-us-open"><i class="fa fa-check"></i><b>21.11</b> Percentage of Winners after losing 1st set in US Open</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="surfaces.html"><a href="surfaces.html"><i class="fa fa-check"></i><b>22</b> Surfaces</a><ul>
+<li class="chapter" data-level="22.1" data-path="surfaces.html"><a href="surfaces.html#all-surfaces"><i class="fa fa-check"></i><b>22.1</b> All Surfaces</a></li>
+<li class="chapter" data-level="22.2" data-path="surfaces.html"><a href="surfaces.html#hard-surface"><i class="fa fa-check"></i><b>22.2</b> Hard Surface</a></li>
+<li class="chapter" data-level="22.3" data-path="surfaces.html"><a href="surfaces.html#clay-surface"><i class="fa fa-check"></i><b>22.3</b> Clay Surface</a></li>
+<li class="chapter" data-level="22.4" data-path="surfaces.html"><a href="surfaces.html#grass-surface"><i class="fa fa-check"></i><b>22.4</b> Grass Surface</a></li>
+<li class="chapter" data-level="22.5" data-path="surfaces.html"><a href="surfaces.html#carpet-surface"><i class="fa fa-check"></i><b>22.5</b> Carpet Surface</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="tournament-levels.html"><a href="tournament-levels.html"><i class="fa fa-check"></i><b>23</b> Tournament Levels</a><ul>
+<li class="chapter" data-level="23.1" data-path="tournament-levels.html"><a href="tournament-levels.html#most-wins-in-grand-slams"><i class="fa fa-check"></i><b>23.1</b> Most Wins in Grand Slams</a></li>
+<li class="chapter" data-level="23.2" data-path="tournament-levels.html"><a href="tournament-levels.html#most-matches-in-premier-tournament-level"><i class="fa fa-check"></i><b>23.2</b> Most matches in Premier Tournament Level</a></li>
+<li class="chapter" data-level="23.3" data-path="tournament-levels.html"><a href="tournament-levels.html#most-wins-in-premier-tournament-level"><i class="fa fa-check"></i><b>23.3</b> Most Wins in Premier Tournament Level</a></li>
+<li class="chapter" data-level="23.4" data-path="tournament-levels.html"><a href="tournament-levels.html#most-matches-in-i-tournament-level"><i class="fa fa-check"></i><b>23.4</b> Most matches in I Tournament Level</a></li>
+<li class="chapter" data-level="23.5" data-path="tournament-levels.html"><a href="tournament-levels.html#most-wins-in-i-tournament-level"><i class="fa fa-check"></i><b>23.5</b> Most Wins in I Tournament Level</a></li>
+<li class="chapter" data-level="23.6" data-path="tournament-levels.html"><a href="tournament-levels.html#most-matches-in-t1-tournament-level"><i class="fa fa-check"></i><b>23.6</b> Most matches in T1 Tournament Level</a></li>
+<li class="chapter" data-level="23.7" data-path="tournament-levels.html"><a href="tournament-levels.html#most-wins-in-t1-tournament-level"><i class="fa fa-check"></i><b>23.7</b> Most Wins in T1 Tournament Level</a></li>
+<li class="chapter" data-level="23.8" data-path="tournament-levels.html"><a href="tournament-levels.html#most-matches-in-t2-tournament-level"><i class="fa fa-check"></i><b>23.8</b> Most matches in T2 Tournament Level</a></li>
+<li class="chapter" data-level="23.9" data-path="tournament-levels.html"><a href="tournament-levels.html#most-wins-in-t2-tournament-level"><i class="fa fa-check"></i><b>23.9</b> Most Wins in T2 Tournament Level</a></li>
+<li class="chapter" data-level="23.10" data-path="tournament-levels.html"><a href="tournament-levels.html#most-matches-in-t3-tournament-level"><i class="fa fa-check"></i><b>23.10</b> Most matches in T3 Tournament Level</a></li>
+<li class="chapter" data-level="23.11" data-path="tournament-levels.html"><a href="tournament-levels.html#most-wins-in-t3-tournament-level"><i class="fa fa-check"></i><b>23.11</b> Most Wins in T3 Tournament Level</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="upsets.html"><a href="upsets.html"><i class="fa fa-check"></i><b>24</b> Upsets</a><ul>
+<li class="chapter" data-level="24.1" data-path="upsets.html"><a href="upsets.html#players-causing-upsets-in-grand-slam-finals"><i class="fa fa-check"></i><b>24.1</b> Players causing upsets in Grand Slam Finals</a></li>
+<li class="chapter" data-level="24.2" data-path="upsets.html"><a href="upsets.html#upsets-in-grand-slam-semifinals"><i class="fa fa-check"></i><b>24.2</b> Upsets in Grand Slam SemiFinals</a></li>
+<li class="chapter" data-level="24.3" data-path="upsets.html"><a href="upsets.html#upsets-in-t1-tournaments"><i class="fa fa-check"></i><b>24.3</b> Upsets in T1 tournaments</a></li>
+<li class="chapter" data-level="24.4" data-path="upsets.html"><a href="upsets.html#upsets-in-t2-tournaments"><i class="fa fa-check"></i><b>24.4</b> Upsets in T2 tournaments</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="simona-halep.html"><a href="simona-halep.html"><i class="fa fa-check"></i><b>25</b> Simona Halep</a></li>
+<li class="chapter" data-level="26" data-path="caroline-wozniacki.html"><a href="caroline-wozniacki.html"><i class="fa fa-check"></i><b>26</b> Caroline Wozniacki</a></li>
+<li class="chapter" data-level="27" data-path="height-of-players-across-years.html"><a href="height-of-players-across-years.html"><i class="fa fa-check"></i><b>27</b> Height of players across years</a><ul>
+<li class="chapter" data-level="27.1" data-path="height-of-players-across-years.html"><a href="height-of-players-across-years.html#tabular-data-of-heights-across-years"><i class="fa fa-check"></i><b>27.1</b> Tabular Data of Heights across years</a></li>
+</ul></li>
+<li class="part"><span><b>II Meteorite Landings</b></span></li>
+<li class="chapter" data-level="28" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html"><i class="fa fa-check"></i><b>28</b> Prepare for Analysis</a><ul>
+<li class="chapter" data-level="28.1" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#install-the-software"><i class="fa fa-check"></i><b>28.1</b> Install the Software</a></li>
+<li class="chapter" data-level="28.2" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#install-the-packages"><i class="fa fa-check"></i><b>28.2</b> Install the packages</a></li>
+<li class="chapter" data-level="28.3" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#create-a-r-project"><i class="fa fa-check"></i><b>28.3</b> Create a R project</a></li>
+<li class="chapter" data-level="28.4" data-path="prepare-for-analysis.html"><a href="prepare-for-analysis.html#get-the-data"><i class="fa fa-check"></i><b>28.4</b> Get the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="read-the-data-1.html"><a href="read-the-data-1.html"><i class="fa fa-check"></i><b>29</b> Read the Data</a><ul>
+<li class="chapter" data-level="29.1" data-path="read-the-data-1.html"><a href="read-the-data-1.html#peek-into-the-data"><i class="fa fa-check"></i><b>29.1</b> Peek into the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="class-analysis.html"><a href="class-analysis.html"><i class="fa fa-check"></i><b>30</b> Class Analysis</a><ul>
+<li class="chapter" data-level="30.1" data-path="class-analysis.html"><a href="class-analysis.html#meteorites-class-count"><i class="fa fa-check"></i><b>30.1</b> Meteorites Class Count</a><ul>
+<li class="chapter" data-level="30.1.1" data-path="class-analysis.html"><a href="class-analysis.html#top-20-class-of-meteorites-by-count"><i class="fa fa-check"></i><b>30.1.1</b> Top 20 Class Of Meteorites by Count</a></li>
+<li class="chapter" data-level="30.1.2" data-path="class-analysis.html"><a href="class-analysis.html#top-20-meteorites-and-their-counts"><i class="fa fa-check"></i><b>30.1.2</b> Top 20 Meteorites and their Counts</a></li>
+</ul></li>
+<li class="chapter" data-level="30.2" data-path="class-analysis.html"><a href="class-analysis.html#top-20-class-of-meteorites-by-mass"><i class="fa fa-check"></i><b>30.2</b> Top 20 Class Of Meteorites by Mass</a><ul>
+<li class="chapter" data-level="30.2.1" data-path="class-analysis.html"><a href="class-analysis.html#median-mass"><i class="fa fa-check"></i><b>30.2.1</b> Median Mass</a></li>
+<li class="chapter" data-level="30.2.2" data-path="class-analysis.html"><a href="class-analysis.html#median-mass-tabular-data"><i class="fa fa-check"></i><b>30.2.2</b> Median Mass Tabular Data</a></li>
+<li class="chapter" data-level="30.2.3" data-path="class-analysis.html"><a href="class-analysis.html#mean-mass"><i class="fa fa-check"></i><b>30.2.3</b> Mean Mass</a></li>
+<li class="chapter" data-level="30.2.4" data-path="class-analysis.html"><a href="class-analysis.html#mean-mass-tabular-data"><i class="fa fa-check"></i><b>30.2.4</b> Mean Mass Tabular Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html"><i class="fa fa-check"></i><b>31</b> Distribution of Mass</a><ul>
+<li class="chapter" data-level="31.1" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#heaviest-meteorite"><i class="fa fa-check"></i><b>31.1</b> Heaviest Meteorite</a></li>
+<li class="chapter" data-level="31.2" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#lightest-meteorite"><i class="fa fa-check"></i><b>31.2</b> Lightest Meteorite</a></li>
+<li class="chapter" data-level="31.3" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#valid-lightest-meteorite"><i class="fa fa-check"></i><b>31.3</b> Valid Lightest Meteorite</a></li>
+<li class="chapter" data-level="31.4" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#distribution-of-mass-classified-by-fall-type"><i class="fa fa-check"></i><b>31.4</b> Distribution of Mass classified by Fall Type</a><ul>
+<li class="chapter" data-level="31.4.1" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#autoselect-fall-type-colors"><i class="fa fa-check"></i><b>31.4.1</b> Autoselect Fall Type Colors</a></li>
+<li class="chapter" data-level="31.4.2" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#select-fall-type-colors"><i class="fa fa-check"></i><b>31.4.2</b> Select Fall Type Colors</a></li>
+</ul></li>
+<li class="chapter" data-level="31.5" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#mass-with-plots-for-each-fall-type"><i class="fa fa-check"></i><b>31.5</b> Mass with plots for each fall Type</a></li>
+<li class="chapter" data-level="31.6" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#mass-with-plots-for-each-fall-type-1"><i class="fa fa-check"></i><b>31.6</b> Mass with plots for each fall Type</a></li>
+<li class="chapter" data-level="31.7" data-path="distribution-of-mass.html"><a href="distribution-of-mass.html#mass-with-plots-for-each-fall-type-partially-removing-outliers"><i class="fa fa-check"></i><b>31.7</b> Mass with plots for each fall Type ( partially removing outliers)</a></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="distribution-of-meteorite-landings.html"><a href="distribution-of-meteorite-landings.html"><i class="fa fa-check"></i><b>32</b> Distribution of Meteorite Landings</a><ul>
+<li class="chapter" data-level="32.1" data-path="distribution-of-meteorite-landings.html"><a href="distribution-of-meteorite-landings.html#distribution-of-meteorite-landings-with-meteorite-mass"><i class="fa fa-check"></i><b>32.1</b> Distribution of Meteorite Landings with Meteorite Mass</a></li>
+</ul></li>
+<li class="chapter" data-level="33" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html"><i class="fa fa-check"></i><b>33</b> Distribution of Indian Meteorite Landings</a><ul>
+<li class="chapter" data-level="33.1" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html#peek-into-the-indian-met-landings-data"><i class="fa fa-check"></i><b>33.1</b> Peek into the Indian Met Landings Data</a></li>
+<li class="chapter" data-level="33.2" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html#distribution-of-indian-meteorite-landings-with-fall-classification"><i class="fa fa-check"></i><b>33.2</b> Distribution of Indian Meteorite Landings with Fall Classification</a></li>
+<li class="chapter" data-level="33.3" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html#distribution-of-indian-meteorite-landings-with-meteorite-mass"><i class="fa fa-check"></i><b>33.3</b> Distribution of Indian Meteorite Landings with Meteorite Mass</a></li>
+<li class="chapter" data-level="33.4" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html#heatmap-of-indian-meteorite-landings"><i class="fa fa-check"></i><b>33.4</b> Heatmap of Indian Meteorite Landings</a></li>
+<li class="chapter" data-level="33.5" data-path="distribution-of-indian-meteorite-landings.html"><a href="distribution-of-indian-meteorite-landings.html#distribution-of-indian-meteorite-landings-with-cluster-markers"><i class="fa fa-check"></i><b>33.5</b> Distribution of Indian Meteorite Landings with Cluster Markers</a></li>
+</ul></li>
+<li class="chapter" data-level="34" data-path="distribution-of-us-meteorite-landings.html"><a href="distribution-of-us-meteorite-landings.html"><i class="fa fa-check"></i><b>34</b> Distribution of US Meteorite Landings</a><ul>
+<li class="chapter" data-level="34.1" data-path="distribution-of-us-meteorite-landings.html"><a href="distribution-of-us-meteorite-landings.html#peek-into-the-us-met-landings-data"><i class="fa fa-check"></i><b>34.1</b> Peek into the US Met Landings Data</a></li>
+<li class="chapter" data-level="34.2" data-path="distribution-of-us-meteorite-landings.html"><a href="distribution-of-us-meteorite-landings.html#distribution-of-us-meteorite-landings-with-meteorite-mass"><i class="fa fa-check"></i><b>34.2</b> Distribution of US Meteorite Landings with Meteorite Mass</a></li>
+<li class="chapter" data-level="34.3" data-path="distribution-of-us-meteorite-landings.html"><a href="distribution-of-us-meteorite-landings.html#heatmap-of-us-meteorite-landings"><i class="fa fa-check"></i><b>34.3</b> Heatmap of US Meteorite Landings</a></li>
+<li class="chapter" data-level="34.4" data-path="distribution-of-us-meteorite-landings.html"><a href="distribution-of-us-meteorite-landings.html#distribution-of-us-meteorite-landings-with-cluster-markers"><i class="fa fa-check"></i><b>34.4</b> Distribution of US Meteorite Landings with Cluster Markers</a></li>
+</ul></li>
+<li class="chapter" data-level="35" data-path="distribution-of-african-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-african-meteorite-landings-with-meteorite-mass.html"><i class="fa fa-check"></i><b>35</b> Distribution of African Meteorite Landings with Meteorite Mass</a><ul>
+<li class="chapter" data-level="35.1" data-path="distribution-of-african-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-african-meteorite-landings-with-meteorite-mass.html#peek-into-the-africa-met-landings-data"><i class="fa fa-check"></i><b>35.1</b> Peek into the Africa Met Landings Data</a></li>
+<li class="chapter" data-level="35.2" data-path="distribution-of-african-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-african-meteorite-landings-with-meteorite-mass.html#heatmap-of-africa-meteorite-landings"><i class="fa fa-check"></i><b>35.2</b> Heatmap of Africa Meteorite Landings</a></li>
+<li class="chapter" data-level="35.3" data-path="distribution-of-african-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-african-meteorite-landings-with-meteorite-mass.html#distribution-of-africa-meteorite-landings-with-cluster-markers"><i class="fa fa-check"></i><b>35.3</b> Distribution of Africa Meteorite Landings with Cluster Markers</a></li>
+</ul></li>
+<li class="chapter" data-level="36" data-path="distribution-of-aus-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-aus-meteorite-landings-with-meteorite-mass.html"><i class="fa fa-check"></i><b>36</b> Distribution of Aus Meteorite Landings with Meteorite Mass</a><ul>
+<li class="chapter" data-level="36.1" data-path="distribution-of-aus-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-aus-meteorite-landings-with-meteorite-mass.html#peek-into-the-aus-met-landings-data"><i class="fa fa-check"></i><b>36.1</b> Peek into the Aus Met Landings Data</a></li>
+<li class="chapter" data-level="36.2" data-path="distribution-of-aus-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-aus-meteorite-landings-with-meteorite-mass.html#heatmap-of-aus-meteorite-landings"><i class="fa fa-check"></i><b>36.2</b> Heatmap of Aus Meteorite Landings</a></li>
+<li class="chapter" data-level="36.3" data-path="distribution-of-aus-meteorite-landings-with-meteorite-mass.html"><a href="distribution-of-aus-meteorite-landings-with-meteorite-mass.html#distribution-of-aus-meteorite-landings-with-cluster-markers"><i class="fa fa-check"></i><b>36.3</b> Distribution of Aus Meteorite Landings with Cluster Markers</a></li>
+</ul></li>
+<li class="chapter" data-level="37" data-path="year-analysis.html"><a href="year-analysis.html"><i class="fa fa-check"></i><b>37</b> Year Analysis</a><ul>
+<li class="chapter" data-level="37.1" data-path="year-analysis.html"><a href="year-analysis.html#years-with-the-most-meteorite-landings"><i class="fa fa-check"></i><b>37.1</b> Years with the Most Meteorite Landings</a></li>
+<li class="chapter" data-level="37.2" data-path="year-analysis.html"><a href="year-analysis.html#time-series-from-year-1970"><i class="fa fa-check"></i><b>37.2</b> Time Series from Year 1970</a></li>
+<li class="chapter" data-level="37.3" data-path="year-analysis.html"><a href="year-analysis.html#comparison-of-mass-and-years"><i class="fa fa-check"></i><b>37.3</b> Comparison of Mass and Years</a></li>
+<li class="chapter" data-level="37.4" data-path="year-analysis.html"><a href="year-analysis.html#comparison-of-mass-and-years-from-1900-onwards"><i class="fa fa-check"></i><b>37.4</b> Comparison of Mass and Years from 1900 onwards</a></li>
+</ul></li>
+<li class="chapter" data-level="38" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html"><i class="fa fa-check"></i><b>38</b> L6 Meteorite Analysis</a><ul>
+<li class="chapter" data-level="38.1" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html#distribution-of-l6-meteorite-landings"><i class="fa fa-check"></i><b>38.1</b> Distribution of L6 Meteorite Landings</a></li>
+<li class="chapter" data-level="38.2" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html#summary-of-the-l6-meteorites-mass"><i class="fa fa-check"></i><b>38.2</b> Summary of the L6 Meteorites Mass</a></li>
+<li class="chapter" data-level="38.3" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html#time-series-from-year-1970-for-l6"><i class="fa fa-check"></i><b>38.3</b> Time Series from Year 1970 for L6</a></li>
+<li class="chapter" data-level="38.4" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html#distribution-of-l6-us-meteorite-landings-with-meteorite-mass"><i class="fa fa-check"></i><b>38.4</b> Distribution of L6 US Meteorite Landings with Meteorite Mass</a></li>
+<li class="chapter" data-level="38.5" data-path="l6-meteorite-analysis.html"><a href="l6-meteorite-analysis.html#distribution-of-indian-meteorite-l6-landings-with-meteorite-mass"><i class="fa fa-check"></i><b>38.5</b> Distribution of Indian Meteorite L6 Landings with Meteorite Mass</a></li>
+</ul></li>
+<li class="part"><span><b>III Adverse Food Event</b></span></li>
+<li class="chapter" data-level="39" data-path="read-the-data-2.html"><a href="read-the-data-2.html"><i class="fa fa-check"></i><b>39</b> Read the Data</a></li>
+<li class="chapter" data-level="40" data-path="peek-into-the-data-1.html"><a href="peek-into-the-data-1.html"><i class="fa fa-check"></i><b>40</b> Peek into the Data</a></li>
+<li class="chapter" data-level="41" data-path="rename-fields.html"><a href="rename-fields.html"><i class="fa fa-check"></i><b>41</b> Rename Fields</a></li>
+<li class="chapter" data-level="42" data-path="ten-most-common-symptoms.html"><a href="ten-most-common-symptoms.html"><i class="fa fa-check"></i><b>42</b> Ten Most Common Symptoms</a></li>
+<li class="chapter" data-level="43" data-path="ten-most-common-product-name.html"><a href="ten-most-common-product-name.html"><i class="fa fa-check"></i><b>43</b> Ten Most Common Product Name</a></li>
+<li class="chapter" data-level="44" data-path="ten-most-common-industry-name.html"><a href="ten-most-common-industry-name.html"><i class="fa fa-check"></i><b>44</b> Ten Most Common Industry Name</a></li>
+<li class="chapter" data-level="45" data-path="ages-commonly-affected.html"><a href="ages-commonly-affected.html"><i class="fa fa-check"></i><b>45</b> Ages Commonly Affected</a></li>
+<li class="chapter" data-level="46" data-path="distribution-of-ages.html"><a href="distribution-of-ages.html"><i class="fa fa-check"></i><b>46</b> Distribution of Ages</a><ul>
+<li class="chapter" data-level="46.1" data-path="distribution-of-ages.html"><a href="distribution-of-ages.html#and-above-adverse-products"><i class="fa fa-check"></i><b>46.1</b> 70 and Above Adverse Products</a></li>
+<li class="chapter" data-level="46.2" data-path="distribution-of-ages.html"><a href="distribution-of-ages.html#age-60---69-adverse-products"><i class="fa fa-check"></i><b>46.2</b> Age 60 - 69 Adverse Products</a></li>
+<li class="chapter" data-level="46.3" data-path="distribution-of-ages.html"><a href="distribution-of-ages.html#age-50---59-adverse-products"><i class="fa fa-check"></i><b>46.3</b> Age 50 - 59 Adverse Products</a></li>
+<li class="chapter" data-level="46.4" data-path="distribution-of-ages.html"><a href="distribution-of-ages.html#less-than-5-adverse-products"><i class="fa fa-check"></i><b>46.4</b> Less than 5 Adverse Products</a></li>
+</ul></li>
+<li class="chapter" data-level="47" data-path="ten-most-common-outcomes.html"><a href="ten-most-common-outcomes.html"><i class="fa fa-check"></i><b>47</b> Ten Most Common Outcomes</a></li>
+<li class="chapter" data-level="48" data-path="outcomes-and-products-associated-with-adverse-events.html"><a href="outcomes-and-products-associated-with-adverse-events.html"><i class="fa fa-check"></i><b>48</b> Outcomes and Products associated with Adverse Events</a><ul>
+<li class="chapter" data-level="48.1" data-path="outcomes-and-products-associated-with-adverse-events.html"><a href="outcomes-and-products-associated-with-adverse-events.html#death-products"><i class="fa fa-check"></i><b>48.1</b> Death Products</a></li>
+<li class="chapter" data-level="48.2" data-path="outcomes-and-products-associated-with-adverse-events.html"><a href="outcomes-and-products-associated-with-adverse-events.html#death-products-for-age-70-and-above"><i class="fa fa-check"></i><b>48.2</b> Death Products for Age 70 and Above</a></li>
+<li class="chapter" data-level="48.3" data-path="outcomes-and-products-associated-with-adverse-events.html"><a href="outcomes-and-products-associated-with-adverse-events.html#disability-products"><i class="fa fa-check"></i><b>48.3</b> Disability Products</a></li>
+</ul></li>
+<li class="chapter" data-level="49" data-path="symptoms-and-the-products-causing-it.html"><a href="symptoms-and-the-products-causing-it.html"><i class="fa fa-check"></i><b>49</b> Symptoms and the Products Causing it</a><ul>
+<li class="chapter" data-level="49.1" data-path="symptoms-and-the-products-causing-it.html"><a href="symptoms-and-the-products-causing-it.html#diarrhoea"><i class="fa fa-check"></i><b>49.1</b> Diarrhoea</a></li>
+<li class="chapter" data-level="49.2" data-path="symptoms-and-the-products-causing-it.html"><a href="symptoms-and-the-products-causing-it.html#vomiting"><i class="fa fa-check"></i><b>49.2</b> Vomiting</a></li>
+<li class="chapter" data-level="49.3" data-path="symptoms-and-the-products-causing-it.html"><a href="symptoms-and-the-products-causing-it.html#abdominal-pain"><i class="fa fa-check"></i><b>49.3</b> Abdominal Pain</a></li>
+<li class="chapter" data-level="49.4" data-path="symptoms-and-the-products-causing-it.html"><a href="symptoms-and-the-products-causing-it.html#dizziness"><i class="fa fa-check"></i><b>49.4</b> Dizziness</a></li>
+</ul></li>
+<li class="chapter" data-level="50" data-path="time-analysis-of-adverse-events.html"><a href="time-analysis-of-adverse-events.html"><i class="fa fa-check"></i><b>50</b> Time Analysis of Adverse Events</a><ul>
+<li class="chapter" data-level="50.1" data-path="time-analysis-of-adverse-events.html"><a href="time-analysis-of-adverse-events.html#year-wise"><i class="fa fa-check"></i><b>50.1</b> Year wise</a></li>
+<li class="chapter" data-level="50.2" data-path="time-analysis-of-adverse-events.html"><a href="time-analysis-of-adverse-events.html#most-common-month-for-adverse-events"><i class="fa fa-check"></i><b>50.2</b> Most Common Month for Adverse Events</a></li>
+</ul></li>
+<li class="chapter" data-level="51" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html"><i class="fa fa-check"></i><b>51</b> Products in Adverse Events for January</a><ul>
+<li class="chapter" data-level="51.1" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html#wen-cleansing-conditioner-symptoms"><i class="fa fa-check"></i><b>51.1</b> Wen Cleansing Conditioner Symptoms</a></li>
+<li class="chapter" data-level="51.2" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html#vitamin-d-symptoms"><i class="fa fa-check"></i><b>51.2</b> Vitamin D Symptoms</a></li>
+<li class="chapter" data-level="51.3" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html#hydroxycut-symptoms"><i class="fa fa-check"></i><b>51.3</b> Hydroxycut Symptoms</a></li>
+<li class="chapter" data-level="51.4" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html#multivitamin-symptoms"><i class="fa fa-check"></i><b>51.4</b> MultiVitamin Symptoms</a></li>
+<li class="chapter" data-level="51.5" data-path="products-in-adverse-events-for-january.html"><a href="products-in-adverse-events-for-january.html#fish-oil-symptoms"><i class="fa fa-check"></i><b>51.5</b> Fish Oil Symptoms</a></li>
+</ul></li>
+<li class="chapter" data-level="52" data-path="gender-and-adverse-events.html"><a href="gender-and-adverse-events.html"><i class="fa fa-check"></i><b>52</b> Gender and Adverse Events</a><ul>
+<li class="chapter" data-level="52.1" data-path="gender-and-adverse-events.html"><a href="gender-and-adverse-events.html#plot-products-for-female"><i class="fa fa-check"></i><b>52.1</b> Plot Products for Female</a></li>
+<li class="chapter" data-level="52.2" data-path="gender-and-adverse-events.html"><a href="gender-and-adverse-events.html#plot-products-for-male"><i class="fa fa-check"></i><b>52.2</b> Plot Products for Male</a></li>
+<li class="chapter" data-level="52.3" data-path="gender-and-adverse-events.html"><a href="gender-and-adverse-events.html#female-symptoms-top-10"><i class="fa fa-check"></i><b>52.3</b> Female Symptoms Top 10</a></li>
+<li class="chapter" data-level="52.4" data-path="gender-and-adverse-events.html"><a href="gender-and-adverse-events.html#male-symptoms-top-10"><i class="fa fa-check"></i><b>52.4</b> Male Symptoms Top 10</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Little Book on Exploratory Data Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="age-difference-between-winners-and-losers" class="section level1">
+<h1><span class="header-section-number">Chapter 20</span> Age difference between winners and losers</h1>
+<p>We plot the age difference between winners and losers for the grand slams.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(grandslam$agediff)</code></pre></div>
+<pre><code>##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## -13.3087  -1.6030   1.0185   0.9144   4.4736  12.0329</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grandslam %&gt;%
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> agediff)) +
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>,<span class="dt">fill =</span> fillColor) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span> <span class="st">&#39;Age Difference&#39;</span>,<span class="dt">y =</span> <span class="st">&#39;Count&#39;</span>, <span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Distribution of&quot;</span>, <span class="st">&#39; Age Difference &#39;</span>)) +
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grandslam %&gt;%
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> agediff)) +
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">fill =</span> fillColor2) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span> <span class="st">&#39;Age Difference&#39;</span>,<span class="dt">y =</span> <span class="st">&#39;Count&#39;</span>, <span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Distribution of&quot;</span>, <span class="st">&#39; Age Difference &#39;</span>)) +
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
+<p><img src="littleBook_files/figure-html/unnamed-chunk-26-2.png" width="672" /></p>
+<p>It is evident from the plots that older players win finals more than the younger players.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="height-difference-between-winners-and-losers.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="feature-engineering-first-second-third-set-winners-and-losers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>XGBoost on Thoughts - Ambarish</title>
+    <link>/tags/xgboost/</link>
+    <description>Recent content in XGBoost on Thoughts - Ambarish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Thu, 06 Jul 2017 00:00:00 +0030</lastBuildDate><atom:link href="/tags/xgboost/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Installing XGBoost on Anaconda on Windows</title>
+      <link>/posts/2017-07-06-installing-xgboost-anaconda-windows/</link>
+      <pubDate>Thu, 06 Jul 2017 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2017-07-06-installing-xgboost-anaconda-windows/</guid>
+      <description>The installation instructions are exactly the same as in the Installing XGBoost For Anaconda on Windows except Step 10 since the name of the DLL created is libxgboost.dll but the Python Module expects the dll of the name xgboost.dll.
+Step 1 : Install Anaconda
+Step 2 : Install Git on Windows
+Step 3 : Launch Git Bash window
+Step 4 : The directory in which the code is to be installed in my case is D:\XGBoostCode</description>
+    </item>
+    
+  </channel>
+</rss>

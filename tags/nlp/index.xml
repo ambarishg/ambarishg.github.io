@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nlp on Thoughts - Ambarish</title>
+    <link>/tags/nlp/</link>
+    <description>Recent content in nlp on Thoughts - Ambarish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Mon, 21 Jun 2021 01:00:00 +0030</lastBuildDate><atom:link href="/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recommendation series in Microsoft Reactor</title>
+      <link>/posts/reactor-recommendation-series/</link>
+      <pubDate>Mon, 21 Jun 2021 01:00:00 +0030</pubDate>
+      
+      <guid>/posts/reactor-recommendation-series/</guid>
+      <description>We will adopt a case study approach in understanding the concepts and build a recommendation engine from scratch using TF-IDF , cosine similarity, word embeddings and deploy it in Azure ML. The series will span 5 Fridays 5PM - 6PM IST time zone.
+  Introduction to Azure ML - Friday, June 25, 2021 
+  Recommendation engine using Text data ,Cosine Similarity and TFIDF technique -Friday, July 2, 2021</description>
+    </item>
+    
+    <item>
+      <title>Roadmap of the Recommendation series Reading</title>
+      <link>/posts/roadmap-recommendation-series/</link>
+      <pubDate>Tue, 18 May 2021 01:00:00 +0030</pubDate>
+      
+      <guid>/posts/roadmap-recommendation-series/</guid>
+      <description>A roadmap of reading the Recommendation series involving TF-IDF , Cosine Similarity , Word Embeddings and deploying into AzureML
+  Recommendation engine using Text data ,Cosine Similarity and TFIDF technique
+  Recommendation engine using Text data ,Cosine Similarity and TFIDF technique , Azure ML
+  Word Embeddings
+  Recommendation engine using Text data ,Cosine Similarity and word embeddings technique
+  Recommendation engine using Text data ,Cosine Similarity and word embeddings technique, , Azure ML</description>
+    </item>
+    
+    <item>
+      <title>Word embeddings</title>
+      <link>/posts/word-embeddings/</link>
+      <pubDate>Tue, 18 May 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/word-embeddings/</guid>
+      <description>From the TensorFlow documentation word embeddings documentation
+ Word embeddings give us a way to use an efficient, dense representation in which similar words have a similar encoding.
+  Importantly, you do not have to specify this encoding by hand. An embedding is a dense vector of floating point values (the length of the vector is a parameter you specify).
+  Instead of specifying the values for the embedding manually, they are trainable parameters (weights learned by the model during training, in the same way a model learns weights for a dense layer).</description>
+    </item>
+    
+    <item>
+      <title>Recommendation engine using Text data ,Cosine Similarity and Word Embeddings , Azure ML</title>
+      <link>/posts/recommender-career-spacy-azure/</link>
+      <pubDate>Sat, 15 May 2021 01:00:00 +0030</pubDate>
+      
+      <guid>/posts/recommender-career-spacy-azure/</guid>
+      <description>What are we trying to do We will build a very simple recommendation engine using Text Data. To demostrate this we would use a case study approach and build a recommendation engine for a non profit organization Career Village. I have detailed post on the methodology of the recommendation engine in the post here. In this post we will show of how we train, infer and deploy the solution in Azure.</description>
+    </item>
+    
+    <item>
+      <title>Recommendation engine using Text data ,Cosine Similarity and word embeddings technique</title>
+      <link>/posts/recommender-career-spacy/</link>
+      <pubDate>Sat, 15 May 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/recommender-career-spacy/</guid>
+      <description>What are we trying to do We will build a very simple recommendation engine using Text Data. To demostrate this we would use a case study approach and build a recommendation engine for a non profit organization Career Village.
+CareerVillage.org is a nonprofit that crowdsources career advice for underserved youth. Founded in 2011 in four classrooms in New York City, the platform has now served career advice from 25,000 volunteer professionals to over 3.</description>
+    </item>
+    
+    <item>
+      <title>Recommendation engine using Text data ,Cosine Similarity and TFIDF technique , Azure ML</title>
+      <link>/posts/recommender-career-tfidf-azure/</link>
+      <pubDate>Fri, 14 May 2021 01:00:00 +0030</pubDate>
+      
+      <guid>/posts/recommender-career-tfidf-azure/</guid>
+      <description>What are we trying to do We will build a very simple recommendation engine using Text Data. To demostrate this we would use a case study approach and build a recommendation engine for a non profit organization Career Village. I have detailed post on the methodology of the recommendation engine in the post here. In this post we will show of how we train, infer and deploy the solution in Azure.</description>
+    </item>
+    
+    <item>
+      <title>Recommendation engine using Text data ,Cosine Similarity and TFIDF technique</title>
+      <link>/posts/recommender-career-tfidf/</link>
+      <pubDate>Thu, 13 May 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/recommender-career-tfidf/</guid>
+      <description>What are we trying to do We will build a very simple recommendation engine using Text Data. To demostrate this we would use a case study approach and build a recommendation engine for a non profit organization Career Village.
+CareerVillage.org is a nonprofit that crowdsources career advice for underserved youth. Founded in 2011 in four classrooms in New York City, the platform has now served career advice from 25,000 volunteer professionals to over 3.</description>
+    </item>
+    
+    <item>
+      <title>Chicago Restaurants Inspections Text Mining</title>
+      <link>/posts/2017-10-19-chicago-restaurants-inspections/</link>
+      <pubDate>Thu, 19 Oct 2017 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2017-10-19-chicago-restaurants-inspections/</guid>
+      <description>Restaurant inspections ensure that food served to the public at licensed food establishments follows food safety guidelines. The Food Protection Division of the Chicago Department of Public Health (CDPH) is committed to maintaining the safety of food bought, sold, or prepared for public consumption in Chicago by carrying out science-based inspections of all retail food establishments. These inspections promote public health in areas of food safety and sanitation and prevent the occurrence of food-borne illness.</description>
+    </item>
+    
+    <item>
+      <title>Fun in TextMining with Simpsons</title>
+      <link>/posts/2017-10-07-fun-in-textmining-with-simpsons/</link>
+      <pubDate>Sat, 07 Oct 2017 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/2017-10-07-fun-in-textmining-with-simpsons/</guid>
+      <description>This dataset contains the characters, locations, episode details, and script lines for approximately 600 Simpsons episodes, dating back to 1989.
+I had fun learning Text Mining with Simpsons.Hope you will also enjoy the same while I had writing the text mining and data visualization code.
+A detailed report Fun in Text Mining with Simpsons has the complete Data Visualization with Text Mining and Modelling.</description>
+    </item>
+    
+  </channel>
+</rss>

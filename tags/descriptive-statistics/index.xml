@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>descriptive statistics on Thoughts - Ambarish</title>
+    <link>/tags/descriptive-statistics/</link>
+    <description>Recent content in descriptive statistics on Thoughts - Ambarish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Fri, 10 Sep 2021 10:00:00 +0030</lastBuildDate><atom:link href="/tags/descriptive-statistics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Binomial Distributions</title>
+      <link>/posts/binomial-distributions/</link>
+      <pubDate>Fri, 10 Sep 2021 10:00:00 +0030</pubDate>
+      
+      <guid>/posts/binomial-distributions/</guid>
+      <description>Binomial Probability distribution has the following characteristics:
+  A fixed number of trials n. e.g., 20 coin toss , 40 students
+  A binary outcome, a success and a failure. Probability of success is p, probability of failure is 1-p. e.g., head or tail in a coin toss , pass or fail of sttudents in an exam, positive and negative results of a test of a patient.
+  Constant probability for each trial.</description>
+    </item>
+    
+    <item>
+      <title>Probability Distributions</title>
+      <link>/posts/probability-distributions/</link>
+      <pubDate>Thu, 09 Sep 2021 00:00:00 +0030</pubDate>
+      
+      <guid>/posts/probability-distributions/</guid>
+      <description>Probability distribution is also known as Probability function.
+ This gives the probabilities of all possible outcomes A mathematical function which maps each possible outcome x to the probability p(x) The probabilities must all sum or integrate to 1  Discrete and Continous Probability distribution Discrete probability functions can take only discrete values. Examples include Dead/ Alive , numbers obtained by rolling a die, treatment / placebo, whole numbers
+Continuous probability functions can take any value within a range.</description>
+    </item>
+    
+  </channel>
+</rss>
