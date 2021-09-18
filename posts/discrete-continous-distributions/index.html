@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function(x){
+          x.parentElement.classList += 'has-jax'})
+      });
+  
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><title>Discrete and Continuous Probability distribution - Thoughts - Ambarish</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Discrete and Continuous Probability distribution">
+<meta itemprop="description" content="Discrete and Continuous Probability distribution"><meta itemprop="datePublished" content="2021-09-09T00:04:00&#43;00:30" />
+<meta itemprop="dateModified" content="2021-09-09T00:04:00&#43;00:30" />
+<meta itemprop="wordCount" content="244">
+<meta itemprop="keywords" content="statistics,probability distributions," /><meta property="og:title" content="Discrete and Continuous Probability distribution" />
+<meta property="og:description" content="Discrete and Continuous Probability distribution" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/discrete-continous-distributions/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-09-09T00:04:00&#43;00:30" />
+<meta property="article:modified_time" content="2021-09-09T00:04:00&#43;00:30" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Discrete and Continuous Probability distribution"/>
+<meta name="twitter:description" content="Discrete and Continuous Probability distribution"/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="/css/dark.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+		<script src="/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+	<h1 class="site-title"><a href="/">Thoughts - Ambarish</a></h1>
+	<div class="site-description"><p></p><nav class="nav social">
+			<ul class="flat"><li><a href="mailto:ambarish.ganguly@gmail.com" title="Email"><i data-feather="mail"></i></a></li><li><a href="https://www.linkedin.com/in/ambarish-ganguly/" title="LinkedIn"><i data-feather="linkedin"></i></a></li><li><a href="https://twitter.com/a_ganguly/" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="https://github.com/ambarishg" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+			<li>
+				<a href="/books">Books</a>
+			</li>
+			
+			<li>
+				<a href="/courses">Courses</a>
+			</li>
+			
+			<li>
+				<a href="/awards/">Awards</a>
+			</li>
+			
+			<li>
+				<a href="/testimonials/">Testimonials</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">09</span>
+							<span class="rest">Sep 2021</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Discrete and Continuous Probability distribution</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>We continue our discussion of the Discrete and Continuous Probability distribution.</p>
+<h2 id="blood-types---discrete--distribution-function">Blood Types - Discrete  distribution function</h2>
+<p>Here we present the distribution of different <strong>Blood Types</strong></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>x</th>
+<th>p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>O</td>
+<td>45%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>A</td>
+<td>40%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>B</td>
+<td>11%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>AB</td>
+<td>4%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="emergency-room-probability-distribution-function">Emergency Room probability distribution function</h2>
+<p>The number of patients seen in an Emergency Room in any given hour is provided by a random variable x</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#</td>
+<td>0.3</td>
+<td>0.3</td>
+<td>0.2</td>
+<td>0.1</td>
+<td>0.1</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p>Find the probability that exactly 13 patients arrive in a given hour</p>
+<p>Answer = p(x = 13 ) = 0.1</p>
+</li>
+<li>
+<p>Find the probability that at least 12 patients arrive</p>
+<p>Answer = p(x = 12 ) + p(x = 13 )  = 0.1 + 0.1 = 0.2</p>
+</li>
+<li>
+<p>Find the probability that at most 11 patients arrive</p>
+<p>Answer = p(x = 9 ) + p(x = 10 )  + p( x= 11)= 0.3 + 0.3 + 0.2 = 0.8</p>
+</li>
+</ol>
+<h2 id="continuous-probability-distribution-function">Continuous probability distribution function</h2>
+<p>Any continuous mathematical function that integrates to 1 is a probablity function.</p>
+<p>The probabilities are provided for a range of values rather than for a single value. The exponential function is an example of a continuous probability distribution.</p>
+<p>Imagine that the survival times after a lung tansplant follow an exponential function. Then the probablity of a patient will die in the second year of the surgery ( the range is between 1 and 2) is 23%.</p>
+<p>$\int_{1}^{2} e^{-x} dx$ =  $\left. e^{-x} \right|_{1}^{2}$ = 23%</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/statistics">statistics</a></li>
+							
+							<li><a href="/tags/probability-distributions">probability distributions</a></li>
+							
+						</ul>
+					
+				
+			</div>
+
+			<script src="https://utteranc.es/client.js"
+        repo="ambarishg/ambarishg.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+		</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2021  © Copyright notice |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113191180-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script>feather.replace()</script>
+</body>
+</html>

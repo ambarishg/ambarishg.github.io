@@ -21,6 +21,17 @@
     </item>
     
     <item>
+      <title>Discrete and Continuous Probability distribution</title>
+      <link>/posts/discrete-continous-distributions/</link>
+      <pubDate>Thu, 09 Sep 2021 00:04:00 +0030</pubDate>
+      
+      <guid>/posts/discrete-continous-distributions/</guid>
+      <description>We continue our discussion of the Discrete and Continuous Probability distribution.
+Blood Types - Discrete distribution function Here we present the distribution of different Blood Types
+   # x p     1 O 45%   2 A 40%   3 B 11%   4 AB 4%    Emergency Room probability distribution function The number of patients seen in an Emergency Room in any given hour is provided by a random variable x</description>
+    </item>
+    
+    <item>
       <title>Probability Distributions</title>
       <link>/posts/probability-distributions/</link>
       <pubDate>Thu, 09 Sep 2021 00:00:00 +0030</pubDate>
