@@ -492,6 +492,16 @@ In Azure Machine Learning, a pipeline is a workflow of machine learning tasks in
     </item>
     
     <item>
+      <title>Book on Hidden Gems in Kaggle</title>
+      <link>/books/04-hiddengemsbook/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/books/04-hiddengemsbook/</guid>
+      <description>You can find the book here
+This is a Little Book on Hidden Gems in Kaggle</description>
+    </item>
+    
+    <item>
       <title>Intro to Deep Learning</title>
       <link>/courses/intro-to-deep-learning/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

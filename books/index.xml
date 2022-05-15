@@ -8,6 +8,16 @@
     <language>en-us</language>
     <copyright>© Copyright notice</copyright><atom:link href="/books/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Book on Hidden Gems in Kaggle</title>
+      <link>/books/04-hiddengemsbook/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/books/04-hiddengemsbook/</guid>
+      <description>You can find the book here
+This is a Little Book on Hidden Gems in Kaggle</description>
+    </item>
+    
+    <item>
       <title>Little Book on Data Visualization and Modelling</title>
       <link>/books/03-littlebookmodelling/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

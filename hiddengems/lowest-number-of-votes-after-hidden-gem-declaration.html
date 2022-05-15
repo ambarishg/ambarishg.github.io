@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 15 Lowest Number of Votes after Hidden Gem Declaration | Hidden Gems Book</title>
+  <meta name="description" content="Chapter 15 Lowest Number of Votes after Hidden Gem Declaration | Hidden Gems Book" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 15 Lowest Number of Votes after Hidden Gem Declaration | Hidden Gems Book" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 15 Lowest Number of Votes after Hidden Gem Declaration | Hidden Gems Book" />
+  
+  
+  
+
+<meta name="author" content="Ambarish Ganguly" />
+
+
+<meta name="date" content="2022-05-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="who-got-no-votes-after-the-hidden-gem-declaration.html"/>
+<link rel="next" href="more-analysis-upvotes-after-hidden-gem-declaration.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Hidden Gems Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="hidden-gems.html"><a href="hidden-gems.html"><i class="fa fa-check"></i><b>1</b> Hidden Gems</a></li>
+<li class="chapter" data-level="2" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html"><i class="fa fa-check"></i><b>2</b> Most Popular Hidden Gems Authors</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html#jonathan-bouchet-notebooks---top-hidden-gem-author"><i class="fa fa-check"></i><b>2.1</b> Jonathan Bouchet Notebooks - Top Hidden Gem Author</a></li>
+<li class="chapter" data-level="2.2" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html#jonathan-bouchet---leading-hidden-gem-author-reviews"><i class="fa fa-check"></i><b>2.2</b> Jonathan Bouchet - Leading Hidden Gem Author reviews</a></li>
+<li class="chapter" data-level="2.3" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html#ramshankar-yadhunath---leading-hidden-gem-author-reviews"><i class="fa fa-check"></i><b>2.3</b> Ramshankar Yadhunath - Leading Hidden Gem Author reviews</a></li>
+<li class="chapter" data-level="2.4" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html#parul-pandey---leading-hidden-gem-author-reviews"><i class="fa fa-check"></i><b>2.4</b> Parul Pandey - Leading Hidden Gem Author reviews</a></li>
+<li class="chapter" data-level="2.5" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html#laura-fink---leading-hidden-gem-author-reviews"><i class="fa fa-check"></i><b>2.5</b> Laura Fink - Leading Hidden Gem Author reviews</a></li>
+<li class="chapter" data-level="2.6" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html#vopani---leading-hidden-gem-author-reviews"><i class="fa fa-check"></i><b>2.6</b> Vopani - Leading Hidden Gem Author reviews</a></li>
+<li class="chapter" data-level="2.7" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html#kxx---leading-hidden-gem-author-reviews"><i class="fa fa-check"></i><b>2.7</b> kxx - Leading Hidden Gem Author reviews</a></li>
+<li class="chapter" data-level="2.8" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html#bojan-tunguz---leading-hidden-gem-author-reviews"><i class="fa fa-check"></i><b>2.8</b> Bojan Tunguz - Leading Hidden Gem Author reviews</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tags-and-percentage.html"><a href="tags-and-percentage.html"><i class="fa fa-check"></i><b>3</b> Tags and Percentage</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="tags-and-percentage.html"><a href="tags-and-percentage.html#jonathan-bouchet-tags"><i class="fa fa-check"></i><b>3.1</b> Jonathan Bouchet Tags</a></li>
+<li class="chapter" data-level="3.2" data-path="tags-and-percentage.html"><a href="tags-and-percentage.html#ramshankar-yadhunath-tags"><i class="fa fa-check"></i><b>3.2</b> Ramshankar Yadhunath Tags</a></li>
+<li class="chapter" data-level="3.3" data-path="tags-and-percentage.html"><a href="tags-and-percentage.html#vopani-tags"><i class="fa fa-check"></i><b>3.3</b> Vopani Tags</a></li>
+<li class="chapter" data-level="3.4" data-path="tags-and-percentage.html"><a href="tags-and-percentage.html#bojan-tunguz-tags"><i class="fa fa-check"></i><b>3.4</b> Bojan Tunguz Tags</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="performance-tier-and-gems.html"><a href="performance-tier-and-gems.html"><i class="fa fa-check"></i><b>4</b> Performance Tier and Gems</a></li>
+<li class="chapter" data-level="5" data-path="hidden-gem-and-competiton-notebook.html"><a href="hidden-gem-and-competiton-notebook.html"><i class="fa fa-check"></i><b>5</b> Hidden Gem and Competiton Notebook</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="hidden-gem-and-competiton-notebook.html"><a href="hidden-gem-and-competiton-notebook.html#confidence-interval-for-a-hidden-gem-being-a-not-a-competition-notebook"><i class="fa fa-check"></i><b>5.1</b> 95% Confidence Interval for a Hidden Gem being a <strong>NOT A Competition notebook</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="total-votes-for-a-hidden-gem.html"><a href="total-votes-for-a-hidden-gem.html"><i class="fa fa-check"></i><b>6</b> Total Votes for a Hidden Gem</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="total-votes-for-a-hidden-gem.html"><a href="total-votes-for-a-hidden-gem.html#box-plot-without-outliers"><i class="fa fa-check"></i><b>6.1</b> Box Plot ( without Outliers )</a></li>
+<li class="chapter" data-level="6.2" data-path="total-votes-for-a-hidden-gem.html"><a href="total-votes-for-a-hidden-gem.html#box-plot"><i class="fa fa-check"></i><b>6.2</b> Box Plot</a></li>
+<li class="chapter" data-level="6.3" data-path="total-votes-for-a-hidden-gem.html"><a href="total-votes-for-a-hidden-gem.html#density-plot"><i class="fa fa-check"></i><b>6.3</b> Density Plot</a></li>
+<li class="chapter" data-level="6.4" data-path="total-votes-for-a-hidden-gem.html"><a href="total-votes-for-a-hidden-gem.html#summary-statistics-for-votes"><i class="fa fa-check"></i><b>6.4</b> Summary Statistics for Votes</a></li>
+<li class="chapter" data-level="6.5" data-path="total-votes-for-a-hidden-gem.html"><a href="total-votes-for-a-hidden-gem.html#confidence-interval-for-hidden-gems-votes"><i class="fa fa-check"></i><b>6.5</b> 95% Confidence Interval for Hidden Gems Votes</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="total-comments.html"><a href="total-comments.html"><i class="fa fa-check"></i><b>7</b> Total Comments</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="total-comments.html"><a href="total-comments.html#box-plot-1"><i class="fa fa-check"></i><b>7.1</b> Box Plot</a></li>
+<li class="chapter" data-level="7.2" data-path="total-comments.html"><a href="total-comments.html#density-plot-1"><i class="fa fa-check"></i><b>7.2</b> Density Plot</a></li>
+<li class="chapter" data-level="7.3" data-path="total-comments.html"><a href="total-comments.html#summary-statistics-for-total-comments"><i class="fa fa-check"></i><b>7.3</b> Summary Statistics for Total Comments</a></li>
+<li class="chapter" data-level="7.4" data-path="total-comments.html"><a href="total-comments.html#confidence-interval-for-hidden-gems-total-comments"><i class="fa fa-check"></i><b>7.4</b> 95% Confidence Interval for Hidden Gems Total Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="total-views.html"><a href="total-views.html"><i class="fa fa-check"></i><b>8</b> Total Views</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="total-views.html"><a href="total-views.html#box-plot-2"><i class="fa fa-check"></i><b>8.1</b> Box Plot</a></li>
+<li class="chapter" data-level="8.2" data-path="total-views.html"><a href="total-views.html#density-plot-2"><i class="fa fa-check"></i><b>8.2</b> Density Plot</a></li>
+<li class="chapter" data-level="8.3" data-path="total-views.html"><a href="total-views.html#histogram-plot"><i class="fa fa-check"></i><b>8.3</b> Histogram Plot</a></li>
+<li class="chapter" data-level="8.4" data-path="total-views.html"><a href="total-views.html#summary-statistics-for-total-views"><i class="fa fa-check"></i><b>8.4</b> Summary Statistics for Total Views</a></li>
+<li class="chapter" data-level="8.5" data-path="total-views.html"><a href="total-views.html#confidence-interval-for-hidden-gems-total-views"><i class="fa fa-check"></i><b>8.5</b> 95% Confidence Interval for Hidden Gems Total Views</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="medal-distribution.html"><a href="medal-distribution.html"><i class="fa fa-check"></i><b>9</b> Medal distribution</a></li>
+<li class="chapter" data-level="10" data-path="versions-of-the-hidden-gems.html"><a href="versions-of-the-hidden-gems.html"><i class="fa fa-check"></i><b>10</b> Versions of the Hidden Gems</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="versions-of-the-hidden-gems.html"><a href="versions-of-the-hidden-gems.html#box-plot-removing-outliers"><i class="fa fa-check"></i><b>10.1</b> Box Plot [ Removing Outliers ]</a></li>
+<li class="chapter" data-level="10.2" data-path="versions-of-the-hidden-gems.html"><a href="versions-of-the-hidden-gems.html#density-plot-3"><i class="fa fa-check"></i><b>10.2</b> Density Plot</a></li>
+<li class="chapter" data-level="10.3" data-path="versions-of-the-hidden-gems.html"><a href="versions-of-the-hidden-gems.html#histogram-plot-1"><i class="fa fa-check"></i><b>10.3</b> Histogram Plot</a></li>
+<li class="chapter" data-level="10.4" data-path="versions-of-the-hidden-gems.html"><a href="versions-of-the-hidden-gems.html#summary-statistics-for-maximum-version-number"><i class="fa fa-check"></i><b>10.4</b> Summary Statistics for Maximum Version Number</a></li>
+<li class="chapter" data-level="10.5" data-path="versions-of-the-hidden-gems.html"><a href="versions-of-the-hidden-gems.html#confidence-interval-for-hidden-gems-maximum-version-number"><i class="fa fa-check"></i><b>10.5</b> 95% Confidence Interval for Hidden Gems Maximum Version Number</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="principal-components.html"><a href="principal-components.html"><i class="fa fa-check"></i><b>11</b> Principal Components</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="principal-components.html"><a href="principal-components.html#principal-component-1"><i class="fa fa-check"></i><b>11.1</b> Principal Component 1</a></li>
+<li class="chapter" data-level="11.2" data-path="principal-components.html"><a href="principal-components.html#principal-component-2"><i class="fa fa-check"></i><b>11.2</b> Principal Component 2</a></li>
+<li class="chapter" data-level="11.3" data-path="principal-components.html"><a href="principal-components.html#principal-component-3"><i class="fa fa-check"></i><b>11.3</b> Principal Component 3</a></li>
+<li class="chapter" data-level="11.4" data-path="principal-components.html"><a href="principal-components.html#principal-component-4"><i class="fa fa-check"></i><b>11.4</b> Principal Component 4</a></li>
+<li class="chapter" data-level="11.5" data-path="principal-components.html"><a href="principal-components.html#principal-component-5"><i class="fa fa-check"></i><b>11.5</b> Principal Component 5</a></li>
+<li class="chapter" data-level="11.6" data-path="principal-components.html"><a href="principal-components.html#principal-component-6"><i class="fa fa-check"></i><b>11.6</b> Principal Component 6</a></li>
+<li class="chapter" data-level="11.7" data-path="principal-components.html"><a href="principal-components.html#principal-component-7"><i class="fa fa-check"></i><b>11.7</b> Principal Component 7</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="recommended-notebooks-for-2021-june-to-2021-december.html"><a href="recommended-notebooks-for-2021-june-to-2021-december.html"><i class="fa fa-check"></i><b>12</b> Recommended Notebooks for 2021 June to 2021 December</a></li>
+<li class="chapter" data-level="13" data-path="who-got-highest-votes-after-hidden-gem-declaration.html"><a href="who-got-highest-votes-after-hidden-gem-declaration.html"><i class="fa fa-check"></i><b>13</b> Who got Highest Votes after Hidden Gem Declaration</a></li>
+<li class="chapter" data-level="14" data-path="who-got-no-votes-after-the-hidden-gem-declaration.html"><a href="who-got-no-votes-after-the-hidden-gem-declaration.html"><i class="fa fa-check"></i><b>14</b> Who got No Votes after the Hidden Gem Declaration</a></li>
+<li class="chapter" data-level="15" data-path="lowest-number-of-votes-after-hidden-gem-declaration.html"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html"><i class="fa fa-check"></i><b>15</b> Lowest Number of Votes after Hidden Gem Declaration</a></li>
+<li class="chapter" data-level="16" data-path="more-analysis-upvotes-after-hidden-gem-declaration.html"><a href="more-analysis-upvotes-after-hidden-gem-declaration.html"><i class="fa fa-check"></i><b>16</b> More Analysis UpVotes after Hidden Gem declaration</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="more-analysis-upvotes-after-hidden-gem-declaration.html"><a href="more-analysis-upvotes-after-hidden-gem-declaration.html#box-plot-removing-outliers-1"><i class="fa fa-check"></i><b>16.1</b> Box Plot [ removing Outliers]</a></li>
+<li class="chapter" data-level="16.2" data-path="more-analysis-upvotes-after-hidden-gem-declaration.html"><a href="more-analysis-upvotes-after-hidden-gem-declaration.html#density-plot-4"><i class="fa fa-check"></i><b>16.2</b> Density Plot</a></li>
+<li class="chapter" data-level="16.3" data-path="more-analysis-upvotes-after-hidden-gem-declaration.html"><a href="more-analysis-upvotes-after-hidden-gem-declaration.html#summary-statistics-for-hidden-gems-upvotes"><i class="fa fa-check"></i><b>16.3</b> Summary Statistics for Hidden Gems UpVotes</a></li>
+<li class="chapter" data-level="16.4" data-path="more-analysis-upvotes-after-hidden-gem-declaration.html"><a href="more-analysis-upvotes-after-hidden-gem-declaration.html#confidence-interval-for-hidden-gems-upvotes"><i class="fa fa-check"></i><b>16.4</b> 95% Confidence Interval for Hidden Gems UpVotes</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html"><i class="fa fa-check"></i><b>17</b> Mining Hidden Gems Titles and Reviews</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#word-cloud-of-the-hidden-gem-reviews"><i class="fa fa-check"></i><b>17.1</b> Word Cloud of the Hidden Gem Reviews</a></li>
+<li class="chapter" data-level="17.2" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#word-cloud-of-the-hidden-gem-titles"><i class="fa fa-check"></i><b>17.2</b> Word Cloud of the Hidden Gem Titles</a></li>
+<li class="chapter" data-level="17.3" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#network-graph-of-hidden-gem-title"><i class="fa fa-check"></i><b>17.3</b> Network graph of Hidden Gem Title</a></li>
+<li class="chapter" data-level="17.4" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#network-graph-of-hidden-gem-reviews"><i class="fa fa-check"></i><b>17.4</b> Network graph of Hidden Gem Reviews</a></li>
+<li class="chapter" data-level="17.5" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#competition-network-graph"><i class="fa fa-check"></i><b>17.5</b> Competition Network Graph</a>
+<ul>
+<li class="chapter" data-level="17.5.1" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#competition-reviews"><i class="fa fa-check"></i><b>17.5.1</b> Competition reviews</a></li>
+</ul></li>
+<li class="chapter" data-level="17.6" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#image-network-graph"><i class="fa fa-check"></i><b>17.6</b> Image Network Graph</a>
+<ul>
+<li class="chapter" data-level="17.6.1" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#image-reviews"><i class="fa fa-check"></i><b>17.6.1</b> Image reviews</a></li>
+</ul></li>
+<li class="chapter" data-level="17.7" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#grandmaster-and-reviews"><i class="fa fa-check"></i><b>17.7</b> GrandMaster and Reviews</a>
+<ul>
+<li class="chapter" data-level="17.7.1" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#grand-master-reviews"><i class="fa fa-check"></i><b>17.7.1</b> Grand Master reviews</a></li>
+</ul></li>
+<li class="chapter" data-level="17.8" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#kaggle-network-graph"><i class="fa fa-check"></i><b>17.8</b> Kaggle Network Graph</a>
+<ul>
+<li class="chapter" data-level="17.8.1" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#kaggle-reviews"><i class="fa fa-check"></i><b>17.8.1</b> Kaggle reviews</a></li>
+</ul></li>
+<li class="chapter" data-level="17.9" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#master-network-graph"><i class="fa fa-check"></i><b>17.9</b> Master Network Graph</a></li>
+<li class="chapter" data-level="17.10" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#topic-modelling-of-hidden-gem-reviews"><i class="fa fa-check"></i><b>17.10</b> Topic Modelling of Hidden Gem Reviews</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="similar-authors.html"><a href="similar-authors.html"><i class="fa fa-check"></i><b>18</b> Similar Authors</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="similar-authors.html"><a href="similar-authors.html#jonathan-bouchet---similar-author"><i class="fa fa-check"></i><b>18.1</b> Jonathan Bouchet - <em>Similar Author</em></a></li>
+<li class="chapter" data-level="18.2" data-path="similar-authors.html"><a href="similar-authors.html#vopani---similar-author"><i class="fa fa-check"></i><b>18.2</b> Vopani - <em>Similar Author</em></a></li>
+<li class="chapter" data-level="18.3" data-path="similar-authors.html"><a href="similar-authors.html#parul-pandey---similar-author"><i class="fa fa-check"></i><b>18.3</b> Parul Pandey - <em>Similar Author</em></a></li>
+<li class="chapter" data-level="18.4" data-path="similar-authors.html"><a href="similar-authors.html#bojan-tunguz---similar-author"><i class="fa fa-check"></i><b>18.4</b> Bojan Tunguz - <em>Similar Author</em></a></li>
+<li class="chapter" data-level="18.5" data-path="similar-authors.html"><a href="similar-authors.html#laura-fink---similar-author"><i class="fa fa-check"></i><b>18.5</b> Laura Fink - <em>Similar Author</em></a></li>
+<li class="chapter" data-level="18.6" data-path="similar-authors.html"><a href="similar-authors.html#bukun---similar-author"><i class="fa fa-check"></i><b>18.6</b> Bukun - <em>Similar Author</em></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Hidden Gems Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lowest-number-of-votes-after-hidden-gem-declaration" class="section level1 hasAnchor" number="15">
+<h1><span class="header-section-number">Chapter 15</span> Lowest Number of Votes after Hidden Gem Declaration<a href="lowest-number-of-votes-after-hidden-gem-declaration.html#lowest-number-of-votes-after-hidden-gem-declaration" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The notebooks which got the lowest votes after the Hidden Gem declaration are shown below</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-1" aria-hidden="true" tabindex="-1"></a> kernel_gems_votes <span class="sc">%&gt;%</span></span>
+<span id="cb78-2"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(VoteDate <span class="sc">&gt;</span> date) <span class="sc">%&gt;%</span></span>
+<span id="cb78-3"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CurrentUrlSlug) <span class="sc">%&gt;%</span></span>
+<span id="cb78-4"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb78-5"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>((Count)) <span class="sc">%&gt;%</span></span>
+<span id="cb78-6"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">15</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb78-7"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb78-8"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CurrentUrlSlug =</span> <span class="fu">reorder</span>(CurrentUrlSlug,Count))  <span class="sc">%&gt;%</span></span>
+<span id="cb78-9"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb78-10"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> CurrentUrlSlug,<span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb78-11"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&#39;identity&#39;</span>,<span class="at">colour=</span><span class="st">&quot;white&quot;</span>, <span class="at">fill =</span> fillColor2) <span class="sc">+</span></span>
+<span id="cb78-12"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> CurrentUrlSlug, <span class="at">y =</span> <span class="dv">1</span>, <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">&quot;(&quot;</span>,Count,<span class="st">&quot;)&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)),</span>
+<span id="cb78-13"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">hjust=</span><span class="dv">0</span>, <span class="at">vjust=</span>.<span class="dv">5</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">colour =</span> <span class="st">&#39;black&#39;</span>,</span>
+<span id="cb78-14"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">fontface =</span> <span class="st">&#39;bold&#39;</span>) <span class="sc">+</span></span>
+<span id="cb78-15"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;CurrentUrlSlug&#39;</span>, </span>
+<span id="cb78-16"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;Count&#39;</span>, </span>
+<span id="cb78-17"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&#39;Lowest UpVotes&#39;</span>) <span class="sc">+</span></span>
+<span id="cb78-18"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span> </span>
+<span id="cb78-19"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb78-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_fivethirtyeight</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb79-1" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">=</span> s <span class="sc">%&gt;%</span></span>
+<span id="cb79-2"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>((Count)) <span class="sc">%&gt;%</span></span>
+<span id="cb79-3"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">15</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb79-4"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb79-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(notebook,title,review)</span>
+<span id="cb79-5"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb79-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb79-6"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb79-6" aria-hidden="true" tabindex="-1"></a>  a <span class="sc">%&gt;%</span></span>
+<span id="cb79-7"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb79-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb79-8"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb79-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb79-9"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html#cb79-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Lowest Votes after the Hidden Gem Declaration&quot;</span>)</span></code></pre></div>
+<div id="inccrblhlk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#inccrblhlk .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#inccrblhlk .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#inccrblhlk .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#inccrblhlk .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#inccrblhlk .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#inccrblhlk .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#inccrblhlk .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#inccrblhlk .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#inccrblhlk .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#inccrblhlk .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#inccrblhlk .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#inccrblhlk .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#inccrblhlk .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#inccrblhlk .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#inccrblhlk .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#inccrblhlk .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#inccrblhlk .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#inccrblhlk .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#inccrblhlk .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#inccrblhlk .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#inccrblhlk .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#inccrblhlk .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#inccrblhlk .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#inccrblhlk .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#inccrblhlk .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#inccrblhlk .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#inccrblhlk .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#inccrblhlk .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#inccrblhlk .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#inccrblhlk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#inccrblhlk .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#inccrblhlk .gt_left {
+  text-align: left;
+}
+
+#inccrblhlk .gt_center {
+  text-align: center;
+}
+
+#inccrblhlk .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#inccrblhlk .gt_font_normal {
+  font-weight: normal;
+}
+
+#inccrblhlk .gt_font_bold {
+  font-weight: bold;
+}
+
+#inccrblhlk .gt_font_italic {
+  font-style: italic;
+}
+
+#inccrblhlk .gt_super {
+  font-size: 65%;
+}
+
+#inccrblhlk .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#inccrblhlk .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#inccrblhlk .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#inccrblhlk .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#inccrblhlk .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>Lowest Votes after the Hidden Gem Declaration</th>
+    </tr>
+    
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">notebook</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">title</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">review</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/huguera/i-d-like-to-propose-a-toast-beer-recipes-eda</td>
+<td class="gt_row gt_left">I’d like to propose a toast!</td>
+<td class="gt_row gt_left">Hugo is brewing a delicious exploration of beer recipes, their popularity, and their ingredients. Go to his notebook, have a nice cold pint, and wait for this whole Covid thing to blow over.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/vrindaprabhu/does-twitter-chirp-chai</td>
+<td class="gt_row gt_left">Does Twitter Chirp Chai?</td>
+<td class="gt_row gt_left">The female winner of the competition presents a well-focussed analysis of the social media aspect of the CTDS interviews. Engaging and humourous narration makes this Notebook a joy to read.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/umeshnarayanappa/kiva-detailed-analysis-using-highcharter-leaflet</td>
+<td class="gt_row gt_left">Kiva-Detailed Analysis using Highcharter &amp; Leaflet</td>
+<td class="gt_row gt_left">This work presents a diverse range of interactive visualisations to study global crowdfunding efforts to alleviate poverty. The highcharter time series and the leaflet maps are particularly powerful.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/alexisbcook/identifying-bias-in-ai</td>
+<td class="gt_row gt_left">Identifying Bias in AI</td>
+<td class="gt_row gt_left">This Notebook constitutes a key lessons in Kaggle's new [Intro to AI Ethics course](https://www.kaggle.com/learn/intro-to-ai-ethics). Understanding sources of bias is crucial as ML products become more and more powerful.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/var0101/model-cards</td>
+<td class="gt_row gt_left">Model Cards</td>
+<td class="gt_row gt_left">The final entry in Kaggle's new [Intro to AI Ethics course](https://www.kaggle.com/learn/intro-to-ai-ethics) discusses the concept of [Model Cards](https://arxiv.org/abs/1810.03993) which aim to promote informed usage of models via increased transparency and documentation.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/yclaudel/see-the-flow-of-bikes</td>
+<td class="gt_row gt_left">See the flow of bikes</td>
+<td class="gt_row gt_left">This work present a visual analysis of bike sharing flow from a city of Toronto dataset; complete with clusters, maps, and network graphs that showcase the bike movement.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/jonathanbouchet/2017-german-elections-some-results</td>
+<td class="gt_row gt_left">2017 German Elections : some results</td>
+<td class="gt_row gt_left">A somewhat topical entry, this notebook produces expert visuals to analyse the previous German voting patterns in 2017. Lots of inspiration to study and compare the recent 2021 election.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/akashguna/kfc-vs-mc-donalds-vs-cafe-coffee-day</td>
+<td class="gt_row gt_left">KFC vs Mc Donalds Vs Cafe Coffee Day</td>
+<td class="gt_row gt_left">Get your morning coffee (and snacks!) in Bangalore using this compact Notebook, which features a map, summary visuals, and detailed interpretation of the findings.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/mauromauro/learning-in-cyberspace-a-story-of-pandemic-times</td>
+<td class="gt_row gt_left">Learning in Cyberspace: a Story of Pandemic Times</td>
+<td class="gt_row gt_left">A comprehensive study of online learning during Covid-19, featuring carefully designed visuals, extensive interpretations, and multiple related datasets for context and augmentation.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/volpatto/covid-19-study-with-epidemiology-models</td>
+<td class="gt_row gt_left">COVID-19 Study with Epidemiology models</td>
+<td class="gt_row gt_left">This work presents a comprehensive study of Covid-19 progressions from the early days of the pandemic. Featuring well illustrated implementations of epidemiological models.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/kailex/santander-eda-features</td>
+<td class="gt_row gt_left">Santander: EDA + features</td>
+<td class="gt_row gt_left">A great example for an end-to-end framework to model anonymised &amp; sparse tabular data. The next Santander competition is never far away ;-)</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/rahulgulia/what-s-this-chai-and-datascience</td>
+<td class="gt_row gt_left">What's this? Chai and DataScience?</td>
+<td class="gt_row gt_left">Another excellent analysis of CTDS show data (see Vol. 12), where great storytelling &amp; structure are interspersed by entertaining visuals.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/martinellis/best-part-of-the-cake-worst-part-of-hockey-icing</td>
+<td class="gt_row gt_left">Best part of the cake, worst part of Hockey: Icing</td>
+<td class="gt_row gt_left">From the magnificent title pun to the fun little sketches; this Notebook is a joy to read. I learned much more about ice hockey oddities than I had expected.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/ambarish/fun-with-meteorites-landings-w-maps</td>
+<td class="gt_row gt_left">Fun with Meteorites Landings w/ Maps</td>
+<td class="gt_row gt_left">An extensive exploration of meteorites found on earth. Note the use of interactive leaflet maps to explore the global distributions of impact sites and meteorite characteristics.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/captcalculator/a-very-extensive-porto-exploratory-analysis</td>
+<td class="gt_row gt_left">A Very Extensive Porto Exploratory Analysis</td>
+<td class="gt_row gt_left">A compact visual EDA and baseline model that deals with the challenges of anonymised features and imbalanced targets. Clear organisation helps the reader to navigate the relatively large feature set.</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="who-got-no-votes-after-the-hidden-gem-declaration.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="more-analysis-upvotes-after-hidden-gem-declaration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-parts.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

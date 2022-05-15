@@ -1,0 +1,2556 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 17 Mining Hidden Gems Titles and Reviews | Hidden Gems Book</title>
+  <meta name="description" content="Chapter 17 Mining Hidden Gems Titles and Reviews | Hidden Gems Book" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 17 Mining Hidden Gems Titles and Reviews | Hidden Gems Book" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 17 Mining Hidden Gems Titles and Reviews | Hidden Gems Book" />
+  
+  
+  
+
+<meta name="author" content="Ambarish Ganguly" />
+
+
+<meta name="date" content="2022-05-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="more-analysis-upvotes-after-hidden-gem-declaration.html"/>
+<link rel="next" href="similar-authors.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Hidden Gems Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="hidden-gems.html"><a href="hidden-gems.html"><i class="fa fa-check"></i><b>1</b> Hidden Gems</a></li>
+<li class="chapter" data-level="2" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html"><i class="fa fa-check"></i><b>2</b> Most Popular Hidden Gems Authors</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html#jonathan-bouchet-notebooks---top-hidden-gem-author"><i class="fa fa-check"></i><b>2.1</b> Jonathan Bouchet Notebooks - Top Hidden Gem Author</a></li>
+<li class="chapter" data-level="2.2" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html#jonathan-bouchet---leading-hidden-gem-author-reviews"><i class="fa fa-check"></i><b>2.2</b> Jonathan Bouchet - Leading Hidden Gem Author reviews</a></li>
+<li class="chapter" data-level="2.3" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html#ramshankar-yadhunath---leading-hidden-gem-author-reviews"><i class="fa fa-check"></i><b>2.3</b> Ramshankar Yadhunath - Leading Hidden Gem Author reviews</a></li>
+<li class="chapter" data-level="2.4" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html#parul-pandey---leading-hidden-gem-author-reviews"><i class="fa fa-check"></i><b>2.4</b> Parul Pandey - Leading Hidden Gem Author reviews</a></li>
+<li class="chapter" data-level="2.5" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html#laura-fink---leading-hidden-gem-author-reviews"><i class="fa fa-check"></i><b>2.5</b> Laura Fink - Leading Hidden Gem Author reviews</a></li>
+<li class="chapter" data-level="2.6" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html#vopani---leading-hidden-gem-author-reviews"><i class="fa fa-check"></i><b>2.6</b> Vopani - Leading Hidden Gem Author reviews</a></li>
+<li class="chapter" data-level="2.7" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html#kxx---leading-hidden-gem-author-reviews"><i class="fa fa-check"></i><b>2.7</b> kxx - Leading Hidden Gem Author reviews</a></li>
+<li class="chapter" data-level="2.8" data-path="most-popular-hidden-gems-authors.html"><a href="most-popular-hidden-gems-authors.html#bojan-tunguz---leading-hidden-gem-author-reviews"><i class="fa fa-check"></i><b>2.8</b> Bojan Tunguz - Leading Hidden Gem Author reviews</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tags-and-percentage.html"><a href="tags-and-percentage.html"><i class="fa fa-check"></i><b>3</b> Tags and Percentage</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="tags-and-percentage.html"><a href="tags-and-percentage.html#jonathan-bouchet-tags"><i class="fa fa-check"></i><b>3.1</b> Jonathan Bouchet Tags</a></li>
+<li class="chapter" data-level="3.2" data-path="tags-and-percentage.html"><a href="tags-and-percentage.html#ramshankar-yadhunath-tags"><i class="fa fa-check"></i><b>3.2</b> Ramshankar Yadhunath Tags</a></li>
+<li class="chapter" data-level="3.3" data-path="tags-and-percentage.html"><a href="tags-and-percentage.html#vopani-tags"><i class="fa fa-check"></i><b>3.3</b> Vopani Tags</a></li>
+<li class="chapter" data-level="3.4" data-path="tags-and-percentage.html"><a href="tags-and-percentage.html#bojan-tunguz-tags"><i class="fa fa-check"></i><b>3.4</b> Bojan Tunguz Tags</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="performance-tier-and-gems.html"><a href="performance-tier-and-gems.html"><i class="fa fa-check"></i><b>4</b> Performance Tier and Gems</a></li>
+<li class="chapter" data-level="5" data-path="hidden-gem-and-competiton-notebook.html"><a href="hidden-gem-and-competiton-notebook.html"><i class="fa fa-check"></i><b>5</b> Hidden Gem and Competiton Notebook</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="hidden-gem-and-competiton-notebook.html"><a href="hidden-gem-and-competiton-notebook.html#confidence-interval-for-a-hidden-gem-being-a-not-a-competition-notebook"><i class="fa fa-check"></i><b>5.1</b> 95% Confidence Interval for a Hidden Gem being a <strong>NOT A Competition notebook</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="total-votes-for-a-hidden-gem.html"><a href="total-votes-for-a-hidden-gem.html"><i class="fa fa-check"></i><b>6</b> Total Votes for a Hidden Gem</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="total-votes-for-a-hidden-gem.html"><a href="total-votes-for-a-hidden-gem.html#box-plot-without-outliers"><i class="fa fa-check"></i><b>6.1</b> Box Plot ( without Outliers )</a></li>
+<li class="chapter" data-level="6.2" data-path="total-votes-for-a-hidden-gem.html"><a href="total-votes-for-a-hidden-gem.html#box-plot"><i class="fa fa-check"></i><b>6.2</b> Box Plot</a></li>
+<li class="chapter" data-level="6.3" data-path="total-votes-for-a-hidden-gem.html"><a href="total-votes-for-a-hidden-gem.html#density-plot"><i class="fa fa-check"></i><b>6.3</b> Density Plot</a></li>
+<li class="chapter" data-level="6.4" data-path="total-votes-for-a-hidden-gem.html"><a href="total-votes-for-a-hidden-gem.html#summary-statistics-for-votes"><i class="fa fa-check"></i><b>6.4</b> Summary Statistics for Votes</a></li>
+<li class="chapter" data-level="6.5" data-path="total-votes-for-a-hidden-gem.html"><a href="total-votes-for-a-hidden-gem.html#confidence-interval-for-hidden-gems-votes"><i class="fa fa-check"></i><b>6.5</b> 95% Confidence Interval for Hidden Gems Votes</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="total-comments.html"><a href="total-comments.html"><i class="fa fa-check"></i><b>7</b> Total Comments</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="total-comments.html"><a href="total-comments.html#box-plot-1"><i class="fa fa-check"></i><b>7.1</b> Box Plot</a></li>
+<li class="chapter" data-level="7.2" data-path="total-comments.html"><a href="total-comments.html#density-plot-1"><i class="fa fa-check"></i><b>7.2</b> Density Plot</a></li>
+<li class="chapter" data-level="7.3" data-path="total-comments.html"><a href="total-comments.html#summary-statistics-for-total-comments"><i class="fa fa-check"></i><b>7.3</b> Summary Statistics for Total Comments</a></li>
+<li class="chapter" data-level="7.4" data-path="total-comments.html"><a href="total-comments.html#confidence-interval-for-hidden-gems-total-comments"><i class="fa fa-check"></i><b>7.4</b> 95% Confidence Interval for Hidden Gems Total Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="total-views.html"><a href="total-views.html"><i class="fa fa-check"></i><b>8</b> Total Views</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="total-views.html"><a href="total-views.html#box-plot-2"><i class="fa fa-check"></i><b>8.1</b> Box Plot</a></li>
+<li class="chapter" data-level="8.2" data-path="total-views.html"><a href="total-views.html#density-plot-2"><i class="fa fa-check"></i><b>8.2</b> Density Plot</a></li>
+<li class="chapter" data-level="8.3" data-path="total-views.html"><a href="total-views.html#histogram-plot"><i class="fa fa-check"></i><b>8.3</b> Histogram Plot</a></li>
+<li class="chapter" data-level="8.4" data-path="total-views.html"><a href="total-views.html#summary-statistics-for-total-views"><i class="fa fa-check"></i><b>8.4</b> Summary Statistics for Total Views</a></li>
+<li class="chapter" data-level="8.5" data-path="total-views.html"><a href="total-views.html#confidence-interval-for-hidden-gems-total-views"><i class="fa fa-check"></i><b>8.5</b> 95% Confidence Interval for Hidden Gems Total Views</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="medal-distribution.html"><a href="medal-distribution.html"><i class="fa fa-check"></i><b>9</b> Medal distribution</a></li>
+<li class="chapter" data-level="10" data-path="versions-of-the-hidden-gems.html"><a href="versions-of-the-hidden-gems.html"><i class="fa fa-check"></i><b>10</b> Versions of the Hidden Gems</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="versions-of-the-hidden-gems.html"><a href="versions-of-the-hidden-gems.html#box-plot-removing-outliers"><i class="fa fa-check"></i><b>10.1</b> Box Plot [ Removing Outliers ]</a></li>
+<li class="chapter" data-level="10.2" data-path="versions-of-the-hidden-gems.html"><a href="versions-of-the-hidden-gems.html#density-plot-3"><i class="fa fa-check"></i><b>10.2</b> Density Plot</a></li>
+<li class="chapter" data-level="10.3" data-path="versions-of-the-hidden-gems.html"><a href="versions-of-the-hidden-gems.html#histogram-plot-1"><i class="fa fa-check"></i><b>10.3</b> Histogram Plot</a></li>
+<li class="chapter" data-level="10.4" data-path="versions-of-the-hidden-gems.html"><a href="versions-of-the-hidden-gems.html#summary-statistics-for-maximum-version-number"><i class="fa fa-check"></i><b>10.4</b> Summary Statistics for Maximum Version Number</a></li>
+<li class="chapter" data-level="10.5" data-path="versions-of-the-hidden-gems.html"><a href="versions-of-the-hidden-gems.html#confidence-interval-for-hidden-gems-maximum-version-number"><i class="fa fa-check"></i><b>10.5</b> 95% Confidence Interval for Hidden Gems Maximum Version Number</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="principal-components.html"><a href="principal-components.html"><i class="fa fa-check"></i><b>11</b> Principal Components</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="principal-components.html"><a href="principal-components.html#principal-component-1"><i class="fa fa-check"></i><b>11.1</b> Principal Component 1</a></li>
+<li class="chapter" data-level="11.2" data-path="principal-components.html"><a href="principal-components.html#principal-component-2"><i class="fa fa-check"></i><b>11.2</b> Principal Component 2</a></li>
+<li class="chapter" data-level="11.3" data-path="principal-components.html"><a href="principal-components.html#principal-component-3"><i class="fa fa-check"></i><b>11.3</b> Principal Component 3</a></li>
+<li class="chapter" data-level="11.4" data-path="principal-components.html"><a href="principal-components.html#principal-component-4"><i class="fa fa-check"></i><b>11.4</b> Principal Component 4</a></li>
+<li class="chapter" data-level="11.5" data-path="principal-components.html"><a href="principal-components.html#principal-component-5"><i class="fa fa-check"></i><b>11.5</b> Principal Component 5</a></li>
+<li class="chapter" data-level="11.6" data-path="principal-components.html"><a href="principal-components.html#principal-component-6"><i class="fa fa-check"></i><b>11.6</b> Principal Component 6</a></li>
+<li class="chapter" data-level="11.7" data-path="principal-components.html"><a href="principal-components.html#principal-component-7"><i class="fa fa-check"></i><b>11.7</b> Principal Component 7</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="recommended-notebooks-for-2021-june-to-2021-december.html"><a href="recommended-notebooks-for-2021-june-to-2021-december.html"><i class="fa fa-check"></i><b>12</b> Recommended Notebooks for 2021 June to 2021 December</a></li>
+<li class="chapter" data-level="13" data-path="who-got-highest-votes-after-hidden-gem-declaration.html"><a href="who-got-highest-votes-after-hidden-gem-declaration.html"><i class="fa fa-check"></i><b>13</b> Who got Highest Votes after Hidden Gem Declaration</a></li>
+<li class="chapter" data-level="14" data-path="who-got-no-votes-after-the-hidden-gem-declaration.html"><a href="who-got-no-votes-after-the-hidden-gem-declaration.html"><i class="fa fa-check"></i><b>14</b> Who got No Votes after the Hidden Gem Declaration</a></li>
+<li class="chapter" data-level="15" data-path="lowest-number-of-votes-after-hidden-gem-declaration.html"><a href="lowest-number-of-votes-after-hidden-gem-declaration.html"><i class="fa fa-check"></i><b>15</b> Lowest Number of Votes after Hidden Gem Declaration</a></li>
+<li class="chapter" data-level="16" data-path="more-analysis-upvotes-after-hidden-gem-declaration.html"><a href="more-analysis-upvotes-after-hidden-gem-declaration.html"><i class="fa fa-check"></i><b>16</b> More Analysis UpVotes after Hidden Gem declaration</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="more-analysis-upvotes-after-hidden-gem-declaration.html"><a href="more-analysis-upvotes-after-hidden-gem-declaration.html#box-plot-removing-outliers-1"><i class="fa fa-check"></i><b>16.1</b> Box Plot [ removing Outliers]</a></li>
+<li class="chapter" data-level="16.2" data-path="more-analysis-upvotes-after-hidden-gem-declaration.html"><a href="more-analysis-upvotes-after-hidden-gem-declaration.html#density-plot-4"><i class="fa fa-check"></i><b>16.2</b> Density Plot</a></li>
+<li class="chapter" data-level="16.3" data-path="more-analysis-upvotes-after-hidden-gem-declaration.html"><a href="more-analysis-upvotes-after-hidden-gem-declaration.html#summary-statistics-for-hidden-gems-upvotes"><i class="fa fa-check"></i><b>16.3</b> Summary Statistics for Hidden Gems UpVotes</a></li>
+<li class="chapter" data-level="16.4" data-path="more-analysis-upvotes-after-hidden-gem-declaration.html"><a href="more-analysis-upvotes-after-hidden-gem-declaration.html#confidence-interval-for-hidden-gems-upvotes"><i class="fa fa-check"></i><b>16.4</b> 95% Confidence Interval for Hidden Gems UpVotes</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html"><i class="fa fa-check"></i><b>17</b> Mining Hidden Gems Titles and Reviews</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#word-cloud-of-the-hidden-gem-reviews"><i class="fa fa-check"></i><b>17.1</b> Word Cloud of the Hidden Gem Reviews</a></li>
+<li class="chapter" data-level="17.2" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#word-cloud-of-the-hidden-gem-titles"><i class="fa fa-check"></i><b>17.2</b> Word Cloud of the Hidden Gem Titles</a></li>
+<li class="chapter" data-level="17.3" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#network-graph-of-hidden-gem-title"><i class="fa fa-check"></i><b>17.3</b> Network graph of Hidden Gem Title</a></li>
+<li class="chapter" data-level="17.4" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#network-graph-of-hidden-gem-reviews"><i class="fa fa-check"></i><b>17.4</b> Network graph of Hidden Gem Reviews</a></li>
+<li class="chapter" data-level="17.5" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#competition-network-graph"><i class="fa fa-check"></i><b>17.5</b> Competition Network Graph</a>
+<ul>
+<li class="chapter" data-level="17.5.1" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#competition-reviews"><i class="fa fa-check"></i><b>17.5.1</b> Competition reviews</a></li>
+</ul></li>
+<li class="chapter" data-level="17.6" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#image-network-graph"><i class="fa fa-check"></i><b>17.6</b> Image Network Graph</a>
+<ul>
+<li class="chapter" data-level="17.6.1" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#image-reviews"><i class="fa fa-check"></i><b>17.6.1</b> Image reviews</a></li>
+</ul></li>
+<li class="chapter" data-level="17.7" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#grandmaster-and-reviews"><i class="fa fa-check"></i><b>17.7</b> GrandMaster and Reviews</a>
+<ul>
+<li class="chapter" data-level="17.7.1" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#grand-master-reviews"><i class="fa fa-check"></i><b>17.7.1</b> Grand Master reviews</a></li>
+</ul></li>
+<li class="chapter" data-level="17.8" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#kaggle-network-graph"><i class="fa fa-check"></i><b>17.8</b> Kaggle Network Graph</a>
+<ul>
+<li class="chapter" data-level="17.8.1" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#kaggle-reviews"><i class="fa fa-check"></i><b>17.8.1</b> Kaggle reviews</a></li>
+</ul></li>
+<li class="chapter" data-level="17.9" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#master-network-graph"><i class="fa fa-check"></i><b>17.9</b> Master Network Graph</a></li>
+<li class="chapter" data-level="17.10" data-path="mining-hidden-gems-titles-and-reviews.html"><a href="mining-hidden-gems-titles-and-reviews.html#topic-modelling-of-hidden-gem-reviews"><i class="fa fa-check"></i><b>17.10</b> Topic Modelling of Hidden Gem Reviews</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="similar-authors.html"><a href="similar-authors.html"><i class="fa fa-check"></i><b>18</b> Similar Authors</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="similar-authors.html"><a href="similar-authors.html#jonathan-bouchet---similar-author"><i class="fa fa-check"></i><b>18.1</b> Jonathan Bouchet - <em>Similar Author</em></a></li>
+<li class="chapter" data-level="18.2" data-path="similar-authors.html"><a href="similar-authors.html#vopani---similar-author"><i class="fa fa-check"></i><b>18.2</b> Vopani - <em>Similar Author</em></a></li>
+<li class="chapter" data-level="18.3" data-path="similar-authors.html"><a href="similar-authors.html#parul-pandey---similar-author"><i class="fa fa-check"></i><b>18.3</b> Parul Pandey - <em>Similar Author</em></a></li>
+<li class="chapter" data-level="18.4" data-path="similar-authors.html"><a href="similar-authors.html#bojan-tunguz---similar-author"><i class="fa fa-check"></i><b>18.4</b> Bojan Tunguz - <em>Similar Author</em></a></li>
+<li class="chapter" data-level="18.5" data-path="similar-authors.html"><a href="similar-authors.html#laura-fink---similar-author"><i class="fa fa-check"></i><b>18.5</b> Laura Fink - <em>Similar Author</em></a></li>
+<li class="chapter" data-level="18.6" data-path="similar-authors.html"><a href="similar-authors.html#bukun---similar-author"><i class="fa fa-check"></i><b>18.6</b> Bukun - <em>Similar Author</em></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Hidden Gems Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mining-hidden-gems-titles-and-reviews" class="section level1 hasAnchor" number="17">
+<h1><span class="header-section-number">Chapter 17</span> Mining Hidden Gems Titles and Reviews<a href="mining-hidden-gems-titles-and-reviews.html#mining-hidden-gems-titles-and-reviews" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="word-cloud-of-the-hidden-gem-reviews" class="section level2 hasAnchor" number="17.1">
+<h2><span class="header-section-number">17.1</span> Word Cloud of the Hidden Gem Reviews<a href="mining-hidden-gems-titles-and-reviews.html#word-cloud-of-the-hidden-gem-reviews" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Data , Analysis , Exploration , Details , Visuals are the most popular words in the reviews</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb86-1" aria-hidden="true" tabindex="-1"></a> gems <span class="sc">%&gt;%</span> </span>
+<span id="cb86-2"><a href="mining-hidden-gems-titles-and-reviews.html#cb86-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(notebook,review) <span class="sc">%&gt;%</span></span>
+<span id="cb86-3"><a href="mining-hidden-gems-titles-and-reviews.html#cb86-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, review) <span class="sc">%&gt;%</span> </span>
+<span id="cb86-4"><a href="mining-hidden-gems-titles-and-reviews.html#cb86-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(my_stop_words) <span class="sc">%&gt;%</span></span>
+<span id="cb86-5"><a href="mining-hidden-gems-titles-and-reviews.html#cb86-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word,<span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb86-6"><a href="mining-hidden-gems-titles-and-reviews.html#cb86-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()  <span class="sc">%&gt;%</span></span>
+<span id="cb86-7"><a href="mining-hidden-gems-titles-and-reviews.html#cb86-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">30</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb86-8"><a href="mining-hidden-gems-titles-and-reviews.html#cb86-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb86-9"><a href="mining-hidden-gems-titles-and-reviews.html#cb86-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">wordcloud</span>(word, n, <span class="at">max.words =</span> <span class="dv">30</span>,<span class="at">colors=</span><span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>)))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
+</div>
+<div id="word-cloud-of-the-hidden-gem-titles" class="section level2 hasAnchor" number="17.2">
+<h2><span class="header-section-number">17.2</span> Word Cloud of the Hidden Gem Titles<a href="mining-hidden-gems-titles-and-reviews.html#word-cloud-of-the-hidden-gem-titles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Data , Analysis , EDA are the most popular words in the titles</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb87-1" aria-hidden="true" tabindex="-1"></a> gems <span class="sc">%&gt;%</span> </span>
+<span id="cb87-2"><a href="mining-hidden-gems-titles-and-reviews.html#cb87-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(notebook,title) <span class="sc">%&gt;%</span></span>
+<span id="cb87-3"><a href="mining-hidden-gems-titles-and-reviews.html#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, title) <span class="sc">%&gt;%</span> </span>
+<span id="cb87-4"><a href="mining-hidden-gems-titles-and-reviews.html#cb87-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(my_stop_words) <span class="sc">%&gt;%</span></span>
+<span id="cb87-5"><a href="mining-hidden-gems-titles-and-reviews.html#cb87-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word,<span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb87-6"><a href="mining-hidden-gems-titles-and-reviews.html#cb87-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()  <span class="sc">%&gt;%</span></span>
+<span id="cb87-7"><a href="mining-hidden-gems-titles-and-reviews.html#cb87-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">30</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb87-8"><a href="mining-hidden-gems-titles-and-reviews.html#cb87-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb87-9"><a href="mining-hidden-gems-titles-and-reviews.html#cb87-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">wordcloud</span>(word, n, <span class="at">max.words =</span> <span class="dv">30</span>,<span class="at">colors=</span><span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>)))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
+</div>
+<div id="network-graph-of-hidden-gem-title" class="section level2 hasAnchor" number="17.3">
+<h2><span class="header-section-number">17.3</span> Network graph of Hidden Gem Title<a href="mining-hidden-gems-titles-and-reviews.html#network-graph-of-hidden-gem-title" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Hidden Gem Titles with <strong>2 most commonly occurring words</strong> include <strong>data analysis</strong> , <strong>data science</strong> and <strong>time series</strong> . The following network graph depicts the two words in the Hidden Gem title <strong>which occurs the most</strong></p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-1" aria-hidden="true" tabindex="-1"></a>gem_title <span class="ot">&lt;-</span> gems <span class="sc">%&gt;%</span> </span>
+<span id="cb88-2"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(notebook,title)  <span class="sc">%&gt;%</span> </span>
+<span id="cb88-3"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, title) <span class="sc">%&gt;%</span> </span>
+<span id="cb88-4"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words)</span>
+<span id="cb88-5"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-6"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-6" aria-hidden="true" tabindex="-1"></a>gem_review <span class="ot">&lt;-</span> gems <span class="sc">%&gt;%</span> </span>
+<span id="cb88-7"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(notebook,review) <span class="sc">%&gt;%</span></span>
+<span id="cb88-8"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, review) <span class="sc">%&gt;%</span> </span>
+<span id="cb88-9"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words)</span>
+<span id="cb88-10"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-11"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-12"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-12" aria-hidden="true" tabindex="-1"></a>title_word_pairs <span class="ot">&lt;-</span> gem_title <span class="sc">%&gt;%</span> </span>
+<span id="cb88-13"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_count</span>(word, notebook, <span class="at">sort =</span> <span class="cn">TRUE</span>, <span class="at">upper =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb88-14"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-15"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-16"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-16" aria-hidden="true" tabindex="-1"></a>review_word_pairs <span class="ot">&lt;-</span> gem_review <span class="sc">%&gt;%</span> </span>
+<span id="cb88-17"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_count</span>(word, notebook, <span class="at">sort =</span> <span class="cn">TRUE</span>, <span class="at">upper =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb88-18"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>( item1 <span class="sc">!=</span> <span class="st">&quot;www.kaggle.com&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb88-19"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>( item2 <span class="sc">!=</span> <span class="st">&quot;www.kaggle.com&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb88-20"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>( item1 <span class="sc">!=</span> <span class="st">&quot;https&quot;</span>)</span>
+<span id="cb88-21"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-22"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-23"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-23" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb88-24"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-24" aria-hidden="true" tabindex="-1"></a>title_word_pairs <span class="sc">%&gt;%</span></span>
+<span id="cb88-25"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;=</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb88-26"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">graph_from_data_frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb88-27"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggraph</span>(<span class="at">layout =</span> <span class="st">&quot;fr&quot;</span>) <span class="sc">+</span></span>
+<span id="cb88-28"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="fu">aes</span>(<span class="at">edge_alpha =</span> n, <span class="at">edge_width =</span> n), <span class="at">edge_colour =</span> <span class="st">&quot;cyan4&quot;</span>) <span class="sc">+</span></span>
+<span id="cb88-29"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb88-30"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">repel =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb88-31"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-31" aria-hidden="true" tabindex="-1"></a>                 <span class="at">point.padding =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">&quot;lines&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb88-32"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+</div>
+<div id="network-graph-of-hidden-gem-reviews" class="section level2 hasAnchor" number="17.4">
+<h2><span class="header-section-number">17.4</span> Network graph of Hidden Gem Reviews<a href="mining-hidden-gems-titles-and-reviews.html#network-graph-of-hidden-gem-reviews" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Hidden Gem Reviews with <strong>2 most commonly occurring words</strong> include <strong>data visuals</strong> , <strong>visuals analysis</strong> , <strong>detailed exploration</strong> , <strong>kaggle survey</strong> , <strong>exploratory analysis</strong> The following network graph depicts the two words in the Hidden Gem reviews which occurs the most</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb89-2"><a href="mining-hidden-gems-titles-and-reviews.html#cb89-2" aria-hidden="true" tabindex="-1"></a>review_word_pairs <span class="sc">%&gt;%</span></span>
+<span id="cb89-3"><a href="mining-hidden-gems-titles-and-reviews.html#cb89-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;=</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb89-4"><a href="mining-hidden-gems-titles-and-reviews.html#cb89-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">graph_from_data_frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb89-5"><a href="mining-hidden-gems-titles-and-reviews.html#cb89-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggraph</span>(<span class="at">layout =</span> <span class="st">&quot;fr&quot;</span>) <span class="sc">+</span></span>
+<span id="cb89-6"><a href="mining-hidden-gems-titles-and-reviews.html#cb89-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="fu">aes</span>(<span class="at">edge_alpha =</span> n, <span class="at">edge_width =</span> n), <span class="at">edge_colour =</span> <span class="st">&quot;darkred&quot;</span>) <span class="sc">+</span></span>
+<span id="cb89-7"><a href="mining-hidden-gems-titles-and-reviews.html#cb89-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb89-8"><a href="mining-hidden-gems-titles-and-reviews.html#cb89-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb89-9"><a href="mining-hidden-gems-titles-and-reviews.html#cb89-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">point.padding =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">&quot;lines&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb89-10"><a href="mining-hidden-gems-titles-and-reviews.html#cb89-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+</div>
+<div id="competition-network-graph" class="section level2 hasAnchor" number="17.5">
+<h2><span class="header-section-number">17.5</span> Competition Network Graph<a href="mining-hidden-gems-titles-and-reviews.html#competition-network-graph" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The reviews featuring competitions show the following words :
+<strong>recent competition solution</strong> , <strong>competition discussion</strong> ,
+and also focus on <strong>clean competition solution as well as detailed competition solution</strong></p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb90-2"><a href="mining-hidden-gems-titles-and-reviews.html#cb90-2" aria-hidden="true" tabindex="-1"></a>review_word_pairs <span class="sc">%&gt;%</span></span>
+<span id="cb90-3"><a href="mining-hidden-gems-titles-and-reviews.html#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>((item1 <span class="sc">==</span> <span class="st">&quot;competition&quot;</span>) <span class="sc">|</span> (item2 <span class="sc">==</span> <span class="st">&quot;competition&quot;</span>) )<span class="sc">%&gt;%</span></span>
+<span id="cb90-4"><a href="mining-hidden-gems-titles-and-reviews.html#cb90-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>( n <span class="sc">&gt;=</span> <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb90-5"><a href="mining-hidden-gems-titles-and-reviews.html#cb90-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">graph_from_data_frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb90-6"><a href="mining-hidden-gems-titles-and-reviews.html#cb90-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggraph</span>(<span class="at">layout =</span> <span class="st">&quot;fr&quot;</span>) <span class="sc">+</span></span>
+<span id="cb90-7"><a href="mining-hidden-gems-titles-and-reviews.html#cb90-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="fu">aes</span>(<span class="at">edge_alpha =</span> n, <span class="at">edge_width =</span> n), <span class="at">edge_colour =</span> <span class="st">&quot;darkred&quot;</span>) <span class="sc">+</span></span>
+<span id="cb90-8"><a href="mining-hidden-gems-titles-and-reviews.html#cb90-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb90-9"><a href="mining-hidden-gems-titles-and-reviews.html#cb90-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb90-10"><a href="mining-hidden-gems-titles-and-reviews.html#cb90-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">point.padding =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">&quot;lines&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb90-11"><a href="mining-hidden-gems-titles-and-reviews.html#cb90-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<div id="competition-reviews" class="section level3 hasAnchor" number="17.5.1">
+<h3><span class="header-section-number">17.5.1</span> Competition reviews<a href="mining-hidden-gems-titles-and-reviews.html#competition-reviews" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb91-1" aria-hidden="true" tabindex="-1"></a>gems_competition <span class="ot">=</span> gems <span class="sc">%&gt;%</span></span>
+<span id="cb91-2"><a href="mining-hidden-gems-titles-and-reviews.html#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(review,<span class="st">&quot;competition&quot;</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb91-3"><a href="mining-hidden-gems-titles-and-reviews.html#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(notebook,title,review)</span>
+<span id="cb91-4"><a href="mining-hidden-gems-titles-and-reviews.html#cb91-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-5"><a href="mining-hidden-gems-titles-and-reviews.html#cb91-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-6"><a href="mining-hidden-gems-titles-and-reviews.html#cb91-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-7"><a href="mining-hidden-gems-titles-and-reviews.html#cb91-7" aria-hidden="true" tabindex="-1"></a>  gems_competition <span class="sc">%&gt;%</span></span>
+<span id="cb91-8"><a href="mining-hidden-gems-titles-and-reviews.html#cb91-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb91-9"><a href="mining-hidden-gems-titles-and-reviews.html#cb91-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb91-10"><a href="mining-hidden-gems-titles-and-reviews.html#cb91-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Competition Reviews&quot;</span>)</span></code></pre></div>
+<div id="sutudgnrbe" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#sutudgnrbe .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#sutudgnrbe .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#sutudgnrbe .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#sutudgnrbe .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#sutudgnrbe .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sutudgnrbe .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#sutudgnrbe .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#sutudgnrbe .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#sutudgnrbe .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#sutudgnrbe .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#sutudgnrbe .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#sutudgnrbe .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#sutudgnrbe .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#sutudgnrbe .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#sutudgnrbe .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#sutudgnrbe .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#sutudgnrbe .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sutudgnrbe .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#sutudgnrbe .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#sutudgnrbe .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sutudgnrbe .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#sutudgnrbe .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#sutudgnrbe .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sutudgnrbe .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sutudgnrbe .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#sutudgnrbe .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#sutudgnrbe .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sutudgnrbe .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#sutudgnrbe .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sutudgnrbe .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#sutudgnrbe .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sutudgnrbe .gt_left {
+  text-align: left;
+}
+
+#sutudgnrbe .gt_center {
+  text-align: center;
+}
+
+#sutudgnrbe .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#sutudgnrbe .gt_font_normal {
+  font-weight: normal;
+}
+
+#sutudgnrbe .gt_font_bold {
+  font-weight: bold;
+}
+
+#sutudgnrbe .gt_font_italic {
+  font-style: italic;
+}
+
+#sutudgnrbe .gt_super {
+  font-size: 65%;
+}
+
+#sutudgnrbe .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#sutudgnrbe .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#sutudgnrbe .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#sutudgnrbe .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#sutudgnrbe .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>Competition Reviews</th>
+    </tr>
+    
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">notebook</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">title</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">review</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/jtrotman/meta-kaggle-competition-shake-up</td>
+<td class="gt_row gt_left">Meta Kaggle: Competition Shake-up</td>
+<td class="gt_row gt_left">An expertly narrated investigation of the ever-green subject of leaderboard shake-ups. Features detailed tables and visuals with interesting metrics that can inform your decision on whether to join certain future competitions.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/shujian/how-long-it-takes-to-win-1st-on-kaggle</td>
+<td class="gt_row gt_left">How Long It Takes to Win 1st on Kaggle</td>
+<td class="gt_row gt_left">A nifty, brief Notebook studying how long after joining Kaggle it took past competition winners to achieve their 1st victory. Last ran 3 years ago, it would be interesting to see whether the trend of faster wins has continued in recent years.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/thedatabeast/making-perfect-chai-and-other-tales</td>
+<td class="gt_row gt_left">Making perfect "Chai" and other tales :)</td>
+<td class="gt_row gt_left">The male winner of the competition delivers an excellently illustrated and structured exploration of a wide range of CTDS features. Impressive storytelling skills meet a talent for visual guides.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/vrindaprabhu/does-twitter-chirp-chai</td>
+<td class="gt_row gt_left">Does Twitter Chirp Chai?</td>
+<td class="gt_row gt_left">The female winner of the competition presents a well-focussed analysis of the social media aspect of the CTDS interviews. Engaging and humourous narration makes this Notebook a joy to read.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/kailex/santander-eda-features</td>
+<td class="gt_row gt_left">Santander: EDA + features</td>
+<td class="gt_row gt_left">A great example for an end-to-end framework to model anonymised &amp; sparse tabular data. The next Santander competition is never far away ;-)</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/jiweiliu/moa-all-rapids</td>
+<td class="gt_row gt_left">moa_all_rapids</td>
+<td class="gt_row gt_left">This work implements fast modelling for the ongoing [MoA competition](https://www.kaggle.com/c/lish-moa) entirely within the impressive Rapids GPU-powered framework. Great template for rapid iterations.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/theoviel/starter-code-eda-and-lgbm-baseline</td>
+<td class="gt_row gt_left">Starter Code : EDA and LGBM Baseline</td>
+<td class="gt_row gt_left">A clean end-to-end Notebook like one hopes to find when joining a competition: featuring a variety of visualisation techniques alongside a tunable starter model.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/titericz/0-525-tabular-xgboost-gpu-fft-gpu-cuml-fast</td>
+<td class="gt_row gt_left">Tabular XGboost GPU + FFT GPU + Cuml = FAST</td>
+<td class="gt_row gt_left">With the GPU-powered Rapids framework now natively available on Kaggle, this notebook presents a clean and concise end-to-end pipeline for the new [rainforest audio competition](https://www.kaggle.com/c/rfcx-species-audio-detection) in trademark Giba style.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/tunguz/adversarial-rainforest</td>
+<td class="gt_row gt_left">Adversarial Rainforest</td>
+<td class="gt_row gt_left">A compact work providing adversarial validation of the rainforest competition data together with interpretable Shapely values via GPU-powered XGBoost in the Rapids framework.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/kailex/leaf-doctor-eda</td>
+<td class="gt_row gt_left">Leaf doctoR: EDA</td>
+<td class="gt_row gt_left">A well-structured template showcasing the step-by-step usage of the new [torch for R framework](https://torch.mlverse.org/) on the ongoing [Leaf Disease Image classification competition](https://www.kaggle.com/c/cassava-leaf-disease-classification).</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/varimp/a-mostly-tidyverse-tour-of-the-titanic</td>
+<td class="gt_row gt_left">A (mostly!) tidyverse tour of the Titanic</td>
+<td class="gt_row gt_left">One of the earliest tidy R notebooks on the classic [Titanic](https://www.kaggle.com/c/titanic) competition, this work doubles as an insightful and creative EDA as well as a well explained tour of the tidyverse.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/frankmollard/xceptionnet-leaf-disease</td>
+<td class="gt_row gt_left">XceptionNet Leaf Disease</td>
+<td class="gt_row gt_left">An exeptionally well organised guide to using the Xception architecture for building a model in the soon to be concluded [Leaf Disease competition](https://www.kaggle.com/c/cassava-leaf-disease-classification). The clean code really stands out.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/anshumoudgil/games-strategy-ideas-from-eda</td>
+<td class="gt_row gt_left">Games - Strategy ideas from EDA</td>
+<td class="gt_row gt_left">An exploration of historical March Madness data, which remains relevant for this year's competition. Featuring a clean structure, and a number of pretty interesting and unique visualisation ideas.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/mhajabri/ml-and-kaggle-a-hardware-lottery</td>
+<td class="gt_row gt_left">ML and Kaggle : A Hardware lottery ?</td>
+<td class="gt_row gt_left">A very well written and researched article on the proliferation of computing hardware requirements in ML research and Kaggle competitions. Enriched with Kaggle survey data and expertly structured.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/rdizzl3/time-series-transformations</td>
+<td class="gt_row gt_left">Time Series Transformations</td>
+<td class="gt_row gt_left">Originally written for last year's [M5 competition](https://www.kaggle.com/c/m5-forecasting-accuracy), this work is a useful primer on transformations for time series problems in general. Detailed descriptions accompany clean code.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/sebastiangnther/cassava-leaf-disease-vit-tpu-training</td>
+<td class="gt_row gt_left">Cassava Leaf Disease VIT TPU Training</td>
+<td class="gt_row gt_left">When a competition ends, the winner's solutions often receive far less attention than they deserve. This work shows (one of) the winning model(s) from [Cassava](https://www.kaggle.com/c/cassava-leaf-disease-classification); with clean code plus detailed [write-up](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/221957).</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/haqishen/ranzcr-1st-place-soluiton-cls-model-small-ver</td>
+<td class="gt_row gt_left">RANZCR 1st Place Soluiton Cls Model (small ver.)</td>
+<td class="gt_row gt_left">Another underrated 1st place competition notebook: this well-structured work demonstrates a part of the 2-stage segmentation plus classification approach that won the recent [RANZCR imaging challenge](https://www.kaggle.com/c/ranzcr-clip-catheter-line-classification).</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/lyakaap/2nd-place-solution</td>
+<td class="gt_row gt_left">2nd place solution</td>
+<td class="gt_row gt_left">One of the top solutions of the recently concluded multi-modal [Shopee competition](https://www.kaggle.com/c/shopee-product-matching) (text + image). Uses LightGBM and Graph Attention Networks meta models.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/tavoosi/predicting-survival-on-the-titanic-with-rf-lr-nb</td>
+<td class="gt_row gt_left">Predicting Survival on the Titanic with RF, LR, NB</td>
+<td class="gt_row gt_left">This work takes us back to basics with a well narrated EDA plus several baseline models for the [Titanic starter competition](https://www.kaggle.com/c/titanic). Note the clean visuals and detailed documentation.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/harangdev/shopee-embedding-visualizations-before-after-inb</td>
+<td class="gt_row gt_left">(SHOPEE) Embedding Visualizations before/after INB</td>
+<td class="gt_row gt_left">This notebook illustrates the technique of iterative neighbourhood blending, a cluster optimisation method developed for the [1st place solution](https://www.kaggle.com/c/shopee-product-matching/discussion/238136) in the recent Shopee competition.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/bamps53/bms-baseline</td>
+<td class="gt_row gt_left">bms-baseline</td>
+<td class="gt_row gt_left">A part of the [3rd place solution](https://www.kaggle.com/c/bms-molecular-translation/discussion/243932) for the recently concluded molecular translation competition, this Notebook showcases a transformer framework that uses TPU for significant speed boost.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/alexlwh/rfcx-fastai-trick-to-load-spectrogram-fast</td>
+<td class="gt_row gt_left">RFCX &amp; FastAI: Trick to Load Spectrogram Fast</td>
+<td class="gt_row gt_left">A clean and well-documented tutorial to preprocessing audio data into spectrogram images with FastAI. With audio competitions becoming more frequent, this is a great starting point for experimentation.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/hirune924/2ndplace-solution</td>
+<td class="gt_row gt_left">2ndPlace Solution</td>
+<td class="gt_row gt_left">The Pytorch training notebook for the runner up solution in the recently finished [SETI competition](https://www.kaggle.com/c/seti-breakthrough-listen). Custom mixup was one of the main differentiators; see also the related [discussion post](https://www.kaggle.com/c/seti-breakthrough-listen/discussion/266397).</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/friedchips/magic-2-an-explanation</td>
+<td class="gt_row gt_left">Magic #2 - An Explanation</td>
+<td class="gt_row gt_left">Breaking down winning solutions is always a great way to learn. This work explains and implements one of the two key 'magic' ingredients shared by the 1st place team in the recent [SETI competition](https://www.kaggle.com/c/seti-breakthrough-listen/discussion/266385).</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/analokamus/1d-cnn-densenet1d</td>
+<td class="gt_row gt_left">[1d-CNN] DenseNet1d</td>
+<td class="gt_row gt_left">This Pytorch implementation of a one-dimensional CNN by the [2nd place finisher of the recent G2Net competition](https://www.kaggle.com/c/g2net-gravitational-wave-detection/discussion/275341) demonstrates the kind of models that provided an edge in that challenge.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/tanlikesmath/petfinder-pawpularity-eda-fastai-starter</td>
+<td class="gt_row gt_left">Petfinder Pawpularity EDA &amp; fastai starter</td>
+<td class="gt_row gt_left">A clean and concise FastAI starting point for the recently launched [Pawpularity competition](https://www.kaggle.com/c/petfinder-pawpularity-score); complete with the popular Swin Transformer model in a classification approach.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/group16/1-solution-pid-controller-matching-v1</td>
+<td class="gt_row gt_left">[#1 Solution] PID Controller Matching (V1)</td>
+<td class="gt_row gt_left">This notebook presents part of the winning solution for the recent [Ventilator Pressure competition](https://www.kaggle.com/c/ventilator-pressure-prediction). The key matching algoriths are well explained and illustrated in a detailed way.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/yamqwe/g-research-tabnet-starter-notebook</td>
+<td class="gt_row gt_left">G-Research: TabNet starter notebook</td>
+<td class="gt_row gt_left">This work assembles a flexible experimentation setup for the ongoing [Crypto Forecasting competition](https://www.kaggle.com/c/g-research-crypto-forecasting). The different steps are cleanly separated and well documented; including a custom CV split.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/ktakita/team-merged-ensemble-fixednewmodelsexp029nonmean</td>
+<td class="gt_row gt_left">team-merged ensemble FixedNewModelsExp029nonmean</td>
+<td class="gt_row gt_left">The 2nd-place winners of the recent Pawpularity competition published their final ensemble code, and I would like to encourage other winning teams to do the same. Also check out the [related write-up](https://www.kaggle.com/c/petfinder-pawpularity-score/discussion/300929).</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/titericz/imagenet-embeddings-rapids-svr-finetuned-models</td>
+<td class="gt_row gt_left">Imagenet embeddings+RAPIDS SVR+Finetuned models</td>
+<td class="gt_row gt_left">The winning strategy in the recent [Pawpularity competition](https://www.kaggle.com/c/petfinder-pawpularity-score), explained by the legendary Grandmaster himself: a clever framework of pretrained image embeddings and RAPIDS ensembling.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/wowfattie/notebook9298460840</td>
+<td class="gt_row gt_left">notebook9298460840</td>
+<td class="gt_row gt_left">This is the inference Notebook for the winning solution in the recent Jigsaw Toxic Severity competition by one of the world's top Kagglers. Check out the [training code here](https://github.com/GuanshuoXu/Jigsaw-Rate-Severity-of-Toxic-Comments).</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/snaker/yolo-ensemle</td>
+<td class="gt_row gt_left">yolo_ensemle</td>
+<td class="gt_row gt_left">The înference notebook for the 2nd place solution in the recent Great Barrier Reef competition. Also check out the associated [write-up post](https://www.kaggle.com/c/tensorflow-great-barrier-reef/discussion/307760) with more training and postprocessing details.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/parapapapam/2xyolov5l6-tracking-lb-0-678-private-0-722</td>
+<td class="gt_row gt_left">2xYOLOv5l6 + tracking [LB 0.678/ Private 0.722]</td>
+<td class="gt_row gt_left">The 10th place solution of the recent Great Barrier Reef detection competition features some interesting computer vision tricks. Make sure to read also the [corresponding discussion post]( https://www.kaggle.com/c/tensorflow-great-barrier-reef/discussion/307756).</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/wht1996/feedback-nn-train</td>
+<td class="gt_row gt_left">feedback-nn-train</td>
+<td class="gt_row gt_left">The Longformer training Notebook from the winning solution of the recently finished NLP competition on evaluating student writing. Check out the [write-up on the multi-stage approach](https://www.kaggle.com/c/feedback-prize-2021/discussion/313177).</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+<div id="image-network-graph" class="section level2 hasAnchor" number="17.6">
+<h2><span class="header-section-number">17.6</span> Image Network Graph<a href="mining-hidden-gems-titles-and-reviews.html#image-network-graph" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We looked at the reviews where the word <strong>image</strong> is present. The image reviews indicate <strong>detailed</strong> image notebooks. Well narrated notebooks , notebooks having clever strategy is also appreciated.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb92-1" aria-hidden="true" tabindex="-1"></a>gem_review_image <span class="ot">&lt;-</span> gems <span class="sc">%&gt;%</span> </span>
+<span id="cb92-2"><a href="mining-hidden-gems-titles-and-reviews.html#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(notebook,review) <span class="sc">%&gt;%</span></span>
+<span id="cb92-3"><a href="mining-hidden-gems-titles-and-reviews.html#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(review,<span class="st">&quot;image&quot;</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb92-4"><a href="mining-hidden-gems-titles-and-reviews.html#cb92-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, review) <span class="sc">%&gt;%</span> </span>
+<span id="cb92-5"><a href="mining-hidden-gems-titles-and-reviews.html#cb92-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) </span>
+<span id="cb92-6"><a href="mining-hidden-gems-titles-and-reviews.html#cb92-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-7"><a href="mining-hidden-gems-titles-and-reviews.html#cb92-7" aria-hidden="true" tabindex="-1"></a>gem_review_image <span class="sc">%&gt;%</span></span>
+<span id="cb92-8"><a href="mining-hidden-gems-titles-and-reviews.html#cb92-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word,<span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb92-9"><a href="mining-hidden-gems-titles-and-reviews.html#cb92-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()  <span class="sc">%&gt;%</span></span>
+<span id="cb92-10"><a href="mining-hidden-gems-titles-and-reviews.html#cb92-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">30</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb92-11"><a href="mining-hidden-gems-titles-and-reviews.html#cb92-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb92-12"><a href="mining-hidden-gems-titles-and-reviews.html#cb92-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">wordcloud</span>(word, n, <span class="at">max.words =</span> <span class="dv">30</span>,<span class="at">colors=</span><span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>)))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-1" aria-hidden="true" tabindex="-1"></a>review_word_pairs <span class="ot">&lt;-</span> gem_review_image <span class="sc">%&gt;%</span> </span>
+<span id="cb93-2"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_count</span>(word, notebook, <span class="at">sort =</span> <span class="cn">TRUE</span>, <span class="at">upper =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb93-3"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>( item1 <span class="sc">!=</span> <span class="st">&quot;www.kaggle.com&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb93-4"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>( item2 <span class="sc">!=</span> <span class="st">&quot;www.kaggle.com&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb93-5"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>( item1 <span class="sc">!=</span> <span class="st">&quot;https&quot;</span>)</span>
+<span id="cb93-6"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-7"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-8"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-8" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb93-9"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-9" aria-hidden="true" tabindex="-1"></a>review_word_pairs <span class="sc">%&gt;%</span></span>
+<span id="cb93-10"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>( n <span class="sc">&gt;=</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb93-11"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">graph_from_data_frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb93-12"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggraph</span>(<span class="at">layout =</span> <span class="st">&quot;fr&quot;</span>) <span class="sc">+</span></span>
+<span id="cb93-13"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="fu">aes</span>(<span class="at">edge_alpha =</span> n, <span class="at">edge_width =</span> n), <span class="at">edge_colour =</span> <span class="st">&quot;darkred&quot;</span>) <span class="sc">+</span></span>
+<span id="cb93-14"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb93-15"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb93-16"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-16" aria-hidden="true" tabindex="-1"></a>                 <span class="at">point.padding =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">&quot;lines&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb93-17"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-64-2.png" width="672" /></p>
+<div id="image-reviews" class="section level3 hasAnchor" number="17.6.1">
+<h3><span class="header-section-number">17.6.1</span> Image reviews<a href="mining-hidden-gems-titles-and-reviews.html#image-reviews" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb94-1" aria-hidden="true" tabindex="-1"></a>gems_image <span class="ot">=</span> gems <span class="sc">%&gt;%</span></span>
+<span id="cb94-2"><a href="mining-hidden-gems-titles-and-reviews.html#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(review,<span class="st">&quot;image&quot;</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb94-3"><a href="mining-hidden-gems-titles-and-reviews.html#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(notebook,title,review)</span>
+<span id="cb94-4"><a href="mining-hidden-gems-titles-and-reviews.html#cb94-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-5"><a href="mining-hidden-gems-titles-and-reviews.html#cb94-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-6"><a href="mining-hidden-gems-titles-and-reviews.html#cb94-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-7"><a href="mining-hidden-gems-titles-and-reviews.html#cb94-7" aria-hidden="true" tabindex="-1"></a>  gems_image <span class="sc">%&gt;%</span></span>
+<span id="cb94-8"><a href="mining-hidden-gems-titles-and-reviews.html#cb94-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb94-9"><a href="mining-hidden-gems-titles-and-reviews.html#cb94-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb94-10"><a href="mining-hidden-gems-titles-and-reviews.html#cb94-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Image Reviews&quot;</span>)</span></code></pre></div>
+<div id="snunoybiyo" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#snunoybiyo .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#snunoybiyo .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#snunoybiyo .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#snunoybiyo .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#snunoybiyo .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#snunoybiyo .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#snunoybiyo .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#snunoybiyo .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#snunoybiyo .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#snunoybiyo .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#snunoybiyo .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#snunoybiyo .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#snunoybiyo .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#snunoybiyo .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#snunoybiyo .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#snunoybiyo .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#snunoybiyo .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#snunoybiyo .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#snunoybiyo .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#snunoybiyo .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#snunoybiyo .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#snunoybiyo .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#snunoybiyo .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#snunoybiyo .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#snunoybiyo .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#snunoybiyo .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#snunoybiyo .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#snunoybiyo .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#snunoybiyo .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#snunoybiyo .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#snunoybiyo .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#snunoybiyo .gt_left {
+  text-align: left;
+}
+
+#snunoybiyo .gt_center {
+  text-align: center;
+}
+
+#snunoybiyo .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#snunoybiyo .gt_font_normal {
+  font-weight: normal;
+}
+
+#snunoybiyo .gt_font_bold {
+  font-weight: bold;
+}
+
+#snunoybiyo .gt_font_italic {
+  font-style: italic;
+}
+
+#snunoybiyo .gt_super {
+  font-size: 65%;
+}
+
+#snunoybiyo .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#snunoybiyo .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#snunoybiyo .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#snunoybiyo .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#snunoybiyo .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>Image Reviews</th>
+    </tr>
+    
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">notebook</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">title</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">review</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/amyjang/alzheimer-mri-model-tensorflow-2-3-data-loading</td>
+<td class="gt_row gt_left">Alzheimer MRI Model + TensorFlow 2.3 Data Loading</td>
+<td class="gt_row gt_left">End-to-end tutorial for classifying dementia in MRI images. Demonstrates new features in TF 2.3 and Keras.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/jack89roberts/the-journey-of-an-image-through-a-neural-network</td>
+<td class="gt_row gt_left">The Journey of an Image Through a Neural Network</td>
+<td class="gt_row gt_left">An amazingly detailed and well-documented visual tour through the inner workings of a CNN image classifier. A great Notebook for learning, that comes with a reusable visualisation class.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/jesucristo/animation-gan-latent-walk</td>
+<td class="gt_row gt_left">Animation - GAN Latent Walk</td>
+<td class="gt_row gt_left">A great and concise example for how to visualise transitions between generative images. Build your own gifs using a Tensorflow GAN.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/harutot/image-recognition-from-scratch-1</td>
+<td class="gt_row gt_left">Image Recognition from Scratch! #1</td>
+<td class="gt_row gt_left">In another close look into neural network building blocks, this well-structured work explains convolutional image tools such as different kernel filter methods and edge detectors.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/ihelon/monet-visualization-and-augmentation</td>
+<td class="gt_row gt_left">Monet - Visualization and Augmentation</td>
+<td class="gt_row gt_left">This notebook provides a comprehensive set of examples for EDA and augmentation techniques to be used on image data. Note the clear structure and clean presentation.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/tanulsingh077/rethinking-cv-strategy-with-visualizations</td>
+<td class="gt_row gt_left">Rethinking CV Strategy with Visualizations</td>
+<td class="gt_row gt_left">This work lays out a clever cross validation strategy using stratification on groups that are derived from an unsupervised clustering of input images. Nice idea for noisy labels.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/lyakaap/2nd-place-solution</td>
+<td class="gt_row gt_left">2nd place solution</td>
+<td class="gt_row gt_left">One of the top solutions of the recently concluded multi-modal [Shopee competition](https://www.kaggle.com/c/shopee-product-matching) (text + image). Uses LightGBM and Graph Attention Networks meta models.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/alexlwh/rfcx-fastai-trick-to-load-spectrogram-fast</td>
+<td class="gt_row gt_left">RFCX &amp; FastAI: Trick to Load Spectrogram Fast</td>
+<td class="gt_row gt_left">A clean and well-documented tutorial to preprocessing audio data into spectrogram images with FastAI. With audio competitions becoming more frequent, this is a great starting point for experimentation.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/jesperdramsch/introduction-to-volcanology-seismograms-and-lgbm</td>
+<td class="gt_row gt_left">Introduction to Volcanology, Seismograms and LGBM</td>
+<td class="gt_row gt_left">A well-narrated journey into the context and challenges of forecasting volcano eruptions. Note the use of external images to illustrate and enrich the Notebook.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/allunia/computer-vision-with-seedlings</td>
+<td class="gt_row gt_left">Computer vision with seedlings</td>
+<td class="gt_row gt_left">An exceptionally well narrated Notebook on image classification, which features a custom segmentation strategy for preprocessing as well as detailed interpretations and documentation.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/showeed/annoy-similar-images-ver2</td>
+<td class="gt_row gt_left">[Annoy]Similar Images ver2</td>
+<td class="gt_row gt_left">This work is a great example of image data cleaning and quality checks with the help of the [annoy library](https://github.com/spotify/annoy). It emphasises the importance of understanding your training data.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/reighns/visualizing-convolution-filters</td>
+<td class="gt_row gt_left">Visualizing Convolution Filters</td>
+<td class="gt_row gt_left">A visual dive into the inner workings of convolution layers and their feature maps. It explains and illustrates neatly how features become more abstract as images pass through multiple layers.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/jesperdramsch/understanding-and-improving-cyclegans-tutorial</td>
+<td class="gt_row gt_left">Understanding and Improving CycleGANs - Tutorial</td>
+<td class="gt_row gt_left">A well documented guide to image style transfer through generative networks; featuring great illustrations and explanations. Check it out if you always wanted to compare apples to oranges.</td></tr>
+    <tr><td class="gt_row gt_left">https://www.kaggle.com/titericz/imagenet-embeddings-rapids-svr-finetuned-models</td>
+<td class="gt_row gt_left">Imagenet embeddings+RAPIDS SVR+Finetuned models</td>
+<td class="gt_row gt_left">The winning strategy in the recent [Pawpularity competition](https://www.kaggle.com/c/petfinder-pawpularity-score), explained by the legendary Grandmaster himself: a clever framework of pretrained image embeddings and RAPIDS ensembling.</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+<div id="grandmaster-and-reviews" class="section level2 hasAnchor" number="17.7">
+<h2><span class="header-section-number">17.7</span> GrandMaster and Reviews<a href="mining-hidden-gems-titles-and-reviews.html#grandmaster-and-reviews" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>GrandMaster Reviews concentrate on competition solutions. The reviews mention of clean code, clean techniques , clean analysis.</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-1" aria-hidden="true" tabindex="-1"></a>performanceTierNetworkGraph <span class="ot">&lt;-</span> <span class="cf">function</span>(tierName,<span class="at">occur =</span> <span class="dv">3</span>) {</span>
+<span id="cb95-2"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-2" aria-hidden="true" tabindex="-1"></a>  gem_review_gm <span class="ot">&lt;-</span> gems_users <span class="sc">%&gt;%</span> </span>
+<span id="cb95-3"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(notebook,review,PerformanceTier) <span class="sc">%&gt;%</span></span>
+<span id="cb95-4"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(PerformanceTier <span class="sc">==</span>  tierName)  <span class="sc">%&gt;%</span></span>
+<span id="cb95-5"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unnest_tokens</span>(word, review) <span class="sc">%&gt;%</span> </span>
+<span id="cb95-6"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">anti_join</span>(stop_words) </span>
+<span id="cb95-7"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb95-8"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-8" aria-hidden="true" tabindex="-1"></a>  gem_review_gm <span class="sc">%&gt;%</span></span>
+<span id="cb95-9"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(word,<span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb95-10"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>()  <span class="sc">%&gt;%</span></span>
+<span id="cb95-11"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>(<span class="dv">30</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb95-12"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb95-13"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">with</span>(<span class="fu">wordcloud</span>(word, n, <span class="at">max.words =</span> <span class="dv">30</span>,<span class="at">colors=</span><span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>)))</span>
+<span id="cb95-14"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb95-15"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-15" aria-hidden="true" tabindex="-1"></a>  review_word_pairs <span class="ot">&lt;-</span> gem_review_gm <span class="sc">%&gt;%</span> </span>
+<span id="cb95-16"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pairwise_count</span>(word, notebook, <span class="at">sort =</span> <span class="cn">TRUE</span>, <span class="at">upper =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb95-17"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>( item1 <span class="sc">!=</span> <span class="st">&quot;www.kaggle.com&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb95-18"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>( item2 <span class="sc">!=</span> <span class="st">&quot;www.kaggle.com&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb95-19"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>( item1 <span class="sc">!=</span> <span class="st">&quot;https&quot;</span>)</span>
+<span id="cb95-20"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb95-21"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb95-22"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb95-23"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-23" aria-hidden="true" tabindex="-1"></a>  review_word_pairs <span class="sc">%&gt;%</span></span>
+<span id="cb95-24"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>( n <span class="sc">&gt;=</span> occur) <span class="sc">%&gt;%</span></span>
+<span id="cb95-25"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">graph_from_data_frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb95-26"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggraph</span>(<span class="at">layout =</span> <span class="st">&quot;fr&quot;</span>) <span class="sc">+</span></span>
+<span id="cb95-27"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_edge_link</span>(<span class="fu">aes</span>(<span class="at">edge_alpha =</span> n, <span class="at">edge_width =</span> n), <span class="at">edge_colour =</span> <span class="st">&quot;darkred&quot;</span>) <span class="sc">+</span></span>
+<span id="cb95-28"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_node_point</span>(<span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb95-29"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb95-30"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-30" aria-hidden="true" tabindex="-1"></a>                   <span class="at">point.padding =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">&quot;lines&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb95-31"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>()</span>
+<span id="cb95-32"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb95-33"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-34"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-34" aria-hidden="true" tabindex="-1"></a><span class="fu">performanceTierNetworkGraph</span>(<span class="dv">4</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-66-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-66-2.png" width="672" /></p>
+<div id="grand-master-reviews" class="section level3 hasAnchor" number="17.7.1">
+<h3><span class="header-section-number">17.7.1</span> Grand Master reviews<a href="mining-hidden-gems-titles-and-reviews.html#grand-master-reviews" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb96-1" aria-hidden="true" tabindex="-1"></a>gem_review_gm <span class="ot">=</span> gems_users <span class="sc">%&gt;%</span></span>
+<span id="cb96-2"><a href="mining-hidden-gems-titles-and-reviews.html#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(PerformanceTier <span class="sc">==</span> <span class="dv">4</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb96-3"><a href="mining-hidden-gems-titles-and-reviews.html#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(title,review)</span>
+<span id="cb96-4"><a href="mining-hidden-gems-titles-and-reviews.html#cb96-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-5"><a href="mining-hidden-gems-titles-and-reviews.html#cb96-5" aria-hidden="true" tabindex="-1"></a>  gem_review_gm <span class="sc">%&gt;%</span></span>
+<span id="cb96-6"><a href="mining-hidden-gems-titles-and-reviews.html#cb96-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb96-7"><a href="mining-hidden-gems-titles-and-reviews.html#cb96-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb96-8"><a href="mining-hidden-gems-titles-and-reviews.html#cb96-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Grand Master reviews&quot;</span>)</span></code></pre></div>
+<div id="frzffdtmep" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#frzffdtmep .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#frzffdtmep .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#frzffdtmep .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#frzffdtmep .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#frzffdtmep .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#frzffdtmep .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#frzffdtmep .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#frzffdtmep .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#frzffdtmep .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#frzffdtmep .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#frzffdtmep .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#frzffdtmep .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#frzffdtmep .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#frzffdtmep .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#frzffdtmep .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#frzffdtmep .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#frzffdtmep .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#frzffdtmep .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#frzffdtmep .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#frzffdtmep .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#frzffdtmep .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#frzffdtmep .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#frzffdtmep .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#frzffdtmep .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#frzffdtmep .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#frzffdtmep .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#frzffdtmep .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#frzffdtmep .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#frzffdtmep .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#frzffdtmep .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#frzffdtmep .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#frzffdtmep .gt_left {
+  text-align: left;
+}
+
+#frzffdtmep .gt_center {
+  text-align: center;
+}
+
+#frzffdtmep .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#frzffdtmep .gt_font_normal {
+  font-weight: normal;
+}
+
+#frzffdtmep .gt_font_bold {
+  font-weight: bold;
+}
+
+#frzffdtmep .gt_font_italic {
+  font-style: italic;
+}
+
+#frzffdtmep .gt_super {
+  font-size: 65%;
+}
+
+#frzffdtmep .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#frzffdtmep .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#frzffdtmep .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#frzffdtmep .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#frzffdtmep .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="2" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>Grand Master reviews</th>
+    </tr>
+    
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">title</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">review</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">Breathe India: COVID-19 effect on Pollution</td>
+<td class="gt_row gt_left">A detailed work studying the interaction between the big topics of COVID-19 and air pollution in past and recent data from India.</td></tr>
+    <tr><td class="gt_row gt_left">Unbiased Look on Brazil Wildfires</td>
+<td class="gt_row gt_left">A well-focused analysis on a globally important topic. Enriched by vivid maps, context info, and narration.</td></tr>
+    <tr><td class="gt_row gt_left">MNIST 2D t-SNE with Rapids</td>
+<td class="gt_row gt_left">One of the first Notebooks on Kaggle demonstrating the game-changing speed up provided by Nvidia's GPU-magic tools. An exhibit as concise and powerful as the code itself.</td></tr>
+    <tr><td class="gt_row gt_left">How good does your chocolate taste?</td>
+<td class="gt_row gt_left">A flavourful composition of layers of data wrangling and exploratory visuals; sprinkled with inspiration for modelling.</td></tr>
+    <tr><td class="gt_row gt_left">A deep learning of Deep Learning</td>
+<td class="gt_row gt_left">A deep meta-look into the deep learning preferences of our deeply fascinating community. Narrated and illustrated based on data from the [2019 Kaggle Survey](https://www.kaggle.com/c/kaggle-survey-2019). It will be interesting to see how the numbers change in 2020 and beyond.</td></tr>
+    <tr><td class="gt_row gt_left">German Credit Analysis || A Risk Perspective</td>
+<td class="gt_row gt_left">This work presents a thorough exploration of risky business in Germany. It deserves much credit for its well-organised structure and expertly designed visuals.</td></tr>
+    <tr><td class="gt_row gt_left">Police Policy and the Use of Deadly Force</td>
+<td class="gt_row gt_left">This work addresses the timely subject of police violence. A careful EDA of the associated dataset provides a great starting point for other Kagglers to become more involved in studying this important issue.</td></tr>
+    <tr><td class="gt_row gt_left">Zoomable Circle Packing via D3.js in IPython</td>
+<td class="gt_row gt_left">A technical Notebook on beautiful interactive visuals which, like all of Anisotropic's contributions, is expertly designed and documented. Here's to hoping that this early Kaggle hero of mine will soon return from his sabbatical.</td></tr>
+    <tr><td class="gt_row gt_left">How good is Luka Doncic?</td>
+<td class="gt_row gt_left">In the style of a data-packed sports article, this impressive Notebook showcases the equally impressive career achievements of a young basketball star. Great attention to narrative and visual details.</td></tr>
+    <tr><td class="gt_row gt_left">A look back at your Kaggle journey!</td>
+<td class="gt_row gt_left">With Kaggle approaching fast the magic number of 5 million sign-ups, this compact Notebook demonstrates how to recount your (or anyone's) Kaggle journey using the [Meta Kaggle](https://www.kaggle.com/kaggle/meta-kaggle) dataset. Includes inspiration for further analysis.</td></tr>
+    <tr><td class="gt_row gt_left">How was the growth of Kaggle? Insightful Approach</td>
+<td class="gt_row gt_left">We start with a fitting study that presents a detailed analysis of the growth of our community in the different categories through various methods. Last run when there were 3.5 million sign-ups, it's well worth updating for this new, exciting milestone.</td></tr>
+    <tr><td class="gt_row gt_left">Santander: EDA + features</td>
+<td class="gt_row gt_left">A great example for an end-to-end framework to model anonymised &amp; sparse tabular data. The next Santander competition is never far away ;-)</td></tr>
+    <tr><td class="gt_row gt_left">How long does it take to be GM</td>
+<td class="gt_row gt_left">A compact [Meta Kaggle](https://www.kaggle.com/kaggle/meta-kaggle) analysis of how much time it takes Kagglers to reach the ranks of Competitions Expert, Master, or Grandmaster. Clever idea; and lots of possibilities to build on it for further exploration.</td></tr>
+    <tr><td class="gt_row gt_left">TPU Sherlocked: One-stop for HuggingFace with TF</td>
+<td class="gt_row gt_left">A clean NLP starter framework for the [Contradiction Competition](https://www.kaggle.com/c/contradictory-my-dear-watson/) with Tensorflow and Huggingface models. Well documented and extendable for fast experimentation (including TPU configuration).</td></tr>
+    <tr><td class="gt_row gt_left">Contradictory Watson: Concise Keras XLM-R on TPU</td>
+<td class="gt_row gt_left">Get quickly started in the [NLP Contradiction Competition](https://www.kaggle.com/c/contradictory-my-dear-watson/) with XLM-Roberta and TPU through Tensorflow. Featuring Huggingface tokenizers.</td></tr>
+    <tr><td class="gt_row gt_left">Mechanisms of Action: What Do We Have Here?</td>
+<td class="gt_row gt_left">A comprehensive and well-structured EDA that provides a big-picture overview of the dataset, while also highlighting and commenting on important individual features.</td></tr>
+    <tr><td class="gt_row gt_left">MOA Recipe</td>
+<td class="gt_row gt_left">An elegant R tidymodels + Keras approach to building a neural network starter model. Concise and well explained</td></tr>
+    <tr><td class="gt_row gt_left">Tutorial on reading large datasets</td>
+<td class="gt_row gt_left">An impressively clean and accessible primer on Python tools to read, and formats to store, large datasets. Brief and to the point; featuring Pandas, Dask, Datable, and Rapids cudf.</td></tr>
+    <tr><td class="gt_row gt_left">Melbourne || Comprehensive Housing Market Analysis</td>
+<td class="gt_row gt_left">This EDA on the Melbourne housing market presents a number of interesting dataviz approaches via plotly. Also note the consistent use of explanations that interpret the visuals.</td></tr>
+    <tr><td class="gt_row gt_left">Animation - GAN Latent Walk</td>
+<td class="gt_row gt_left">A great and concise example for how to visualise transitions between generative images. Build your own gifs using a Tensorflow GAN.</td></tr>
+    <tr><td class="gt_row gt_left">Divorce Prediction with RF</td>
+<td class="gt_row gt_left">This Notebook shows an interesting structure: after building a model, it takes a step back and provides extensive domain context in which the model results are then interpreted.</td></tr>
+    <tr><td class="gt_row gt_left">Time Series Analysis, Forecast with Visualization</td>
+<td class="gt_row gt_left">A well-structured and documented showcase of using popular time-series methods to predict US border crossings. Note the clean visuals that focus on communicating specific insights.</td></tr>
+    <tr><td class="gt_row gt_left">kaggle discussions: Busiest time of the day?</td>
+<td class="gt_row gt_left">A brief and compact Notebook providing a glimpse into the daily discussion patterns of the Kaggle community. When are we most active, and where in the world could we live?</td></tr>
+    <tr><td class="gt_row gt_left">moa_all_rapids</td>
+<td class="gt_row gt_left">This work implements fast modelling for the ongoing [MoA competition](https://www.kaggle.com/c/lish-moa) entirely within the impressive Rapids GPU-powered framework. Great template for rapid iterations.</td></tr>
+    <tr><td class="gt_row gt_left">Starter Code : EDA and LGBM Baseline</td>
+<td class="gt_row gt_left">A clean end-to-end Notebook like one hopes to find when joining a competition: featuring a variety of visualisation techniques alongside a tunable starter model.</td></tr>
+    <tr><td class="gt_row gt_left">Tabular XGboost GPU + FFT GPU + Cuml = FAST</td>
+<td class="gt_row gt_left">With the GPU-powered Rapids framework now natively available on Kaggle, this notebook presents a clean and concise end-to-end pipeline for the new [rainforest audio competition](https://www.kaggle.com/c/rfcx-species-audio-detection) in trademark Giba style.</td></tr>
+    <tr><td class="gt_row gt_left">Adversarial Rainforest</td>
+<td class="gt_row gt_left">A compact work providing adversarial validation of the rainforest competition data together with interpretable Shapely values via GPU-powered XGBoost in the Rapids framework.</td></tr>
+    <tr><td class="gt_row gt_left">Monet - Visualization and Augmentation</td>
+<td class="gt_row gt_left">This notebook provides a comprehensive set of examples for EDA and augmentation techniques to be used on image data. Note the clear structure and clean presentation.</td></tr>
+    <tr><td class="gt_row gt_left">Treasure Hunt - what gives to be REALLY good?</td>
+<td class="gt_row gt_left">A delightfully creative exploration of the characteristics of successful DS/ML practitioners in the [2020 Kaggle Survey](https://www.kaggle.com/c/kaggle-survey-2020). The fun visuals are great and the treasure map is a stroke of genius.</td></tr>
+    <tr><td class="gt_row gt_left">Leaf doctoR: EDA</td>
+<td class="gt_row gt_left">A well-structured template showcasing the step-by-step usage of the new [torch for R framework](https://torch.mlverse.org/) on the ongoing [Leaf Disease Image classification competition](https://www.kaggle.com/c/cassava-leaf-disease-classification).</td></tr>
+    <tr><td class="gt_row gt_left">Nifty data EDA</td>
+<td class="gt_row gt_left">A well-structured exploration of Indian stockmarket data with annotated time series visuals; including the impact of the first Covid-19 lockdowns on the economy.</td></tr>
+    <tr><td class="gt_row gt_left">TPS 01-21 Feature Importance with XGBoost and SHAP</td>
+<td class="gt_row gt_left">A notebook showcasing a fast method for computing explanatory SHAP values through GPU-powered Rapids XGBoost. This provides feature importances and thereby model interpretability.</td></tr>
+    <tr><td class="gt_row gt_left">Rethinking CV Strategy with Visualizations</td>
+<td class="gt_row gt_left">This work lays out a clever cross validation strategy using stratification on groups that are derived from an unsupervised clustering of input images. Nice idea for noisy labels.</td></tr>
+    <tr><td class="gt_row gt_left">Time Series Forecasting: Building Intuition</td>
+<td class="gt_row gt_left">A visual dive into time series forecasting. Uses toy data to examine the impact of model parameters and finding a good validation split. The narration features interesting menu metaphors.</td></tr>
+    <tr><td class="gt_row gt_left">Time Series Transformations</td>
+<td class="gt_row gt_left">Originally written for last year's [M5 competition](https://www.kaggle.com/c/m5-forecasting-accuracy), this work is a useful primer on transformations for time series problems in general. Detailed descriptions accompany clean code.</td></tr>
+    <tr><td class="gt_row gt_left">RANZCR 1st Place Soluiton Cls Model (small ver.)</td>
+<td class="gt_row gt_left">Another underrated 1st place competition notebook: this well-structured work demonstrates a part of the 2-stage segmentation plus classification approach that won the recent [RANZCR imaging challenge](https://www.kaggle.com/c/ranzcr-clip-catheter-line-classification).</td></tr>
+    <tr><td class="gt_row gt_left">Titanic: Machine Learning from Disaster - EDA</td>
+<td class="gt_row gt_left">The good old Titanic dataset is being meticulously explored here, with extensive interpretation provided alongside multiple eye-catching and well-designed visualisation layouts.</td></tr>
+    <tr><td class="gt_row gt_left">Earthquakes And Tectonic Plates: Seismic Analysis</td>
+<td class="gt_row gt_left">A clean and well narrated exploration of earthquake data. Custom infographics effectively explain the data features and conclusion. Interactive geospatial maps highlight the role of tectonic plates.</td></tr>
+    <tr><td class="gt_row gt_left">2. Encourage Diversity, Reduce Bias - CoLA</td>
+<td class="gt_row gt_left">An exceptionally well structured analysis of gender bias in job postings; as part of a multi-notebook series. The clean visuals blend nicely into the text, and the narration is next level.</td></tr>
+    <tr><td class="gt_row gt_left">Formula 1 70th Anniversary</td>
+<td class="gt_row gt_left">This exploratory Notebook is racing ahead with creative visuals, distinctive styling, and well-crafted animations all about the 2020 Formula 1 season.</td></tr>
+    <tr><td class="gt_row gt_left">2nd place solution</td>
+<td class="gt_row gt_left">One of the top solutions of the recently concluded multi-modal [Shopee competition](https://www.kaggle.com/c/shopee-product-matching) (text + image). Uses LightGBM and Graph Attention Networks meta models.</td></tr>
+    <tr><td class="gt_row gt_left">(SHOPEE) Embedding Visualizations before/after INB</td>
+<td class="gt_row gt_left">This notebook illustrates the technique of iterative neighbourhood blending, a cluster optimisation method developed for the [1st place solution](https://www.kaggle.com/c/shopee-product-matching/discussion/238136) in the recent Shopee competition.</td></tr>
+    <tr><td class="gt_row gt_left">What's Cooking?</td>
+<td class="gt_row gt_left">This well-structured work explored a [food recipes dataset](https://www.kaggle.com/c/whats-cooking-kernels-only) and built a baseline model; all with engaging narration and interpretations. The impressive debut Notebook of a current Kernels Grandmaster.</td></tr>
+    <tr><td class="gt_row gt_left">LEGO Minifigures - PyTorch and Neptune.ai Template</td>
+<td class="gt_row gt_left">A masterfully built end-to-end pytorch model for Lego figures. The code is clean and well organised. Note the logging via neptune.ai, as well as the error analysis at the end.</td></tr>
+    <tr><td class="gt_row gt_left">Loan Classification || Detecting Credit Defaults</td>
+<td class="gt_row gt_left">This somewhat unfinished work presents a detailed exploration of credit default risk data. Note the thoughtful introduction and explanations, as well as the well-designed plot grid layouts.</td></tr>
+    <tr><td class="gt_row gt_left">Getting staRted in R: Graphing Data</td>
+<td class="gt_row gt_left">A great step-by-step tutorial into dataviz with R and ggplot2. Note, that this Notebook requires you to solve its hands-on exercises for it to run correctly.</td></tr>
+    <tr><td class="gt_row gt_left">Computer vision with seedlings</td>
+<td class="gt_row gt_left">An exceptionally well narrated Notebook on image classification, which features a custom segmentation strategy for preprocessing as well as detailed interpretations and documentation.</td></tr>
+    <tr><td class="gt_row gt_left">Classification: How imbalanced is 'imbalanced'?</td>
+<td class="gt_row gt_left">A neat Notebook illustrating the issue of imbalance in classification problems alongside resampling approaches to address it. Note the well-designed overview plot and literature suggestions.</td></tr>
+    <tr><td class="gt_row gt_left">Music Generation: LSTM</td>
+<td class="gt_row gt_left">Exceptionally well structured and narrated, this musical experimentation learns from Chopin to write its own piano melodies using LSTMs. Note the stylish gifs and playable audio files.</td></tr>
+    <tr><td class="gt_row gt_left">Recreating Gapminder visualisation with Bokeh</td>
+<td class="gt_row gt_left">A step by step guide on how to reproduce the dataviz techniques pioneered by the late, great Hans Rosling using the Python Bokeh library. Clean code and much attention to detail.</td></tr>
+    <tr><td class="gt_row gt_left">Imagenet embeddings+RAPIDS SVR+Finetuned models</td>
+<td class="gt_row gt_left">The winning strategy in the recent [Pawpularity competition](https://www.kaggle.com/c/petfinder-pawpularity-score), explained by the legendary Grandmaster himself: a clever framework of pretrained image embeddings and RAPIDS ensembling.</td></tr>
+    <tr><td class="gt_row gt_left">notebook9298460840</td>
+<td class="gt_row gt_left">This is the inference Notebook for the winning solution in the recent Jigsaw Toxic Severity competition by one of the world's top Kagglers. Check out the [training code here](https://github.com/GuanshuoXu/Jigsaw-Rate-Severity-of-Toxic-Comments).</td></tr>
+    <tr><td class="gt_row gt_left">Patterns of colorectal cancer - image clustering</td>
+<td class="gt_row gt_left">A clustering analysis with great visuals and detailed interpretations that explore a medical dataset. Note how the clean narrative structure makes the approach and results accessible.</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+<div id="kaggle-network-graph" class="section level2 hasAnchor" number="17.8">
+<h2><span class="header-section-number">17.8</span> Kaggle Network Graph<a href="mining-hidden-gems-titles-and-reviews.html#kaggle-network-graph" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Kaggle Reviews concentrate on lessons teaching a particular technique based on technologies such as TensorFlow</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">performanceTierNetworkGraph</span>(<span class="dv">5</span>,<span class="at">occur =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-68-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-68-2.png" width="672" /></p>
+<div id="kaggle-reviews" class="section level3 hasAnchor" number="17.8.1">
+<h3><span class="header-section-number">17.8.1</span> Kaggle reviews<a href="mining-hidden-gems-titles-and-reviews.html#kaggle-reviews" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb98-1" aria-hidden="true" tabindex="-1"></a>gem_review_gm <span class="ot">=</span> gems_users <span class="sc">%&gt;%</span></span>
+<span id="cb98-2"><a href="mining-hidden-gems-titles-and-reviews.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(PerformanceTier <span class="sc">==</span> <span class="dv">5</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb98-3"><a href="mining-hidden-gems-titles-and-reviews.html#cb98-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(title,review)</span>
+<span id="cb98-4"><a href="mining-hidden-gems-titles-and-reviews.html#cb98-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-5"><a href="mining-hidden-gems-titles-and-reviews.html#cb98-5" aria-hidden="true" tabindex="-1"></a>  gem_review_gm <span class="sc">%&gt;%</span></span>
+<span id="cb98-6"><a href="mining-hidden-gems-titles-and-reviews.html#cb98-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb98-7"><a href="mining-hidden-gems-titles-and-reviews.html#cb98-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb98-8"><a href="mining-hidden-gems-titles-and-reviews.html#cb98-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Kaggle reviews&quot;</span>)</span></code></pre></div>
+<div id="usarbzyero" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#usarbzyero .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#usarbzyero .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#usarbzyero .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#usarbzyero .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#usarbzyero .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#usarbzyero .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#usarbzyero .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#usarbzyero .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#usarbzyero .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#usarbzyero .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#usarbzyero .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#usarbzyero .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#usarbzyero .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#usarbzyero .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#usarbzyero .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#usarbzyero .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#usarbzyero .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#usarbzyero .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#usarbzyero .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#usarbzyero .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#usarbzyero .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#usarbzyero .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#usarbzyero .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#usarbzyero .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#usarbzyero .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#usarbzyero .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#usarbzyero .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#usarbzyero .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#usarbzyero .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#usarbzyero .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#usarbzyero .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#usarbzyero .gt_left {
+  text-align: left;
+}
+
+#usarbzyero .gt_center {
+  text-align: center;
+}
+
+#usarbzyero .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#usarbzyero .gt_font_normal {
+  font-weight: normal;
+}
+
+#usarbzyero .gt_font_bold {
+  font-weight: bold;
+}
+
+#usarbzyero .gt_font_italic {
+  font-style: italic;
+}
+
+#usarbzyero .gt_super {
+  font-size: 65%;
+}
+
+#usarbzyero .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#usarbzyero .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#usarbzyero .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#usarbzyero .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#usarbzyero .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="2" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>Kaggle reviews</th>
+    </tr>
+    
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">title</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">review</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">Shifterator analysis on Animal Crossing reviews</td>
+<td class="gt_row gt_left">A concise tutorial on the promising new [shifterator package](https://github.com/ryanjgallagher/shifterator) which provides a visual approach to interpretable NLP characterisations. Demonstrated using a timely (TidyTuesday) dataset of Animal Crossing reviews.</td></tr>
+    <tr><td class="gt_row gt_left">The Convolutional Classifier</td>
+<td class="gt_row gt_left">The opening Notebook in Kaggle's new [Computer Vision course](https://www.kaggle.com/learn/computer-vision) starts the lessons with hands-on transfer learning on CNNs and Tensorflow/Keras. Also check out the rest of the course.</td></tr>
+    <tr><td class="gt_row gt_left">Train Model with TensorFlow Cloud</td>
+<td class="gt_row gt_left">This work provides a clear step-by-step guide on how to transfer a TensorFlow model from your Kaggle Notebook to train on the Google Cloud Platform, using the same environment, via the [TensorFlow Cloud](https://github.com/tensorflow/cloud) package.</td></tr>
+    <tr><td class="gt_row gt_left">Getting Started with Biopython</td>
+<td class="gt_row gt_left">A narrated introduction to using the [Biopython library](https://biopython.org/) on a [genome dataset](https://www.kaggle.com/mylesoneill/drosophila-melanogaster-genome). Note the way in which the code is enriched with detailed explanations and interpretations.</td></tr>
+    <tr><td class="gt_row gt_left">Identifying Bias in AI</td>
+<td class="gt_row gt_left">This Notebook constitutes a key lessons in Kaggle's new [Intro to AI Ethics course](https://www.kaggle.com/learn/intro-to-ai-ethics). Understanding sources of bias is crucial as ML products become more and more powerful.</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+<div id="master-network-graph" class="section level2 hasAnchor" number="17.9">
+<h2><span class="header-section-number">17.9</span> Master Network Graph<a href="mining-hidden-gems-titles-and-reviews.html#master-network-graph" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Master reviews concentrate on detailed analysis , detailed visuals , detailed narration</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">performanceTierNetworkGraph</span>(<span class="dv">3</span>,<span class="at">occur =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-70-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-70-2.png" width="672" /></p>
+</div>
+<div id="topic-modelling-of-hidden-gem-reviews" class="section level2 hasAnchor" number="17.10">
+<h2><span class="header-section-number">17.10</span> Topic Modelling of Hidden Gem Reviews<a href="mining-hidden-gems-titles-and-reviews.html#topic-modelling-of-hidden-gem-reviews" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We did a Topic modelling of the Hidden Gem Reviews and we have chosen 8 topics. The topic 1 as we see is associated with <strong>detailed exploration</strong> , topic 2 is associated with <strong>competition</strong> , topic 3 is associated with <strong>data analysis</strong> , topic 4 is associated with <strong>data visuals</strong></p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb100-1" aria-hidden="true" tabindex="-1"></a>word_counts <span class="ot">&lt;-</span> gem_review <span class="sc">%&gt;%</span></span>
+<span id="cb100-2"><a href="mining-hidden-gems-titles-and-reviews.html#cb100-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">anti_join</span>(my_stop_words) <span class="sc">%&gt;%</span></span>
+<span id="cb100-3"><a href="mining-hidden-gems-titles-and-reviews.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(notebook, word, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb100-4"><a href="mining-hidden-gems-titles-and-reviews.html#cb100-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb100-5"><a href="mining-hidden-gems-titles-and-reviews.html#cb100-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-6"><a href="mining-hidden-gems-titles-and-reviews.html#cb100-6" aria-hidden="true" tabindex="-1"></a>desc_dtm <span class="ot">&lt;-</span> word_counts <span class="sc">%&gt;%</span></span>
+<span id="cb100-7"><a href="mining-hidden-gems-titles-and-reviews.html#cb100-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cast_dtm</span>(notebook, word, n)</span>
+<span id="cb100-8"><a href="mining-hidden-gems-titles-and-reviews.html#cb100-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-9"><a href="mining-hidden-gems-titles-and-reviews.html#cb100-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(topicmodels)</span>
+<span id="cb100-10"><a href="mining-hidden-gems-titles-and-reviews.html#cb100-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-11"><a href="mining-hidden-gems-titles-and-reviews.html#cb100-11" aria-hidden="true" tabindex="-1"></a><span class="co"># be aware that running this model is time intensive</span></span>
+<span id="cb100-12"><a href="mining-hidden-gems-titles-and-reviews.html#cb100-12" aria-hidden="true" tabindex="-1"></a>desc_lda <span class="ot">&lt;-</span> <span class="fu">LDA</span>(desc_dtm, <span class="at">k =</span> <span class="dv">8</span>, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">seed =</span> <span class="dv">1234</span>))</span>
+<span id="cb100-13"><a href="mining-hidden-gems-titles-and-reviews.html#cb100-13" aria-hidden="true" tabindex="-1"></a>desc_lda</span></code></pre></div>
+<pre><code>## A LDA_VEM topic model with 8 topics.</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-1" aria-hidden="true" tabindex="-1"></a>tidy_lda <span class="ot">&lt;-</span> <span class="fu">tidy</span>(desc_lda)</span>
+<span id="cb102-2"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-3"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-3" aria-hidden="true" tabindex="-1"></a>top_terms <span class="ot">&lt;-</span> tidy_lda <span class="sc">%&gt;%</span></span>
+<span id="cb102-4"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(topic) <span class="sc">%&gt;%</span></span>
+<span id="cb102-5"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(beta, <span class="at">n =</span> <span class="dv">10</span>, <span class="at">with_ties =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb102-6"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb102-7"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(topic, <span class="sc">-</span>beta)</span>
+<span id="cb102-8"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-9"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-9" aria-hidden="true" tabindex="-1"></a>top_terms <span class="sc">%&gt;%</span></span>
+<span id="cb102-10"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">reorder_within</span>(term, beta, topic)) <span class="sc">%&gt;%</span></span>
+<span id="cb102-11"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(topic, term) <span class="sc">%&gt;%</span>    </span>
+<span id="cb102-12"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(beta)) <span class="sc">%&gt;%</span>  </span>
+<span id="cb102-13"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb102-14"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(beta, term, <span class="at">fill =</span> <span class="fu">as.factor</span>(topic))) <span class="sc">+</span></span>
+<span id="cb102-15"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb102-16"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reordered</span>() <span class="sc">+</span></span>
+<span id="cb102-17"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Top 10 terms in each LDA topic&quot;</span>,</span>
+<span id="cb102-18"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="fu">expression</span>(beta), <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb102-19"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> topic, <span class="at">ncol =</span> <span class="dv">4</span>, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="more-analysis-upvotes-after-hidden-gem-declaration.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="similar-authors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-parts.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
