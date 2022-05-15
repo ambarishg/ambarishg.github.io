@@ -23,7 +23,7 @@
 <meta name="author" content="Ambarish Ganguly" />
 
 
-<meta name="date" content="2022-05-14" />
+<meta name="date" content="2022-05-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -305,7 +305,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb73-28"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb73-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&#39;Highest UpVotes&#39;</span>) <span class="sc">+</span></span>
 <span id="cb73-29"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb73-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span> </span>
 <span id="cb73-30"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb73-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_fivethirtyeight</span>(<span class="at">base_size =</span> <span class="dv">15</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p><img src="hiddengems_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb74-1" aria-hidden="true" tabindex="-1"></a>  s <span class="ot">=</span> </span>
 <span id="cb74-2"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb74-2" aria-hidden="true" tabindex="-1"></a>  kernel_gems_votes <span class="sc">%&gt;%</span></span>
 <span id="cb74-3"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb74-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(VoteDate <span class="sc">&gt;</span> date) <span class="sc">%&gt;%</span></span>
@@ -331,7 +331,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb74-23"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb74-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">30</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb74-24"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb74-24" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb74-25"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb74-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">wordcloud</span>(word, n, <span class="at">max.words =</span> <span class="dv">30</span>,<span class="at">colors=</span><span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>)))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-51-2.png" width="672" /></p>
+<p><img src="hiddengems_files/figure-html/unnamed-chunk-51-2.png" width="672" /></p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb75-1" aria-hidden="true" tabindex="-1"></a>  review_word_pairs <span class="ot">&lt;-</span> gem_review <span class="sc">%&gt;%</span> </span>
 <span id="cb75-2"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb75-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pairwise_count</span>(word, notebook, <span class="at">sort =</span> <span class="cn">TRUE</span>, <span class="at">upper =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb75-3"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb75-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>( item1 <span class="sc">!=</span> <span class="st">&quot;www.kaggle.com&quot;</span>) <span class="sc">%&gt;%</span></span>
@@ -349,7 +349,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb75-15"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb75-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb75-16"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb75-16" aria-hidden="true" tabindex="-1"></a>                   <span class="at">point.padding =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">&quot;lines&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb75-17"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb75-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>(<span class="at">base_size =</span> <span class="dv">15</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-51-3.png" width="672" /></p>
+<p><img src="hiddengems_files/figure-html/unnamed-chunk-51-3.png" width="672" /></p>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb76-1" aria-hidden="true" tabindex="-1"></a>  a <span class="sc">%&gt;%</span></span>
 <span id="cb76-2"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb76-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb76-3"><a href="who-got-highest-votes-after-hidden-gem-declaration.html#cb76-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
@@ -871,7 +871,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["_main.epub"],
+"download": ["hiddengems.epub"],
 "search": {
 "engine": "fuse",
 "options": null

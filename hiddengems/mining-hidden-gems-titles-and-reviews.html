@@ -23,7 +23,7 @@
 <meta name="author" content="Ambarish Ganguly" />
 
 
-<meta name="date" content="2022-05-14" />
+<meta name="date" content="2022-05-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -282,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb86-7"><a href="mining-hidden-gems-titles-and-reviews.html#cb86-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">30</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb86-8"><a href="mining-hidden-gems-titles-and-reviews.html#cb86-8" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb86-9"><a href="mining-hidden-gems-titles-and-reviews.html#cb86-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">wordcloud</span>(word, n, <span class="at">max.words =</span> <span class="dv">30</span>,<span class="at">colors=</span><span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>)))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
+<p><img src="hiddengems_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
 </div>
 <div id="word-cloud-of-the-hidden-gem-titles" class="section level2 hasAnchor" number="17.2">
 <h2><span class="header-section-number">17.2</span> Word Cloud of the Hidden Gem Titles<a href="mining-hidden-gems-titles-and-reviews.html#word-cloud-of-the-hidden-gem-titles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -296,7 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb87-7"><a href="mining-hidden-gems-titles-and-reviews.html#cb87-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">30</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb87-8"><a href="mining-hidden-gems-titles-and-reviews.html#cb87-8" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb87-9"><a href="mining-hidden-gems-titles-and-reviews.html#cb87-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">wordcloud</span>(word, n, <span class="at">max.words =</span> <span class="dv">30</span>,<span class="at">colors=</span><span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>)))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
+<p><img src="hiddengems_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
 </div>
 <div id="network-graph-of-hidden-gem-title" class="section level2 hasAnchor" number="17.3">
 <h2><span class="header-section-number">17.3</span> Network graph of Hidden Gem Title<a href="mining-hidden-gems-titles-and-reviews.html#network-graph-of-hidden-gem-title" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -333,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb88-30"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">repel =</span> <span class="cn">TRUE</span>, </span>
 <span id="cb88-31"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-31" aria-hidden="true" tabindex="-1"></a>                 <span class="at">point.padding =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">&quot;lines&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb88-32"><a href="mining-hidden-gems-titles-and-reviews.html#cb88-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+<p><img src="hiddengems_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
 </div>
 <div id="network-graph-of-hidden-gem-reviews" class="section level2 hasAnchor" number="17.4">
 <h2><span class="header-section-number">17.4</span> Network graph of Hidden Gem Reviews<a href="mining-hidden-gems-titles-and-reviews.html#network-graph-of-hidden-gem-reviews" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -348,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb89-8"><a href="mining-hidden-gems-titles-and-reviews.html#cb89-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb89-9"><a href="mining-hidden-gems-titles-and-reviews.html#cb89-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">point.padding =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">&quot;lines&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb89-10"><a href="mining-hidden-gems-titles-and-reviews.html#cb89-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+<p><img src="hiddengems_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
 </div>
 <div id="competition-network-graph" class="section level2 hasAnchor" number="17.5">
 <h2><span class="header-section-number">17.5</span> Competition Network Graph<a href="mining-hidden-gems-titles-and-reviews.html#competition-network-graph" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -366,7 +366,7 @@ and also focus on <strong>clean competition solution as well as detailed competi
 <span id="cb90-9"><a href="mining-hidden-gems-titles-and-reviews.html#cb90-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb90-10"><a href="mining-hidden-gems-titles-and-reviews.html#cb90-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">point.padding =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">&quot;lines&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb90-11"><a href="mining-hidden-gems-titles-and-reviews.html#cb90-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<p><img src="hiddengems_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
 <div id="competition-reviews" class="section level3 hasAnchor" number="17.5.1">
 <h3><span class="header-section-number">17.5.1</span> Competition reviews<a href="mining-hidden-gems-titles-and-reviews.html#competition-reviews" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb91-1" aria-hidden="true" tabindex="-1"></a>gems_competition <span class="ot">=</span> gems <span class="sc">%&gt;%</span></span>
@@ -921,7 +921,7 @@ and also focus on <strong>clean competition solution as well as detailed competi
 <span id="cb92-10"><a href="mining-hidden-gems-titles-and-reviews.html#cb92-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">30</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb92-11"><a href="mining-hidden-gems-titles-and-reviews.html#cb92-11" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb92-12"><a href="mining-hidden-gems-titles-and-reviews.html#cb92-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">wordcloud</span>(word, n, <span class="at">max.words =</span> <span class="dv">30</span>,<span class="at">colors=</span><span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>)))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
+<p><img src="hiddengems_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-1" aria-hidden="true" tabindex="-1"></a>review_word_pairs <span class="ot">&lt;-</span> gem_review_image <span class="sc">%&gt;%</span> </span>
 <span id="cb93-2"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_count</span>(word, notebook, <span class="at">sort =</span> <span class="cn">TRUE</span>, <span class="at">upper =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb93-3"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>( item1 <span class="sc">!=</span> <span class="st">&quot;www.kaggle.com&quot;</span>) <span class="sc">%&gt;%</span></span>
@@ -939,7 +939,7 @@ and also focus on <strong>clean competition solution as well as detailed competi
 <span id="cb93-15"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name), <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb93-16"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-16" aria-hidden="true" tabindex="-1"></a>                 <span class="at">point.padding =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">&quot;lines&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb93-17"><a href="mining-hidden-gems-titles-and-reviews.html#cb93-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-64-2.png" width="672" /></p>
+<p><img src="hiddengems_files/figure-html/unnamed-chunk-64-2.png" width="672" /></p>
 <div id="image-reviews" class="section level3 hasAnchor" number="17.6.1">
 <h3><span class="header-section-number">17.6.1</span> Image reviews<a href="mining-hidden-gems-titles-and-reviews.html#image-reviews" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb94-1" aria-hidden="true" tabindex="-1"></a>gems_image <span class="ot">=</span> gems <span class="sc">%&gt;%</span></span>
@@ -1456,7 +1456,7 @@ and also focus on <strong>clean competition solution as well as detailed competi
 <span id="cb95-32"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-32" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb95-33"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb95-34"><a href="mining-hidden-gems-titles-and-reviews.html#cb95-34" aria-hidden="true" tabindex="-1"></a><span class="fu">performanceTierNetworkGraph</span>(<span class="dv">4</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-66-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-66-2.png" width="672" /></p>
+<p><img src="hiddengems_files/figure-html/unnamed-chunk-66-1.png" width="672" /><img src="hiddengems_files/figure-html/unnamed-chunk-66-2.png" width="672" /></p>
 <div id="grand-master-reviews" class="section level3 hasAnchor" number="17.7.1">
 <h3><span class="header-section-number">17.7.1</span> Grand Master reviews<a href="mining-hidden-gems-titles-and-reviews.html#grand-master-reviews" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb96-1" aria-hidden="true" tabindex="-1"></a>gem_review_gm <span class="ot">=</span> gems_users <span class="sc">%&gt;%</span></span>
@@ -2001,7 +2001,7 @@ and also focus on <strong>clean competition solution as well as detailed competi
 <h2><span class="header-section-number">17.8</span> Kaggle Network Graph<a href="mining-hidden-gems-titles-and-reviews.html#kaggle-network-graph" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Kaggle Reviews concentrate on lessons teaching a particular technique based on technologies such as TensorFlow</p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">performanceTierNetworkGraph</span>(<span class="dv">5</span>,<span class="at">occur =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-68-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-68-2.png" width="672" /></p>
+<p><img src="hiddengems_files/figure-html/unnamed-chunk-68-1.png" width="672" /><img src="hiddengems_files/figure-html/unnamed-chunk-68-2.png" width="672" /></p>
 <div id="kaggle-reviews" class="section level3 hasAnchor" number="17.8.1">
 <h3><span class="header-section-number">17.8.1</span> Kaggle reviews<a href="mining-hidden-gems-titles-and-reviews.html#kaggle-reviews" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb98-1" aria-hidden="true" tabindex="-1"></a>gem_review_gm <span class="ot">=</span> gems_users <span class="sc">%&gt;%</span></span>
@@ -2450,7 +2450,7 @@ and also focus on <strong>clean competition solution as well as detailed competi
 <h2><span class="header-section-number">17.9</span> Master Network Graph<a href="mining-hidden-gems-titles-and-reviews.html#master-network-graph" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Master reviews concentrate on detailed analysis , detailed visuals , detailed narration</p>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="mining-hidden-gems-titles-and-reviews.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">performanceTierNetworkGraph</span>(<span class="dv">3</span>,<span class="at">occur =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-70-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-70-2.png" width="672" /></p>
+<p><img src="hiddengems_files/figure-html/unnamed-chunk-70-1.png" width="672" /><img src="hiddengems_files/figure-html/unnamed-chunk-70-2.png" width="672" /></p>
 </div>
 <div id="topic-modelling-of-hidden-gem-reviews" class="section level2 hasAnchor" number="17.10">
 <h2><span class="header-section-number">17.10</span> Topic Modelling of Hidden Gem Reviews<a href="mining-hidden-gems-titles-and-reviews.html#topic-modelling-of-hidden-gem-reviews" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -2488,7 +2488,7 @@ and also focus on <strong>clean competition solution as well as detailed competi
 <span id="cb102-17"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Top 10 terms in each LDA topic&quot;</span>,</span>
 <span id="cb102-18"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="fu">expression</span>(beta), <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
 <span id="cb102-19"><a href="mining-hidden-gems-titles-and-reviews.html#cb102-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> topic, <span class="at">ncol =</span> <span class="dv">4</span>, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
+<p><img src="hiddengems_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
 </div>
 </div>
             </section>
@@ -2539,7 +2539,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["_main.epub"],
+"download": ["hiddengems.epub"],
 "search": {
 "engine": "fuse",
 "options": null
