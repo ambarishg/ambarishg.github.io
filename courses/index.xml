@@ -13,7 +13,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/courses/apache-spark/</guid>
-      <description>Spark Architecture in 6 minutes   PySpark Introduction in 7 minutes   Spark SQL Case Study with Used Car Dataset [ 1.4 GB ] in 10 minutes   Lakehouse Architecture in 9 minutes   Delta Tables Deep Dive in 14 minutes [ Case Study approach - Cricket Test Match ]   </description>
+      <description>Spark Architecture in 6 minutes #apachespark #spark #sparkarchitecture 📓 Application 📓 Driver 📓 Executor 📓 Partition 📓 Job 📓 Stage 📓 Tasks 📓 Slots 📓 Lazy evaluation 📓 Narrow and wide Transformations 📓 Actions
+  PySpark Introduction in 7 minutes #pyspark #apachespark
+📗 Data Frame Creation 📗 Eager evaluation 📗 View the data frames and manipulations 📗 SQL with pyspark 📗 Group By
+🔋 GitHub: https://github.com/ambarishg/pyspark
+  Spark SQL Case Study with Used Car Dataset [ 1.</description>
     </item>
     
     <item>
