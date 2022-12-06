@@ -525,6 +525,17 @@ This is a Little Book on Hidden Gems in Kaggle</description>
     </item>
     
     <item>
+      <title>Docker Kubernetes and Microservices</title>
+      <link>/courses/docker-kubernetes-microservices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/courses/docker-kubernetes-microservices/</guid>
+      <description>Intro to Docker in 6 minutes   How to make a Container Image of your deep learning model application in 8 minutes   Introduction to Kubernetes in 10 minutes #kubernetes
+✔ Why Kubernetes ✔Cluster ✔Control Plane ✔ Nodes ✔Kube-api server ✔Controller ✔Scheduler ✔etcd ✔Kube-proxy ✔Kube-agent ✔ Container Run time ✔Pods ✔Deployment ✔Service - Cluster IP, NodePort and LoadBalancer
+  How to deploy the container image in Kubernetes Local cluster in 9 minutes #kubernetes #containers How to deploy the container image in Kubernetes Local cluster in 9 minutes ✔️ Create a deployment YAML file ✔️ Explanation of the different components of a deployment file ✔️ How the deployment selects the pods ✔️ Explanation of the pod portion of the YAML file ✔️ Create a Service YAML file ✔️ Deploy the Deployment YAML File and Service YAML file ✔️ Make Intentional mistakes in the YAML file and correct them to solidify our concepts</description>
+    </item>
+    
+    <item>
       <title>Intro to Deep Learning</title>
       <link>/courses/intro-to-deep-learning/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

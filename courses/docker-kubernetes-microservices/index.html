@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function(x){
+          x.parentElement.classList += 'has-jax'})
+      });
+  
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><title>Docker Kubernetes and Microservices - Thoughts - Ambarish</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Docker Kubernetes and Microservices">
+<meta itemprop="description" content="Docker Kubernetes and Microservices Course">
+
+<meta itemprop="wordCount" content="294">
+<meta itemprop="keywords" content="" /><meta property="og:title" content="Docker Kubernetes and Microservices" />
+<meta property="og:description" content="Docker Kubernetes and Microservices Course" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/courses/docker-kubernetes-microservices/" /><meta property="article:section" content="courses" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Docker Kubernetes and Microservices"/>
+<meta name="twitter:description" content="Docker Kubernetes and Microservices Course"/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="/css/dark.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+		<script src="/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+	<h1 class="site-title"><a href="/">Thoughts - Ambarish</a></h1>
+	<div class="site-description"><p></p><nav class="nav social">
+			<ul class="flat"><li><a href="mailto:ambarish.ganguly@gmail.com" title="Email"><i data-feather="mail"></i></a></li><li><a href="https://www.linkedin.com/in/ambarish-ganguly/" title="LinkedIn"><i data-feather="linkedin"></i></a></li><li><a href="https://twitter.com/a_ganguly/" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="https://github.com/ambarishg" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+			<li>
+				<a href="/books">Books</a>
+			</li>
+			
+			<li>
+				<a href="/courses">Courses</a>
+			</li>
+			
+			<li>
+				<a href="/awards/">Awards</a>
+			</li>
+			
+			<li>
+				<a href="/testimonials/">Testimonials</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+				<div class="matter">
+					<h1 class="title">Docker Kubernetes and Microservices</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<h2 id="intro-to-docker-in-6-minutes">Intro to Docker in 6 minutes</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/YWrZyPaFW50" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<!-- raw HTML omitted -->
+<h2 id="how-to-make-a-container-image-of-your-deep-learning-model-application-in-8-minutes">How to make a Container Image of your deep learning model application in 8 minutes</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/F0rSgP9m03Y" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="introduction-to-kubernetes-in-10-minutes">Introduction to Kubernetes in 10 minutes</h2>
+<p>#kubernetes</p>
+<p>✔ Why Kubernetes      <br>
+✔Cluster      <br>
+✔Control Plane     <br>
+✔ Nodes      <br>
+✔Kube-api server  <br>
+✔Controller      <br>
+✔Scheduler    <br>
+✔etcd     <br>
+✔Kube-proxy    <br>
+✔Kube-agent      <br>
+✔ Container Run time <br>
+✔Pods     <br>
+✔Deployment        <br>
+✔Service - Cluster IP, NodePort and LoadBalancer</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/ZezsuAdoX2s" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="how-to-deploy-the-container-image-in-kubernetes-local-cluster-in-9-minutes">How to deploy the container image in Kubernetes Local cluster in 9 minutes</h2>
+<p>#kubernetes #containers      <br>
+How to deploy the container image in Kubernetes Local cluster in 9 minutes     <br>
+✔️ Create a deployment YAML file           <br>
+✔️  Explanation of the different components of a deployment file           <br>
+✔️  How the deployment selects the pods           <br>
+✔️  Explanation of the pod portion of the YAML file         <br>
+✔️  Create a Service YAML file             <br>
+✔️  Deploy the Deployment YAML File and Service YAML file          <br>
+✔️  Make Intentional mistakes in the YAML file and correct them to solidify our concepts</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/I-hfLaNdRuw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="how-to-deploy-the-container-image-in--azure-container-instances-in-8-minutes">How to deploy the container image in  Azure Container Instances in 8 minutes</h2>
+<p>#azure #containers #azurecontainers      <br>
+✔️ Azure Container Registry         <br>
+✔️  Tag the image for the Azure Container Registry     <br>
+✔️  Push the image in the Azure Container Registry         <br>
+✔️  Deploy the container image in Azure Container Instance</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/s5JtlZeK-rQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="how-to-deploy-the-container-image-in-azure-kubernetes-services-in-11-minutes">How to deploy the container image in Azure Kubernetes Services in 11 minutes</h2>
+<p>#azure #azurekubernetesservices #kubernetes        <br>
+How to deploy the container image in Azure Kubernetes Services in 11 minutes         <br>
+✔ Steps explained         <br>
+✔ Demo explained using the Red Wine Container image which has the Streamlit UI as well as the Deep Learning model             <br>
+✔ Recap of the YAML file used in the deployment</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/W7XZSZZhPlc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="monolith-to-microservice">Monolith to Microservice</h2>
+<p>#microservices #docker              <br>
+We take a Deep Learning Inference Model and the Streamlit UI Monolith and break that into 2 components -  A Microservice serving the Deep Learning Inference Model and a Streamlit UI.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/S75udthqWh0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+			</div>
+			
+		</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2022  © Copyright notice |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113191180-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script>feather.replace()</script>
+</body>
+</html>
