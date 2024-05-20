@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Understanding BBC News Q&amp;A with Advanced RAG and Microsoft Phi3 - Thoughts - Ambarish</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Understanding BBC News Q&amp;A with Advanced RAG and Microsoft Phi3">
+<meta itemprop="description" content="Understanding BBC News Q&amp;A with Advanced RAG and Microsoft Phi3"><meta itemprop="datePublished" content="2023-05-19T00:00:00+00:30" />
+<meta itemprop="dateModified" content="2023-05-19T00:00:00+00:30" />
+<meta itemprop="wordCount" content="1429">
+<meta itemprop="keywords" content="rag,advanced rag,phi3," /><meta property="og:title" content="Understanding BBC News Q&amp;A with Advanced RAG and Microsoft Phi3" />
+<meta property="og:description" content="Understanding BBC News Q&amp;A with Advanced RAG and Microsoft Phi3" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/advanced-rag-qdrant-phi3/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-19T00:00:00+00:30" />
+<meta property="article:modified_time" content="2023-05-19T00:00:00+00:30" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Understanding BBC News Q&amp;A with Advanced RAG and Microsoft Phi3"/>
+<meta name="twitter:description" content="Understanding BBC News Q&amp;A with Advanced RAG and Microsoft Phi3"/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="/css/dark.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+		<script src="/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+	<h1 class="site-title"><a href="/">Thoughts - Ambarish</a></h1>
+	<div class="site-description"><p></p><nav class="nav social">
+			<ul class="flat"><li><a href="mailto:ambarish.ganguly@gmail.com" title="Email"><i data-feather="mail"></i></a></li><li><a href="https://www.linkedin.com/in/ambarish-ganguly/" title="LinkedIn"><i data-feather="linkedin"></i></a></li><li><a href="https://twitter.com/a_ganguly/" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="https://github.com/ambarishg" title="Github"><i data-feather="github"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+			<li>
+				<a href="/books">Books</a>
+			</li>
+			
+			<li>
+				<a href="/courses">Courses</a>
+			</li>
+			
+			<li>
+				<a href="/awards/">Awards</a>
+			</li>
+			
+			<li>
+				<a href="/testimonials/">Testimonials</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">19</span>
+							<span class="rest">May 2023</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Understanding BBC News Q&amp;A with Advanced RAG and Microsoft Phi3</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>In this blog, we would be doing question and answering on a news data feed.
+The blog has 2 parts</p>
+<ul>
+<li><code>Conceptual</code></li>
+<li><code>Implementation details</code> which comes as expected with code as well as the full code link</li>
+</ul>
+<p>Please feel free to choose both or at least the <code>Conceptual</code> section</p>
+<p>For this we are using the <a href="https://www.kaggle.com/datasets/gpreda/bbc-news/versions/801">BBC News Dataset</a> . This is a <code>self updating dataset</code> and is updated daily.</p>
+<p>We would be learning Simple and Advanced RAG [ <strong>Retrieval Augmented Generation</strong>] using a small language model <strong>Phi3  mini 128K instruct</strong> through this blog.</p>
+<p>We would be asking questions like <code>What is the news in Ukraine</code> and the application will provide the <strong>answers</strong> using this technique.</p>
+<p>The Phi-3-Mini-128K-Instruct is a <code>3.8 billion-parameter</code>, lightweight, state-of-the-art open model trained using the Phi-3 datasets. In comparison GPT-4 has more than a trillion parameters and the smallest Llama 3 model has 8 billion.  These models such as Phi-3 are popularly known as <strong>SLM</strong>[ <code>Small Language Models</code>] while the likes of GPT-4, GPT-3.5 Turbo are known as <strong>LLM</strong>[ <code>Large Language Models</code>]</p>
+<p>The concept of <strong>Word Embeddings</strong> would be widely used in the blog.
+From the TensorFlow documentation <a href="https://www.tensorflow.org/tutorials/text/word_embeddings">word embeddings documentation</a></p>
+<blockquote>
+<p>Word embeddings give us a way to use an <strong>efficient, dense</strong> representation in which similar words have a similar encoding.</p>
+</blockquote>
+<blockquote>
+<p>Importantly, you do not have to specify this encoding by hand. An embedding is a dense vector of floating point values (the length of the vector is a parameter you specify).</p>
+</blockquote>
+<blockquote>
+<p>Instead of specifying the values for the embedding manually, they are trainable parameters (weights learned by the model during training, in the same way a model learns weights for a dense layer).</p>
+</blockquote>
+<blockquote>
+<p>It is common to see word embeddings that are 8-dimensional (for small datasets), up to 1024-dimensions when working with large datasets. A higher dimensional embedding can capture fine-grained relationships between words, but takes more data to learn.</p>
+</blockquote>
+<p><img src="https://i.imgur.com/tPWCPQ6.png" alt="Word Embeddings"></p>
+<p>RAG has 3 major components</p>
+<ol>
+<li>
+<p>Ingestion</p>
+</li>
+<li>
+<p>Querying</p>
+</li>
+<li>
+<p>Generation</p>
+</li>
+</ol>
+<!-- raw HTML omitted -->
+<h2 id="ingestion">Ingestion</h2>
+<!-- raw HTML omitted -->
+<p>For Ingestion, following are the key components</p>
+<ol>
+<li>
+<p>Read the Data Source</p>
+</li>
+<li>
+<p>Convert the read text into manageable chunks</p>
+</li>
+<li>
+<p>Convert the manageable chunks into embeddings. This is a technique in which you convert text into an array of numbers</p>
+</li>
+<li>
+<p>Store the embeddings into a vector database</p>
+</li>
+<li>
+<p>Store the metadata such as the filename, text , and other relevant things in the vector database</p>
+</li>
+</ol>
+<p><img src="https://i.imgur.com/vcccw0V.png" alt="Ingestion"></p>
+<!-- raw HTML omitted -->
+<h2 id="query-the-data-using-simple-rag">Query the data using Simple RAG</h2>
+<!-- raw HTML omitted -->
+<p>In the query component, we require 3 main components</p>
+<ol>
+<li>
+<p><code>Orchestrating application</code> which is responsible for coordinating the interactions between the other components such as the user , vector database , Language Model .</p>
+</li>
+<li>
+<p>Vector Database which stores the information</p>
+</li>
+<li>
+<p>Language model which is helpful for generating the information after it has been provided <strong>contextual</strong> information</p>
+</li>
+</ol>
+<!-- raw HTML omitted -->
+<h2 id="data-flow-of-a-simple-rag">Data Flow of a Simple RAG</h2>
+<!-- raw HTML omitted -->
+<ol>
+<li>
+<p>The user inputs the question . Example : <code>What is the news in Ukraine</code></p>
+</li>
+<li>
+<p>The Orchestrating application uses a <strong>encoder</strong> to transform the text into embedding We have used the <code>all-MiniLM-L6-v2</code> of the Sentence Transformer as the encoder</p>
+</li>
+<li>
+<p>The embedding is searched in the Vector database. In this case we have used the <strong>Qdrant</strong> database as the vector database</p>
+</li>
+<li>
+<p>Search results are obtained from the vector database. We get the top K results from the vector database. The number of results to be obtained is configurable</p>
+</li>
+<li>
+<p>A consolidated answer or popularly called <strong>context</strong> is prepared from the answers. In the implementation that we would do is done by concatenating the search results</p>
+</li>
+<li>
+<p>This context is sent to the language model for generating the answers relevant for the context. In the implementation we have used a small language model <strong>Phi3</strong></p>
+</li>
+</ol>
+<p><img src="https://i.imgur.com/b2xtcFG.png" alt="Simple RAG"></p>
+<!-- raw HTML omitted -->
+<h2 id="data-flow-of-a-advanced-rag">Data Flow of a Advanced RAG</h2>
+<!-- raw HTML omitted -->
+<p>The steps remain the same.</p>
+<p>Except the following</p>
+<p><code>Step 4</code> - Search results are obtained from the vector database. We get the top K2 results from the vector database. The number of results to be obtained is configurable. The results K2 is larger than K</p>
+<p><code>Step 4A</code>. The results obtained are passed into a new type of block known as the <strong>cross-encoder</strong> which distills the number of results and provides a smaller set of results which has high similarity between the results and the query. These smaller set of results can be the top K results.</p>
+<p><img src="https://i.imgur.com/EM41f5k.png" alt="Advanced RAG"></p>
+<!-- raw HTML omitted -->
+<h2 id="implementation-details">Implementation details</h2>
+<!-- raw HTML omitted -->
+<p>For this implementation , we have used the following</p>
+<ol>
+<li>
+<p>Dataset - <strong>BBC News</strong> dataset</p>
+</li>
+<li>
+<p>Vector Database - Qdrant. We have a used in memory version of Qdrant for demonstration</p>
+</li>
+<li>
+<p>Language Model - Small language model <code>Phi3</code></p>
+</li>
+<li>
+<p>Orchestrator application - Kaggle notebook</p>
+</li>
+</ol>
+<h2 id="setup">Setup</h2>
+<h3 id="install-the-python-libraries">Install the python libraries</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>! pip install -U qdrant-client --quiet
+</span></span><span style="display:flex;"><span>! pip install -U sentence-transformers --quiet
+</span></span></code></pre></div><h3 id="imports">Imports</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>from qdrant_client import models, QdrantClient
+</span></span><span style="display:flex;"><span>from sentence_transformers import SentenceTransformer,CrossEncoder
+</span></span></code></pre></div><h3 id="sentence-transformer-encoder">Sentence Transformer Encoder</h3>
+<p>Instantiate the sentence transformer encoder</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>encoder = SentenceTransformer(&#34;all-MiniLM-L6-v2&#34;)
+</span></span></code></pre></div><h3 id="create-the-qdrant-collection">Create the Qdrant Collection</h3>
+<p>We are creating</p>
+<ul>
+<li>
+<p>In memory qdrant collection</p>
+</li>
+<li>
+<p>The collection name is BBC</p>
+</li>
+<li>
+<p>The size of the vector embedding to be inserted is the dimention of the encoder . In this case , the dimension when evaluated is <code>384</code></p>
+</li>
+<li>
+<p>Distance of similarity is <code>cosine</code></p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>qdrant = QdrantClient(&#34;:memory:&#34;)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>qdrant.recreate_collection(
+</span></span><span style="display:flex;"><span>    collection_name=&#34;BBC&#34;,
+</span></span><span style="display:flex;"><span>    vectors_config=models.VectorParams(
+</span></span><span style="display:flex;"><span>        size=encoder.get_sentence_embedding_dimension(),  # Vector size is defined by used model
+</span></span><span style="display:flex;"><span>        distance=models.Distance.COSINE,
+</span></span><span style="display:flex;"><span>    ),
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h2 id="data-ingestion">Data Ingestion</h2>
+<h3 id="read-the-dataset">Read the Dataset</h3>
+<p>Read the BBC News Dataset</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>LIMIT = 500
+</span></span><span style="display:flex;"><span>df = pd.read_csv(&#34;/kaggle/input/bbc-news/bbc_news.csv&#34;)
+</span></span><span style="display:flex;"><span>docs = df[:LIMIT]
+</span></span></code></pre></div><p><img src="https://i.imgur.com/ySY37Kx.png" alt="BBC News Dataset Rows"></p>
+<h3 id="upload-the-documents-into-qdrant">Upload the documents into Qdrant</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>import uuid
+</span></span><span style="display:flex;"><span>%%capture --no-display
+</span></span><span style="display:flex;"><span>qdrant.upload_points(
+</span></span><span style="display:flex;"><span>    collection_name=&#34;BBC&#34;,
+</span></span><span style="display:flex;"><span>    points=[
+</span></span><span style="display:flex;"><span>        models.PointStruct(
+</span></span><span style="display:flex;"><span>            id=str(uuid.uuid4()), 
+</span></span><span style="display:flex;"><span>            vector=encoder.encode(row[1][&#34;title&#34;]),
+</span></span><span style="display:flex;"><span>            payload={ &#34;title&#34;:row[1][&#34;title&#34;] ,
+</span></span><span style="display:flex;"><span>                     &#34;description&#34;:row[1][&#34;description&#34;] }
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        for row in docs.iterrows()
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h3 id="verify-the-documents-have-been-uploaded-into-qdrant">Verify the documents have been uploaded into Qdrant</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>qdrant.count(
+</span></span><span style="display:flex;"><span>    collection_name=&#34;BBC&#34;,
+</span></span><span style="display:flex;"><span>    exact=True,
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>If you have reached till this point, Congratulations 👌 . You have been able to complete the understanding of the <strong>Data Ingestion into Qdrant</strong></p>
+<h2 id="query-the-qdrant-database">Query the Qdrant database</h2>
+<h3 id="query-for-the-user">Query for the user</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>query_string = &#34;Describe the news for Ukraine&#34;
+</span></span></code></pre></div><h3 id="search-qdrant-for-the-query">Search Qdrant for the query</h3>
+<p>For searching , note how we have converted the user input into a embedding</p>
+<p><code>encoder.encode(query_string).tolist()</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>hits = qdrant.search(
+</span></span><span style="display:flex;"><span>    collection_name=&#34;BBC&#34;,
+</span></span><span style="display:flex;"><span>    query_vector=encoder.encode(query_string).tolist(),
+</span></span><span style="display:flex;"><span>    limit=35,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>for hit in hits:
+</span></span><span style="display:flex;"><span>    print(hit.payload, &#34;score:&#34;, hit.score)
+</span></span></code></pre></div><h3 id="refine-the-result-with-the-crossencoder">Refine the result with the CrossEncoder</h3>
+<p>We are refining the results from the CrossEncoder .</p>
+<p>We have got in our implementation K2 = 35 results from Qdrant. We have used the Cross Encoder <code>cross-encoder/ms-marco-MiniLM-L-6-v2</code> to refine the results The refined results in our case K = 5 after we pass the results through the cross encoder.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>CROSSENCODER_MODEL_NAME = &#39;cross-encoder/ms-marco-MiniLM-L-6-v2&#39;
+</span></span><span style="display:flex;"><span>RANKER_RESULTS_LIMIT = 5
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>user_input = query_string
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>contexts_list = []
+</span></span><span style="display:flex;"><span>for result in hits:
+</span></span><span style="display:flex;"><span>    contexts_list.append(result.payload[&#39;description&#39;])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cross_encoder = CrossEncoder(CROSSENCODER_MODEL_NAME)
+</span></span><span style="display:flex;"><span>cross_inp = [[user_input, hit] for hit in contexts_list]
+</span></span><span style="display:flex;"><span>cross_scores = cross_encoder.predict(cross_inp)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cross_scores_text = []
+</span></span><span style="display:flex;"><span>cross_scores_length = len(cross_scores)
+</span></span><span style="display:flex;"><span>for i in range(cross_scores_length):
+</span></span><span style="display:flex;"><span>    d = {}
+</span></span><span style="display:flex;"><span>    d[&#39;score&#39;] = cross_scores[i]
+</span></span><span style="display:flex;"><span>    d[&#39;text&#39;] = contexts_list[i]
+</span></span><span style="display:flex;"><span>    cross_scores_text.append(d)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hits_selected = sorted(cross_scores_text, key=lambda x: x[&#39;score&#39;], reverse=True)
+</span></span><span style="display:flex;"><span>contexts =&#34;&#34;
+</span></span><span style="display:flex;"><span>hits = hits_selected[:RANKER_RESULTS_LIMIT]
+</span></span></code></pre></div><h3 id="create-the-context">Create the context</h3>
+<p>We create the Context for RAG using the search results</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>contexts =&#34;&#34;
+</span></span><span style="display:flex;"><span>for i in range(len(hits)):
+</span></span><span style="display:flex;"><span>    contexts  +=  hits[i][&#39;text&#39;]+&#34;\n---\n&#34;
+</span></span></code></pre></div><p>If you have reached till this point, Congratulations 👌 👌 again. You have been able to complete the understanding of the **Getting Results from Qdrant [ Vector Database ] **</p>
+<!-- raw HTML omitted -->
+<h2 id="generate-the-answer-with-the-small-language-model">Generate the answer with the Small Language Model</h2>
+<!-- raw HTML omitted -->
+<p>We also use the small language model <strong>microsoft/Phi-3-mini-128k-instruct</strong> model .</p>
+<p>From the Hugging Face model card</p>
+<blockquote>
+<p>The Phi-3-Mini-128K-Instruct is a 3.8 billion-parameter, lightweight, state-of-the-art open model trained using the Phi-3 datasets. This dataset includes both synthetic data and filtered publicly available website data, with an emphasis on high-quality and reasoning-dense properties. The model belongs to the Phi-3 family with the Mini version in two variants 4K and 128K which is the context length (in tokens) that it can support.</p>
+</blockquote>
+<p>From the <a href="https://azure.microsoft.com/en-us/blog/introducing-phi-3-redefining-whats-possible-with-slms/">Microsoft blog</a></p>
+<blockquote>
+<p>Thanks to their smaller size, Phi-3 models can be used in compute-limited inference environments. Phi-3-mini, in particular, can be used on-device, especially when further optimized with ONNX Runtime for cross-platform availability. The smaller size of Phi-3 models also makes fine-tuning or customization easier and more affordable. In addition, their lower computational needs make them a lower cost option with much better latency. The longer context window enables taking in and reasoning over large text content—documents, web pages, code, and more. Phi-3-mini demonstrates strong reasoning and logic capabilities, making it a good candidate for analytical tasks.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>import torch
+</span></span><span style="display:flex;"><span>from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>torch.random.manual_seed(0)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model = AutoModelForCausalLM.from_pretrained(
+</span></span><span style="display:flex;"><span>    &#34;microsoft/Phi-3-mini-128k-instruct&#34;, 
+</span></span><span style="display:flex;"><span>    device_map=&#34;cuda&#34;, 
+</span></span><span style="display:flex;"><span>    torch_dtype=&#34;auto&#34;, 
+</span></span><span style="display:flex;"><span>    trust_remote_code=True, 
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>tokenizer = AutoTokenizer.from_pretrained(&#34;microsoft/Phi-3-mini-128k-instruct&#34;)
+</span></span></code></pre></div><h3 id="create-the-prompt">Create the prompt</h3>
+<p>The prompt is created with 2 components</p>
+<ul>
+<li>Context which we created in the section <code>Create the context</code></li>
+<li>User input which is the user input</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>prompt = f&#34;&#34;&#34;Answer based on context:\n\n{contexts}\n\n{user_input}&#34;&#34;&#34;
+</span></span></code></pre></div><h3 id="create-the-message-template">Create the message template</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>messages = [
+</span></span><span style="display:flex;"><span>     {&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: prompt},
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h3 id="generate-the-message">Generate the message</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>%%time
+</span></span><span style="display:flex;"><span>model_inputs = tokenizer.apply_chat_template(messages, return_tensors=&#34;pt&#34;)
+</span></span><span style="display:flex;"><span>model_inputs =  model_inputs.to(&#39;cuda&#39;)
+</span></span><span style="display:flex;"><span>generated_ids = model.generate(model_inputs, max_new_tokens=1000, do_sample=True)
+</span></span><span style="display:flex;"><span>decoded = tokenizer.batch_decode(generated_ids)
+</span></span></code></pre></div><h3 id="print-the-answer">Print the answer</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>print(decoded[0].split(&#34;&lt;|assistant|&gt;&#34;)[-1].split(&#34;&lt;|end|&gt;&#34;)[0])
+</span></span></code></pre></div><h2 id="code">Code</h2>
+<p>The code can be found in the <strong>Kaggle</strong> notebook
+<a href="https://www.kaggle.com/code/ambarish/bbc-news-advanced-rag-phi3">BBC NEWS Advanced RAG PHI3</a></p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/rag">rag</a></li>
+							
+							<li><a href="/tags/advanced-rag">advanced rag</a></li>
+							
+							<li><a href="/tags/phi3">phi3</a></li>
+							
+						</ul>
+					
+				
+			</div>
+
+			
+		</div>
+	</div>
+	
+	<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function(x){
+          x.parentElement.classList += 'has-jax'})
+      });
+  
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script src="https://utteranc.es/client.js"
+        repo="ambarishg/ambarishg.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2024  © Copyright notice |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113191180-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script>feather.replace()</script>
+</body>
+</html>
