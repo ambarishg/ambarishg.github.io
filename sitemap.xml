@@ -2,19 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/tags/advanced-rag/</loc>
+    <lastmod>2023-05-19T00:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/tags/phi3/</loc>
+    <lastmod>2023-05-19T00:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2023-05-19T00:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/tags/rag/</loc>
+    <lastmod>2023-05-19T00:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2023-05-19T00:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2023-05-19T00:00:00+00:30</lastmod>
+  </url><url>
+    <loc>/posts/advanced-rag-qdrant-phi3/</loc>
+    <lastmod>2023-05-19T00:00:00+00:30</lastmod>
+  </url><url>
     <loc>/posts/normal-distributions/</loc>
     <lastmod>2021-09-11T00:00:00+00:30</lastmod>
   </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2021-09-11T00:00:00+00:30</lastmod>
-  </url><url>
     <loc>/tags/statistics/</loc>
-    <lastmod>2021-09-11T00:00:00+00:30</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2021-09-11T00:00:00+00:30</lastmod>
-  </url><url>
-    <loc>/</loc>
     <lastmod>2021-09-11T00:00:00+00:30</lastmod>
   </url><url>
     <loc>/posts/binomial-distributions/</loc>
@@ -220,10 +232,6 @@
   </url><url>
     <loc>/posts/2017-10-07-adverse-food-events/</loc>
   </url><url>
-    <loc>/courses/apache-spark/</loc>
-  </url><url>
-    <loc>/books/05-apachesparkcoursebook/</loc>
-  </url><url>
     <loc>/posts/2020-11-05-azure-pipelines-basics/</loc>
   </url><url>
     <loc>/books/04-hiddengemsbook/</loc>
@@ -232,7 +240,7 @@
   </url><url>
     <loc>/courses/</loc>
   </url><url>
-    <loc>/courses/docker-kubernetes-microservices/</loc>
+    <loc>/courses/generative-ai/</loc>
   </url><url>
     <loc>/courses/intro-to-deep-learning/</loc>
   </url><url>
